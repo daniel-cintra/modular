@@ -2,8 +2,8 @@
 
 namespace Modules\Support;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Route;
 use ReflectionClass;
 
 class BaseServiceProvider extends ServiceProvider
@@ -48,7 +48,7 @@ class BaseServiceProvider extends ServiceProvider
             'middleware' => 'web',
             'namespace' => $this->namespace,
         ], function ($router) {
-            $routesPath = $this->getCurrentDir() . '/routes/front.php';
+            $routesPath = $this->getCurrentDir().'/routes/front.php';
 
             if (file_exists($routesPath)) {
                 require $routesPath;
@@ -67,7 +67,7 @@ class BaseServiceProvider extends ServiceProvider
             'middleware' => ['web', 'auth.user'],
             'namespace' => $this->namespace,
         ], function ($router) {
-            $routesPath = $this->getCurrentDir() . '/routes/app.php';
+            $routesPath = $this->getCurrentDir().'/routes/app.php';
 
             if (file_exists($routesPath)) {
                 require $routesPath;
@@ -82,7 +82,7 @@ class BaseServiceProvider extends ServiceProvider
             'namespace' => $this->namespace,
             'prefix' => 'site',
         ], function ($router) {
-            $routesPath = $this->getCurrentDir() . '/routes/site.php';
+            $routesPath = $this->getCurrentDir().'/routes/site.php';
 
             if (file_exists($routesPath)) {
                 require $routesPath;
@@ -92,7 +92,6 @@ class BaseServiceProvider extends ServiceProvider
 
     /**
      * Returns the module directory in context.
-     *
      */
     protected function getCurrentDir(): string
     {

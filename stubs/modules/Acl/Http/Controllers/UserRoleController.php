@@ -3,8 +3,8 @@
 namespace Modules\Acl\Http\Controllers;
 
 use Modules\Support\Http\Controllers\BackendController;
-use Spatie\Permission\Models\Role;
 use Modules\User\Models\User;
+use Spatie\Permission\Models\Role;
 
 class UserRoleController extends BackendController
 {
@@ -16,6 +16,7 @@ class UserRoleController extends BackendController
 
         $user->roles->map(function ($role) {
             unset($role->pivot);
+
             return $role;
         });
 
@@ -23,7 +24,7 @@ class UserRoleController extends BackendController
 
         return inertia('AclUserRole/UserRoleForm', [
             'user' => $user,
-            'roles' => $roles
+            'roles' => $roles,
         ]);
     }
 

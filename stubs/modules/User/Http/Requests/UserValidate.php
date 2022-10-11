@@ -2,8 +2,8 @@
 
 namespace Modules\User\Http\Requests;
 
-use Modules\Support\Http\Requests\Request;
 use Illuminate\Validation\Rules\Password;
+use Modules\Support\Http\Requests\Request;
 
 class UserValidate extends Request
 {

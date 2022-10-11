@@ -17,7 +17,6 @@ return [
     // 'password' => 'The provided password is incorrect.',
     // 'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
-
     // 'forgotPage' => [
     //     'forgotYourPassword' => 'Forgot your password?',
     //     'enterYourEmail' => 'Enter your email to reset your password.',

@@ -14,7 +14,7 @@ class AdminAuthServiceProvider extends BaseServiceProvider
      * @var string
      */
     protected $namespace = 'Modules\AdminAuth\Http\Controllers';
-    
+
     /**
      * Bootstrap services.
      *

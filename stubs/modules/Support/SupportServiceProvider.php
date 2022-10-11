@@ -4,7 +4,6 @@ namespace Modules\Support;
 
 class SupportServiceProvider extends BaseServiceProvider
 {
-
     /**
      * This namespace is applied to the controller routes in your routes file.
      *
@@ -19,7 +18,7 @@ class SupportServiceProvider extends BaseServiceProvider
      */
     public function boot()
     {
-        include __DIR__ . '/helpers.php';
+        include __DIR__.'/helpers.php';
         parent::boot();
     }
 }

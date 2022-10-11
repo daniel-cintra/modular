@@ -2,8 +2,8 @@
 
 namespace Modular\Modular\Console;
 
-use Symfony\Component\Process\Process;
 use RuntimeException;
+use Symfony\Component\Process\Process;
 
 trait FrontendPackages
 {
@@ -73,7 +73,7 @@ trait FrontendPackages
      */
     protected static function updateNodePackages(callable $callback, $dev = true)
     {
-        if (!file_exists(base_path('package.json'))) {
+        if (! file_exists(base_path('package.json'))) {
             return;
         }
 
@@ -90,7 +90,7 @@ trait FrontendPackages
 
         file_put_contents(
             base_path('package.json'),
-            json_encode($packages, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . PHP_EOL
+            json_encode($packages, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT).PHP_EOL
         );
     }
 
@@ -108,12 +108,12 @@ trait FrontendPackages
             try {
                 $process->setTty(true);
             } catch (RuntimeException $e) {
-                $this->output->writeln('  <bg=yellow;fg=black> WARN </> ' . $e->getMessage() . PHP_EOL);
+                $this->output->writeln('  <bg=yellow;fg=black> WARN </> '.$e->getMessage().PHP_EOL);
             }
         }
 
         $process->run(function ($type, $line) {
-            $this->output->write('    ' . $line);
+            $this->output->write('    '.$line);
         });
     }
 }

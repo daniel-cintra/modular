@@ -2,9 +2,9 @@
 
 namespace Modules\Acl\Http\Controllers;
 
+use Modules\Acl\Http\Requests\RoleValidate;
 use Modules\Support\Http\Controllers\BackendController;
 use Spatie\Permission\Models\Role;
-use Modules\Acl\Http\Requests\RoleValidate;
 
 class RoleController extends BackendController
 {
@@ -26,7 +26,7 @@ class RoleController extends BackendController
             });
 
         return inertia('AclRole/RoleIndex', [
-            'roles' => $roles
+            'roles' => $roles,
         ]);
     }
 
@@ -50,7 +50,7 @@ class RoleController extends BackendController
         $role = Role::find($id);
 
         return inertia('AclRole/RoleForm', [
-            'role' => $role
+            'role' => $role,
         ]);
     }
 

@@ -20,7 +20,7 @@ class AclServiceProvider extends BaseServiceProvider
      */
     public function boot()
     {
-        $this->mergeConfigFrom(__DIR__ . '/config/config.php', 'acl');
+        $this->mergeConfigFrom(__DIR__.'/config/config.php', 'acl');
         parent::boot();
     }
 }
