@@ -1,0 +1,126 @@
+.p-dropdown {
+    background: theme(colors.skin.base.DEFAULT);
+    border: 1px solid theme(colors.skin.base.300);
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s,
+        box-shadow 0.2s;
+    border-radius: 6px;
+}
+.p-dropdown:not(.p-disabled):hover {
+    border-color: theme(colors.skin.primary.DEFAULT);
+}
+.p-dropdown:not(.p-disabled).p-focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem theme(colors.skin.base.200);
+    border-color: theme(colors.skin.primary.DEFAULT);
+}
+.p-dropdown.p-dropdown-clearable .p-dropdown-label {
+    padding-right: 1.75rem;
+}
+.p-dropdown .p-dropdown-label {
+    background: transparent;
+    border: 0 none;
+}
+.p-dropdown .p-dropdown-label.p-placeholder {
+    color: theme(colors.skin.neutral.DEFAULT);
+}
+.p-dropdown .p-dropdown-label:focus,
+.p-dropdown .p-dropdown-label:enabled:focus {
+    outline: 0 none;
+    box-shadow: none;
+}
+.p-dropdown .p-dropdown-trigger {
+    background: transparent;
+    color: theme(colors.skin.neutral.DEFAULT);
+    width: 3rem;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+.p-dropdown .p-dropdown-clear-icon {
+    color: theme(colors.skin.neutral.DEFAULT);
+    right: 3rem;
+}
+.p-dropdown.p-invalid.p-component {
+    border-color: theme(colors.skin.error.DEFAULT);
+}
+
+.p-dropdown-panel {
+    background: theme(colors.skin.base.DEFAULT);
+    color: theme(colors.skin.base.content);
+    border: 0 none;
+    border-radius: 6px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+.p-dropdown-panel .p-dropdown-header {
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid theme(colors.skin.base.200);
+    color: theme(colors.skin.base.content);
+    background: theme(colors.skin.base.100);
+    margin: 0;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+}
+.p-dropdown-panel .p-dropdown-header .p-dropdown-filter {
+    padding-right: 1.75rem;
+    margin-right: -1.75rem;
+}
+.p-dropdown-panel .p-dropdown-header .p-dropdown-filter-icon {
+    right: 0.75rem;
+    color: theme(colors.skin.neutral.DEFAULT);
+}
+.p-dropdown-panel .p-dropdown-items {
+    padding: 0.75rem 0;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+    margin: 0;
+    padding: 0.75rem 1.25rem;
+    border: 0 none;
+    color: theme(colors.skin.neutral.DEFAULT);
+    background: transparent;
+    transition: box-shadow 0.2s;
+    border-radius: 0;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+    color: theme(colors.skin.primary.focus);
+    background: theme(colors.skin.base.100);
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus {
+    background: theme(colors.skin.base.200);
+}
+.p-dropdown-panel
+    .p-dropdown-items
+    .p-dropdown-item:not(.p-highlight):not(.p-disabled).p-focus {
+    color: theme(colors.skin.neutral.DEFAULT);
+    background: theme(colors.skin.base.200);
+}
+.p-dropdown-panel
+    .p-dropdown-items
+    .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {
+    color: theme(colors.skin.neutral.DEFAULT);
+    background: theme(colors.skin.base.100);
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item-group {
+    margin: 0;
+    padding: 0.75rem 1.25rem;
+    color: theme(colors.skin.base.content);
+    background: theme(colors.skin.base.DEFAULT);
+    font-weight: 700;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-empty-message {
+    padding: 0.75rem 1.25rem;
+    color: theme(colors.skin.neutral.DEFAULT);
+    background: transparent;
+}
+
+.p-input-filled .p-dropdown {
+    background: theme(colors.skin.base.100);
+}
+.p-input-filled .p-dropdown:not(.p-disabled):hover {
+    background-color: theme(colors.skin.base.100);
+}
+.p-input-filled .p-dropdown:not(.p-disabled).p-focus {
+    background-color: theme(colors.skin.base.DEFAULT);
+}
+.p-input-filled .p-dropdown:not(.p-disabled).p-focus .p-inputtext {
+    background-color: transparent;
+}

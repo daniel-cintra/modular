@@ -1,0 +1,15 @@
+@import './components/p-component-overlay.css';
+@import './components/p-toast.css';
+@import './components/p-dialog.css';
+@import './components/p-sidebar.css';
+@import './components/p-tooltip.css';
+@import './components/p-card.css';
+@import './components/p-button.css';
+@import './components/p-datatable.css';
+@import './components/p-paginator.css';
+@import './components/p-inputtext.css';
+@import './components/p-checkbox.css';
+@import './components/p-password.css';
+@import './components/p-dropdown.css';
+
+@import './components/p-overrides.css';

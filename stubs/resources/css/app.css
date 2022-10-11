@@ -1,0 +1,103 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@import 'primevue/resources/primevue.min.css';
+@import 'primeicons/primeicons.css';
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import './components.css';
+
+@layer base {
+    /* based on theme emerald */
+    :root {
+        --color-primary: 91 197 127; /* #5bc57f */
+        --color-primary-focus: 61 171 98; /* #3DAB62 */
+        --color-primary-content: 255 255 255; /* #ffffff */
+
+        --color-secondary: 48 113 250; /* #3071fa */
+        --color-secondary-focus: 6 80 236; /* #0650EC */
+        --color-secondary-content: 255 255 255; /* #ffffff */
+
+        --color-accent: 231 72 46; /* #e7482e */
+        --color-accent-focus: 198 47 23; /* #C62F17 */
+        --color-accent-content: 255 255 255; /* #ffffff */
+
+        --color-neutral: 45 53 68; /* #2d3544 */
+        --color-neutral-focus: 23 27 34; /* #171B22 */
+        --color-neutral-content: 255 255 255; /* #ffffff */
+
+        --color-base: 255 255 255; /* #ffffff */
+        --color-base-100: 248 249 250; /* #FCFEFF */
+        --color-base-200: 226 226 226; /* #e2e2e2 */
+        --color-base-300: 200 200 200; /* #c8c8c8 */
+
+        --color-base-content: 45 53 68; /* #2d3544 */
+
+        --color-info: 51 183 247; /* #33b7f7 */
+        --color-info-focus: 9 160 233; /* #09A0E9 */
+        --color-info-content: 1 12 17; /* #010C11 */
+
+        --color-success: 47 205 142; /* #2fcd8e */
+        --color-success-focus: 37 159 110; /* #259F6E */
+        --color-success-content: 5 22 16; /* #051610 */
+
+        --color-warning: 250 181 32; /* #fab520 */
+        --color-warning-focus: 221 153 5; /* #DD9905 */
+        --color-warning-content: 1 1 0; /* #010100 */
+
+        --color-error: 247 103 103; /* #f76767 */
+        --color-error-focus: 244 50 50; /* #F43232 */
+        --color-error-content: 13 1 1; /* #0D0101 */
+    }
+
+    .theme-cupcake {
+        --color-primary: 90 187 193; /* #5abbc1 */
+        --color-primary-focus: 62 159 165; /* #3E9FA5 */
+        --color-primary-content: 255 255 255; /* #ffffff */
+
+        --color-secondary: 237 149 180; /* #ed95b4 */
+        --color-secondary-focus: 229 101 146; /* #E56592 */
+        --color-secondary-content: 255 255 255; /* #ffffff */
+
+        --color-accent: 235 166 51; /* #eba633 */
+        --color-accent-focus: 209 139 21; /* #D18B15 */
+        --color-accent-content: 255 255 255; /* #ffffff */
+
+        --color-neutral: 37 20 46; /* #25142e */
+        --color-neutral-focus: 6 3 7; /* #060307 */
+        --color-neutral-content: 255 255 255; /* #ffffff */
+
+        --color-base: 255 255 255; /* #ffffff */
+        --color-base-100: 245 241 239; /* #F5F1EF */
+        --color-base-200: 237 231 226; /* #ede7e2 */
+        --color-base-300: 227 222 218; /* #e3deda */
+
+        --color-base-content: 37 20 46; /* #25142e */
+
+        --color-info: 51 183 247; /* #33b7f7 */
+        --color-info-focus: 9 160 233; /* #09A0E9 */
+        --color-info-content: 1 12 17; /* #010C11 */
+
+        --color-success: 47 205 142; /* #2fcd8e */
+        --color-success-focus: 37 159 110; /* #259F6E */
+        --color-success-content: 5 22 16; /* #051610 */
+
+        --color-warning: 250 181 32; /* #fab520 */
+        --color-warning-focus: 221 153 5; /* #DD9905 */
+        --color-warning-content: 1 1 0; /* #010100 */
+
+        --color-error: 247 103 103; /* #f76767 */
+        --color-error-focus: 244 50 50; /* #F43232 */
+        --color-error-content: 13 1 1; /* #0D0101 */
+    }
+}
+
+/* @layer components {
+    .p-button-icon-only {
+        @apply p-button p-component p-button-rounded;
+    }
+} */
