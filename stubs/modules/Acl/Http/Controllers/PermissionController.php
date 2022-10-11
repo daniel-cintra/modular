@@ -2,9 +2,9 @@
 
 namespace Modules\Acl\Http\Controllers;
 
+use Modules\Acl\Http\Requests\PermissionValidate;
 use Modules\Support\Http\Controllers\BackendController;
 use Spatie\Permission\Models\Permission;
-use Modules\Acl\Http\Requests\PermissionValidate;
 
 class PermissionController extends BackendController
 {
@@ -28,7 +28,7 @@ class PermissionController extends BackendController
             });
 
         return inertia('AclPermission/PermissionIndex', [
-            'permissions' => $permissions
+            'permissions' => $permissions,
         ]);
     }
 
@@ -52,7 +52,7 @@ class PermissionController extends BackendController
         $permission = Permission::find($id);
 
         return inertia('AclPermission/PermissionForm', [
-            'permission' => $permission
+            'permission' => $permission,
         ]);
     }
 

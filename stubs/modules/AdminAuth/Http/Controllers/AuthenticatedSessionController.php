@@ -3,10 +3,10 @@
 namespace Modules\AdminAuth\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Modules\AdminAuth\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
+use Modules\AdminAuth\Http\Requests\LoginRequest;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -32,7 +32,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard.index')); 
+        return redirect()->intended(route('dashboard.index'));
     }
 
     /**

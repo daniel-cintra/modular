@@ -4,14 +4,14 @@ namespace Modules\User\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Database\Factories\UserFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Spatie\Permission\Traits\HasRoles;
 use Modules\AdminAuth\Notifications\ResetPassword;
-use Modules\Support\Traits\Searchable;
 use Modules\Support\Traits\ActivityLog;
+use Modules\Support\Traits\Searchable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
@@ -55,7 +55,7 @@ class User extends Authenticatable
     /**
      * Overwrites the method from Authenticatable/CanResetPasswordContract.
      *
-     * @param string $token
+     * @param  string  $token
      */
     public function sendPasswordResetNotification($token)
     {

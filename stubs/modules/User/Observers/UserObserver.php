@@ -2,8 +2,8 @@
 
 namespace Modules\User\Observers;
 
-use Modules\User\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Modules\User\Models\User;
 
 class UserObserver
 {

@@ -1,6 +1,6 @@
 <?php
 
-if (!function_exists('onlyAlphaNumeric')) {
+if (! function_exists('onlyAlphaNumeric')) {
     function onlyAlphaNumeric($val)
     {
         if ($val) {

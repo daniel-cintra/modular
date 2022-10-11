@@ -2,15 +2,16 @@
 
 namespace Modules\Acl\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Modules\Support\Http\Controllers\BackendController;
 use Modules\User\Models\User;
-use Illuminate\Http\Request;
 
 class UserController extends BackendController
 {
     public function index()
     {
         $users = User::with('roles')->orderBy('name')->get();
+
         return compact('users');
     }
 
@@ -20,7 +21,7 @@ class UserController extends BackendController
 
         return [
             'userRoles' => $user->getRoleNames(),
-            'userPermissions' => $user->getPermissionsViaRoles()->pluck('name')
+            'userPermissions' => $user->getPermissionsViaRoles()->pluck('name'),
         ];
     }
 }

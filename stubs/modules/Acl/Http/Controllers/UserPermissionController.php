@@ -2,10 +2,10 @@
 
 namespace Modules\Acl\Http\Controllers;
 
-use Modules\Support\Http\Controllers\BackendController;
-use Spatie\Permission\Models\Permission;
-use Modules\User\Models\User;
 use Modules\Acl\Services\GetUserPermissions;
+use Modules\Support\Http\Controllers\BackendController;
+use Modules\User\Models\User;
+use Spatie\Permission\Models\Permission;
 
 class UserPermissionController extends BackendController
 {
@@ -19,7 +19,7 @@ class UserPermissionController extends BackendController
         return inertia('AclUserPermission/UserPermissionForm', [
             'user' => $user,
             'userPermissions' => $userPermissions,
-            'permissions' => $permissions
+            'permissions' => $permissions,
         ]);
     }
 

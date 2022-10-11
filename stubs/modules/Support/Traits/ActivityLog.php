@@ -2,8 +2,8 @@
 
 namespace Modules\Support\Traits;
 
-use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 trait ActivityLog
 {

@@ -24,27 +24,27 @@ trait SupportModules
 
         // Modules...
         (new Filesystem)->ensureDirectoryExists(base_path('modules'));
-        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/modules', base_path('modules'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/modules', base_path('modules'));
 
         // Middlewares...
-        copy(__DIR__ . '/../../stubs/app/Http/Middleware/HandleInertiaRequests.php', app_path('Http/Middleware/HandleInertiaRequests.php'));
+        copy(__DIR__.'/../../stubs/app/Http/Middleware/HandleInertiaRequests.php', app_path('Http/Middleware/HandleInertiaRequests.php'));
         $this->installMiddlewareAfter('SubstituteBindings::class', '\App\Http\Middleware\HandleInertiaRequests::class');
         $this->installRouteMiddlewareAfter('EnsureEmailIsVerified::class', "'auth.user' => \Modules\AdminAuth\Http\Middleware\UserAuth::class");
 
         // Resources...
         (new Filesystem)->ensureDirectoryExists(base_path('resources'));
-        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/resources', base_path('resources'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/resources', base_path('resources'));
 
         // Routes...
-        copy(__DIR__ . '/../../stubs/routes/web.php', base_path('routes/web.php'));
+        copy(__DIR__.'/../../stubs/routes/web.php', base_path('routes/web.php'));
 
         // Database...
         (new Filesystem)->ensureDirectoryExists(base_path('database/factories'));
-        copy(__DIR__ . '/../../stubs/database/factories/UserFactory.php', base_path('database/factories/UserFactory.php'));
-        copy(__DIR__ . '/../../stubs/database/seeders/DatabaseSeeder.php', base_path('database/seeders/DatabaseSeeder.php'));
+        copy(__DIR__.'/../../stubs/database/factories/UserFactory.php', base_path('database/factories/UserFactory.php'));
+        copy(__DIR__.'/../../stubs/database/seeders/DatabaseSeeder.php', base_path('database/seeders/DatabaseSeeder.php'));
 
         // Auth...
-        copy(__DIR__ . '/../../stubs/config/auth.php', base_path('config/auth.php'));
+        copy(__DIR__.'/../../stubs/config/auth.php', base_path('config/auth.php'));
 
         $this->registerServiceProviders();
 
@@ -58,7 +58,7 @@ trait SupportModules
 
     /**
      * Run the php artisan migrate command.
-     * 
+     *
      * @return void
      */
     protected function migrateDatabase()
@@ -72,7 +72,7 @@ trait SupportModules
 
     /**
      * Run the php artisan db:seed command.
-     * 
+     *
      * @return void
      */
     protected function seedDatabase()
@@ -97,10 +97,10 @@ trait SupportModules
 
         $psr4Autoloads = Str::before(Str::after($composerContent, '"autoload":'), '},');
 
-        if (!Str::contains($psr4Autoloads, $path)) {
+        if (! Str::contains($psr4Autoloads, $path)) {
             $modifiedAutoload = str_replace(
                 $after,
-                $after . ',' . PHP_EOL . '            ' . $path,
+                $after.','.PHP_EOL.'            '.$path,
                 $psr4Autoloads,
             );
 
@@ -114,7 +114,7 @@ trait SupportModules
 
     /**
      * Run composer dump-autoload command.
-     * 
+     *
      * @return void
      */
     protected function dumpAutoload()
@@ -149,10 +149,10 @@ trait SupportModules
         $middlewareGroups = Str::before(Str::after($httpKernel, '$middlewareGroups = ['), '];');
         $middlewareGroup = Str::before(Str::after($middlewareGroups, "'$group' => ["), '],');
 
-        if (!Str::contains($middlewareGroup, $name)) {
+        if (! Str::contains($middlewareGroup, $name)) {
             $modifiedMiddlewareGroup = str_replace(
-                $after . ',',
-                $after . ',' . PHP_EOL . '            ' . $name . ',',
+                $after.',',
+                $after.','.PHP_EOL.'            '.$name.',',
                 $middlewareGroup,
             );
 
@@ -178,10 +178,10 @@ trait SupportModules
 
         $routeMiddlewares = Str::before(Str::after($httpKernel, '$routeMiddleware = ['), '];');
 
-        if (!Str::contains($routeMiddlewares, $name)) {
+        if (! Str::contains($routeMiddlewares, $name)) {
             $modifiedRoutedMiddlewares = str_replace(
-                $after . ',',
-                $after . ',' . PHP_EOL . PHP_EOL . '        ' . $name . ',',
+                $after.',',
+                $after.','.PHP_EOL.PHP_EOL.'        '.$name.',',
                 $routeMiddlewares,
             );
 
@@ -195,7 +195,7 @@ trait SupportModules
 
     /**
      * Register the Modules Service Providers.
-     * 
+     *
      * @return void
      */
     protected function registerServiceProviders()
@@ -222,7 +222,7 @@ trait SupportModules
 
     /**
      * Get the service providers string to be used in config/app.php file.
-     * 
+     *
      * @return string
      */
     protected function getModulesProviders()

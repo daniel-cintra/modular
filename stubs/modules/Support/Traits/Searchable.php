@@ -8,7 +8,6 @@ trait Searchable
 {
     /**
      * Add search functionality for the Model.
-     *
      */
     public function scopeSearch(Builder $query, string|null $searchColumn, string|null $searchTerm)
     {

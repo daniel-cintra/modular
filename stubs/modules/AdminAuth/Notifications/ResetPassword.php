@@ -2,8 +2,8 @@
 
 namespace Modules\AdminAuth\Notifications;
 
-use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Notification;
 
 class ResetPassword extends Notification
 {
@@ -17,7 +17,7 @@ class ResetPassword extends Notification
     /**
      * Create a notification instance.
      *
-     * @param string $token
+     * @param  string  $token
      */
     public function __construct($token)
     {
@@ -45,13 +45,13 @@ class ResetPassword extends Notification
     {
         $params = [
             'token' => $this->token,
-            'email' => $notifiable->getEmailForPasswordReset()
+            'email' => $notifiable->getEmailForPasswordReset(),
         ];
 
         return (new MailMessage)->markdown(
             'admin-auth::emails.reset-password',
             [
-                'url' => url(route('adminAuth.resetPasswordForm', $params, false))
+                'url' => url(route('adminAuth.resetPasswordForm', $params, false)),
             ]
         );
     }

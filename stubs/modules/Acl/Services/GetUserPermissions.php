@@ -2,8 +2,8 @@
 
 namespace Modules\Acl\Services;
 
-use Modules\User\Models\User;
 use Illuminate\Support\Collection;
+use Modules\User\Models\User;
 
 class GetUserPermissions
 {
@@ -18,7 +18,7 @@ class GetUserPermissions
         //if has direct permissions use it
         if ($user->permissions->count()) {
             return $this->mapPermissions($user->permissions);
-            //get the permissions via roles
+        //get the permissions via roles
         } else {
             return $this->mapPermissions($user->getAllPermissions());
         }
@@ -29,7 +29,7 @@ class GetUserPermissions
         return $permissions->map(function ($permission) {
             return [
                 'id' => $permission->id,
-                'name' => $permission->name
+                'name' => $permission->name,
             ];
         })->toArray();
     }
