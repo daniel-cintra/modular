@@ -73,7 +73,7 @@ import { useForm } from '@inertiajs/inertia-vue3'
 import useFormErrors from '@/Composables/useFormErrors'
 
 const form = useForm({
-  email: 'king.theresia@example.com',
+  email: 'user@example.com',
   password: 'password',
   remember: false
 })
