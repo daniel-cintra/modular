@@ -46,6 +46,9 @@ trait SupportModules
         // Auth...
         copy(__DIR__.'/../../stubs/config/auth.php', base_path('config/auth.php'));
 
+        // Favicon...
+        copy(__DIR__.'/../../stubs/public/favicon.svg', public_path('favicon.svg'));
+
         $this->registerServiceProviders();
 
         $this->migrateDatabase();

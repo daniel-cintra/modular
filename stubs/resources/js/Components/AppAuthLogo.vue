@@ -1,9 +1,9 @@
 <template>
   <a
     href="#"
-    class="mb-6 flex items-center text-2xl font-semibold text-skin-base-content"
+    class="mb-6 flex items-center"
   >
-    <img class="mr-2 h-8 w-8" src="@resources/images/logo.svg" alt="logo" />
-    Visualcom
+    <img class="w-48" src="@resources/images/logo.svg" alt="logo" />
   </a>
 </template>
+
