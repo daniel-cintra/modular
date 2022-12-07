@@ -12,10 +12,11 @@ use Modules\AdminAuth\Notifications\ResetPassword;
 use Modules\Support\Traits\ActivityLog;
 use Modules\Support\Traits\Searchable;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, HasRoles, ActivityLog, Searchable;
+    use HasFactory, Notifiable, HasRoles, ActivityLog, Searchable, SoftDeletes;
 
     protected static function newFactory()
     {

@@ -5,6 +5,8 @@ namespace Modular\Modular\Console;
 use Illuminate\Console\Command;
 use Symfony\Component\Process\PhpExecutableFinder;
 
+// use Illuminate\Filesystem\Filesystem;
+
 class InstallCommand extends Command
 {
     use BackendPackages, FrontendPackages, SupportModules;
@@ -21,9 +23,10 @@ class InstallCommand extends Command
     public function handle()
     {
         
-        // $this->comment('Test command...');
+        $this->comment('Test command...');
+        // (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/database/migrations', base_path('database/migrations'));
         // copy(__DIR__.'/../../stubs/public/favicon.svg', public_path('favicon.svg'));
-        // return self::SUCCESS;
+        return self::SUCCESS;
         
         $this->comment('Migrating database...');
         $this->call('migrate');

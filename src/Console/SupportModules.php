@@ -40,8 +40,11 @@ trait SupportModules
 
         // Database...
         (new Filesystem)->ensureDirectoryExists(base_path('database/factories'));
-        copy(__DIR__.'/../../stubs/database/factories/UserFactory.php', base_path('database/factories/UserFactory.php'));
-        copy(__DIR__.'/../../stubs/database/seeders/DatabaseSeeder.php', base_path('database/seeders/DatabaseSeeder.php'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/database/migrations', base_path('database/migrations'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/database/factories', base_path('database/factories'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/database/seeders', base_path('database/seeders'));
+        // copy(__DIR__.'/../../stubs/database/factories/UserFactory.php', base_path('database/factories/UserFactory.php'));
+        // copy(__DIR__.'/../../stubs/database/seeders/DatabaseSeeder.php', base_path('database/seeders/DatabaseSeeder.php'));
 
         // Auth...
         copy(__DIR__.'/../../stubs/config/auth.php', base_path('config/auth.php'));

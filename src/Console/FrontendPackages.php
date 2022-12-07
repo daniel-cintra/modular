@@ -41,6 +41,16 @@ trait FrontendPackages
                 'primeicons' => '^5.0.0',
                 'primevue' => '^3.16.1',
 
+                '@tiptap/vue-3' => '^2.0.0-beta.204',
+                '@tiptap/starter-kit' => '^2.0.0-beta.204',
+                '@tiptap/extension-link' => '^2.0.0-beta.204',
+                '@tiptap/extension-underline' => '^2.0.0-beta.204',
+                '@tiptap/extension-youtube' => '^2.0.0-beta.204',
+                '@tiptap/extension-table' => '^2.0.0-beta.204',
+                '@tiptap/extension-table-header' => '^2.0.0-beta.204',
+                '@tiptap/extension-table-row' => '^2.0.0-beta.204',
+                '@tiptap/extension-table-cell' => '^2.0.0-beta.204',
+
                 'remixicon' => '^2.5.0',
                 'tailwindcss' => '^3.1.0',
                 'unplugin-vue-components' => '^0.22.7',
@@ -51,12 +61,12 @@ trait FrontendPackages
         });
 
         // Config files...
-        copy(__DIR__.'/../../stubs/stack-configs/postcss.config.js', base_path('postcss.config.js'));
-        copy(__DIR__.'/../../stubs/stack-configs/tailwind.config.js', base_path('tailwind.config.js'));
-        copy(__DIR__.'/../../stubs/stack-configs/jsconfig.json', base_path('jsconfig.json'));
-        copy(__DIR__.'/../../stubs/stack-configs/vite.config.js', base_path('vite.config.js'));
-        copy(__DIR__.'/../../stubs/stack-configs/.eslintrc.js', base_path('.eslintrc.js'));
-        copy(__DIR__.'/../../stubs/stack-configs/.prettierrc.json', base_path('.prettierrc.json'));
+        copy(__DIR__ . '/../../stubs/stack-configs/postcss.config.js', base_path('postcss.config.js'));
+        copy(__DIR__ . '/../../stubs/stack-configs/tailwind.config.js', base_path('tailwind.config.js'));
+        copy(__DIR__ . '/../../stubs/stack-configs/jsconfig.json', base_path('jsconfig.json'));
+        copy(__DIR__ . '/../../stubs/stack-configs/vite.config.js', base_path('vite.config.js'));
+        copy(__DIR__ . '/../../stubs/stack-configs/.eslintrc.js', base_path('.eslintrc.js'));
+        copy(__DIR__ . '/../../stubs/stack-configs/.prettierrc.json', base_path('.prettierrc.json'));
 
         $this->runCommands(['npm install']);
 
@@ -73,7 +83,7 @@ trait FrontendPackages
      */
     protected static function updateNodePackages(callable $callback, $dev = true)
     {
-        if (! file_exists(base_path('package.json'))) {
+        if (!file_exists(base_path('package.json'))) {
             return;
         }
 
@@ -90,7 +100,7 @@ trait FrontendPackages
 
         file_put_contents(
             base_path('package.json'),
-            json_encode($packages, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT).PHP_EOL
+            json_encode($packages, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . PHP_EOL
         );
     }
 
@@ -108,12 +118,12 @@ trait FrontendPackages
             try {
                 $process->setTty(true);
             } catch (RuntimeException $e) {
-                $this->output->writeln('  <bg=yellow;fg=black> WARN </> '.$e->getMessage().PHP_EOL);
+                $this->output->writeln('  <bg=yellow;fg=black> WARN </> ' . $e->getMessage() . PHP_EOL);
             }
         }
 
         $process->run(function ($type, $line) {
-            $this->output->write('    '.$line);
+            $this->output->write('    ' . $line);
         });
     }
 }
