@@ -1,0 +1,15 @@
+<?php
+
+namespace Modules\{{ moduleName }};
+
+use Modules\Support\BaseServiceProvider;
+
+class {{ moduleName }}ServiceProvider extends BaseServiceProvider
+{
+    protected string $namespace = 'Modules\{{ moduleName }}\Http\Controllers';
+
+    public function boot()
+    {
+        parent::boot();
+    }
+}
