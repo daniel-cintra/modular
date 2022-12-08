@@ -7,5 +7,3 @@ it('can run modular:install command', function () {
 it('can run modular:make-module command', function () {
     $this->artisan('modular:make-module myModuleName')->assertSuccessful();
 });
-
-

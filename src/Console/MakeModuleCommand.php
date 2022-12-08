@@ -3,12 +3,11 @@
 namespace Modular\Modular\Console;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Str;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Str;
 
 class MakeModuleCommand extends Command
 {
-
     protected $signature = 'modular:make-module {name}';
 
     protected $description = 'Create a new module.';
@@ -22,10 +21,9 @@ class MakeModuleCommand extends Command
      */
     public function handle()
     {
-
         $this->setModuleName();
 
-        $this->comment('Creating Module ' . $this->moduleName);
+        $this->comment('Creating Module '.$this->moduleName);
 
         $this->createModuleDirectory();
         $this->createServiceProvider();
@@ -45,7 +43,7 @@ class MakeModuleCommand extends Command
 
     private function createServiceProvider(): void
     {
-        $stub = file_get_contents(__DIR__ . '/../../stubs/module-stub/modules/ModuleServiceProvider.stub');
+        $stub = file_get_contents(__DIR__.'/../../stubs/module-stub/modules/ModuleServiceProvider.stub');
 
         $stub = str_replace('{{ moduleName }}', $this->moduleName, $stub);
 
