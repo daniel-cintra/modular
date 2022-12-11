@@ -23,11 +23,11 @@ class MakeValidateCommand extends Command
         $this->moduleName = Str::studly($this->argument('moduleName'));
         $this->resourceName = Str::studly($this->argument('resourceName'));
 
-        if (!$this->moduleExists()) {
+        if (! $this->moduleExists()) {
             return self::FAILURE;
         }
 
-        $this->comment('Module ' . $this->moduleName . ' found, creating HTTP Request Validate file...');
+        $this->comment('Module '.$this->moduleName.' found, creating HTTP Request Validate file...');
         $this->createValidateFile();
 
         return self::SUCCESS;
@@ -35,7 +35,7 @@ class MakeValidateCommand extends Command
 
     private function createValidateFile(): void
     {
-        $stub = file_get_contents(__DIR__ . '/../../stubs/module-stub/modules/Http/Requests/ModuleValidate.stub');
+        $stub = file_get_contents(__DIR__.'/../../stubs/module-stub/modules/Http/Requests/ModuleValidate.stub');
 
         $stub = str_replace('{{ ModuleName }}', $this->moduleName, $stub);
         $stub = str_replace('{{ ResourceName }}', $this->resourceName, $stub);
