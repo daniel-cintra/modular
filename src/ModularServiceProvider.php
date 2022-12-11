@@ -4,6 +4,8 @@ namespace Modular\Modular;
 
 use Modular\Modular\Console\InstallCommand;
 use Modular\Modular\Console\MakeModuleCommand;
+use Modular\Modular\Console\MakeValidateCommand;
+use Modular\Modular\Console\MakeControllerCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -21,6 +23,8 @@ class ModularServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasViews()
             ->hasCommand(InstallCommand::class)
-            ->hasCommand(MakeModuleCommand::class);
+            ->hasCommand(MakeModuleCommand::class)
+            ->hasCommand(MakeControllerCommand::class)
+            ->hasCommand(MakeValidateCommand::class);
     }
 }

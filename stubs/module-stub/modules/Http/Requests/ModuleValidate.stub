@@ -1,0 +1,15 @@
+<?php
+
+namespace Modules\{{ ModuleName }}\Http\Requests;
+
+use Modules\Support\Http\Requests\Request;
+
+class {{ ResourceName }}Validate extends Request
+{
+    public function rules(): array
+    {
+        return [
+            // 'name' => 'required',
+        ];
+    }
+}

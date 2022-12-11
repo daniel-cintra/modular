@@ -23,10 +23,20 @@ class MakeModuleCommand extends Command
     {
         $this->setModuleName();
 
-        $this->comment('Creating Module '.$this->moduleName);
+        $this->comment('Creating Module ' . $this->moduleName);
 
         $this->createModuleDirectory();
         $this->createServiceProvider();
+
+        $this->createModuleHttpStructure();
+
+        $params = [
+            'moduleName' => $this->moduleName,
+            'resourceName' => $this->moduleName,
+        ];
+
+        $this->call('modular:make-controller', $params);
+        $this->call('modular:make-validate', $params);
 
         return self::SUCCESS;
     }
@@ -43,12 +53,18 @@ class MakeModuleCommand extends Command
 
     private function createServiceProvider(): void
     {
-        $stub = file_get_contents(__DIR__.'/../../stubs/module-stub/modules/ModuleServiceProvider.stub');
+        $stub = file_get_contents(__DIR__ . '/../../stubs/module-stub/modules/ModuleServiceProvider.stub');
 
         $stub = str_replace('{{ moduleName }}', $this->moduleName, $stub);
 
         $path = base_path("modules/{$this->moduleName}/{$this->moduleName}ServiceProvider.php");
 
         file_put_contents($path, $stub);
+    }
+
+    private function createModuleHttpStructure(): void
+    {
+        (new Filesystem)->makeDirectory(base_path("modules/{$this->moduleName}/Http/Controllers"), 0755, true);
+        (new Filesystem)->makeDirectory(base_path("modules/{$this->moduleName}/Http/Requests"));
     }
 }
