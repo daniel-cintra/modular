@@ -18,24 +18,30 @@ it('can set the module name', function () {
     $this->artisan('modular:make-module moduleName')->expectsOutput('Creating Module ModuleName');
 });
 
-it('can create the module\'s directory', function () {
-    $this->artisan('modular:make-module moduleName');
-    expect(base_path('modules/ModuleName'))->toBeDirectory();
-});
+// it('can create the module directory', function () {
+//     $this->artisan('modular:make-module moduleName');
+//     expect(base_path('modules/ModuleName'))->toBeDirectory();
+// });
 
-it('can create the module\'s Service Provider', function () {
+it('can create the module Service Provider', function () {
     $this->artisan('modular:make-module moduleName');
     $this->assertTrue(file_exists(base_path('modules/ModuleName/ModuleNameServiceProvider.php')));
 });
 
-it('can create the module\'s http directory structure', function () {
+it('can create the module directory structure', function () {
     $this->artisan('modular:make-module moduleName');
+
+    expect(base_path('modules/ModuleName'))->toBeDirectory();
+    
     expect(base_path('modules/ModuleName/Http'))->toBeDirectory();
     expect(base_path('modules/ModuleName/Http/Controllers'))->toBeDirectory();
     expect(base_path('modules/ModuleName/Http/Requests'))->toBeDirectory();
+
+    expect(base_path('modules/ModuleName/Models'))->toBeDirectory();
+    expect(base_path('modules/ModuleName/routes'))->toBeDirectory();
 });
 
-it('can create the module\'s Controller', function () {
+it('can create the module Controller', function () {
     $this->artisan('modular:make-module moduleName');
     $this->assertTrue(file_exists(base_path('modules/ModuleName/Http/Controllers/ModuleNameController.php')));
 });

@@ -25,10 +25,10 @@ class MakeModuleCommand extends Command
 
         $this->comment('Creating Module ' . $this->moduleName);
 
-        $this->createModuleDirectory();
+        // $this->createModuleDirectory();
+        $this->createModuleDirectoryStructure();
         $this->createServiceProvider();
 
-        $this->createModuleHttpStructure();
 
         $params = [
             'moduleName' => $this->moduleName,
@@ -37,6 +37,7 @@ class MakeModuleCommand extends Command
 
         $this->call('modular:make-controller', $params);
         $this->call('modular:make-validate', $params);
+        $this->call('modular:make-model', $params);
 
         return self::SUCCESS;
     }
@@ -46,10 +47,10 @@ class MakeModuleCommand extends Command
         $this->moduleName = Str::studly($this->argument('name'));
     }
 
-    private function createModuleDirectory(): void
-    {
-        (new Filesystem)->makeDirectory(base_path("modules/{$this->moduleName}"));
-    }
+    // private function createModuleDirectory(): void
+    // {
+    //     (new Filesystem)->makeDirectory(base_path("modules/{$this->moduleName}"));
+    // }
 
     private function createServiceProvider(): void
     {
@@ -62,9 +63,12 @@ class MakeModuleCommand extends Command
         file_put_contents($path, $stub);
     }
 
-    private function createModuleHttpStructure(): void
+    private function createModuleDirectoryStructure(): void
     {
+        (new Filesystem)->makeDirectory(base_path("modules/{$this->moduleName}"));
         (new Filesystem)->makeDirectory(base_path("modules/{$this->moduleName}/Http/Controllers"), 0755, true);
         (new Filesystem)->makeDirectory(base_path("modules/{$this->moduleName}/Http/Requests"));
+        (new Filesystem)->makeDirectory(base_path("modules/{$this->moduleName}/Models"));
+        (new Filesystem)->makeDirectory(base_path("modules/{$this->moduleName}/routes"));
     }
 }

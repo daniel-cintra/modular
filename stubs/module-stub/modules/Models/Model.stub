@@ -1,0 +1,10 @@
+<?php
+
+namespace Modules\{{ ModuleName }}\Models;
+
+use Modules\Support\Models\BaseModel;
+
+class {{ ResourceName }} extends BaseModel
+{
+    protected $table = '{{ resourceName }}s';
+}
