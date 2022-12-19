@@ -23,7 +23,7 @@ class MakeModuleCommand extends Command
     {
         $this->setModuleName();
 
-        $this->comment('Creating Module '.$this->moduleName);
+        $this->comment('Creating Module ' . $this->moduleName);
 
         // $this->createModuleDirectory();
         $this->createModuleDirectoryStructure();
@@ -39,6 +39,8 @@ class MakeModuleCommand extends Command
         $this->call('modular:make-model', $params);
         $this->call('modular:make-route', $params);
 
+        $this->call('make:migration', ['name' => "create{$this->moduleName}s_table"]);
+
         return self::SUCCESS;
     }
 
@@ -47,14 +49,9 @@ class MakeModuleCommand extends Command
         $this->moduleName = Str::studly($this->argument('name'));
     }
 
-    // private function createModuleDirectory(): void
-    // {
-    //     (new Filesystem)->makeDirectory(base_path("modules/{$this->moduleName}"));
-    // }
-
     private function createServiceProvider(): void
     {
-        $stub = file_get_contents(__DIR__.'/../../stubs/module-stub/modules/ModuleServiceProvider.stub');
+        $stub = file_get_contents(__DIR__ . '/../../stubs/module-stub/modules/ModuleServiceProvider.stub');
 
         $stub = str_replace('{{ moduleName }}', $this->moduleName, $stub);
 
