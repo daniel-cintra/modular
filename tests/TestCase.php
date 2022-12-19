@@ -3,9 +3,9 @@
 namespace Modular\Modular\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Filesystem\Filesystem;
 use Modular\Modular\ModularServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Illuminate\Filesystem\Filesystem;
 
 class TestCase extends Orchestra
 {
