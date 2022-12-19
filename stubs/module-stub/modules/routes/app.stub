@@ -1,0 +1,27 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::get('{{ resourceName }}', [
+    'uses' => '{{ ResourceName }}Controller@index',
+])->name('{{ resourceName }}.index');
+
+Route::get('{{ resourceName }}/create', [
+    'uses' => '{{ ResourceName }}Controller@create',
+])->name('{{ resourceName }}.create');
+
+Route::get('{{ resourceName }}/{id}/edit', [
+    'uses' => '{{ ResourceName }}Controller@edit',
+])->name('{{ resourceName }}.edit');
+
+Route::post('{{ resourceName }}', [
+    'uses' => '{{ ResourceName }}Controller@store',
+])->name('{{ resourceName }}.store');
+
+Route::put('{{ resourceName }}/{id}', [
+    'uses' => '{{ ResourceName }}Controller@update',
+])->name('{{ resourceName }}.update');
+
+Route::delete('{{ resourceName }}/{id}', [
+    'uses' => '{{ ResourceName }}Controller@destroy',
+])->name('{{ resourceName }}.destroy');

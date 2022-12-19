@@ -24,5 +24,5 @@ it('can generate a model', function () {
 
     expect($modelContent)->toContain('namespace Modules\ModuleName\Models;');
     expect($modelContent)->toContain('class ResourceName extends BaseModel');
-    expect($modelContent)->toContain('protected $table = resourceNames;');
+    expect($modelContent)->toContain('protected $table = \'resourceNames\';');
 });

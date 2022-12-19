@@ -37,6 +37,7 @@ class MakeModuleCommand extends Command
         $this->call('modular:make-controller', $params);
         $this->call('modular:make-validate', $params);
         $this->call('modular:make-model', $params);
+        $this->call('modular:make-route', $params);
 
         return self::SUCCESS;
     }
