@@ -24,12 +24,12 @@ class MakeModelCommand extends Command
     {
         $this->moduleName = Str::studly($this->argument('moduleName'));
         $this->resourceName = Str::studly($this->argument('resourceName'));
-        
-        if (!$this->moduleExists()) {
+
+        if (! $this->moduleExists()) {
             return self::FAILURE;
         }
 
-        $this->comment('Module ' . $this->moduleName . ' found, creating model...');
+        $this->comment('Module '.$this->moduleName.' found, creating model...');
         $this->createModuleModel();
 
         return self::SUCCESS;
@@ -37,8 +37,9 @@ class MakeModelCommand extends Command
 
     private function moduleExists(): bool
     {
-        if (!is_dir(base_path("modules/{$this->moduleName}"))) {
+        if (! is_dir(base_path("modules/{$this->moduleName}"))) {
             $this->error("Module {$this->moduleName} does not exist.");
+
             return false;
         }
 
@@ -47,7 +48,7 @@ class MakeModelCommand extends Command
 
     private function createModuleModel(): void
     {
-        $stub = file_get_contents(__DIR__ . '/../../stubs/module-stub/modules/Models/Model.stub');
+        $stub = file_get_contents(__DIR__.'/../../stubs/module-stub/modules/Models/Model.stub');
 
         $stub = str_replace('{{ ModuleName }}', $this->moduleName, $stub);
         $stub = str_replace('{{ ResourceName }}', $this->resourceName, $stub);

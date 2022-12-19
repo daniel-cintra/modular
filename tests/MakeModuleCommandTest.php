@@ -32,7 +32,7 @@ it('can create the module directory structure', function () {
     $this->artisan('modular:make-module moduleName');
 
     expect(base_path('modules/ModuleName'))->toBeDirectory();
-    
+
     expect(base_path('modules/ModuleName/Http'))->toBeDirectory();
     expect(base_path('modules/ModuleName/Http/Controllers'))->toBeDirectory();
     expect(base_path('modules/ModuleName/Http/Requests'))->toBeDirectory();

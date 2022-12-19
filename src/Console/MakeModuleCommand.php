@@ -29,7 +29,6 @@ class MakeModuleCommand extends Command
         $this->createModuleDirectoryStructure();
         $this->createServiceProvider();
 
-
         $params = [
             'moduleName' => $this->moduleName,
             'resourceName' => $this->moduleName,
