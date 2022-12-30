@@ -45,7 +45,6 @@ class MakeComponentCommand extends Command
     {
         $stub = file_get_contents(__DIR__.'/../../stubs/page-stub/Components/Component.stub');
 
-        $stub = str_replace('{{ ComponentName }}', $this->componentName, $stub);
         $stub = str_replace('{{ componentName }}', Str::camel($this->componentName), $stub);
 
         (new Filesystem)->ensureDirectoryExists(resource_path("js/Pages/{$this->moduleName}/Components/"));
