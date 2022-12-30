@@ -60,7 +60,7 @@ class MakeComposableCommand extends Command
         $camelCaseComposableName = Str::camel($this->composableName);
 
         $this->comment('In your Vue Component, import the composable:');
-        $this->info("import use{$this->composableName} from './Composables/use{$this->composableName}';");
+        $this->info("import use{$this->composableName} from './Composables/use{$this->composableName}'");
 
         $this->comment('And use it like:');
         $this->info("const { {$camelCaseComposableName} } = use{$this->composableName}()");

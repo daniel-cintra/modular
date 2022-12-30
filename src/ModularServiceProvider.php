@@ -3,6 +3,7 @@
 namespace Modular\Modular;
 
 use Modular\Modular\Console\InstallCommand;
+use Modular\Modular\Console\MakeComponentCommand;
 use Modular\Modular\Console\MakeComposableCommand;
 use Modular\Modular\Console\MakeControllerCommand;
 use Modular\Modular\Console\MakeModelCommand;
@@ -35,6 +36,7 @@ class ModularServiceProvider extends PackageServiceProvider
             ->hasCommand(MakeRouteCommand::class)
             ->hasCommand(MakeServiceCommand::class)
             ->hasCommand(MakePageCommand::class)
-            ->hasCommand(MakeComposableCommand::class);
+            ->hasCommand(MakeComposableCommand::class)
+            ->hasCommand(MakeComponentCommand::class);
     }
 }

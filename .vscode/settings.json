@@ -1,0 +1,18 @@
+{
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "eslint.validate": ["javascript", "vue"],
+    "editor.formatOnSave": true,
+    "[blade]": {
+        "editor.formatOnSave": false
+    },
+    "javascript.format.enable": true,
+    "editor.quickSuggestions": {
+        "strings": true
+    },
+    "[php]": {
+        "editor.defaultFormatter": "open-southeners.laravel-pint",
+        "editor.formatOnSave": true
+    }
+}
