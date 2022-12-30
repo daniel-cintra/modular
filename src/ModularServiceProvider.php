@@ -6,10 +6,10 @@ use Modular\Modular\Console\InstallCommand;
 use Modular\Modular\Console\MakeControllerCommand;
 use Modular\Modular\Console\MakeModelCommand;
 use Modular\Modular\Console\MakeModuleCommand;
-use Modular\Modular\Console\MakeRouteCommand;
-use Modular\Modular\Console\MakeValidateCommand;
-use Modular\Modular\Console\MakeServiceCommand;
 use Modular\Modular\Console\MakePageCommand;
+use Modular\Modular\Console\MakeRouteCommand;
+use Modular\Modular\Console\MakeServiceCommand;
+use Modular\Modular\Console\MakeValidateCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 

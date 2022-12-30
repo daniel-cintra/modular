@@ -8,7 +8,6 @@ use Modular\Modular\Traits\ModuleTrait;
 
 class MakeControllerCommand extends Command
 {
-
     use ModuleTrait;
 
     protected $signature = 'modular:make-controller {moduleName} {resourceName}';
@@ -29,11 +28,11 @@ class MakeControllerCommand extends Command
         $this->moduleName = Str::studly($this->argument('moduleName'));
         $this->resourceName = Str::studly($this->argument('resourceName'));
 
-        if (!$this->moduleExists()) {
+        if (! $this->moduleExists()) {
             return self::FAILURE;
         }
 
-        $this->comment('Module ' . $this->moduleName . ' found, creating controller...');
+        $this->comment('Module '.$this->moduleName.' found, creating controller...');
         $this->createModuleController();
 
         return self::SUCCESS;
@@ -41,7 +40,7 @@ class MakeControllerCommand extends Command
 
     private function createModuleController(): void
     {
-        $stub = file_get_contents(__DIR__ . '/../../stubs/module-stub/modules/Http/Controllers/ModuleController.stub');
+        $stub = file_get_contents(__DIR__.'/../../stubs/module-stub/modules/Http/Controllers/ModuleController.stub');
 
         $stub = str_replace('{{ ModuleName }}', $this->moduleName, $stub);
         $stub = str_replace('{{ ResourceName }}', $this->resourceName, $stub);
