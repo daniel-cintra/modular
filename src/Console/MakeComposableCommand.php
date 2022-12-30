@@ -29,11 +29,11 @@ class MakeComposableCommand extends Command
         $this->moduleName = Str::studly($this->argument('moduleName'));
         $this->composableName = Str::studly($this->argument('composableName'));
 
-        if (!$this->moduleExists()) {
+        if (! $this->moduleExists()) {
             return self::FAILURE;
         }
 
-        $this->comment('Module ' . $this->moduleName . ' found, creating composable...');
+        $this->comment('Module '.$this->moduleName.' found, creating composable...');
         $this->createComposable();
 
         $this->generateComments();
@@ -43,7 +43,7 @@ class MakeComposableCommand extends Command
 
     private function createComposable(): void
     {
-        $stub = file_get_contents(__DIR__ . '/../../stubs/page-stub/Composables/Composable.stub');
+        $stub = file_get_contents(__DIR__.'/../../stubs/page-stub/Composables/Composable.stub');
 
         $stub = str_replace('{{ ComposableName }}', $this->composableName, $stub);
         $stub = str_replace('{{ composableName }}', Str::camel($this->composableName), $stub);
