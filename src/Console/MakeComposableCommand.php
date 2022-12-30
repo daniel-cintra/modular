@@ -36,8 +36,7 @@ class MakeComposableCommand extends Command
         $this->comment('Module ' . $this->moduleName . ' found, creating composable...');
         $this->createComposable();
 
-        $this->comment('In your Vue Component, import the composable:');
-        $this->comment("import use{$this->composableName} from './Composables/use{$this->composableName}';");
+        $this->generateComments();
 
         return self::SUCCESS;
     }
@@ -47,11 +46,23 @@ class MakeComposableCommand extends Command
         $stub = file_get_contents(__DIR__ . '/../../stubs/page-stub/Composables/Composable.stub');
 
         $stub = str_replace('{{ ComposableName }}', $this->composableName, $stub);
+        $stub = str_replace('{{ composableName }}', Str::camel($this->composableName), $stub);
 
         (new Filesystem)->ensureDirectoryExists(resource_path("js/Pages/{$this->moduleName}/Composables/"));
 
         $path = resource_path("js/Pages/{$this->moduleName}/Composables/use{$this->composableName}.js");
 
         file_put_contents($path, $stub);
+    }
+
+    private function generateComments(): void
+    {
+        $camelCaseComposableName = Str::camel($this->composableName);
+
+        $this->comment('In your Vue Component, import the composable:');
+        $this->info("import use{$this->composableName} from './Composables/use{$this->composableName}';");
+
+        $this->comment('And use it like:');
+        $this->info("const { {$camelCaseComposableName} } = use{$this->composableName}()");
     }
 }

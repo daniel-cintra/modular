@@ -24,4 +24,5 @@ it('can generate a composable file', function () {
     $composableContent = file_get_contents($composable);
 
     expect($composableContent)->toContain('export default function useComposableName() {');
+    expect($composableContent)->toContain('return { composableName }');
 });

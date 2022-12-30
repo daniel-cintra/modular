@@ -1,11 +1,11 @@
 import { ref } from 'vue'
 
 export default function use{{ ComposableName }}() {
-    const foo = ref('bar')
+    const title = ref('foo')
 
-    const updateFoo = (value) => {
-        foo.value = value
+    const {{ composableName }} = () => {
+        return title.value
     }
 
-    return { updateFoo }
+    return { {{ composableName }} }
 }
