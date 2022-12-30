@@ -23,7 +23,7 @@ class MakeModuleCommand extends Command
     {
         $this->setModuleName();
 
-        $this->comment('Creating Module ' . $this->moduleName);
+        $this->comment('Creating Module '.$this->moduleName);
 
         $this->createModuleDirectoryStructure();
         $this->createServiceProvider();
@@ -52,7 +52,7 @@ class MakeModuleCommand extends Command
 
     private function createServiceProvider(): void
     {
-        $stub = file_get_contents(__DIR__ . '/../../stubs/module-stub/modules/ModuleServiceProvider.stub');
+        $stub = file_get_contents(__DIR__.'/../../stubs/module-stub/modules/ModuleServiceProvider.stub');
 
         $stub = str_replace('{{ moduleName }}', $this->moduleName, $stub);
 
