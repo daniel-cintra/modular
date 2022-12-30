@@ -3,13 +3,12 @@
 namespace Modular\Modular\Console;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Str;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Str;
 use Modular\Modular\Traits\ModuleTrait;
 
 class MakePageCommand extends Command
 {
-
     use ModuleTrait;
 
     protected $signature = 'modular:make-page {moduleName} {resourceName}';
@@ -30,11 +29,11 @@ class MakePageCommand extends Command
         $this->moduleName = Str::studly($this->argument('moduleName'));
         $this->resourceName = Str::studly($this->argument('resourceName'));
 
-        if (!$this->moduleExists()) {
+        if (! $this->moduleExists()) {
             return self::FAILURE;
         }
 
-        $this->comment('Module ' . $this->moduleName . ' found, creating pages...');
+        $this->comment('Module '.$this->moduleName.' found, creating pages...');
         $this->createIndexPage();
         $this->createFormPage();
 
@@ -43,7 +42,7 @@ class MakePageCommand extends Command
 
     private function createIndexPage(): void
     {
-        $stub = file_get_contents(__DIR__ . '/../../stubs/page-stub/Index.stub');
+        $stub = file_get_contents(__DIR__.'/../../stubs/page-stub/Index.stub');
 
         $stub = str_replace('{{ ResourceName }}', $this->resourceName, $stub);
         $stub = str_replace('{{ resourceName }}', Str::camel($this->resourceName), $stub);
@@ -57,7 +56,7 @@ class MakePageCommand extends Command
 
     private function createFormPage(): void
     {
-        $stub = file_get_contents(__DIR__ . '/../../stubs/page-stub/Form.stub');
+        $stub = file_get_contents(__DIR__.'/../../stubs/page-stub/Form.stub');
 
         $stub = str_replace('{{ ResourceName }}', $this->resourceName, $stub);
         $stub = str_replace('{{ resourceName }}', Str::camel($this->resourceName), $stub);

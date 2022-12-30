@@ -8,7 +8,6 @@ use Modular\Modular\Traits\ModuleTrait;
 
 class MakeRouteCommand extends Command
 {
-
     use ModuleTrait;
 
     protected $signature = 'modular:make-route {moduleName} {resourceName}';
@@ -29,11 +28,11 @@ class MakeRouteCommand extends Command
         $this->moduleName = Str::studly($this->argument('moduleName'));
         $this->resourceName = Str::studly($this->argument('resourceName'));
 
-        if (!$this->moduleExists()) {
+        if (! $this->moduleExists()) {
             return self::FAILURE;
         }
 
-        $this->comment('Module ' . $this->moduleName . ' found, creating route...');
+        $this->comment('Module '.$this->moduleName.' found, creating route...');
         $this->createModuleRoute();
 
         return self::SUCCESS;
@@ -41,7 +40,7 @@ class MakeRouteCommand extends Command
 
     private function createModuleRoute(): void
     {
-        $stub = file_get_contents(__DIR__ . '/../../stubs/module-stub/modules/routes/app.stub');
+        $stub = file_get_contents(__DIR__.'/../../stubs/module-stub/modules/routes/app.stub');
 
         $stub = str_replace('{{ ModuleName }}', $this->moduleName, $stub);
         $stub = str_replace('{{ ResourceName }}', $this->resourceName, $stub);
@@ -49,7 +48,7 @@ class MakeRouteCommand extends Command
 
         $path = base_path("modules/{$this->moduleName}/routes/app.php");
 
-        if (!file_exists($path)) {
+        if (! file_exists($path)) {
             file_put_contents($path, $stub);
         } else {
             file_put_contents($path, $stub, FILE_APPEND);

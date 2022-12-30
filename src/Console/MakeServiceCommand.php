@@ -3,13 +3,12 @@
 namespace Modular\Modular\Console;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Str;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Str;
 use Modular\Modular\Traits\ModuleTrait;
 
 class MakeServiceCommand extends Command
 {
-
     use ModuleTrait;
 
     protected $signature = 'modular:make-service {moduleName} {serviceName}';
@@ -30,11 +29,11 @@ class MakeServiceCommand extends Command
         $this->moduleName = Str::studly($this->argument('moduleName'));
         $this->serviceName = Str::studly($this->argument('serviceName'));
 
-        if (!$this->moduleExists()) {
+        if (! $this->moduleExists()) {
             return self::FAILURE;
         }
 
-        $this->comment('Module ' . $this->moduleName . ' found, creating service...');
+        $this->comment('Module '.$this->moduleName.' found, creating service...');
         $this->createModuleService();
 
         return self::SUCCESS;
@@ -44,7 +43,7 @@ class MakeServiceCommand extends Command
     {
         (new Filesystem)->ensureDirectoryExists(base_path("modules/{$this->moduleName}/Services/"));
 
-        $stub = file_get_contents(__DIR__ . '/../../stubs/module-stub/modules/Services/Service.stub');
+        $stub = file_get_contents(__DIR__.'/../../stubs/module-stub/modules/Services/Service.stub');
 
         $stub = str_replace('{{ ModuleName }}', $this->moduleName, $stub);
         $stub = str_replace('{{ ServiceName }}', $this->serviceName, $stub);
