@@ -1,0 +1,11 @@
+<?php
+
+namespace Modules\{{ ModuleName }}\Services;
+
+class {{ ServiceName }} 
+{
+    public function __invoke()
+    {
+        
+    }
+}
