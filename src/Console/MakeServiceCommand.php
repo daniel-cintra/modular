@@ -34,7 +34,7 @@ class MakeServiceCommand extends Command
             return self::FAILURE;
         }
 
-        $this->comment('Module ' . $this->moduleName . ' found, creating model...');
+        $this->comment('Module ' . $this->moduleName . ' found, creating service...');
         $this->createModuleService();
 
         return self::SUCCESS;

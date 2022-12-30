@@ -1,0 +1,64 @@
+<template>
+    <AppSectionHeader title="{{ ResourceName }}s" :bread-crumb="breadCrumb">
+    </AppSectionHeader>
+
+    <Card class="mx-8">
+        <template #title> {{ title }} </template>
+        <template #content>
+            <AppFormErrors class="mb-4" />
+            <form class="p-fluid w-2/4">
+                <div>
+                    <label for="name">Name</label>
+                    <InputText
+                        id="name"
+                        v-model="form.name"
+                        type="text"
+                        :class="{ 'p-invalid': errorsFields.includes('name') }"
+                    />
+                </div>
+            </form>
+        </template>
+        <template #footer>
+            <Button label="Save" class="mt-1" @click="submitForm" />
+        </template>
+    </Card>
+</template>
+
+<script setup>
+import { Inertia } from '@inertiajs/inertia'
+
+import useTitle from '@/Composables/useTitle'
+import useFormContext from '@/Composables/useFormContext'
+import useFormErrors from '@/Composables/useFormErrors'
+
+const props = defineProps({
+  {{ resourceName }}: {
+    type: Object,
+    default: null
+  }
+})
+
+const breadCrumb = [
+  { label: 'Home', href: route('dashboard.index') },
+  { label: '{{ ResourceName }}s', href: route('user.index') },
+  { label: '{{ ResourceName }}', last: true }
+]
+
+const { title } = useTitle('{{ ResourceName }}')
+
+const form = Inertia.form({
+  // name: props.{{ resourceName }} ? props.{{ resourceName }}.name : '',
+})
+
+const { isCreate } = useFormContext()
+
+const submitForm = () => {
+  if (isCreate.value) {
+    form.post(route('{{ resourceName }}.store'))
+  } else {
+    form.put(route('{{ resourceName }}.update', props.{{ resourceName }}.id))
+  }
+}
+
+const { errorsFields } = useFormErrors()
+</script>

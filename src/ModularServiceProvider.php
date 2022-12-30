@@ -9,6 +9,7 @@ use Modular\Modular\Console\MakeModuleCommand;
 use Modular\Modular\Console\MakeRouteCommand;
 use Modular\Modular\Console\MakeValidateCommand;
 use Modular\Modular\Console\MakeServiceCommand;
+use Modular\Modular\Console\MakePageCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -31,6 +32,7 @@ class ModularServiceProvider extends PackageServiceProvider
             ->hasCommand(MakeValidateCommand::class)
             ->hasCommand(MakeModelCommand::class)
             ->hasCommand(MakeRouteCommand::class)
-            ->hasCommand(MakeServiceCommand::class);
+            ->hasCommand(MakeServiceCommand::class)
+            ->hasCommand(MakePageCommand::class);
     }
 }

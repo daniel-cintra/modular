@@ -25,7 +25,6 @@ class MakeModuleCommand extends Command
 
         $this->comment('Creating Module ' . $this->moduleName);
 
-        // $this->createModuleDirectory();
         $this->createModuleDirectoryStructure();
         $this->createServiceProvider();
 
@@ -40,6 +39,8 @@ class MakeModuleCommand extends Command
         $this->call('modular:make-route', $params);
 
         $this->call('make:migration', ['name' => "create{$this->moduleName}s_table"]);
+
+        $this->call('modular:make-page', $params);
 
         return self::SUCCESS;
     }
