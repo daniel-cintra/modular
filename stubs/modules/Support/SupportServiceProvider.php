@@ -19,6 +19,7 @@ class SupportServiceProvider extends BaseServiceProvider
     public function boot()
     {
         include __DIR__.'/helpers.php';
+        include __DIR__.'/Validators/required_editor.php';
         parent::boot();
     }
 }
