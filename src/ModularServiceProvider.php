@@ -27,6 +27,7 @@ class ModularServiceProvider extends PackageServiceProvider
         $package
             ->name('modular')
             ->hasConfigFile()
+            ->hasTranslations()
             ->hasViews()
             ->hasCommand(InstallCommand::class)
             ->hasCommand(MakeModuleCommand::class)

@@ -55,26 +55,6 @@ trait BackendPackages
             });
     }
 
-    // protected function publishVendorFiles()
-    // {
-    //     // spatie/laravel-permission
-    //     $this->call('vendor:publish', [
-    //         '--provider' => 'Spatie\Permission\PermissionServiceProvider'
-    //     ]);
-    //     $this->call('config:clear');
-
-    //     // spatie/laravel-activitylog
-    //     $this->call('vendor:publish', [
-    //         '--provider' => 'Spatie\Activitylog\ActivitylogServiceProvider',
-    //         '--tag' => 'activitylog-migrations',
-    //     ]);
-
-    //     $this->call('vendor:publish', [
-    //         '--provider' => 'Spatie\Activitylog\ActivitylogServiceProvider',
-    //         '--tag' => 'activitylog-config',
-    //     ]);
-    // }
-
     /**
      * Installs the given Composer Packages into the application.
      *
@@ -93,19 +73,6 @@ trait BackendPackages
             $command ?? ['composer', 'require'],
             is_array($packages) ? $packages : func_get_args()
         );
-
-        // $process = new Process($command, base_path(), ['COMPOSER_MEMORY_LIMIT' => '-1']);
-        // $process->setTimeout(null);
-        // $process->start();
-
-        // while ($process->isRunning()) {
-        //     $this->output->write($process->getOutput());
-        // }
-
-        // $process->wait();
-
-        // $this->comment('Composer install finalizado...');
-        // $this->publishVendorFiles();
 
         (new Process($command, base_path(), ['COMPOSER_MEMORY_LIMIT' => '-1']))
             ->setTimeout(null)
