@@ -45,6 +45,7 @@ trait FrontendPackages
                 '@tiptap/starter-kit' => '^2.0.0-beta.204',
                 '@tiptap/extension-link' => '^2.0.0-beta.204',
                 '@tiptap/extension-underline' => '^2.0.0-beta.204',
+                '@tiptap/extension-image' => '^2.0.0-beta.209',
                 '@tiptap/extension-youtube' => '^2.0.0-beta.204',
                 '@tiptap/extension-table' => '^2.0.0-beta.204',
                 '@tiptap/extension-table-header' => '^2.0.0-beta.204',

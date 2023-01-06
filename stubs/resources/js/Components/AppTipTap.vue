@@ -107,6 +107,26 @@
             <TipTapDivider />
 
             <TipTapButton
+                title="Image"
+                icon="ri-image-add-line"
+                @click.prevent="addImage"
+            />
+
+            <FileUpload
+                id="image-uploader"
+                mode="basic"
+                name="image"
+                :url="imageUploadPath"
+                accept="image/*"
+                :max-file-size="1000000"
+                :auto="true"
+                choose-label="Browse"
+                class="hidden"
+                @before-send="beforeUpload"
+                @upload="onUpload"
+            />
+
+            <TipTapButton
                 title="YouTube Vídeo"
                 icon="ri-youtube-line"
                 @click.prevent="addVideo"
@@ -276,6 +296,7 @@ import { useEditor, EditorContent } from "@tiptap/vue-3";
 import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
 import Link from "@tiptap/extension-link";
+import Image from "@tiptap/extension-image";
 import Youtube from "@tiptap/extension-youtube";
 import Table from "@tiptap/extension-table";
 import TableCell from "@tiptap/extension-table-cell";
@@ -293,6 +314,10 @@ const props = defineProps({
         type: String,
         default: "",
     },
+    imageUploadPath: {
+        type: String,
+        default: "",
+    },
 });
 
 const emit = defineEmits(["update:modelValue"]);
@@ -306,6 +331,9 @@ const editor = useEditor({
         Underline,
         Link.configure({
             openOnClick: false,
+        }),
+        Image.configure({
+            inline: false,
         }),
         Youtube.configure({
             controls: false,
@@ -363,6 +391,29 @@ const addVideo = () => {
         src: url,
         width: 640,
         height: 480,
+    });
+};
+
+const addImage = () => {
+    document.querySelector('#image-uploader input[type="file"]').click();
+};
+
+const beforeUpload = (request) => {
+    request.formData.append(
+        "_token",
+        document
+            .querySelector("meta[name='csrf-token']")
+            .getAttribute("content")
+    );
+};
+
+const onUpload = (event) => {
+    const data = JSON.parse(event.xhr.response);
+
+    editor.value.commands.setImage({
+        src: data.fileUrl,
+        alt: data.readableName,
+        title: data.readableName,
     });
 };
 </script>
