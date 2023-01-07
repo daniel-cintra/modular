@@ -5,27 +5,8 @@ namespace Modular\Modular\Traits;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Str;
 
-trait EditorImageTrait
+trait FileNameGenerator
 {
-    public function uploadFile(UploadedFile $file, string $nameStrategy = 'originalUUID'): array
-    {
-        $readableName = $this->getReadableName($file);
-        $fileName = $this->getFileName($file, $readableName, $nameStrategy);
-
-        $file->storeAs(
-            'editor-files',
-            $fileName,
-            'public',
-        );
-
-        return [
-            'fileName' => $fileName,
-            'filePath' => storage_path("app/public/editor-files/{$fileName}"),
-            'fileUrl' => asset("storage/editor-files/{$fileName}"),
-            'readableName' => $readableName,
-        ];
-    }
-
     private function getFileName(UploadedFile $file, string $readableName, string $nameStrategy): string
     {
         if ($nameStrategy == 'originalSlug') {

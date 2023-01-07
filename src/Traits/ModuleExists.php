@@ -2,7 +2,7 @@
 
 namespace Modular\Modular\Traits;
 
-trait ModuleTrait
+trait ModuleExists
 {
     private function moduleExists(): bool
     {

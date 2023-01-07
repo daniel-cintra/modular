@@ -2,10 +2,10 @@
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Http\UploadedFile;
-use Modular\Modular\Traits\EditorImageTrait;
+use Modular\Modular\Traits\EditorImage;
 use function PHPUnit\Framework\assertFileExists;
 
-uses(EditorImageTrait::class);
+uses(EditorImage::class);
 
 beforeEach(function () {
     (new Filesystem)->deleteDirectory(storage_path('editor-files'));

@@ -5,11 +5,11 @@ namespace Modular\Modular\Console;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
-use Modular\Modular\Traits\ModuleTrait;
+use Modular\Modular\Traits\ModuleExists;
 
 class MakePageCommand extends Command
 {
-    use ModuleTrait;
+    use ModuleExists;
 
     protected $signature = 'modular:make-page {moduleName} {resourceName}';
 

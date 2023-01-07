@@ -4,11 +4,11 @@ namespace Modular\Modular\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
-use Modular\Modular\Traits\ModuleTrait;
+use Modular\Modular\Traits\ModuleExists;
 
 class MakeRouteCommand extends Command
 {
-    use ModuleTrait;
+    use ModuleExists;
 
     protected $signature = 'modular:make-route {moduleName} {resourceName}';
 
@@ -42,7 +42,7 @@ class MakeRouteCommand extends Command
     {
         $stub = file_get_contents(__DIR__.'/../../stubs/module-stub/modules/routes/app.stub');
 
-        $stub = str_replace('{{ ModuleName }}', $this->moduleName, $stub);
+        $stub = str_replace('{{ resource-name }}', Str::snake($this->resourceName, '-'), $stub);
         $stub = str_replace('{{ ResourceName }}', $this->resourceName, $stub);
         $stub = str_replace('{{ resourceName }}', Str::camel($this->resourceName), $stub);
 

@@ -2,26 +2,26 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('{{ resourceName }}', [
-    'uses' => '{{ ResourceName }}Controller@index',
+Route::get('{{ resource-name }}', [
+    'uses' => '{{ ResourceName }}Controller@index', 
 ])->name('{{ resourceName }}.index');
 
-Route::get('{{ resourceName }}/create', [
+Route::get('{{ resource-name }}/create', [
     'uses' => '{{ ResourceName }}Controller@create',
 ])->name('{{ resourceName }}.create');
 
-Route::get('{{ resourceName }}/{id}/edit', [
+Route::get('{{ resource-name }}/{id}/edit', [
     'uses' => '{{ ResourceName }}Controller@edit',
 ])->name('{{ resourceName }}.edit');
 
-Route::post('{{ resourceName }}', [
+Route::post('{{ resource-name }}', [
     'uses' => '{{ ResourceName }}Controller@store',
 ])->name('{{ resourceName }}.store');
 
-Route::put('{{ resourceName }}/{id}', [
+Route::put('{{ resource-name }}/{id}', [
     'uses' => '{{ ResourceName }}Controller@update',
 ])->name('{{ resourceName }}.update');
 
-Route::delete('{{ resourceName }}/{id}', [
+Route::delete('{{ resource-name }}/{id}', [
     'uses' => '{{ ResourceName }}Controller@destroy',
 ])->name('{{ resourceName }}.destroy');

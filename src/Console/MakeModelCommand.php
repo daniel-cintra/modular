@@ -4,11 +4,11 @@ namespace Modular\Modular\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
-use Modular\Modular\Traits\ModuleTrait;
+use Modular\Modular\Traits\ModuleExists;
 
 class MakeModelCommand extends Command
 {
-    use ModuleTrait;
+    use ModuleExists;
 
     protected $signature = 'modular:make-model {moduleName} {resourceName}';
 
