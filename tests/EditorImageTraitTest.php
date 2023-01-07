@@ -15,10 +15,10 @@ afterAll(function () {
     (new Filesystem)->deleteDirectory(storage_path('editor-files'));
 });
 
-it('can upload a file to the default editor media file path', function () {
+it('can upload an image to the default editor media file path', function () {
     $file = UploadedFile::fake()->image('A nice file.jpg');
 
-    $result = $this->uploadFile($file, 'originalSlug');
+    $result = $this->uploadImage($file, 'original');
 
     expect($result)->toHaveKeys(['fileName', 'filePath', 'fileUrl', 'readableName']);
     expect($result['fileName'])->toBe('a-nice-file.jpg');

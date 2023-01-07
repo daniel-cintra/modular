@@ -8,7 +8,7 @@ trait EditorImage
 {
     use FileNameGenerator;
 
-    public function uploadFile(UploadedFile $file, string $nameStrategy = 'originalUUID'): array
+    public function uploadImage(UploadedFile $file, string $nameStrategy = 'originalUUID'): array
     {
         $readableName = $this->getReadableName($file);
         $fileName = $this->getFileName($file, $readableName, $nameStrategy);

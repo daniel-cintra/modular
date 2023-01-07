@@ -9,7 +9,7 @@ trait FileNameGenerator
 {
     private function getFileName(UploadedFile $file, string $readableName, string $nameStrategy): string
     {
-        if ($nameStrategy == 'originalSlug') {
+        if ($nameStrategy == 'original') {
             return Str::slug($readableName).'.'.$file->getClientOriginalExtension();
         }
 
