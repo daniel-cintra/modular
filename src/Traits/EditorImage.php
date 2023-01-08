@@ -13,35 +13,49 @@ trait EditorImage
     public function uploadEditorImage(): JsonResponse
     {
         $validator = Validator::make(request()->all(), [
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => $this->getUploadImageValidationRules(),
         ]);
 
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()->all()], 422);
         }
 
-        $file = request()->file('image');
-        $fileAttributes = $this->uploadImage($file);
+        $fileAttributes = $this->uploadImage(request()->file('image'));
 
         return response()->json($fileAttributes);
     }
 
-    private function uploadImage(UploadedFile $file, string $nameStrategy = 'originalUUID'): array
+    protected function uploadImage(UploadedFile $file): array
     {
         $readableName = $this->getReadableName($file);
-        $fileName = $this->getFileName($file, $readableName, $nameStrategy);
+        $fileName = $this->getFileName($file, $readableName, $this->getUploadImageNameStrategy());
 
         $file->storeAs(
-            'editor-files',
+            $this->getUploadImagePath(),
             $fileName,
             'public',
         );
 
         return [
             'fileName' => $fileName,
-            'filePath' => storage_path("app/public/editor-files/{$fileName}"),
-            'fileUrl' => asset("storage/editor-files/{$fileName}"),
+            'filePath' => storage_path("app/public/{$this->getUploadImagePath()}/{$fileName}"),
+            'fileUrl' => asset("storage/{$this->getUploadImagePath()}/{$fileName}"),
             'readableName' => $readableName,
         ];
+    }
+
+    private function getUploadImageValidationRules(): string
+    {
+        return property_exists($this, 'uploadImageValidationRules') ? $this->uploadImageValidationRules : 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048';
+    }
+
+    private function getUploadImagePath(): string
+    {
+        return property_exists($this, 'uploadImagePath') ? $this->uploadImagePath : 'editor-files';
+    }
+
+    private function getUploadImageNameStrategy(): string
+    {
+        return property_exists($this, 'uploadImageNameStrategy') ? $this->uploadImageNameStrategy : 'originalUUID';
     }
 }
