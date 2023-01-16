@@ -10,12 +10,12 @@
 
     <DataTable
         ref="dataTable"
-        :value="{{ resourceName }}.data"
+        :value="{{ resourceName }}s.data"
         :paginator="true"
-        :rows="{{ resourceName }}.per_page"
+        :rows="{{ resourceName }}s.per_page"
         :lazy="true"
         :total-records="{{ resourceName }}.total"
-        :first="{{ resourceName }}.from"
+        :first="{{ resourceName }}s.from"
         striped-rows
         class="mx-8 shadow"
         :rows-per-page-options="[10, 25, 50]"
@@ -81,7 +81,7 @@ import useDataSearch from '@/Composables/useDataSearch'
 import useConfirmDelete from '@/Composables/useConfirmDelete'
 
 const props = defineProps({
-  {{ resourceName }}: {
+  {{ resourceName }}s: {
     type: Object,
     default: () => {}
   }
