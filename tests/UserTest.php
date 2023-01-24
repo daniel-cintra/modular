@@ -13,5 +13,3 @@ it('can create a user', function () {
         'email' => $user->email,
     ]);
 });
-
-
