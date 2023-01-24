@@ -1,6 +1,6 @@
 import { ref, watch } from 'vue'
 import { useDebounceFn } from '@vueuse/core'
-import { Inertia } from '@inertiajs/inertia'
+import { router } from '@inertiajs/vue3'
 
 export default function useDataSearch(routePath, columnToSearch) {
     const searchTerm = ref()
@@ -19,7 +19,7 @@ export default function useDataSearch(routePath, columnToSearch) {
     }, 500)
 
     const fetchData = (params) => {
-        Inertia.visit(routePath, {
+        router.visit(routePath, {
             data: params,
             replace: true,
             preserveState: true

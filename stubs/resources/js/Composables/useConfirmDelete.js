@@ -1,4 +1,4 @@
-import { Inertia } from '@inertiajs/inertia'
+import { router } from '@inertiajs/vue3'
 import { useConfirm } from 'primevue/useconfirm'
 
 export default function useConfirmDelete() {
@@ -6,7 +6,7 @@ export default function useConfirmDelete() {
 
     function confirmDelete(routePath, item) {
         const acceptCallback = () => {
-            Inertia.visit(route(routePath, item.id), {
+            router.visit(route(routePath, item.id), {
                 method: 'delete'
             })
         }

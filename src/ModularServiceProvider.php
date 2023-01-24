@@ -29,6 +29,7 @@ class ModularServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasTranslations()
             ->hasViews()
+            ->hasMigration('add_deleted_at_column_to_users_table')
             ->hasCommand(InstallCommand::class)
             ->hasCommand(MakeModuleCommand::class)
             ->hasCommand(MakeControllerCommand::class)

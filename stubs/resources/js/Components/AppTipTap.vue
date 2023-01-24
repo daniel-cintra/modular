@@ -117,7 +117,6 @@
                 mode="basic"
                 name="image"
                 :url="imageUploadPath"
-                accept="image/*"
                 :max-file-size="1000000"
                 :auto="true"
                 choose-label="Browse"
@@ -166,7 +165,7 @@
                     editor.commands.insertTable({
                         rows: 3,
                         cols: 3,
-                        withHeaderRow: true,
+                        withHeaderRow: true
                     })
                 "
             />
@@ -291,38 +290,38 @@
 </template>
 
 <script setup>
-import { ref, onBeforeUnmount } from "vue";
-import { useEditor, EditorContent } from "@tiptap/vue-3";
-import StarterKit from "@tiptap/starter-kit";
-import Underline from "@tiptap/extension-underline";
-import Link from "@tiptap/extension-link";
-import Image from "@tiptap/extension-image";
-import Youtube from "@tiptap/extension-youtube";
-import Table from "@tiptap/extension-table";
-import TableCell from "@tiptap/extension-table-cell";
-import TableHeader from "@tiptap/extension-table-header";
-import TableRow from "@tiptap/extension-table-row";
-import TipTapButton from "./TipTap/TipTapButton.vue";
-import TipTapDivider from "./TipTap/TipTapDivider.vue";
+import { ref, onBeforeUnmount } from 'vue'
+import { useEditor, EditorContent } from '@tiptap/vue-3'
+import StarterKit from '@tiptap/starter-kit'
+import Underline from '@tiptap/extension-underline'
+import Link from '@tiptap/extension-link'
+import Image from '@tiptap/extension-image'
+import Youtube from '@tiptap/extension-youtube'
+import Table from '@tiptap/extension-table'
+import TableCell from '@tiptap/extension-table-cell'
+import TableHeader from '@tiptap/extension-table-header'
+import TableRow from '@tiptap/extension-table-row'
+import TipTapButton from './TipTap/TipTapButton.vue'
+import TipTapDivider from './TipTap/TipTapDivider.vue'
 
 const props = defineProps({
     modelValue: {
         type: String,
-        default: "",
+        default: ''
     },
     editorClass: {
         type: String,
-        default: "",
+        default: ''
     },
     imageUploadPath: {
         type: String,
-        default: "",
-    },
-});
+        default: ''
+    }
+})
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(['update:modelValue'])
 
-const showTableToolbar = ref(false);
+const showTableToolbar = ref(false)
 
 const editor = useEditor({
     content: props.modelValue,
@@ -330,92 +329,92 @@ const editor = useEditor({
         StarterKit,
         Underline,
         Link.configure({
-            openOnClick: false,
+            openOnClick: false
         }),
         Image.configure({
-            inline: false,
+            inline: false
         }),
         Youtube.configure({
-            controls: false,
+            controls: false
         }),
         Table.configure({
-            resizable: true,
+            resizable: true
         }),
         TableRow,
         TableHeader,
-        TableCell,
+        TableCell
     ],
     onUpdate: ({ editor }) => {
-        emit("update:modelValue", editor.getHTML());
-    },
-});
+        emit('update:modelValue', editor.getHTML())
+    }
+})
 
 onBeforeUnmount(() => {
-    editor.value.destroy();
-});
+    editor.value.destroy()
+})
 
 const toggleTableToolbar = () => {
-    showTableToolbar.value = !showTableToolbar.value;
-};
+    showTableToolbar.value = !showTableToolbar.value
+}
 
 const setLink = () => {
     // console.log(editor.value.getAttributes('link').href)
-    const previousUrl = editor.value.getAttributes("link").href;
-    const url = window.prompt("URL", previousUrl);
+    const previousUrl = editor.value.getAttributes('link').href
+    const url = window.prompt('URL', previousUrl)
     // cancelled
     if (url === null) {
-        return;
+        return
     }
     // empty
-    if (url === "") {
-        editor.value.chain().focus().extendMarkRange("link").unsetLink().run();
-        return;
+    if (url === '') {
+        editor.value.chain().focus().extendMarkRange('link').unsetLink().run()
+        return
     }
     // update link
     editor.value
         .chain()
         .focus()
-        .extendMarkRange("link")
+        .extendMarkRange('link')
         .setLink({ href: url })
-        .run();
-};
+        .run()
+}
 
 const addVideo = () => {
-    const url = prompt("Enter YouTube URL");
+    const url = prompt('Enter YouTube URL')
 
     if (!url) {
-        return;
+        return
     }
 
     editor.value.commands.setYoutubeVideo({
         src: url,
         width: 640,
-        height: 480,
-    });
-};
+        height: 480
+    })
+}
 
 const addImage = () => {
-    document.querySelector('#image-uploader input[type="file"]').click();
-};
+    document.querySelector('#image-uploader input[type="file"]').click()
+}
 
 const beforeUpload = (request) => {
     request.formData.append(
-        "_token",
+        '_token',
         document
             .querySelector("meta[name='csrf-token']")
-            .getAttribute("content")
-    );
-};
+            .getAttribute('content')
+    )
+}
 
 const onUpload = (event) => {
-    const data = JSON.parse(event.xhr.response);
+    const data = JSON.parse(event.xhr.response)
 
     editor.value.commands.setImage({
         src: data.fileUrl,
         alt: data.readableName,
-        title: data.readableName,
-    });
-};
+        title: data.readableName
+    })
+}
 </script>
 
 <style>
@@ -427,7 +426,6 @@ const onUpload = (event) => {
 .ProseMirror {
     min-height: 120px;
     padding: 5px 10px;
-    background: #fff;
 }
 
 .ProseMirror p {
@@ -508,7 +506,7 @@ const onUpload = (event) => {
 .ProseMirror .selectedCell:after {
     z-index: 2;
     position: absolute;
-    content: "";
+    content: '';
     left: 0;
     right: 0;
     top: 0;

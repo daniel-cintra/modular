@@ -77,7 +77,7 @@ return [
 
         'usersModule' => [
             'driver' => 'eloquent',
-            'model' => Modules\User\Models\User::class,
+            'model' => Modular\Modular\User\Models\User::class,
         ],
     ],
 

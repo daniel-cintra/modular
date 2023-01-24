@@ -9,8 +9,7 @@ import 'remixicon/fonts/remixicon.css'
 // import 'primeicons/primeicons.css';
 
 import { createApp, h } from 'vue'
-import { createInertiaApp } from '@inertiajs/inertia-vue3'
-import { InertiaProgress } from '@inertiajs/progress'
+import { createInertiaApp } from '@inertiajs/vue3'
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m'
 
@@ -22,7 +21,7 @@ import PrimeVue from 'primevue/config'
 
 // global components
 // import { Inertia } from "@inertiajs/inertia";
-import { Link } from '@inertiajs/inertia-vue3'
+import { Link } from '@inertiajs/vue3'
 import Layout from './Layouts/AuthenticatedLayout.vue'
 
 //these must be globally registered, not autoloaded...
@@ -48,12 +47,8 @@ createInertiaApp({
 
         return page
     },
-    setup({ el, app, props, plugin }) {
-        // const meta = document.createElement("meta");
-        // meta.name = "naive-ui-style";
-        // document.head.appendChild(meta);
-
-        return createApp({ render: () => h(app, props) })
+    setup({ el, App, props, plugin }) {
+        return createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(ZiggyVue, Ziggy)
             .use(PrimeVue)
@@ -65,7 +60,8 @@ createInertiaApp({
             .directive('btnIcon', AppBtnIcon)
             .directive('tooltip', Tooltip)
             .mount(el)
+    },
+    progress: {
+        color: '#33b7f7'
     }
 })
-
-InertiaProgress.init({ color: '#33b7f7' })

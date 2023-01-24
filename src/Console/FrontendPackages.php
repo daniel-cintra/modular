@@ -19,26 +19,25 @@ trait FrontendPackages
         $this->updateNodePackages(function ($packages) {
             return [
 
-                '@inertiajs/inertia' => '^0.11.0',
-                '@inertiajs/inertia-vue3' => '^0.6.0',
-                '@inertiajs/progress' => '^0.2.7',
+                '@inertiajs/vue3' => '^1.0.0',
+
                 '@tailwindcss/forms' => '^0.5.2',
-                '@vitejs/plugin-vue' => '^3.0.0',
+                '@vitejs/plugin-vue' => '^4.0.0',
                 '@vueuse/core' => '^9.1.1',
 
                 'autoprefixer' => '^10.4.2',
-                'axios' => '^0.27',
+                'axios' => '^1.2.3',
                 'eslint' => '^8.23.0',
                 'eslint-config-prettier' => '^8.5.0',
                 'eslint-plugin-vue' => '^9.4.0',
-                'laravel-vite-plugin' => '^0.5.0',
+                'laravel-vite-plugin' => '^0.7.3',
                 'lodash' => '^4.17.19',
 
                 'postcss' => '^8.4.6',
                 'postcss-import' => '^15.0.0',
                 'prettier' => '^2.7.1',
-                'prettier-plugin-tailwindcss' => '^0.1.13',
-                'primeicons' => '^5.0.0',
+                'prettier-plugin-tailwindcss' => '^0.2.1',
+                'primeicons' => '^6.0.1',
                 'primevue' => '^3.16.1',
 
                 '@tiptap/vue-3' => '^2.0.0-beta.204',
@@ -55,8 +54,8 @@ trait FrontendPackages
                 'remixicon' => '^2.5.0',
                 'tailwindcss' => '^3.1.0',
                 'unplugin-vue-components' => '^0.22.7',
-                'vite' => '^3.0.0',
-                'vue' => '^3.2.31',
+                'vite' => '^4.0.4',
+                'vue' => '^3.2.45',
 
             ] + $packages;
         });

@@ -9,7 +9,7 @@ use Symfony\Component\Process\PhpExecutableFinder;
 
 class InstallCommand extends Command
 {
-    use BackendPackages, FrontendPackages, SupportModules;
+    use BackendPackages, FrontendPackages, CoreModules;
 
     protected $signature = 'modular:install {--composer=global : Absolute path to the Composer binary which should be used to install packages}';
 
@@ -29,17 +29,16 @@ class InstallCommand extends Command
 
         $this->comment('Migrating database...');
         $this->call('migrate');
-        $this->comment('Database.migrated!');
 
         $this->comment('Installing required stacks...');
 
-        $this->installBackendPackages();
+        $this->setupBackendPackages();
 
         $this->installFrontendPackages();
 
         $this->comment('Required stacks.installed!');
 
-        $this->configureSupportModules();
+        $this->configureCoreModules();
 
         return self::SUCCESS;
     }
