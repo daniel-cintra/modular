@@ -4,6 +4,7 @@ namespace Modular\Modular\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Filesystem\Filesystem;
+use Modular\Modular\Acl\AclServiceProvider;
 use Modular\Modular\AdminAuth\AdminAuthServiceProvider;
 use Modular\Modular\Dashboard\DashboardServiceProvider;
 use Modular\Modular\ModularServiceProvider;
@@ -23,11 +24,6 @@ class TestCase extends Orchestra
         (new Filesystem)->copyDirectory(__DIR__.'/../stubs/resources', base_path('resources'));
 
         (new Filesystem)->ensureDirectoryExists(base_path('modules'));
-
-        // $this->artisan('vendor:publish', [
-        //     '--provider' => 'Spatie\Activitylog\ActivitylogServiceProvider',
-        //     '--tag' => 'activitylog-config',
-        // ]);
     }
 
     protected function resolveApplicationHttpKernel($app)
@@ -38,7 +34,7 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            AcldServiceProvider::class,
+            AclServiceProvider::class,
             AdminAuthServiceProvider::class,
             DashboardServiceProvider::class,
             ModularServiceProvider::class,

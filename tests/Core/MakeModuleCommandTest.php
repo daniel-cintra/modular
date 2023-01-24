@@ -6,10 +6,6 @@ afterEach(function () {
     (new Filesystem)->deleteDirectory(base_path('modules'));
 });
 
-// it('can run modular:install command', function () {
-//     $this->artisan('modular:install')->assertSuccessful();
-// });
-
 it('can run modular:make-module command', function () {
     $this->artisan('modular:make-module moduleName')->assertSuccessful();
 });
@@ -17,11 +13,6 @@ it('can run modular:make-module command', function () {
 it('can set the module name', function () {
     $this->artisan('modular:make-module moduleName')->expectsOutput('Creating Module ModuleName');
 });
-
-// it('can create the module directory', function () {
-//     $this->artisan('modular:make-module moduleName');
-//     expect(base_path('modules/ModuleName'))->toBeDirectory();
-// });
 
 it('can create the module Service Provider', function () {
     $this->artisan('modular:make-module moduleName');
