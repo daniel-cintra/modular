@@ -50,7 +50,7 @@ class TestCase extends Orchestra
         $migration = include __DIR__.'/../database/migrations/create_users_table.php.stub';
         $migration->up();
 
-        $migration = include __DIR__.'/../database/migrations/add_deleted_at_column_to_users_table.php.stub';
+        $migration = include __DIR__.'/../database/migrations/add_custom_fields_to_users_table.php.stub';
         $migration->up();
     }
 }
