@@ -13,4 +13,13 @@ class UserObserver
             $user->password = Hash::make(request('password'));
         }
     }
+
+    public function created(User $user)
+    {
+        if (! $user->profile_type) {
+            $user->profile_type = 'user';
+            $user->profile_id = $user->id;
+            $user->save();
+        }
+    }
 }

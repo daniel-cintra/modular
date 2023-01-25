@@ -37,11 +37,8 @@ class UserController extends BackendController
     {
         $user = User::create($request->validated());
 
-        return redirect()->back()
+        return redirect()->route('user.index')
             ->with('success', 'User created.');
-
-        // return redirect()->route('aclUserRole.edit', $user->id)
-        //     ->with('success', 'Usuário criado, defina as permissões de acesso.');
     }
 
     public function edit($id)
@@ -65,7 +62,7 @@ class UserController extends BackendController
 
         $user->update($params);
 
-        return redirect()->back()
+        return redirect()->route('user.index')
             ->with('success', 'User updated.');
     }
 

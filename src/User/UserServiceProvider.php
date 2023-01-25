@@ -2,6 +2,7 @@
 
 namespace Modular\Modular\User;
 
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Modular\Modular\BaseServiceProvider;
 use Modular\Modular\User\Models\User;
 use Modular\Modular\User\Observers\UserObserver;
@@ -23,6 +24,10 @@ class UserServiceProvider extends BaseServiceProvider
     public function boot()
     {
         parent::boot();
+
+        Relation::morphMap([
+            'user' => User::class,
+        ]);
 
         User::observe(UserObserver::class);
     }
