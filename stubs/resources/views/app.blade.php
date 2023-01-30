@@ -23,6 +23,8 @@
 
 <body class="font-sans antialiased h-full">
     @inertia
+
+    <x-modular-translations></x-modular-translations>
 </body>
 
 </html>

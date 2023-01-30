@@ -3,7 +3,9 @@
         <AppAuthLogo />
 
         <Card class="space-y-4 p-6">
-            <template #title> Sign in to your account </template>
+            <template #title>
+                {{ __('Sign in to your account :name', { name: 'Maria' }) }}
+            </template>
 
             <template #content>
                 <AppFormErrors class="mb-4" />

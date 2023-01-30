@@ -17,6 +17,10 @@ trait CoreModules
     {
         $this->configureMiddlewares();
 
+        $this->call('vendor:publish', [
+            '--tag' => 'modular-translations',
+        ]);
+
         $this->copyResources();
 
         $this->configureModulesDirectory();

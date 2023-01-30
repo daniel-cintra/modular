@@ -32,6 +32,7 @@ import ConfirmDialog from 'primevue/confirmdialog'
 import Tooltip from 'primevue/tooltip'
 
 import AppBtnIcon from './Directives/AppBtnIcon'
+import Translations from '@/Plugins/Translations'
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
@@ -54,6 +55,7 @@ createInertiaApp({
             .use(PrimeVue)
             .use(ToastService)
             .use(ConfirmationService)
+            .use(Translations)
             .component('Toast', Toast)
             .component('ConfirmDialog', ConfirmDialog)
             .component('Link', Link)

@@ -2,6 +2,7 @@
 
 namespace Modular\Modular;
 
+use Modular\Modular\Components\Translations;
 use Modular\Modular\Console\InstallCommand;
 use Modular\Modular\Console\MakeComponentCommand;
 use Modular\Modular\Console\MakeComposableCommand;
@@ -29,6 +30,7 @@ class ModularServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasTranslations()
             ->hasViews()
+            ->hasViewComponents('modular', Translations::class)
             ->hasMigration('add_custom_fields_to_users_table')
             ->hasCommand(InstallCommand::class)
             ->hasCommand(MakeModuleCommand::class)
