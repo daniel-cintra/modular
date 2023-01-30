@@ -51,6 +51,10 @@ class Translations extends Component
 
     private function getPHPTranslations(string $directory): array
     {
+        if (! is_dir($directory)) {
+            return [];
+        }
+
         return collect(File::allFiles($directory))
             ->filter(function ($file) {
                 return $file->getExtension() === 'php';

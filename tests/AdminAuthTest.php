@@ -13,7 +13,6 @@ it('allows authenticated access', function () {
 
 it('can render login page', function () {
     $this->withoutVite();
-
     $this->get(route('adminAuth.loginForm'))->assertOk();
 });
 
