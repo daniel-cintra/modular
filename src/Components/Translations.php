@@ -27,22 +27,12 @@ class Translations extends Component
     {
         $locale = app()->getLocale();
 
-        $modularTranslationsPath = lang_path("vendor/modular/$locale");
-        $modularTranslations = $this->getPHPTranslations($modularTranslationsPath);
+        $appPHPTranslations = $this->getPHPTranslations(lang_path($locale));
 
-        $appTranslationsPath = lang_path($locale);
-        $appTranslations = $this->getPHPTranslations($appTranslationsPath);
+        $appJsonTranslations = $this->getJsonTranslations(lang_path("$locale/$locale.json"));
+        $modularJsonTranslations = $this->getJsonTranslations(lang_path("vendor/modular/$locale/$locale.json"));
 
-        $jsonTranslationFile = lang_path("$locale/$locale.json");
-        if (File::exists($jsonTranslationFile)) {
-            $jsonTranslations = json_decode(File::get($jsonTranslationFile), true);
-        }
-
-        if (isset($jsonTranslations)) {
-            $translations = array_merge($modularTranslations, $appTranslations, $jsonTranslations);
-        } else {
-            $translations = array_merge($modularTranslations, $appTranslations);
-        }
+        $translations = array_merge($appPHPTranslations, $appJsonTranslations, $modularJsonTranslations);
 
         return view('components.translations', [
             'translations' => $translations,
@@ -61,5 +51,14 @@ class Translations extends Component
             })->flatMap(function ($file) {
                 return Arr::dot(File::getRequire($file->getRealPath()));
             })->toArray();
+    }
+
+    private function getJsonTranslations(string $filePath): array
+    {
+        if (File::exists($filePath)) {
+            return json_decode(File::get($filePath), true);
+        } else {
+            return [];
+        }
     }
 }

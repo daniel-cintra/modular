@@ -1,0 +1,16 @@
+{
+    "__Modular/CommonMessages__": "Used throughout the application",
+    "Whoops! Something went wrong...": "Whoops! Something went wrong...",
+
+    "__Modular/AdminAuth/LoginForm__": "Login Page",
+    "Sign in to your account": "Sign in to your account",
+    "Your Email": "Your Email",
+    "Password": "Password",
+    "Remember me": "Remember me",
+    "Forgot your password?": "Forgot your password?",
+    "Sign in": "Sign in",
+
+    "__Modular/AdminAuth/ForgotPage__": "Forgot Password Page",
+    "Enter your email to reset your password.": "Enter your email to reset your password.",
+    "Send": "Send"
+}

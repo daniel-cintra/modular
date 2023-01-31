@@ -4,7 +4,7 @@
 
         <Card class="space-y-4 p-6">
             <template #title>
-                {{ __('Sign in to your account :name', { name: 'Maria' }) }}
+                {{ __('Sign in to your account') }}
             </template>
 
             <template #content>
@@ -12,7 +12,7 @@
 
                 <form>
                     <div>
-                        <label for="email">Your Email</label>
+                        <label for="email">{{ __('Your Email') }}</label>
                         <InputText
                             id="email"
                             v-model="form.email"
@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="mt-6">
-                        <label for="email">Password</label>
+                        <label for="email">{{ __('Password') }}</label>
                         <Password
                             id="password"
                             v-model="form.password"
@@ -47,19 +47,25 @@
                             :binary="true"
                             :value="true"
                         />
-                        <label for="remember" class="ml-2"> Remember me </label>
+                        <label for="remember" class="ml-2">{{
+                            __('Remember me')
+                        }}</label>
                     </div>
                 </form>
             </template>
 
             <template #footer>
-                <Button label="Sign in" class="my-4" @click="submitForm" />
+                <Button
+                    :label="__('Sign in')"
+                    class="my-4"
+                    @click="submitForm"
+                />
 
                 <p class="text-sm font-light text-skin-base-content">
                     <Link
                         :href="route('adminAuth.forgotPassword')"
                         class="text-primary-600 dark:text-primary-500 font-medium hover:underline"
-                        >Forgot your password?</Link
+                        >{{ __('Forgot your password?') }}</Link
                     >
                 </p>
             </template>
