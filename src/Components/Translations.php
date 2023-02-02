@@ -27,16 +27,27 @@ class Translations extends Component
     {
         $locale = app()->getLocale();
 
+        if (app()->environment('production')) {
+            $translations = cache()->rememberForever("translations_$locale", function () use ($locale) {
+                return $this->getTranslations($locale);
+            });
+        } else {
+            $translations = $this->getTranslations($locale);
+        }
+
+        return view('components.translations', [
+            'translations' => $translations,
+        ]);
+    }
+
+    private function getTranslations(string $locale): array
+    {
         $appPHPTranslations = $this->getPHPTranslations(lang_path($locale));
 
         $appJsonTranslations = $this->getJsonTranslations(lang_path("$locale/$locale.json"));
         $modularJsonTranslations = $this->getJsonTranslations(lang_path("vendor/modular/$locale/$locale.json"));
 
-        $translations = array_merge($appPHPTranslations, $appJsonTranslations, $modularJsonTranslations);
-
-        return view('components.translations', [
-            'translations' => $translations,
-        ]);
+        return array_merge($appPHPTranslations, $appJsonTranslations, $modularJsonTranslations);
     }
 
     private function getPHPTranslations(string $directory): array
