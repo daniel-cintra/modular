@@ -25,13 +25,11 @@ class UserPermissionController extends BackendController
 
     public function update($id)
     {
-        // dd(request('userPermissions'));
-
         $user = User::findOrFail($id);
 
         $user->syncPermissions(request('userPermissions'));
 
         return redirect()->route('user.index')
-            ->with('success', 'Permissões atualizadas');
+            ->with('success', 'User permissions updated');
     }
 }

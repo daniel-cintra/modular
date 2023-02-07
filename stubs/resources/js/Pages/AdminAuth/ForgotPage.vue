@@ -3,9 +3,9 @@
         <AppAuthLogo />
 
         <Card class="space-y-4 p-6">
-            <template #title> Forgot your password? </template>
+            <template #title>{{ __('Forgot your password?') }} </template>
             <template #subtitle>
-                Enter your email to reset your password.
+                {{ __('Enter your email to reset your password.') }}
             </template>
 
             <template #content>
@@ -13,7 +13,7 @@
 
                 <form>
                     <div>
-                        <label for="email">Your Email</label>
+                        <label for="email">{{ __('Your Email') }}</label>
                         <InputText
                             id="email"
                             v-model="form.email"
@@ -28,7 +28,7 @@
             </template>
 
             <template #footer>
-                <Button label="Send" class="my-4" @click="submitForm" />
+                <Button :label="__('Send')" class="my-4" @click="submitForm" />
             </template>
         </Card>
     </AppAuthShell>

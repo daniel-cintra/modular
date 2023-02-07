@@ -1,16 +1,18 @@
 <template>
-  <span v-if="!item.href" class="text-skin-base-300">{{ item.label }}</span>
+    <span v-if="!item.href" class="text-skin-base-300">{{
+        __(item.label)
+    }}</span>
 
-  <Link v-if="item.href" :href="item.href">{{ item.label }}</Link>
+    <Link v-if="item.href" :href="item.href">{{ __(item.label) }}</Link>
 
-  <span v-if="!item.last"> > </span>
+    <span v-if="!item.last"> > </span>
 </template>
 
 <script setup>
 const props = defineProps({
-  item: {
-    type: Object,
-    default: () => {}
-  }
+    item: {
+        type: Object,
+        default: () => {}
+    }
 })
 </script>

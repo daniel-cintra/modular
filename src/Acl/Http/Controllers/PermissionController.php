@@ -44,7 +44,7 @@ class PermissionController extends BackendController
         Permission::create($params);
 
         return redirect()->route('aclPermission.index')
-            ->with('success', 'Permission saved');
+            ->with('success', 'Permission created');
     }
 
     public function edit($id)
@@ -63,7 +63,7 @@ class PermissionController extends BackendController
         $permission->update($request->validated());
 
         return redirect()->route('aclPermission.index')
-            ->with('success', 'Permission saved');
+            ->with('success', 'Permission updated');
     }
 
     public function destroy($id)

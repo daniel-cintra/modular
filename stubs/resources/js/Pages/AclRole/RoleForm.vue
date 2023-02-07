@@ -1,5 +1,5 @@
 <template>
-    <AppSectionHeader title="Roles" :bread-crumb="breadCrumb">
+    <AppSectionHeader :title="__('Roles')" :bread-crumb="breadCrumb">
     </AppSectionHeader>
 
     <Card class="mx-8">
@@ -8,7 +8,7 @@
             <AppFormErrors class="mb-4" />
             <form class="p-fluid w-2/4" @submit.prevent="submitForm">
                 <div class="field">
-                    <label for="name">Name</label>
+                    <label for="name">{{ __('Name') }}</label>
                     <InputText
                         id="name"
                         v-model="form.name"

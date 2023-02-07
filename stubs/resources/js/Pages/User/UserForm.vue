@@ -1,5 +1,5 @@
 <template>
-    <AppSectionHeader title="Users" :bread-crumb="breadCrumb">
+    <AppSectionHeader :title="__('Users')" :bread-crumb="breadCrumb">
     </AppSectionHeader>
 
     <Card class="mx-8">
@@ -8,7 +8,7 @@
             <AppFormErrors class="mb-4" />
             <form class="p-fluid w-2/4">
                 <div>
-                    <label for="name">Name</label>
+                    <label for="name">{{ __('Name') }}</label>
                     <InputText
                         id="name"
                         v-model="form.name"
@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="mt-6">
-                    <label for="email">Email</label>
+                    <label for="email">{{ __('Email') }}</label>
                     <InputText
                         id="email"
                         v-model="form.email"
@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="mt-6">
-                    <label for="email">Password</label>
+                    <label for="email">{{ __('Password') }}</label>
                     <Password
                         id="password"
                         v-model="form.password"
@@ -42,7 +42,7 @@
             </form>
         </template>
         <template #footer>
-            <Button label="Save" class="mt-1" @click="submitForm" />
+            <Button :label="__('Save')" class="mt-1" @click="submitForm" />
         </template>
     </Card>
 </template>
@@ -64,7 +64,7 @@ const props = defineProps({
 const breadCrumb = [
     { label: 'Home', href: route('dashboard.index') },
     { label: 'Users', href: route('user.index') },
-    { label: 'Users', last: true }
+    { label: 'User', last: true }
 ]
 
 const { title } = useTitle('User')

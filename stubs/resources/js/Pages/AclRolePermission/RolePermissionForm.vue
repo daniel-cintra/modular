@@ -1,10 +1,10 @@
 <template>
-    <AppSectionHeader title="Role Permissions" :bread-crumb="breadCrumb">
+    <AppSectionHeader :title="__('Role Permissions')" :bread-crumb="breadCrumb">
     </AppSectionHeader>
 
     <Card class="mx-8">
         <template #title>
-            Role permissions for:
+            {{ __('Role Permissions for') }}:
             <span class="text-skin-secondary">{{ role.name }}</span>
         </template>
         <template #content>

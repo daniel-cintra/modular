@@ -42,7 +42,7 @@ class RoleController extends BackendController
         Role::create($params);
 
         return redirect()->route('aclRole.index')
-            ->with('success', 'Role saved');
+            ->with('success', 'Role created');
     }
 
     public function edit($id)
@@ -61,7 +61,7 @@ class RoleController extends BackendController
         $role->update($request->validated());
 
         return redirect()->route('aclRole.index')
-            ->with('success', 'Role saved');
+            ->with('success', 'Role updated');
     }
 
     public function destroy($id)

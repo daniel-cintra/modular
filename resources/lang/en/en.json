@@ -1,6 +1,13 @@
 {
     "__Modular/CommonMessages__": "Used throughout the application",
     "Whoops! Something went wrong...": "Whoops! Something went wrong...",
+    "Confirmation": "Confirmation",
+    "Are you sure you want to proceed?": "Are you sure you want to proceed?",
+    "Yes": "Yes",
+    "No": "No",
+    "Save": "Save",
+    "Clear Search": "Clear Search",
+    "Message": "Message",
 
     "__Modular/AdminAuth/LoginForm__": "Login Page",
     "Sign in to your account": "Sign in to your account",
@@ -12,5 +19,58 @@
 
     "__Modular/AdminAuth/ForgotPage__": "Forgot Password Page",
     "Enter your email to reset your password.": "Enter your email to reset your password.",
-    "Send": "Send"
+    "Send": "Send",
+
+    "__Modular/AdminAuth/ResetPasswordPage__": "Reset Password Page",
+    "Password Reset": "Password Reset",
+    "Fill the form below to reset your password": "Fill the form below to reset your password",
+    "Password Confirmation": "Password Confirmation",
+
+    "__js/Configs/menu__": "Side Menu Translations",
+    "Access Control List": "Access Control List",
+    "Dashboard": "Dashboard",
+    "Users": "Users",
+    "Permissions": "Permissions",
+    "Roles": "Roles",
+
+    "__Modular/User__": "User Module",
+    "Create User": "Create User",
+    "Search": "Search",
+    "Name": "Name",
+    "User Roles": "User Roles",
+    "User Permissions": "User Permissions",
+    "Edit User": "Edit User",
+    "Delete User": "Delete User",
+    "User": "User",
+    "No users found": "No users found",
+    "User created": "User created",
+    "User updated": "User updated",
+    "User deleted": "User deleted",
+
+    "User Roles for": "User Roles for",
+    "User Permissions for": "User Permissions for",
+
+    "Permission": "Permission",
+    "Create Permission": "Create Permission",
+    "Edit Permission": "Edit Permission",
+    "Delete Permission": "Delete Permission",
+    "No permissions found": "No permissions found",
+    "Permission created": "Permission created",
+    "Permission updated": "Permission updated",
+    "Permission deleted": "Permission deleted",
+
+    "Create Role": "Create Role",
+    "Role Permissions": "Role Permissions",
+    "Edit Role": "Edit Role",
+    "Delete Role": "Delete Role",
+    "Role Permissions for": "Role Permissions for",
+    "Role": "Role",
+    "No roles found": "No roles found",
+    "Role created": "Role created",
+    "Role updated": "Role updated",
+    "Role deleted": "Role deleted",
+
+    "Role permissions updated": "Role permissions updated",
+    "User roles updated": "User roles update",
+    "User permissions updated": "User permissions updated"
 }

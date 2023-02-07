@@ -1,10 +1,10 @@
 <template>
-    <AppSectionHeader title="User Roles" :bread-crumb="breadCrumb">
+    <AppSectionHeader :title="__('User Roles')" :bread-crumb="breadCrumb">
     </AppSectionHeader>
 
     <Card class="mx-8">
         <template #title>
-            User Roles for:
+            {{ __('User Roles for') }}:
             <span class="text-skin-secondary">{{ user.name }}</span>
         </template>
         <template #content>
@@ -34,7 +34,7 @@
             </form>
         </template>
         <template #footer>
-            <Button label="Save" class="mt-1" @click="submitForm" />
+            <Button :label="__('Save')" class="mt-1" @click="submitForm" />
         </template>
     </Card>
 </template>

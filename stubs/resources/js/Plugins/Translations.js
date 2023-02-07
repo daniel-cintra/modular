@@ -1,6 +1,6 @@
 export default {
     install: (app, options) => {
-        app.config.globalProperties.__ = (key, replacements = {}) => {
+        const __ = (key, replacements = {}) => {
             let translation = window._translations[key] || key
 
             Object.keys(replacements).forEach((replacement) => {
@@ -12,5 +12,9 @@ export default {
 
             return translation
         }
+
+        app.config.globalProperties.__ = __
+
+        app.provide('translate', __)
     }
 }

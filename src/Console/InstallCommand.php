@@ -22,11 +22,6 @@ class InstallCommand extends Command
      */
     public function handle()
     {
-        // $this->comment('Test command...');
-        // (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/database/migrations', base_path('database/migrations'));
-        // copy(__DIR__.'/../../stubs/public/favicon.svg', public_path('favicon.svg'));
-        // return self::SUCCESS;
-
         $this->comment('Migrating database...');
         $this->call('migrate');
 

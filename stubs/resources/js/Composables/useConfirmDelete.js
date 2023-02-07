@@ -1,7 +1,9 @@
 import { router } from '@inertiajs/vue3'
 import { useConfirm } from 'primevue/useconfirm'
+import { inject } from 'vue'
 
 export default function useConfirmDelete() {
+    const translate = inject('translate')
     const confirm = useConfirm()
 
     function confirmDelete(routePath, item) {
@@ -12,10 +14,12 @@ export default function useConfirmDelete() {
         }
 
         confirm.require({
-            message: 'Are you sure you want to proceed?',
-            header: 'Confirmation',
+            header: translate('Confirmation'),
+            message: translate('Are you sure you want to proceed?'),
             icon: 'pi pi-exclamation-triangle',
-            accept: acceptCallback
+            accept: acceptCallback,
+            acceptLabel: translate('Yes'),
+            rejectLabel: translate('No')
         })
     }
 

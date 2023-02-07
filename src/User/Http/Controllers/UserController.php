@@ -38,7 +38,7 @@ class UserController extends BackendController
         $user = User::create($request->validated());
 
         return redirect()->route('user.index')
-            ->with('success', 'User created.');
+            ->with('success', 'User created');
     }
 
     public function edit($id)
@@ -63,7 +63,7 @@ class UserController extends BackendController
         $user->update($params);
 
         return redirect()->route('user.index')
-            ->with('success', 'User updated.');
+            ->with('success', 'User updated');
     }
 
     public function destroy($id)
@@ -71,6 +71,6 @@ class UserController extends BackendController
         User::findOrFail($id)->delete();
 
         return redirect()->route('user.index')
-            ->with('success', 'User deleted.');
+            ->with('success', 'User deleted');
     }
 }

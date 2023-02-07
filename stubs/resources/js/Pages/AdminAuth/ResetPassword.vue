@@ -3,9 +3,9 @@
         <AppAuthLogo />
 
         <Card class="space-y-4 p-6">
-            <template #title> Password Reset </template>
+            <template #title> {{ __('Password Reset') }} </template>
             <template #subtitle>
-                Fill the form below to reset your password.
+                {{ __('Fill the form below to reset your password') }}.
             </template>
 
             <template #content>
@@ -13,7 +13,7 @@
 
                 <form>
                     <div>
-                        <label for="email">Email</label>
+                        <label for="email">{{ __('Email') }}</label>
                         <InputText
                             id="email"
                             v-model="form.email"
@@ -26,7 +26,7 @@
                     </div>
 
                     <div class="mt-6">
-                        <label for="email">Password</label>
+                        <label for="email">{{ __('Password') }}</label>
                         <Password
                             id="password"
                             v-model="form.password"
@@ -41,7 +41,9 @@
                     </div>
 
                     <div class="mt-6">
-                        <label for="email">Password Confirmation</label>
+                        <label for="email">{{
+                            __('Password Confirmation')
+                        }}</label>
                         <Password
                             id="password"
                             v-model="form.password_confirmation"
@@ -60,7 +62,7 @@
             </template>
 
             <template #footer>
-                <Button label="Save" class="my-4" @click="submitForm" />
+                <Button :label="__('Save')" class="my-4" @click="submitForm" />
             </template>
         </Card>
     </AppAuthShell>

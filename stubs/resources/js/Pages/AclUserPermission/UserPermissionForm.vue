@@ -1,10 +1,10 @@
 <template>
-    <AppSectionHeader title="User Permissions" :bread-crumb="breadCrumb">
+    <AppSectionHeader :title="__('User Permissions')" :bread-crumb="breadCrumb">
     </AppSectionHeader>
 
     <Card class="mx-8">
         <template #title>
-            User permissions for:
+            {{ __('User Permissions for') }}:
             <span class="text-skin-secondary">{{ user.name }}</span>
         </template>
         <template #content>
