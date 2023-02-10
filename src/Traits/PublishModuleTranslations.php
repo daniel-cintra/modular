@@ -17,7 +17,7 @@ trait PublishModuleTranslations
         return true;
     }
 
-    public function publishModuleTranslations(string $lang, string $moduleTranslationsFile): void
+    public function publishModuleTranslations(string $lang, string $moduleTranslationsFile): bool
     {
         $langFile = $this->getLangFile($lang);
 
