@@ -5,9 +5,9 @@ namespace Modular\Modular\Console;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 
-class PublishTranslationsCommand extends Command
+class PublishLaravelTranslationsCommand extends Command
 {
-    protected $signature = 'modular:publish-translations {--lang=}';
+    protected $signature = 'modular:publish-laravel-translations {--lang=}';
 
     protected $description = 'Publishes Laravel native\' translation file for the given language';
 
