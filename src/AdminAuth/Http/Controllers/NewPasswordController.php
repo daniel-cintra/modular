@@ -15,7 +15,6 @@ class NewPasswordController extends AppController
     /**
      * Display the password reset view.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\View\View
      */
     public function resetPasswordForm(Request $request)
@@ -29,7 +28,6 @@ class NewPasswordController extends AppController
     /**
      * Handle an incoming new password request.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      *
      * @throws \Illuminate\Validation\ValidationException
