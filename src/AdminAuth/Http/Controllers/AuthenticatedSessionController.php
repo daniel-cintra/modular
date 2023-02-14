@@ -38,7 +38,6 @@ class AuthenticatedSessionController extends AppController
     /**
      * Destroy an authenticated session.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function logout(Request $request)
