@@ -44,7 +44,7 @@ trait CoreModules
         $this->components->info('Configuring Middlewares...');
         copy(__DIR__.'/../../stubs/app/Http/Middleware/HandleInertiaRequests.php', app_path('Http/Middleware/HandleInertiaRequests.php'));
         $this->installMiddlewareAfter('SubstituteBindings::class', '\App\Http\Middleware\HandleInertiaRequests::class');
-        $this->installRouteMiddlewareAfter('EnsureEmailIsVerified::class', "'auth.user' => \Modular\Modular\AdminAuth\Http\Middleware\UserAuth::class");
+        $this->installAliasMiddlewareAfter('EnsureEmailIsVerified::class', "'auth.user' => \Modular\Modular\AdminAuth\Http\Middleware\UserAuth::class");
     }
 
     private function copyResources(): void
@@ -188,22 +188,22 @@ trait CoreModules
      * @param  string  $group
      * @return void
      */
-    protected function installRouteMiddlewareAfter($after, $name)
+    protected function installAliasMiddlewareAfter($after, $name)
     {
         $httpKernel = file_get_contents(app_path('Http/Kernel.php'));
 
-        $routeMiddlewares = Str::before(Str::after($httpKernel, '$routeMiddleware = ['), '];');
+        $middlewareAliases = Str::before(Str::after($httpKernel, '$middlewareAliases = ['), '];');
 
-        if (! Str::contains($routeMiddlewares, $name)) {
-            $modifiedRoutedMiddlewares = str_replace(
+        if (! Str::contains($middlewareAliases, $name)) {
+            $modifiedAliasedMiddlewares = str_replace(
                 $after.',',
                 $after.','.PHP_EOL.PHP_EOL.'        '.$name.',',
-                $routeMiddlewares,
+                $middlewareAliases,
             );
 
             file_put_contents(app_path('Http/Kernel.php'), str_replace(
-                $routeMiddlewares,
-                $modifiedRoutedMiddlewares,
+                $middlewareAliases,
+                $modifiedAliasedMiddlewares,
                 $httpKernel
             ));
         }

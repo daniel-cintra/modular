@@ -31,7 +31,7 @@ class InstallCommand extends Command
 
         $this->installFrontendPackages();
 
-        $this->comment('Required stacks.installed!');
+        $this->comment('Required stacks installed!');
 
         $this->configureCoreModules();
 
