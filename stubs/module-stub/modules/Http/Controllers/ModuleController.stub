@@ -16,7 +16,7 @@ class {{ ResourceName }}Controller extends BackendController
             ->search(request('searchContext'), request('searchTerm'))
             ->paginate(request('rowsPerPage', 10))
             ->withQueryString()
-            ->through(fn(${{ resourceName }}) => [
+            ->through(fn (${{ resourceName }}) => [
                     'id' => ${{ resourceName }}->id,
                     // 'name' => ${{ ModuleName }}->name,
                     'created_at' => ${{ resourceName }}->created_at->format('d/m/Y H:i') . 'h'
