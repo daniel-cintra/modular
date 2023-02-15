@@ -17,13 +17,11 @@ class RoleController extends BackendController
             ->orderBy('name')
             ->paginate(request('rowsPerPage', 10))
             ->withQueryString()
-            ->through(function ($role) {
-                return [
-                    'id' => $role->id,
-                    'name' => $role->name,
-                    'guard_name' => $role->guard_name,
-                ];
-            });
+            ->through(fn($role) => [
+                'id' => $role->id,
+                'name' => $role->name,
+                'guard_name' => $role->guard_name,
+            ]);
 
         return inertia('AclRole/RoleIndex', [
             'roles' => $roles,

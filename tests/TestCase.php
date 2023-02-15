@@ -28,7 +28,7 @@ class TestCase extends Orchestra
 
     protected function resolveApplicationHttpKernel($app)
     {
-        $app->singleton('Illuminate\Contracts\Http\Kernel', 'Modular\Modular\Tests\Overrides\Http\Kernel');
+        $app->singleton(\Illuminate\Contracts\Http\Kernel::class, \Modular\Modular\Tests\Overrides\Http\Kernel::class);
     }
 
     protected function getPackageProviders($app)

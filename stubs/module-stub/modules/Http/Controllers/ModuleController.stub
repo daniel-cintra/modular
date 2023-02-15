@@ -16,13 +16,11 @@ class {{ ResourceName }}Controller extends BackendController
             ->search(request('searchContext'), request('searchTerm'))
             ->paginate(request('rowsPerPage', 10))
             ->withQueryString()
-            ->through(function (${{ resourceName }}) {
-                return [
+            ->through(fn(${{ resourceName }}) => [
                     'id' => ${{ resourceName }}->id,
                     // 'name' => ${{ ModuleName }}->name,
                     'created_at' => ${{ resourceName }}->created_at->format('d/m/Y H:i') . 'h'
-                ];
-            });
+            ]);
 
         return inertia('{{ ModuleName }}/{{ ResourceName }}Index', [
             '${{ resourceName }}s' => ${{ resourceName }}s

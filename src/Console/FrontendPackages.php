@@ -16,49 +16,47 @@ trait FrontendPackages
     {
         $this->components->info('Installing npm packages...');
 
-        $this->updateNodePackages(function ($packages) {
-            return [
+        static::updateNodePackages(fn($packages) => [
 
-                '@inertiajs/vue3' => '^1.0.0',
+            '@inertiajs/vue3' => '^1.0.0',
 
-                '@tailwindcss/forms' => '^0.5.3',
-                '@vitejs/plugin-vue' => '^4.0.0',
-                '@vueuse/core' => '^9.1.1',
+            '@tailwindcss/forms' => '^0.5.3',
+            '@vitejs/plugin-vue' => '^4.0.0',
+            '@vueuse/core' => '^9.1.1',
 
-                'autoprefixer' => '^10.4.12',
-                'axios' => '^1.2.3',
-                'eslint' => '^8.23.0',
-                'eslint-config-prettier' => '^8.5.0',
-                'eslint-plugin-vue' => '^9.4.0',
-                'laravel-vite-plugin' => '^0.7.3',
-                'lodash' => '^4.17.19',
+            'autoprefixer' => '^10.4.12',
+            'axios' => '^1.2.3',
+            'eslint' => '^8.23.0',
+            'eslint-config-prettier' => '^8.5.0',
+            'eslint-plugin-vue' => '^9.4.0',
+            'laravel-vite-plugin' => '^0.7.3',
+            'lodash' => '^4.17.19',
 
-                'postcss' => '^8.4.18',
-                'postcss-import' => '^15.0.0',
-                'prettier' => '^2.7.1',
-                'prettier-plugin-tailwindcss' => '^0.2.1',
-                'primeicons' => '^6.0.1',
-                'primevue' => '^3.16.1',
+            'postcss' => '^8.4.18',
+            'postcss-import' => '^15.0.0',
+            'prettier' => '^2.7.1',
+            'prettier-plugin-tailwindcss' => '^0.2.1',
+            'primeicons' => '^6.0.1',
+            'primevue' => '^3.16.1',
 
-                '@tiptap/vue-3' => '^2.0.0-beta.204',
-                '@tiptap/starter-kit' => '^2.0.0-beta.204',
-                '@tiptap/extension-link' => '^2.0.0-beta.204',
-                '@tiptap/extension-underline' => '^2.0.0-beta.204',
-                '@tiptap/extension-image' => '^2.0.0-beta.209',
-                '@tiptap/extension-youtube' => '^2.0.0-beta.204',
-                '@tiptap/extension-table' => '^2.0.0-beta.204',
-                '@tiptap/extension-table-header' => '^2.0.0-beta.204',
-                '@tiptap/extension-table-row' => '^2.0.0-beta.204',
-                '@tiptap/extension-table-cell' => '^2.0.0-beta.204',
+            '@tiptap/vue-3' => '^2.0.0-beta.204',
+            '@tiptap/starter-kit' => '^2.0.0-beta.204',
+            '@tiptap/extension-link' => '^2.0.0-beta.204',
+            '@tiptap/extension-underline' => '^2.0.0-beta.204',
+            '@tiptap/extension-image' => '^2.0.0-beta.209',
+            '@tiptap/extension-youtube' => '^2.0.0-beta.204',
+            '@tiptap/extension-table' => '^2.0.0-beta.204',
+            '@tiptap/extension-table-header' => '^2.0.0-beta.204',
+            '@tiptap/extension-table-row' => '^2.0.0-beta.204',
+            '@tiptap/extension-table-cell' => '^2.0.0-beta.204',
 
-                'remixicon' => '^2.5.0',
-                'tailwindcss' => '^3.2.1',
-                'unplugin-vue-components' => '^0.22.7',
-                'vite' => '^4.0.4',
-                'vue' => '^3.2.45',
+            'remixicon' => '^2.5.0',
+            'tailwindcss' => '^3.2.1',
+            'unplugin-vue-components' => '^0.22.7',
+            'vite' => '^4.0.4',
+            'vue' => '^3.2.45',
 
-            ] + $packages;
-        });
+        ] + $packages);
 
         // Config files...
         copy(__DIR__.'/../../stubs/stack-configs/postcss.config.js', base_path('postcss.config.js'));
@@ -88,7 +86,7 @@ trait FrontendPackages
 
         $configurationKey = $dev ? 'devDependencies' : 'dependencies';
 
-        $packages = json_decode(file_get_contents(base_path('package.json')), true);
+        $packages = json_decode(file_get_contents(base_path('package.json')), true, 512, JSON_THROW_ON_ERROR);
 
         $packages[$configurationKey] = $callback(
             array_key_exists($configurationKey, $packages) ? $packages[$configurationKey] : [],

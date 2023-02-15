@@ -18,14 +18,12 @@ class PermissionController extends BackendController
             ->orderBy('name')
             ->paginate(request('rowsPerPage', 10))
             ->withQueryString()
-            ->through(function ($permission) {
-                return [
-                    'id' => $permission->id,
-                    'name' => $permission->name,
-                    'guard' => $permission->guard,
+            ->through(fn($permission) => [
+                'id' => $permission->id,
+                'name' => $permission->name,
+                'guard' => $permission->guard,
 
-                ];
-            });
+            ]);
 
         return inertia('AclPermission/PermissionIndex', [
             'permissions' => $permissions,

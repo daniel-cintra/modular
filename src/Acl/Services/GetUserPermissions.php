@@ -26,11 +26,9 @@ class GetUserPermissions
 
     private function mapPermissions(Collection $permissions): array
     {
-        return $permissions->map(function ($permission) {
-            return [
-                'id' => $permission->id,
-                'name' => $permission->name,
-            ];
-        })->toArray();
+        return $permissions->map(fn($permission) => [
+            'id' => $permission->id,
+            'name' => $permission->name,
+        ])->toArray();
     }
 }

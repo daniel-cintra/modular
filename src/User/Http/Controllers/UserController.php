@@ -14,14 +14,12 @@ class UserController extends BackendController
             ->search(request('searchContext'), request('searchTerm'))
             ->paginate(request('rowsPerPage', 10))
             ->withQueryString()
-            ->through(function ($user) {
-                return [
-                    'id' => $user->id,
-                    'name' => $user->name,
-                    'email' => $user->email,
-                    'created_at' => $user->created_at->format('d/m/Y H:i').'h',
-                ];
-            });
+            ->through(fn($user) => [
+                'id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,
+                'created_at' => $user->created_at->format('d/m/Y H:i').'h',
+            ]);
 
         return inertia('User/UserIndex', [
             'users' => $users,

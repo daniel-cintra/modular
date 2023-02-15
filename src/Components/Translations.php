@@ -28,9 +28,7 @@ class Translations extends Component
         $locale = app()->getLocale();
 
         if (app()->environment('production')) {
-            $translations = cache()->rememberForever("translations_$locale", function () use ($locale) {
-                return $this->getTranslations($locale);
-            });
+            $translations = cache()->rememberForever("translations_$locale", fn() => $this->getTranslations($locale));
         } else {
             $translations = $this->getTranslations($locale);
         }
@@ -57,17 +55,13 @@ class Translations extends Component
         }
 
         return collect(File::allFiles($directory))
-            ->filter(function ($file) {
-                return $file->getExtension() === 'php';
-            })->flatMap(function ($file) {
-                return Arr::dot(File::getRequire($file->getRealPath()));
-            })->toArray();
+            ->filter(fn($file) => $file->getExtension() === 'php')->flatMap(fn($file) => Arr::dot(File::getRequire($file->getRealPath())))->toArray();
     }
 
     private function getJsonTranslations(string $filePath): array
     {
         if (File::exists($filePath)) {
-            return json_decode(File::get($filePath), true);
+            return json_decode(File::get($filePath), true, 512, JSON_THROW_ON_ERROR);
         } else {
             return [];
         }
