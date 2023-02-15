@@ -18,7 +18,7 @@ class PermissionController extends BackendController
             ->orderBy('name')
             ->paginate(request('rowsPerPage', 10))
             ->withQueryString()
-            ->through(fn($permission) => [
+            ->through(fn ($permission) => [
                 'id' => $permission->id,
                 'name' => $permission->name,
                 'guard' => $permission->guard,

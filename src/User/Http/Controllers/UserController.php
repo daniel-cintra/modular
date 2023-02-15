@@ -14,7 +14,7 @@ class UserController extends BackendController
             ->search(request('searchContext'), request('searchTerm'))
             ->paginate(request('rowsPerPage', 10))
             ->withQueryString()
-            ->through(fn($user) => [
+            ->through(fn ($user) => [
                 'id' => $user->id,
                 'name' => $user->name,
                 'email' => $user->email,

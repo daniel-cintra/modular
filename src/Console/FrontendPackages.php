@@ -16,7 +16,7 @@ trait FrontendPackages
     {
         $this->components->info('Installing npm packages...');
 
-        static::updateNodePackages(fn($packages) => [
+        static::updateNodePackages(fn ($packages) => [
 
             '@inertiajs/vue3' => '^1.0.0',
 
