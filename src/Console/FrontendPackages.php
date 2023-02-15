@@ -21,11 +21,11 @@ trait FrontendPackages
 
                 '@inertiajs/vue3' => '^1.0.0',
 
-                '@tailwindcss/forms' => '^0.5.2',
+                '@tailwindcss/forms' => '^0.5.3',
                 '@vitejs/plugin-vue' => '^4.0.0',
                 '@vueuse/core' => '^9.1.1',
 
-                'autoprefixer' => '^10.4.2',
+                'autoprefixer' => '^10.4.12',
                 'axios' => '^1.2.3',
                 'eslint' => '^8.23.0',
                 'eslint-config-prettier' => '^8.5.0',
@@ -33,7 +33,7 @@ trait FrontendPackages
                 'laravel-vite-plugin' => '^0.7.3',
                 'lodash' => '^4.17.19',
 
-                'postcss' => '^8.4.6',
+                'postcss' => '^8.4.18',
                 'postcss-import' => '^15.0.0',
                 'prettier' => '^2.7.1',
                 'prettier-plugin-tailwindcss' => '^0.2.1',
@@ -52,7 +52,7 @@ trait FrontendPackages
                 '@tiptap/extension-table-cell' => '^2.0.0-beta.204',
 
                 'remixicon' => '^2.5.0',
-                'tailwindcss' => '^3.1.0',
+                'tailwindcss' => '^3.2.1',
                 'unplugin-vue-components' => '^0.22.7',
                 'vite' => '^4.0.4',
                 'vue' => '^3.2.45',

@@ -3,16 +3,13 @@
 use Modular\Modular\User\Models\User;
 
 it('can render the dashboard page', function () {
-    // $user = User::factory()->create();
+    $this->withoutVite();
+    $user = User::factory()->create();
 
-    // $response = $this->actingAs($user)->get(route('dashboard.index'), ['X-Inertia' => 'true']);
+    $response = $this->actingAs($user)->get(route('dashboard.index'));
 
-    // dd($response);
-
-    // $page = $response->getData();
-
-    // $this->assertSame($page->component, 'Dashboard/DashboardIndex');
-    // $this->assertSame($page->url, '/dashboard');
-    // $this->assertSame($page->props->auth->user->name, $user->name);
-    // $this->assertSame($page->props->auth->user->email, $user->email);
+    $response->assertViewHas('page.component', 'Dashboard/DashboardIndex');
+    $response->assertViewHas('page.url', '/dashboard');
+    $response->assertViewHas('page.props.auth.user.name', $user->name);
+    $response->assertViewHas('page.props.auth.user.email', $user->email);
 });
