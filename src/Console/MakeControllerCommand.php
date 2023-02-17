@@ -12,7 +12,7 @@ class MakeControllerCommand extends Command
 
     protected $signature = 'modular:make-controller {moduleName} {resourceName}';
 
-    protected $description = 'Create a new controller for a Module.';
+    protected $description = 'Create a new controller class for a Module';
 
     protected string $moduleName;
 

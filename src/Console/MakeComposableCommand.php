@@ -13,7 +13,7 @@ class MakeComposableCommand extends Command
 
     protected $signature = 'modular:make-composable {moduleName} {composableName}';
 
-    protected $description = 'Create a Vue Composable for the Module.';
+    protected $description = 'Create a Vue Composable for the Module';
 
     protected string $moduleName;
 

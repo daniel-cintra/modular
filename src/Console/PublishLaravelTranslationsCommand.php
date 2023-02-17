@@ -9,7 +9,7 @@ class PublishLaravelTranslationsCommand extends Command
 {
     protected $signature = 'modular:publish-laravel-translations {--lang=}';
 
-    protected $description = 'Publishes Laravel native\' translation file for the given language';
+    protected $description = 'Publishes Laravel native\'s translation file for the given language';
 
     protected string $lang;
 

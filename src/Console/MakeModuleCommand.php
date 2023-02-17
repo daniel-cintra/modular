@@ -10,7 +10,7 @@ class MakeModuleCommand extends Command
 {
     protected $signature = 'modular:make-module {name}';
 
-    protected $description = 'Create a new module.';
+    protected $description = 'Create a new Module';
 
     protected string $moduleName;
 

@@ -12,7 +12,7 @@ class MakeRouteCommand extends Command
 
     protected $signature = 'modular:make-route {moduleName} {resourceName}';
 
-    protected $description = 'Create a new route for a Module.';
+    protected $description = 'Create a new route file for a Module';
 
     protected string $moduleName;
 

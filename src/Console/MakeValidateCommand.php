@@ -12,7 +12,7 @@ class MakeValidateCommand extends Command
 
     protected $signature = 'modular:make-validate {moduleName} {resourceName}';
 
-    protected $description = 'Create a new HTTP Request Validate file for a Module.';
+    protected $description = 'Create a new HTTP Request Validate file for a Module';
 
     protected string $moduleName;
 

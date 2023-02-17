@@ -13,7 +13,7 @@ class MakePageCommand extends Command
 
     protected $signature = 'modular:make-page {moduleName} {resourceName}';
 
-    protected $description = 'Create the fronted page structure for CRUD operations of a Module.';
+    protected $description = 'Create the fronted page structure for CRUD operations of a Module';
 
     protected string $moduleName;
 

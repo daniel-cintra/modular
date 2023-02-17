@@ -13,7 +13,7 @@ class MakeServiceCommand extends Command
 
     protected $signature = 'modular:make-service {moduleName} {serviceName}';
 
-    protected $description = 'Create a new service class for a Module.';
+    protected $description = 'Create a new service class for a Module';
 
     protected string $moduleName;
 

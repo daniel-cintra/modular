@@ -12,7 +12,7 @@ class MakeModelCommand extends Command
 
     protected $signature = 'modular:make-model {moduleName} {resourceName}';
 
-    protected $description = 'Create a new model for a Module.';
+    protected $description = 'Create a new model class for a Module';
 
     protected string $moduleName;
 

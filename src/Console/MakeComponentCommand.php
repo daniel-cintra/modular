@@ -13,7 +13,7 @@ class MakeComponentCommand extends Command
 
     protected $signature = 'modular:make-component {moduleName} {componentName}';
 
-    protected $description = 'Create a Vue Component for the Module.';
+    protected $description = 'Create a Vue Component for the Module';
 
     protected string $moduleName;
 
