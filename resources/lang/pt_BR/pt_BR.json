@@ -10,6 +10,7 @@
     "Message": "Mensagem",
 
     "__Modular/AdminAuth/LoginForm__": "Login Page",
+    "Session expired, please login again.": "Sessão expirada, por favor faça login novamente.",
     "Sign in to your account": "Acesse sua conta",
     "Your Email": "Seu e-mail",
     "Password": "Senha",

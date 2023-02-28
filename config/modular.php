@@ -1,6 +1,5 @@
 <?php
 
-// config for Modular/Modular
 return [
-
+    'login-url' => '/',
 ];

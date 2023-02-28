@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [
+Route::get(config('modular.login-url'), [
     'uses' => 'AuthenticatedSessionController@loginForm',
 ])->name('adminAuth.loginForm');
 
