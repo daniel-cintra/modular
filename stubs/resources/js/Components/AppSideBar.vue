@@ -29,9 +29,14 @@ const props = defineProps({
     }
 })
 
-const sideBarVisible = computed(() => {
-    return props.isSideBarOpen
+//necessary to clear console warning about computed read only
+const sideBarVisible = computed({
+    get() {
+        return props.isSideBarOpen
+    },
+    set(newValue) {}
 })
+
 const showModal = ref(false)
 
 const items = menu.items
