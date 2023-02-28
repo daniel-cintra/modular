@@ -176,6 +176,7 @@ return [
 
     'attributes' => [
         'password' => 'senha',
+        'name' => 'nome',
     ],
 
 ];

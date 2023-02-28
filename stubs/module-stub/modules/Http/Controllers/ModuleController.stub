@@ -2,7 +2,7 @@
 
 namespace Modules\{{ ModuleName }}\Http\Controllers;
 
-use Modules\Support\Http\Controllers\BackendController;
+use Modular\Modular\Http\Controllers\BackendController;
 use Modules\{{ ModuleName }}\Http\Requests\{{ ResourceName }}Validate;
 use Modules\{{ ModuleName }}\Models\{{ ResourceName }};
 use Illuminate\Http\RedirectResponse;
