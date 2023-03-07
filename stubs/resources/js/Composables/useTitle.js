@@ -8,8 +8,9 @@ export default function useTitle(sectionName) {
     const { isCreate } = useFormContext()
 
     const title = computed(() => {
-        const prefix = isCreate.value ? 'Create' : 'Edit'
-        return translate(`${prefix} ${sectionName}`)
+        let prefix = isCreate.value ? 'Create' : 'Edit'
+        prefix = translate(prefix)
+        return prefix + ' ' + translate(sectionName)
     })
 
     return { title }

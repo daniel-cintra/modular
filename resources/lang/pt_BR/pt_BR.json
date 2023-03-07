@@ -8,6 +8,8 @@
     "Save": "Salvar",
     "Clear Search": "Limpar Busca",
     "Message": "Mensagem",
+    "Create": "Criar",
+    "Edit": "Editar",
 
     "__Modular/AdminAuth/LoginForm__": "Login Page",
     "Session expired, please login again.": "Sessão expirada, por favor faça login novamente.",
