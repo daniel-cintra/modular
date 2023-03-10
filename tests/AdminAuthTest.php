@@ -24,5 +24,5 @@ it('can login user', function () {
     $this->post(route('adminAuth.login'), [
         'email' => $user->email,
         'password' => 'password',
-    ])->assertRedirect(route('dashboard.index'));
+    ])->assertRedirectToRoute(config('modular.default-logged-route'));
 });

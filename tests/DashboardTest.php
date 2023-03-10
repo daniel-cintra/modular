@@ -7,7 +7,8 @@ it('can render the dashboard page', function () {
     $this->withoutVite();
     $user = User::factory()->create();
 
-    $response = $this->actingAs($user)->get(route(config('modular.default-logged-route')));
+    $dashboardUrl = route(config('modular.default-logged-route'));
+    $response = $this->actingAs($user)->get($dashboardUrl);
 
     $page = $response->viewData('page');
     $propUser = $page['props']['auth']['user'];
