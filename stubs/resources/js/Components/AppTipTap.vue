@@ -113,7 +113,7 @@
             />
 
             <FileUpload
-                id="image-uploader"
+                :id="uploaderId"
                 mode="basic"
                 name="image"
                 :url="imageUploadPath"
@@ -151,6 +151,14 @@
                 title="Refazer"
                 icon="ri-arrow-go-forward-line"
                 @click.prevent="editor.commands.redo()"
+            />
+
+            <TipTapDivider />
+
+            <TipTapButton
+                title="Code"
+                icon="ri-code-box-line"
+                @click.prevent="changeEditorMode"
             />
         </div>
 
@@ -283,9 +291,18 @@
             />
         </div>
         <editor-content
+            v-show="!codeMode"
             :editor="editor"
             class="relative m-0 max-h-[240px] min-h-[120px] overflow-auto break-words border border-solid border-skin-base-300 bg-no-repeat py-1 px-1 font-sans text-xs leading-5 tracking-normal text-skin-base-content"
         />
+
+        <textarea
+            v-show="codeMode"
+            v-model="htmlContent"
+            class="min-h-[240px] w-full border-skin-base-300"
+            @input="syncEditor"
+        >
+        </textarea>
     </div>
 </template>
 
@@ -318,6 +335,28 @@ const props = defineProps({
         default: ''
     }
 })
+
+const codeMode = ref(false)
+const htmlContent = ref('')
+
+const syncEditor = () => {
+    emit('update:modelValue', htmlContent.value)
+}
+
+const changeEditorMode = () => {
+    codeMode.value = !codeMode.value
+
+    if (codeMode.value) {
+        htmlContent.value = editor.value.getHTML()
+    } else {
+        editor.value.commands.setContent(htmlContent.value)
+        emit('update:modelValue', htmlContent.value)
+    }
+}
+
+const uploaderId = ref('')
+uploaderId.value =
+    Date.now().toString(36) + Math.random().toString(36).substring(2, 5)
 
 const emit = defineEmits(['update:modelValue'])
 
@@ -394,7 +433,7 @@ const addVideo = () => {
 }
 
 const addImage = () => {
-    document.querySelector('#image-uploader input[type="file"]').click()
+    document.querySelector(`#${uploaderId.value} input[type="file"]`).click()
 }
 
 const beforeUpload = (request) => {

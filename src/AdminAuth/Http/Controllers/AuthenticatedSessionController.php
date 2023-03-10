@@ -32,7 +32,7 @@ class AuthenticatedSessionController extends AppController
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard.index'));
+        return redirect()->intended(config('modular.default-logged-route'));
     }
 
     /**
