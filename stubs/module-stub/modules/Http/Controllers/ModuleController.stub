@@ -63,7 +63,7 @@ class {{ ResourceName }}Controller extends BackendController
     {
         {{ ResourceName }}::findOrFail($id)->delete();
 
-        return redirect()->route('user.index')
+        return redirect()->route('{{ resourceName }}.index')
             ->with('success', '{{ ResourceName }} deleted.');
     }
 }
