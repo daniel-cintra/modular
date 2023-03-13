@@ -14,7 +14,7 @@
         :paginator="true"
         :rows="{{ resourceName }}s.per_page"
         :lazy="true"
-        :total-records="{{ resourceName }}.total"
+        :total-records="{{ resourceName }}s.total"
         :first="{{ resourceName }}s.from"
         striped-rows
         class="mx-8 shadow"

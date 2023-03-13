@@ -18,12 +18,12 @@ class {{ ResourceName }}Controller extends BackendController
             ->withQueryString()
             ->through(fn (${{ resourceName }}) => [
                     'id' => ${{ resourceName }}->id,
-                    // 'name' => ${{ ModuleName }}->name,
+                    // 'name' => ${{ resourceName }}->name,
                     'created_at' => ${{ resourceName }}->created_at->format('d/m/Y H:i') . 'h'
             ]);
 
         return inertia('{{ ModuleName }}/{{ ResourceName }}Index', [
-            '${{ resourceName }}s' => ${{ resourceName }}s
+            '{{ resourceName }}s' => ${{ resourceName }}s
         ]);
     }
 
@@ -45,7 +45,7 @@ class {{ ResourceName }}Controller extends BackendController
         ${{ resourceName }} = {{ ResourceName }}::find($id);
 
         return inertia('{{ ModuleName }}/{{ ResourceName }}Form', [
-            'resourceName' => ${{ resourceName }}
+            '{{ resourceName }}' => ${{ resourceName }}
         ]);
     }
 

@@ -25,7 +25,7 @@
 </template>
 
 <script setup>
-import { Inertia } from '@inertiajs/inertia'
+import { useForm } from '@inertiajs/vue3'
 
 import useTitle from '@/Composables/useTitle'
 import useFormContext from '@/Composables/useFormContext'
@@ -46,7 +46,7 @@ const breadCrumb = [
 
 const { title } = useTitle('{{ ResourceName }}')
 
-const form = Inertia.form({
+const form = useForm({
   // name: props.{{ resourceName }} ? props.{{ resourceName }}.name : '',
 })
 
