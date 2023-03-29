@@ -22,19 +22,19 @@
         @page="pageChange($event)"
     >
         <template #header>
-            <div class="flex justify-between">
+            <div class="flex justify-end">
                 <Button
-                    type="button"
-                    icon="pi pi-filter-slash"
-                    label="Clear"
-                    class="p-button-sm"
+                    v-if="searchTerm"
+                    label="Clear Search"
+                    class="p-button-link p-button-sm mr-2"
                     @click="clearSearch"
                 />
                 <span class="p-input-icon-left">
                     <i class="pi pi-search" />
                     <InputText
                         v-model="searchTerm"
-                        placeholder="Keyword Search"
+                        placeholder="Search"
+                        class="font-normal"
                     />
                 </span>
             </div>
