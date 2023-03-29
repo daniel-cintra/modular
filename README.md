@@ -1,4 +1,7 @@
-<p align="center" style="margin: 24px;"><a href="https://docs.ismodular.com" target="_blank"><img src="art/modular-logo.svg" width="240"></a></p>
+<p align="center" style="margin: 24px;">
+    <a href="https://docs.ismodular.com" target="_blank">
+    <img src="art/modular-logo.svg" width="240" style="margin: 20px;"></a>
+</p>
 
 ## About Modular
 
