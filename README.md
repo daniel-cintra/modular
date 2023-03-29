@@ -1,8 +1,9 @@
-<p align="center"><a href="https://docs.ismodular.com" target="_blank"><img src="art/modular-logo.svg" width="240"></a></p>
+<p align="center" style="margin: 24px;"><a href="https://docs.ismodular.com" target="_blank"><img src="art/modular-logo.svg" width="240"></a></p>
 
 ## About Modular
 
-Modular is a collectin of practices and tools to build web applications in a modular, reusable and structured way.
+Modular is a collection of practices and tools to build web applications in a modular, reusable and structured way.
+
 This project has a focus on developer experience, and provides an alternative to connect different parts of your applications using a simple and intuitive way.
 
 In simple words, after installing Modular the Modular Composer package, you will get out of the box:
