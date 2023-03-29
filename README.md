@@ -1,6 +1,6 @@
 <p align="center" style="margin: 24px;">
     <a href="https://docs.ismodular.com" target="_blank">
-    <img src="art/modular-logo.svg" width="240" height="360"></a>
+    <img src="art/modular-logo.svg" width="240" height="240"></a>
 </p>
 
 ## About Modular
