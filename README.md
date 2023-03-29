@@ -1,7 +1,10 @@
-<p align="center" style="margin: 24px;">
-    <a href="https://docs.ismodular.com" target="_blank">
-    <img src="art/modular-logo.svg" width="240" style="margin: 20px;"></a>
-</p>
+<table align="center" cellspacing="0" cellpadding="36">
+  <tr>
+    <td>
+      <a href="https://docs.ismodular.com" target="_blank"><img src="art/modular-logo.svg" width="240"></a>
+    </td>
+  </tr>
+</table>
 
 ## About Modular
 
