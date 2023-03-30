@@ -1,13 +1,12 @@
 {
-    "name": "bemodular/modular",
+    "name": "modular/modular",
     "description": "A fast way to develop web apps using Laravel, Vue and Inertia.",
     "keywords": [
         "modular",
         "laravel",
-        "vuejs",
-        "inertiajs"
+        "modular"
     ],
-    "homepage": "https://github.com/daniel-cintra/modular",
+    "homepage": "https://github.com/modular/modular",
     "license": "MIT",
     "authors": [
         {
@@ -37,13 +36,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Bemodular\\Modular\\": "src",
-            "Bemodular\\Modular\\Database\\Factories\\": "database/factories"
+            "Modular\\Modular\\": "src",
+            "Modular\\Modular\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Bemodular\\Modular\\Tests\\": "tests"
+            "Modular\\Modular\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -62,15 +61,15 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Bemodular\\Modular\\ModularServiceProvider",
-                "Bemodular\\Modular\\SupportServiceProvider",
-                "Bemodular\\Modular\\AdminAuth\\AdminAuthServiceProvider",
-                "Bemodular\\Modular\\User\\UserServiceProvider",
-                "Bemodular\\Modular\\Dashboard\\DashboardServiceProvider",
-                "Bemodular\\Modular\\Acl\\AclServiceProvider"
+                "Modular\\Modular\\ModularServiceProvider",
+                "Modular\\Modular\\SupportServiceProvider",
+                "Modular\\Modular\\AdminAuth\\AdminAuthServiceProvider",
+                "Modular\\Modular\\User\\UserServiceProvider",
+                "Modular\\Modular\\Dashboard\\DashboardServiceProvider",
+                "Modular\\Modular\\Acl\\AclServiceProvider"
             ],
             "aliases": {
-                "Bemodular": "Modular\\Modular\\Facades\\Modular"
+                "Modular": "Modular\\Modular\\Facades\\Modular"
             }
         }
     },
