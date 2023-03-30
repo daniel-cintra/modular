@@ -29,6 +29,10 @@ Modular is built on top of the following frameworks and tools:
 -   [Tailwind CSS 3](https://tailwindcss.com/) (For styling)
 -   [PrimeVue](https://primefaces.org/primevue/) (For UI general Vue 3 components library)
 
+## Documentation
+
+You can find the Modular documentation at [https://docs.ismodular.com](https://docs.ismodular.com).
+
 ## License
 
 The Modular Project is open-sourced software licensed under the [MIT license](LICENSE.md).
