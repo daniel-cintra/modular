@@ -37,13 +37,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Modular\\Modular\\": "src",
-            "Modular\\Modular\\Database\\Factories\\": "database/factories"
+            "Bemodular\\Modular\\": "src",
+            "Bemodular\\Modular\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Modular\\Modular\\Tests\\": "tests"
+            "Bemodular\\Modular\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -62,15 +62,15 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Modular\\Modular\\ModularServiceProvider",
-                "Modular\\Modular\\SupportServiceProvider",
-                "Modular\\Modular\\AdminAuth\\AdminAuthServiceProvider",
-                "Modular\\Modular\\User\\UserServiceProvider",
-                "Modular\\Modular\\Dashboard\\DashboardServiceProvider",
-                "Modular\\Modular\\Acl\\AclServiceProvider"
+                "Bemodular\\Modular\\ModularServiceProvider",
+                "Bemodular\\Modular\\SupportServiceProvider",
+                "Bemodular\\Modular\\AdminAuth\\AdminAuthServiceProvider",
+                "Bemodular\\Modular\\User\\UserServiceProvider",
+                "Bemodular\\Modular\\Dashboard\\DashboardServiceProvider",
+                "Bemodular\\Modular\\Acl\\AclServiceProvider"
             ],
             "aliases": {
-                "Modular": "Modular\\Modular\\Facades\\Modular"
+                "Bemodular": "Modular\\Modular\\Facades\\Modular"
             }
         }
     },
