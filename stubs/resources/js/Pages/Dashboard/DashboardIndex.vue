@@ -1,5 +1,5 @@
 <template>
-  <div class="m-6">
-    <h1 class="text-skin-primary">Teste de Temas Meu!!!</h1>
-  </div>
+    <div class="mt-6">
+        <h1>Welcome to your Modular Project!</h1>
+    </div>
 </template>
