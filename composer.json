@@ -4,9 +4,10 @@
     "keywords": [
         "modular",
         "laravel",
-        "modular"
+        "vuejs",
+        "inertiajs"
     ],
-    "homepage": "https://github.com/modular/modular",
+    "homepage": "https://github.com/daniel-cintra/modular",
     "license": "MIT",
     "authors": [
         {
