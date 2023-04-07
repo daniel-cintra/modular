@@ -47,7 +47,7 @@ import { useForm } from '@inertiajs/vue3'
 import useFormErrors from '@/Composables/useFormErrors'
 
 const form = useForm({
-    email: 'king.theresia@example.com'
+    email: ''
 })
 
 function submitForm() {
