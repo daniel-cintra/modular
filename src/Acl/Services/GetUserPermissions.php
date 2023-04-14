@@ -13,8 +13,6 @@ class GetUserPermissions
             $query->get(['id', 'name']);
         }])->findOrFail($userId);
 
-        // ray($user->permissions);
-
         //if has direct permissions use it
         if ($user->permissions->count()) {
             return $this->mapPermissions($user->permissions);

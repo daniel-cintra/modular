@@ -1,7 +1,7 @@
 <template>
     <li class="block">
         <Link
-            v-if="menuItem.label && menuItem.link"
+            v-if="menuItem.label && menuItem.link && can(menuItem.permission)"
             :href="menuItem.link"
             class="flex px-2 py-2 text-skin-base-content transition duration-300 ease-in hover:bg-skin-base-300"
         >
@@ -10,7 +10,7 @@
         </Link>
 
         <span
-            v-if="menuItem.label && !menuItem.link"
+            v-if="menuItem.label && !menuItem.link && can(menuItem.permission)"
             class="mt-3 block px-2 py-2 text-xs uppercase"
         >
             {{ __(menuItem.label) }}
@@ -21,10 +21,14 @@
 </template>
 
 <script setup>
+import useAuthCan from '@/Composables/useAuthCan'
+
 const props = defineProps({
     menuItem: {
         type: Object,
         default: () => {}
     }
 })
+
+const { can } = useAuthCan()
 </script>

@@ -7,8 +7,10 @@ it('blocks unauthenticated access to dashboard page', function () {
 });
 
 it('allows authenticated access', function () {
+    $user = User::factory()->create();
+
     $this->withoutVite();
-    $this->actingAs(User::factory()->create())->get(route('dashboard.index'))->assertOk();
+    $this->actingAs($user)->get(route('dashboard.index'))->assertOk();
 });
 
 it('can render login page', function () {
