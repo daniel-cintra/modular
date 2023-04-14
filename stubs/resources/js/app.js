@@ -1,12 +1,5 @@
-import './bootstrap'
 import '../css/app.css'
 import 'remixicon/fonts/remixicon.css'
-
-//ui
-// import 'primevue/resources/themes/tailwind-light/theme.css';
-// import 'primevue/resources/themes/fluent-light/theme.css';
-// import 'primevue/resources/primevue.min.css';
-// import 'primeicons/primeicons.css';
 
 import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
@@ -20,7 +13,6 @@ const appName =
 import PrimeVue from 'primevue/config'
 
 // global components
-// import { Inertia } from "@inertiajs/inertia";
 import { Link } from '@inertiajs/vue3'
 import Layout from './Layouts/AuthenticatedLayout.vue'
 
