@@ -1,3 +1,9 @@
+/* fix primevue sgv icon update */
+.p-input-icon-right > svg:last-of-type,
+.p-input-icon-right > i:last-of-type {
+    right: 0.75rem;
+}
+
 /* toast */
 .p-toast {
     z-index: 10;
