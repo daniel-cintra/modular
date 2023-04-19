@@ -61,6 +61,6 @@ class NewPasswordController extends AppController
         return $status == Password::broker('usersModule')::PASSWORD_RESET
             ? redirect()->route('adminAuth.loginForm')->with('success', 'Password updated')
             : back()->withInput($request->only('email'))
-            ->withErrors(['email' => __($status)]);
+                ->withErrors(['email' => __($status)]);
     }
 }

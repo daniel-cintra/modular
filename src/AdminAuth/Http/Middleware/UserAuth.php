@@ -18,7 +18,7 @@ class UserAuth
     {
         if (Auth::guard('user')->guest()) {
             return redirect()->route('adminAuth.loginForm')
-            ->withErrors(['email' => 'Session expired, please login again.']);
+                ->withErrors(['email' => 'Session expired, please login again.']);
         }
 
         return $next($request);

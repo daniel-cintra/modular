@@ -52,7 +52,7 @@ class MakeRouteCommand extends Command
             file_put_contents($path, $stub);
         } else {
             $stub = str_replace('<?php', '', $stub);
-            $stub = str_replace('use Illuminate\Support\Facades\Route;', '// ' . Str::camel($this->resourceName) . ' routes', $stub);
+            $stub = str_replace('use Illuminate\Support\Facades\Route;', '// '.Str::camel($this->resourceName).' routes', $stub);
 
             file_put_contents($path, $stub, FILE_APPEND);
         }

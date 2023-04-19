@@ -12,7 +12,7 @@ trait UpdateOrder
         foreach ($items as $index => $item) {
             if (is_array($item)) {
                 $this->where('id', $item['id'])
-                ->update(['order' => $index]);
+                    ->update(['order' => $index]);
             }
         }
     }
