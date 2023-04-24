@@ -32,6 +32,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'profile_type',
+        'profile_id',
     ];
 
     /**
@@ -61,5 +63,10 @@ class User extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPassword($token));
+    }
+
+    public function profile()
+    {
+        return $this->morphTo();
     }
 }

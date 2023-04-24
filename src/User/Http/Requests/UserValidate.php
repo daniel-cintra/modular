@@ -18,9 +18,8 @@ class UserValidate extends Request
             'name' => 'required',
             'email' => 'required|email',
             'password' => $this->passwordRules(),
-            // 'profile_type' => '',
-            // 'profile_id' => ''
-
+            'profile_type' => 'string',
+            'profile_id' => 'integer|numeric',
         ];
     }
 

@@ -33,7 +33,7 @@ class UserController extends BackendController
 
     public function store(UserValidate $request)
     {
-        $user = User::create($request->validated());
+        User::create($request->validated());
 
         return redirect()->route('user.index')
             ->with('success', 'User created');
