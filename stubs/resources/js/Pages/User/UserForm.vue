@@ -2,7 +2,7 @@
     <AppSectionHeader :title="__('Users')" :bread-crumb="breadCrumb">
     </AppSectionHeader>
 
-    <Card class="mx-8">
+    <Card class="mx-8 bg-skin-base-100">
         <template #title> {{ title }} </template>
         <template #content>
             <AppFormErrors class="mb-4" />
@@ -48,7 +48,6 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
 import { useForm } from '@inertiajs/vue3'
 
 import useTitle from '@/Composables/useTitle'
@@ -59,20 +58,6 @@ const props = defineProps({
     user: {
         type: Object,
         default: null
-    }
-})
-
-onMounted(() => {
-    if (
-        isCreate.value &&
-        route().params.profile_type &&
-        route().params.profile_id
-    ) {
-        form.transform((data) => ({
-            ...data,
-            profile_type: route().params.profile_type,
-            profile_id: route().params.profile_id
-        }))
     }
 })
 

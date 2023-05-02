@@ -1,7 +1,5 @@
 <template>
-    <span v-if="!item.href" class="text-skin-base-300">{{
-        __(item.label)
-    }}</span>
+    <span v-if="!item.href" class="opacity-50">{{ __(item.label) }}</span>
 
     <Link v-if="item.href" :href="item.href">{{ __(item.label) }}</Link>
 

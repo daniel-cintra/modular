@@ -30,7 +30,7 @@
                     @click="clearSearch"
                 />
                 <span class="p-input-icon-left">
-                    <i class="pi pi-search" />
+                    <i class="ri-search-2-line top-5"></i>
                     <InputText
                         v-model="searchTerm"
                         :placeholder="__('Search')"

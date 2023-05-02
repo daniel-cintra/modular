@@ -1,9 +1,4 @@
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
-
-@import 'primevue/resources/primevue.css';
-@import 'primeicons/primeicons.css';
+@import 'primevue/resources/primevue.min.css';
 
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
@@ -12,7 +7,6 @@
 @import './components.css';
 
 @layer base {
-    /* based on theme emerald */
     :root {
         --color-primary: 91 197 127; /* #5bc57f */
         --color-primary-focus: 61 171 98; /* #3DAB62 */
@@ -52,6 +46,47 @@
         --color-error: 247 103 103; /* #f76767 */
         --color-error-focus: 244 50 50; /* #F43232 */
         --color-error-content: 13 1 1; /* #0D0101 */
+    }
+
+    .dark-theme {
+        --color-primary: 177 157 247; /* #b19df7 */
+        --color-primary-focus: 162 138 245; /* #a28af5 */
+        --color-primary-content: 33 37 41; /* #212529 */
+
+        --color-secondary: 134 224 231; /* #86e0e7 */
+        --color-secondary-focus: 104 216 225; /* #68d8e1 */
+        --color-secondary-content: 29 30 39; /* #1d1e27 */
+
+        --color-accent: 255 207 145; /* #ffcf91 */
+        --color-accent-focus: 255 190 105; /* #ffbe69 */
+        --color-accent-content: 29 30 39; /* #1d1e27 */
+
+        --color-neutral: 219 210 252; /* #dbd2fc */
+        --color-neutral-focus: 196 181 250; /* #C4B5FA */
+        --color-neutral-content: 30 33 37; /* #1e2125 */
+
+        --color-base: 27 28 35; /* #1b1c23 */
+        --color-base-100: 36 37 47; /* #24252f */
+        --color-base-200: 54 56 73; /* #363849 */
+        --color-base-300: 71 74 96; /* #474A60 */
+
+        --color-base-content: 230 230 230; /* #e6e6e6 */
+
+        --color-info: 155 202 255; /* #9bcaff */
+        --color-info-focus: 124 186 255; /* #7CBAFF */
+        --color-info-content: 29 30 39; /* #1d1e27 */
+
+        --color-success: 147 222 172; /* #93deac */
+        --color-success-focus: 124 215 154; /* #7CD79A */
+        --color-success-content: 29 30 39; /* #1d1e27 */
+
+        --color-warning: 255 207 145; /* #ffcf91 */
+        --color-warning-focus: 255 194 114; /* #FFC272 */
+        --color-warning-content: 29 30 39; /* #1d1e27 */
+
+        --color-error: 235 154 156; /* #eb9a9c */
+        --color-error-focus: 230 128 131; /* #E68083 */
+        --color-error-content: 29 30 39; /* #1d1e27 */
     }
 
     .theme-cupcake {

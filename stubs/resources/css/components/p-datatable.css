@@ -1,13 +1,18 @@
+.p-datatable {
+    background: theme(colors.skin.base.100);
+    border: 1px solid theme(colors.skin.base.200);
+}
+
 .p-datatable .p-paginator-top {
     border-width: 0 0 1px 0;
     border-radius: 0;
 }
 .p-datatable .p-paginator-bottom {
-    border-width: 0 0 1px 0;
+    border-width: 0 0 0 0;
     border-radius: 0;
 }
 .p-datatable .p-datatable-header {
-    background: theme(colors.skin.base.100);
+    /* background: theme(colors.skin.base.100); */
     color: theme(colors.skin.base.content);
     border: 1px solid theme(colors.skin.base.200);
     border-width: 1px 0 1px 0;
@@ -15,7 +20,7 @@
     font-weight: 700;
 }
 .p-datatable .p-datatable-footer {
-    background: theme(colors.skin.base.100);
+    background: theme(colors.skin.base.300);
     color: theme(colors.skin.base.content);
     border: 1px solid theme(colors.skin.base.100);
     border-width: 0 0 1px 0;
