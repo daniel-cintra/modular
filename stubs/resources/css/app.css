@@ -89,7 +89,7 @@
         --color-error-content: 29 30 39; /* #1d1e27 */
     }
 
-    .theme-cupcake {
+    .cupcake-theme {
         --color-primary: 90 187 193; /* #5abbc1 */
         --color-primary-focus: 62 159 165; /* #3E9FA5 */
         --color-primary-content: 255 255 255; /* #ffffff */
