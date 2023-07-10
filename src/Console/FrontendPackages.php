@@ -59,8 +59,8 @@ trait FrontendPackages
         ] + $packages);
 
         // Config files...
-        copy(__DIR__.'/../../stubs/stack-configs/postcss.config.js', base_path('postcss.config.js'));
-        copy(__DIR__.'/../../stubs/stack-configs/tailwind.config.js', base_path('tailwind.config.js'));
+        copy(__DIR__.'/../../stubs/stack-configs/postcss.config.cjs', base_path('postcss.config.cjs'));
+        copy(__DIR__.'/../../stubs/stack-configs/tailwind.config.cjs', base_path('tailwind.config.cjs'));
         copy(__DIR__.'/../../stubs/stack-configs/jsconfig.json', base_path('jsconfig.json'));
         copy(__DIR__.'/../../stubs/stack-configs/vite.config.js', base_path('vite.config.js'));
         copy(__DIR__.'/../../stubs/stack-configs/.eslintrc.js', base_path('.eslintrc.js'));
