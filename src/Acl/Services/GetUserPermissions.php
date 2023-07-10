@@ -16,7 +16,7 @@ class GetUserPermissions
         //if has direct permissions use it
         if ($user->permissions->count()) {
             return $this->mapPermissions($user->permissions);
-        //get the permissions via roles
+            //get the permissions via roles
         } else {
             return $this->mapPermissions($user->getAllPermissions());
         }
