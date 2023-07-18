@@ -65,7 +65,7 @@
 }
 
 .p-input-icon-left > i {
-    margin-top: -0.7rem;
+    margin-top: -0.7rem !important;
 }
 
 /* paginator */
