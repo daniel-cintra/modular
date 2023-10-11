@@ -7,7 +7,7 @@ use Symfony\Component\Process\PhpExecutableFinder;
 
 class InstallCommand extends Command
 {
-    use BackendPackages, FrontendPackages, CoreModules;
+    use BackendPackages, CoreModules, FrontendPackages;
 
     protected $signature = 'modular:install {--composer=global : Absolute path to the Composer binary which should be used to install packages}';
 

@@ -1,6 +1,7 @@
 <?php
 
 use Modular\Modular\User\Models\User;
+
 use function PHPUnit\Framework\assertEquals;
 
 it('can render the dashboard page', function () {
