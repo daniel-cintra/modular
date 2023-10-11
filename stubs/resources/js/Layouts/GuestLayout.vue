@@ -2,7 +2,7 @@
     <Head title="Modular"></Head>
     <main>
         <article>
-            <AppToast />
+            <AppFlashMessage />
             <slot></slot>
         </article>
     </main>

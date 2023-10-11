@@ -77,7 +77,7 @@ return [
 
         'usersModule' => [
             'driver' => 'eloquent',
-            'model' => Modular\Modular\User\Models\User::class,
+            'model' => Modules\User\Models\User::class,
         ],
     ],
 
@@ -106,7 +106,7 @@ return [
 
         'usersModule' => [
             'provider' => 'usersModule',
-            'table' => 'password_resets',
+            'table' => 'password_reset_tokens',
             'expire' => 60,
             'throttle' => 60,
         ],

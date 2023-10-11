@@ -2,49 +2,53 @@
     <AppSectionHeader :title="__('Users')" :bread-crumb="breadCrumb">
     </AppSectionHeader>
 
-    <Card class="mx-8 bg-skin-base-100">
+    <AppCard class="w-full md:w-3/4 xl:w-1/2">
         <template #title> {{ title }} </template>
         <template #content>
             <AppFormErrors class="mb-4" />
-            <form class="p-fluid w-2/4">
+            <form>
                 <div>
-                    <label for="name">{{ __('Name') }}</label>
-                    <InputText
+                    <AppLabel for="name">{{ __('Name') }}</AppLabel>
+                    <AppInputText
                         id="name"
                         v-model="form.name"
                         type="text"
-                        :class="{ 'p-invalid': errorsFields.includes('name') }"
+                        :class="{
+                            'input-error': errorsFields.includes('name')
+                        }"
                     />
                 </div>
 
                 <div class="mt-6">
-                    <label for="email">{{ __('Email') }}</label>
-                    <InputText
+                    <AppLabel for="email">{{ __('Email') }}</AppLabel>
+                    <AppInputText
                         id="email"
                         v-model="form.email"
                         type="text"
-                        :class="{ 'p-invalid': errorsFields.includes('email') }"
+                        :class="{
+                            'input-error': errorsFields.includes('email')
+                        }"
                     />
                 </div>
 
                 <div class="mt-6">
-                    <label for="email">{{ __('Password') }}</label>
-                    <Password
+                    <AppLabel for="email">{{ __('Password') }}</AppLabel>
+                    <AppInputPassword
                         id="password"
                         v-model="form.password"
-                        toggle-mask
-                        :feedback="true"
                         :class="{
-                            'p-invalid': errorsFields.includes('password')
+                            'input-error': errorsFields.includes('password')
                         }"
                     />
                 </div>
             </form>
         </template>
         <template #footer>
-            <Button :label="__('Save')" class="mt-1" @click="submitForm" />
+            <AppButton class="btn btn-primary" @click="submitForm">
+                {{ __('Save') }}
+            </AppButton>
         </template>
-    </Card>
+    </AppCard>
 </template>
 
 <script setup>
@@ -72,7 +76,7 @@ const { title } = useTitle('User')
 const form = useForm({
     name: props.user ? props.user.name : '',
     email: props.user ? props.user.email : '',
-    password: props.user ? props.user.password : ''
+    password: ''
 })
 
 const { isCreate } = useFormContext()

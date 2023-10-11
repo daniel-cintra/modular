@@ -1,78 +1,84 @@
 <template>
     <AppSectionHeader :title="__('Permissions')" :bread-crumb="breadCrumb">
         <template #right>
-            <Button
-                :label="__('Create Permission')"
+            <AppButton
+                class="btn btn-primary"
                 @click="$inertia.visit(route('aclPermission.create'))"
-            />
+            >
+                {{ __('Create Permission') }}
+            </AppButton>
         </template>
     </AppSectionHeader>
 
-    <DataTable
-        :value="permissions.data"
-        :paginator="true"
-        :rows="permissions.per_page"
-        :lazy="true"
-        :total-records="permissions.total"
-        :first="permissions.from"
-        striped-rows
-        class="mx-8 shadow"
-        :rows-per-page-options="[10, 25, 50]"
-        @page="pageChange($event)"
-    >
-        <template #header>
-            <div class="flex justify-end">
-                <Button
-                    v-if="searchTerm"
-                    :label="__('Clear Search')"
-                    class="p-button-link p-button-sm mr-2"
-                    @click="clearSearch"
-                />
-                <span class="p-input-icon-left">
-                    <i class="ri-search-2-line"></i>
-                    <InputText
-                        v-model="searchTerm"
-                        :placeholder="__('Search')"
-                        class="font-normal"
-                    />
-                </span>
-            </div>
+    <AppDataSearch
+        v-if="permissions.data.length || route().params.searchTerm"
+        :url="route('aclPermission.index')"
+        fields-to-search="name"
+    ></AppDataSearch>
+
+    <AppDataTable v-if="permissions.data.length" :headers="headers">
+        <template #TableBody>
+            <tbody>
+                <AppDataTableRow
+                    v-for="item in permissions.data"
+                    :key="item.id"
+                >
+                    <AppDataTableData>
+                        {{ item.id }}
+                    </AppDataTableData>
+
+                    <AppDataTableData>
+                        {{ item.name }}
+                    </AppDataTableData>
+
+                    <AppDataTableData>
+                        <!-- edit permission -->
+                        <AppTooltip :text="__('Edit Permission')" class="mr-3">
+                            <AppButton
+                                class="btn btn-icon btn-primary"
+                                @click="
+                                    $inertia.visit(
+                                        route('aclPermission.edit', item.id)
+                                    )
+                                "
+                            >
+                                <i class="ri-edit-line"></i>
+                            </AppButton>
+                        </AppTooltip>
+
+                        <!-- delete permission -->
+                        <AppTooltip :text="__('Delete Permission')">
+                            <AppButton
+                                class="btn btn-icon btn-destructive"
+                                @click="
+                                    confirmDelete(
+                                        route('aclPermission.destroy', item.id)
+                                    )
+                                "
+                            >
+                                <i class="ri-delete-bin-line"></i>
+                            </AppButton>
+                        </AppTooltip>
+                    </AppDataTableData>
+                </AppDataTableRow>
+            </tbody>
         </template>
-        <template #empty>{{ __('No permissions found') }}</template>
+    </AppDataTable>
 
-        <Column field="name" :header="__('Name')" />
+    <AppPaginator
+        :links="permissions.links"
+        class="mt-4 justify-center"
+    ></AppPaginator>
 
-        <Column :exportable="false" style="min-width: 8rem">
-            <template #body="slotProps">
-                <Button
-                    v-btn-icon
-                    v-tooltip.top="__('Edit Permission')"
-                    class="mr-2"
-                    @click="
-                        $inertia.visit(
-                            route('aclPermission.edit', slotProps.data.id)
-                        )
-                    "
-                >
-                    <i class="ri-edit-line text-xl"></i>
-                </Button>
-                <Button
-                    v-tooltip.top="__('Delete Permission')"
-                    v-btn-icon="'danger'"
-                    @click="
-                        confirmDelete('aclPermission.destroy', slotProps.data)
-                    "
-                >
-                    <i class="ri-delete-bin-line text-xl"></i>
-                </Button>
-            </template>
-        </Column>
-    </DataTable>
+    <AppAlert v-if="!permissions.data.length" class="mt-4">
+        {{ __('No permissions found.') }}
+    </AppAlert>
+
+    <AppConfirmDialog ref="confirmDialogRef"></AppConfirmDialog>
 </template>
 
 <script setup>
-import useDataSearch from '@/Composables/useDataSearch'
-import useConfirmDelete from '@/Composables/useConfirmDelete'
+import { ref } from 'vue'
 
 const props = defineProps({
     permissions: {
@@ -86,15 +92,10 @@ const breadCrumb = [
     { label: 'Permissions', last: true }
 ]
 
-const { searchTerm, fetchData, clearSearch } = useDataSearch(
-    route('aclPermission.index'),
-    'name'
-)
+const headers = ['ID', 'Name', 'Actions']
 
-const pageChange = (event) => {
-    const params = { page: ++event.page, rowsPerPage: event.rows }
-    fetchData(params)
+const confirmDialogRef = ref(null)
+const confirmDelete = (deleteRoute) => {
+    confirmDialogRef.value.openModal(deleteRoute)
 }
-
-const { confirmDelete } = useConfirmDelete()
 </script>

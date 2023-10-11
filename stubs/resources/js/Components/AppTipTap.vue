@@ -1,7 +1,7 @@
 <template>
     <div>
         <div
-            class="mx-0 mb-0 flex flex-none flex-wrap items-center break-words border-x border-t border-solid border-skin-base-300 bg-no-repeat p-2 font-sans text-xl leading-5 tracking-normal text-stone-500"
+            class="border-skin-base-300 mx-0 mb-0 flex flex-none flex-wrap items-center break-words border-x border-t border-solid bg-no-repeat p-2 font-sans text-xl leading-5 tracking-normal"
             :class="editorClass"
         >
             <TipTapButton
@@ -164,7 +164,7 @@
 
         <div
             v-show="showTableToolbar"
-            class="mx-0 mb-0 flex flex-none flex-wrap items-center break-words border-x border-t border-solid border-skin-base-300 border-t-skin-base-200 bg-no-repeat p-2 font-sans text-xl leading-5 tracking-normal text-stone-500"
+            class="mx-0 mb-0 flex flex-none flex-wrap items-center break-words border-x border-t border-solid border-skin-neutral-7 border-t-skin-neutral-7 bg-no-repeat p-2 font-sans text-xl leading-5 tracking-normal"
         >
             <TipTapButton
                 title="Inserir Tabela"
@@ -293,13 +293,13 @@
         <editor-content
             v-show="!codeMode"
             :editor="editor"
-            class="relative m-0 max-h-[240px] min-h-[120px] overflow-auto break-words border border-solid border-skin-base-300 bg-no-repeat py-1 px-1 font-sans text-xs leading-5 tracking-normal text-skin-base-content"
+            class="border-skin-base-300 text-skin-base-content relative m-0 max-h-[240px] min-h-[120px] overflow-auto break-words border border-solid bg-no-repeat px-1 py-1 font-sans text-xs leading-5 tracking-normal"
         />
 
         <textarea
             v-show="codeMode"
             v-model="htmlContent"
-            class="min-h-[240px] w-full border-skin-base-300"
+            class="border-skin-base-300 min-h-[240px] w-full"
             @input="syncEditor"
         >
         </textarea>

@@ -2,6 +2,7 @@
 
 namespace Modular\Modular\Console;
 
+use Illuminate\Filesystem\Filesystem;
 use RuntimeException;
 use Symfony\Component\Process\Process;
 
@@ -29,15 +30,13 @@ trait FrontendPackages
             'eslint' => '^8.23.0',
             'eslint-config-prettier' => '^8.5.0',
             'eslint-plugin-vue' => '^9.4.0',
-            'laravel-vite-plugin' => '^0.7.3',
+            'laravel-vite-plugin' => '^0.8.0',
             'lodash' => '^4.17.19',
 
             'postcss' => '^8.4.18',
             'postcss-import' => '^15.0.0',
             'prettier' => '^2.7.1',
             'prettier-plugin-tailwindcss' => '^0.2.1',
-            'primeicons' => '^6.0.1',
-            'primevue' => '^3.16.1',
 
             '@tiptap/vue-3' => '^2.0.0-beta.204',
             '@tiptap/starter-kit' => '^2.0.0-beta.204',
@@ -54,7 +53,7 @@ trait FrontendPackages
             'tailwindcss' => '^3.2.1',
             'unplugin-vue-components' => '^0.22.7',
             'vite' => '^4.0.4',
-            'vue' => '^3.2.45',
+            'vue' => '^3.3.4',
 
         ] + $packages);
 
@@ -63,8 +62,10 @@ trait FrontendPackages
         copy(__DIR__.'/../../stubs/stack-configs/tailwind.config.cjs', base_path('tailwind.config.cjs'));
         copy(__DIR__.'/../../stubs/stack-configs/jsconfig.json', base_path('jsconfig.json'));
         copy(__DIR__.'/../../stubs/stack-configs/vite.config.js', base_path('vite.config.js'));
-        copy(__DIR__.'/../../stubs/stack-configs/.eslintrc.js', base_path('.eslintrc.js'));
+        copy(__DIR__.'/../../stubs/stack-configs/.eslintrc.cjs', base_path('.eslintrc.cjs'));
         copy(__DIR__.'/../../stubs/stack-configs/.prettierrc.json', base_path('.prettierrc.json'));
+
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/stack-configs/.vscode', base_path('.vscode'));
 
         $this->runCommands(['npm install']);
 

@@ -1,26 +1,33 @@
 <template>
     <div
-        class="sticky top-0 z-10 flex h-16 flex-shrink-0 justify-between bg-skin-base-100 py-3 pl-3 pr-9 text-skin-base-content shadow"
+        class="sticky top-0 z-40 flex h-16 flex-shrink-0 justify-between bg-skin-neutral-2 py-3 pl-3 pr-9 text-skin-neutral-11 shadow-sm"
     >
         <div class="flex items-center">
-            <Button
-                class="p-button-text p-button-sm flex items-center focus:shadow-none"
-                @click="$emit('toggleSidebar')"
+            <AppButton
+                class="btn btn-icon hover:bg-skin-neutral-4"
+                @click="$emit('sidebar:toggle')"
             >
-                <i class="ri-menu-line text-skin-base-content"></i>
-            </Button>
+                <i class="ri-menu-line"></i>
+            </AppButton>
 
             <h1 class="flex items-center">{{ title }}</h1>
         </div>
 
         <div class="flex items-center">
-            <a href="#" class="" @click="toggleTheme">
+            <AppButton
+                href="#"
+                class="btn btn-icon hover:bg-skin-neutral-4"
+                @click="toggleTheme"
+            >
                 <i :class="iconThemeClass"></i>
-            </a>
+            </AppButton>
 
-            <Link class="ml-3" :href="route('adminAuth.logout')">
+            <AppButton
+                class="btn btn-icon hover:bg-skin-neutral-4"
+                @click="$inertia.visit(route('adminAuth.logout'))"
+            >
                 <i class="ri-logout-circle-r-line"></i>
-            </Link>
+            </AppButton>
         </div>
     </div>
 </template>
@@ -35,7 +42,7 @@ const props = defineProps({
     }
 })
 
-const emit = defineEmits(['toggleSidebar'])
+defineEmits(['sidebar:toggle'])
 
 const iconThemeClass = ref('ri-sun-line')
 

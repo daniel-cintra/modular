@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
 use Inertia\Middleware;
-use Modular\Modular\Acl\Services\ListUserPermissions;
+use Modules\Acl\Services\ListUserPermissions;
 use Tightenco\Ziggy\Ziggy;
 
 class HandleInertiaRequests extends Middleware

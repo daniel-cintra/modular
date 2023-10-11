@@ -2,10 +2,17 @@
     <AppAuthShell>
         <AppAuthLogo />
 
-        <Card class="space-y-4 p-6">
-            <template #title>{{ __('Forgot your password?') }} </template>
-            <template #subtitle>
-                {{ __('Enter your email to reset your password.') }}
+        <AppCard class="space-y-6 px-16">
+            <template #title>
+                <h3 class="text-2xl font-semibold tracking-tight">
+                    {{ __('Forgot your password?') }}
+                </h3>
+            </template>
+
+            <template #description>
+                <h2 class="mt-2">
+                    {{ __('Enter your email to reset your password.') }}
+                </h2>
             </template>
 
             <template #content>
@@ -13,8 +20,8 @@
 
                 <form>
                     <div>
-                        <label for="email">{{ __('Your Email') }}</label>
-                        <InputText
+                        <AppLabel for="email">{{ __('Your Email') }}</AppLabel>
+                        <AppInputText
                             id="email"
                             v-model="form.email"
                             type="text"
@@ -28,9 +35,11 @@
             </template>
 
             <template #footer>
-                <Button :label="__('Send')" class="my-4" @click="submitForm" />
+                <AppButton class="btn btn-primary" @click="submitForm">
+                    {{ __('Send') }}
+                </AppButton>
             </template>
-        </Card>
+        </AppCard>
     </AppAuthShell>
 </template>
 

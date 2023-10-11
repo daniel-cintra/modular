@@ -4,10 +4,10 @@ import { router } from '@inertiajs/vue3'
 
 export default function useDataSearch(
     routePath,
-    columnToSearch,
+    columnsToSearch,
     aditionalParams = {}
 ) {
-    const searchTerm = ref()
+    const searchTerm = ref('')
 
     watch(searchTerm, (value) => {
         debouncedSearch(value)
@@ -16,7 +16,7 @@ export default function useDataSearch(
     const debouncedSearch = useDebounceFn((value) => {
         const params = {
             page: 1,
-            searchContext: columnToSearch,
+            searchContext: columnsToSearch,
             searchTerm: value
         }
 
@@ -41,5 +41,5 @@ export default function useDataSearch(
         fetchData(params)
     }
 
-    return { searchTerm, fetchData, clearSearch }
+    return { searchTerm, clearSearch }
 }

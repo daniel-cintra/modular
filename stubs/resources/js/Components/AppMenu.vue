@@ -1,18 +1,16 @@
 <template>
-  <div>
-    <ul v-for="(item, index) in items" :key="index" class="block">
-      <app-menu-section :item="item" />
-    </ul>
-  </div>
+    <div>
+        <ul v-for="(item, index) in items" :key="index">
+            <AppMenuSection :item="item" />
+        </ul>
+    </div>
 </template>
 
 <script setup>
-import AppMenuSection from '@/Components/AppMenuSection.vue'
-
 const props = defineProps({
-  items: {
-    type: Array,
-    default: () => []
-  }
+    items: {
+        type: Array,
+        default: () => []
+    }
 })
 </script>

@@ -3,7 +3,6 @@ import laravel from 'laravel-vite-plugin'
 import vue from '@vitejs/plugin-vue'
 
 import Components from 'unplugin-vue-components/vite'
-import { PrimeVueResolver } from 'unplugin-vue-components/resolvers'
 import AppComponentsResolver from './resources/js/Resolvers/AppComponentsResolver.js'
 
 export default defineConfig({
@@ -21,7 +20,7 @@ export default defineConfig({
             }
         }),
         Components({
-            resolvers: [PrimeVueResolver(), AppComponentsResolver]
+            resolvers: [AppComponentsResolver]
         })
     ],
     resolve: {

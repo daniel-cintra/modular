@@ -2,41 +2,51 @@
     <AppSectionHeader :title="__('User Roles')" :bread-crumb="breadCrumb">
     </AppSectionHeader>
 
-    <Card class="mx-8">
+    <AppCard>
         <template #title>
             {{ __('User Roles for') }}:
-            <span class="text-skin-secondary">{{ user.name }}</span>
+            <span class="text-skin-primary-10">{{ user.name }}</span>
         </template>
+
         <template #content>
-            <AppFormErrors class="mb-4" />
-            <form class="flex">
-                <div
-                    v-for="(column, index) in chunks"
-                    :key="index"
-                    class="w-1/3"
-                >
+            <div v-if="chunks.length">
+                <AppFormErrors class="mb-4" />
+                <form class="mt-5 flex">
                     <div
-                        v-for="role in column"
-                        :key="role.id"
-                        class="mb-4 flex items-center"
+                        v-for="(column, index) in chunks"
+                        :key="index"
+                        class="w-1/3"
                     >
-                        <Checkbox
-                            v-model="form.userRoles"
-                            :input-id="role.name"
-                            name="role"
-                            :value="role"
-                        />
-                        <label :for="role.name" class="ml-2">
-                            {{ role.name }}
-                        </label>
+                        <div
+                            v-for="role in column"
+                            :key="role.id"
+                            class="mb-4 flex items-center"
+                        >
+                            <AppCheckbox
+                                :id="role.name"
+                                v-model="form.userRoles"
+                                name="role"
+                                :value="role"
+                            />
+                            <AppLabel :for="role.name" class="ml-3">
+                                {{ role.name }}
+                            </AppLabel>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
+
+            <AppAlert v-else class="mt-4">
+                {{ __('No roles found') }}
+            </AppAlert>
         </template>
-        <template #footer>
-            <Button :label="__('Save')" class="mt-1" @click="submitForm" />
+
+        <template v-if="chunks.length" #footer>
+            <AppButton class="btn btn-primary" @click="submitForm">
+                {{ __('Save') }}
+            </AppButton>
         </template>
-    </Card>
+    </AppCard>
 </template>
 
 <script setup>

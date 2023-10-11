@@ -1,5 +1,5 @@
 <template>
-    <nav class="" aria-label="Breadcrumb">
+    <nav aria-label="Breadcrumb">
         <ul>
             <template v-for="item in items" :key="item.label">
                 <AppBreadCrumbItem :item="item" />

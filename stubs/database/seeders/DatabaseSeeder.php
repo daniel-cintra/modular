@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
-use Modular\Modular\User\Models\User;
+use Modules\User\Models\User;
 use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder

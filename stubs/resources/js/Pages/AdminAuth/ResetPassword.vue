@@ -2,9 +2,14 @@
     <AppAuthShell>
         <AppAuthLogo />
 
-        <Card class="space-y-4 p-6">
-            <template #title> {{ __('Password Reset') }} </template>
-            <template #subtitle>
+        <AppCard class="min-w-[360px] space-y-6 px-16">
+            <template #title>
+                <h3 class="text-2xl font-semibold tracking-tight">
+                    {{ __('Password Reset') }}
+                </h3>
+            </template>
+
+            <template #description>
                 {{ __('Fill the form below to reset your password') }}.
             </template>
 
@@ -13,48 +18,43 @@
 
                 <form>
                     <div>
-                        <label for="email">{{ __('Email') }}</label>
-                        <InputText
+                        <AppLabel for="email">{{ __('Email') }}</AppLabel>
+                        <AppInputText
                             id="email"
                             v-model="form.email"
                             type="text"
                             class="w-full"
                             :class="{
-                                'p-invalid': errorsFields.includes('email')
+                                'input-error': errorsFields.includes('email')
                             }"
                         />
                     </div>
 
                     <div class="mt-6">
-                        <label for="email">{{ __('Password') }}</label>
-                        <Password
+                        <AppLabel for="email">{{ __('Password') }}</AppLabel>
+                        <AppInputPassword
                             id="password"
                             v-model="form.password"
-                            toggle-mask
-                            :feedback="true"
+                            name="password"
                             class="w-full"
-                            input-class="w-full"
+                            autocomplete="current-password"
                             :class="{
-                                'p-invalid': errorsFields.includes('password')
+                                'input-error': errorsFields.includes('password')
                             }"
                         />
                     </div>
 
                     <div class="mt-6">
-                        <label for="email">{{
+                        <AppLabel for="password_confirmation">{{
                             __('Password Confirmation')
-                        }}</label>
-                        <Password
-                            id="password"
+                        }}</AppLabel>
+                        <AppInputPassword
+                            id="password_confirmation"
                             v-model="form.password_confirmation"
-                            toggle-mask
-                            :feedback="true"
+                            name="password_confirmation"
                             class="w-full"
-                            input-class="w-full"
                             :class="{
-                                'p-invalid': errorsFields.includes(
-                                    'password_confirmation'
-                                )
+                                'input-error': errorsFields.includes('password')
                             }"
                         />
                     </div>
@@ -62,9 +62,11 @@
             </template>
 
             <template #footer>
-                <Button :label="__('Save')" class="my-4" @click="submitForm" />
+                <AppButton class="btn btn-primary" @click="submitForm">
+                    {{ __('Save') }}
+                </AppButton>
             </template>
-        </Card>
+        </AppCard>
     </AppAuthShell>
 </template>
 

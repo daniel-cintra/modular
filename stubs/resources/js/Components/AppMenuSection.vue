@@ -34,12 +34,10 @@
 </template>
 
 <script setup>
-import AppMenuItem from "@/Components/AppMenuItem.vue";
-
 const props = defineProps({
     item: {
         type: Object,
-        required: true,
-    },
-});
+        required: true
+    }
+})
 </script>

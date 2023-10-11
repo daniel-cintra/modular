@@ -5,8 +5,6 @@ namespace Modular\Modular\Console;
 use Illuminate\Console\Command;
 use Symfony\Component\Process\PhpExecutableFinder;
 
-// use Illuminate\Filesystem\Filesystem;
-
 class InstallCommand extends Command
 {
     use BackendPackages, FrontendPackages, CoreModules;

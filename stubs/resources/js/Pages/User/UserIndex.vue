@@ -1,103 +1,111 @@
 <template>
     <AppSectionHeader :title="__('Users')" :bread-crumb="breadCrumb">
         <template #right>
-            <Button
-                :label="__('Create User')"
+            <AppButton
+                class="btn btn-primary"
                 @click="$inertia.visit(route('user.create'))"
-            />
+            >
+                {{ __('Create User') }}
+            </AppButton>
         </template>
     </AppSectionHeader>
 
-    <DataTable
-        ref="dataTable"
-        :value="users.data"
-        :paginator="true"
-        :rows="users.per_page"
-        :lazy="true"
-        :total-records="users.total"
-        :first="users.from"
-        striped-rows
-        class="mx-8 shadow"
-        :rows-per-page-options="[10, 25, 50]"
-        @page="pageChange($event)"
-    >
-        <template #header>
-            <div class="flex justify-end">
-                <Button
-                    v-if="searchTerm"
-                    :label="__('Clear Search')"
-                    class="p-button-link p-button-sm mr-2"
-                    @click="clearSearch"
-                />
-                <span class="p-input-icon-left">
-                    <i class="ri-search-2-line top-5"></i>
-                    <InputText
-                        v-model="searchTerm"
-                        :placeholder="__('Search')"
-                        class="font-normal"
-                    />
-                </span>
-            </div>
+    <AppDataSearch
+        v-if="users.data.length || route().params.searchTerm"
+        :url="route('user.index')"
+        fields-to-search="name"
+    ></AppDataSearch>
+
+    <AppDataTable v-if="users.data.length" :headers="headers">
+        <template #TableBody>
+            <tbody>
+                <AppDataTableRow v-for="item in users.data" :key="item.id">
+                    <AppDataTableData>
+                        {{ item.id }}
+                    </AppDataTableData>
+
+                    <AppDataTableData>
+                        {{ item.name }}
+                    </AppDataTableData>
+
+                    <AppDataTableData>
+                        {{ item.email }}
+                    </AppDataTableData>
+
+                    <AppDataTableData>
+                        <!-- edit user roles -->
+                        <AppTooltip :text="__('User Roles')" class="mr-3">
+                            <AppButton
+                                class="btn btn-icon btn-primary"
+                                @click="
+                                    $inertia.visit(
+                                        route('aclUserRole.edit', item.id)
+                                    )
+                                "
+                            >
+                                <i class="ri-account-box-line"></i>
+                            </AppButton>
+                        </AppTooltip>
+
+                        <!-- edit user permissions -->
+                        <AppTooltip :text="__('User Permissions')" class="mr-3">
+                            <AppButton
+                                class="btn btn-icon btn-primary"
+                                @click="
+                                    $inertia.visit(
+                                        route('aclUserPermission.edit', item.id)
+                                    )
+                                "
+                            >
+                                <i class="ri-shield-keyhole-line"></i>
+                            </AppButton>
+                        </AppTooltip>
+
+                        <!-- edit user -->
+                        <AppTooltip :text="__('Edit User')" class="mr-3">
+                            <AppButton
+                                class="btn btn-icon btn-primary"
+                                @click="
+                                    $inertia.visit(route('user.edit', item.id))
+                                "
+                            >
+                                <i class="ri-edit-line"></i>
+                            </AppButton>
+                        </AppTooltip>
+
+                        <!-- delete user -->
+                        <AppTooltip :text="__('Delete User')">
+                            <AppButton
+                                class="btn btn-icon btn-destructive"
+                                @click="
+                                    confirmDelete(
+                                        route('user.destroy', item.id)
+                                    )
+                                "
+                            >
+                                <i class="ri-delete-bin-line"></i>
+                            </AppButton>
+                        </AppTooltip>
+                    </AppDataTableData>
+                </AppDataTableRow>
+            </tbody>
         </template>
-        <template #empty> {{ __('No users found') }} </template>
+    </AppDataTable>
 
-        <Column field="name" :header="__('Name')" />
-        <Column field="email" header="Email" />
+    <AppPaginator
+        :links="users.links"
+        class="mt-4 justify-center"
+    ></AppPaginator>
 
-        <Column :exportable="false" style="min-width: 8rem">
-            <template #body="slotProps">
-                <Button
-                    v-tooltip.top="__('User Roles')"
-                    v-btn-icon
-                    class="mr-2"
-                    @click="
-                        $inertia.visit(
-                            route('aclUserRole.edit', slotProps.data.id)
-                        )
-                    "
-                >
-                    <i class="ri-account-box-line text-xl"></i>
-                </Button>
+    <AppAlert v-if="!users.data.length" class="mt-4">
+        {{ __('No users found') }}
+    </AppAlert>
 
-                <Button
-                    v-tooltip.top="__('User Permissions')"
-                    v-btn-icon
-                    class="mr-2"
-                    @click="
-                        $inertia.visit(
-                            route('aclUserPermission.edit', slotProps.data.id)
-                        )
-                    "
-                >
-                    <i class="ri-shield-keyhole-line text-xl"></i>
-                </Button>
-
-                <Button
-                    v-tooltip.top="__('Edit User')"
-                    v-btn-icon
-                    class="mr-2"
-                    @click="
-                        $inertia.visit(route('user.edit', slotProps.data.id))
-                    "
-                >
-                    <i class="ri-edit-line text-xl"></i>
-                </Button>
-
-                <Button
-                    v-tooltip.top="__('Delete User')"
-                    v-btn-icon="'danger'"
-                    @click="confirmDelete('user.destroy', slotProps.data)"
-                >
-                    <i class="ri-delete-bin-line text-xl"></i>
-                </Button>
-            </template>
-        </Column>
-    </DataTable>
+    <AppConfirmDialog ref="confirmDialogRef"></AppConfirmDialog>
 </template>
 
 <script setup>
-import useDataSearch from '@/Composables/useDataSearch'
-import useConfirmDelete from '@/Composables/useConfirmDelete'
+import { ref } from 'vue'
 
 const props = defineProps({
     users: {
@@ -111,15 +119,10 @@ const breadCrumb = [
     { label: 'Users', last: true }
 ]
 
-const { searchTerm, fetchData, clearSearch } = useDataSearch(
-    route('user.index'),
-    'name'
-)
+const headers = ['ID', 'Name', 'Email', 'Actions']
 
-const pageChange = (event) => {
-    const params = { page: ++event.page, rowsPerPage: event.rows }
-    fetchData(params)
+const confirmDialogRef = ref(null)
+const confirmDelete = (deleteRoute) => {
+    confirmDialogRef.value.openModal(deleteRoute)
 }
-
-const { confirmDelete } = useConfirmDelete()
 </script>

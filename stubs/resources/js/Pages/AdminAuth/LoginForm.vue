@@ -2,9 +2,11 @@
     <AppAuthShell>
         <AppAuthLogo />
 
-        <Card class="space-y-4 p-6">
+        <AppCard class="space-y-6 px-16">
             <template #title>
-                {{ __('Sign in to your account') }}
+                <h3 class="text-2xl font-semibold tracking-tight">
+                    {{ __('Sign in to your account') }}
+                </h3>
             </template>
 
             <template #content>
@@ -12,64 +14,63 @@
 
                 <form>
                     <div>
-                        <label for="email">{{ __('Your Email') }}</label>
-                        <InputText
+                        <AppLabel for="email">{{ __('Your Email') }}</AppLabel>
+                        <AppInputText
                             id="email"
                             v-model="form.email"
+                            name="email"
                             type="text"
                             class="w-full"
+                            autocomplete="email"
                             :class="{
-                                'p-invalid': errorsFields.includes('email')
+                                'input-error': errorsFields.includes('email')
                             }"
                         />
                     </div>
 
                     <div class="mt-6">
-                        <label for="email">{{ __('Password') }}</label>
-                        <Password
+                        <AppLabel for="email">{{ __('Password') }}</AppLabel>
+                        <AppInputPassword
                             id="password"
                             v-model="form.password"
-                            toggle-mask
-                            :feedback="false"
+                            name="password"
                             class="w-full"
+                            autocomplete="current-password"
                             :class="{
-                                'p-invalid': errorsFields.includes('password')
+                                'input-error': errorsFields.includes('password')
                             }"
-                            input-class="w-full"
                         />
                     </div>
 
-                    <div class="mt-4">
-                        <Checkbox
+                    <div class="mt-4 flex items-center">
+                        <AppCheckbox
+                            id="remember"
                             v-model="form.remember"
-                            input-id="remember"
                             name="remember"
-                            :binary="true"
                             :value="true"
                         />
-                        <label for="remember" class="ml-2">{{
+                        <AppLabel for="remember" class="ml-3">{{
                             __('Remember me')
-                        }}</label>
+                        }}</AppLabel>
                     </div>
                 </form>
             </template>
 
             <template #footer>
-                <Button
-                    :label="__('Sign in')"
-                    class="my-4"
+                <AppButton
+                    class="btn btn-primary"
+                    aria-label="botao submit"
                     @click="submitForm"
-                />
+                    >{{ __('Sign in') }}</AppButton
+                >
 
-                <p class="text-sm font-light text-skin-base-content">
-                    <Link
-                        :href="route('adminAuth.forgotPassword')"
-                        class="text-primary-600 dark:text-primary-500 font-medium hover:underline"
-                        >{{ __('Forgot your password?') }}</Link
-                    >
+                <p class="mt-3">
+                    <AppLink :href="route('adminAuth.forgotPassword')">
+                        {{ __('Forgot your password?') }}
+                    </AppLink>
                 </p>
             </template>
-        </Card>
+        </AppCard>
     </AppAuthShell>
 </template>
 

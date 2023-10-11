@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
+// const plugin = require('tailwindcss/plugin')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -7,7 +8,8 @@ module.exports = {
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
-        './resources/js/**/*.vue'
+        './resources/js/**/*.vue',
+        './node_modules/flowbite/**/*.js'
     ],
 
     theme: {
@@ -18,69 +20,82 @@ module.exports = {
             colors: {
                 skin: {
                     primary: {
-                        DEFAULT: 'rgb(var(--color-primary) / <alpha-value>)',
-                        focus: 'rgb(var(--color-primary-focus) / <alpha-value>)',
-                        content:
-                            'rgb(var(--color-primary-content) / <alpha-value>)'
-                    },
-                    secondary: {
-                        DEFAULT: 'rgb(var(--color-secondary) / <alpha-value>)',
-                        focus: 'rgb(var(--color-secondary-focus) / <alpha-value>)',
-                        content:
-                            'rgb(var(--color-secondary-content) / <alpha-value>)'
-                    },
-
-                    accent: {
-                        DEFAULT: 'rgb(var(--color-accent) / <alpha-value>)',
-                        focus: 'rgb(var(--color-accent-focus) / <alpha-value>)',
-                        content:
-                            'rgb(var(--color-accent-content) / <alpha-value>)'
+                        1: 'rgb(var(--color-primary-1) / <alpha-value>)',
+                        2: 'rgb(var(--color-primary-2) / <alpha-value>)',
+                        3: 'rgb(var(--color-primary-3) / <alpha-value>)',
+                        4: 'rgb(var(--color-primary-4) / <alpha-value>)',
+                        5: 'rgb(var(--color-primary-5) / <alpha-value>)',
+                        6: 'rgb(var(--color-primary-6) / <alpha-value>)',
+                        7: 'rgb(var(--color-primary-7) / <alpha-value>)',
+                        8: 'rgb(var(--color-primary-8) / <alpha-value>)',
+                        9: 'rgb(var(--color-primary-9) / <alpha-value>)',
+                        10: 'rgb(var(--color-primary-10) / <alpha-value>)',
+                        11: 'rgb(var(--color-primary-11) / <alpha-value>)',
+                        12: 'rgb(var(--color-primary-12) / <alpha-value>)'
                     },
 
                     neutral: {
-                        DEFAULT: 'rgb(var(--color-neutral) / <alpha-value>)',
-                        focus: 'rgb(var(--color-neutral-focus) / <alpha-value>)',
-                        content:
-                            'rgb(var(--color-neutral-content) / <alpha-value>)'
+                        1: 'rgb(var(--color-neutral-1) / <alpha-value>)',
+                        2: 'rgb(var(--color-neutral-2) / <alpha-value>)',
+                        3: 'rgb(var(--color-neutral-3) / <alpha-value>)',
+                        4: 'rgb(var(--color-neutral-4) / <alpha-value>)',
+                        5: 'rgb(var(--color-neutral-5) / <alpha-value>)',
+                        6: 'rgb(var(--color-neutral-6) / <alpha-value>)',
+                        7: 'rgb(var(--color-neutral-7) / <alpha-value>)',
+                        8: 'rgb(var(--color-neutral-8) / <alpha-value>)',
+                        9: 'rgb(var(--color-neutral-9) / <alpha-value>)',
+                        10: 'rgb(var(--color-neutral-10) / <alpha-value>)',
+                        11: 'rgb(var(--color-neutral-11) / <alpha-value>)',
+                        12: 'rgb(var(--color-neutral-12) / <alpha-value>)'
                     },
 
-                    base: {
-                        DEFAULT: 'rgb(var(--color-base) / <alpha-value>)',
-                        100: 'rgb(var(--color-base-100) / <alpha-value>)',
-                        200: 'rgb(var(--color-base-200) / <alpha-value>)',
-                        300: 'rgb(var(--color-base-300) / <alpha-value>)',
-                        content:
-                            'rgb(var(--color-base-content) / <alpha-value>)'
+                    content: {
+                        DEFAULT: 'rgb(var(--color-content) / <alpha-value>)',
+                        1: 'rgb(var(--color-content-1) / <alpha-value>)'
                     },
 
                     info: {
                         DEFAULT: 'rgb(var(--color-info) / <alpha-value>)',
-                        focus: 'rgb(var(--color-info-focus) / <alpha-value>)',
-                        content:
-                            'rgb(var(--color-info-content) / <alpha-value>)'
+                        light: 'rgb(var(--color-info-light) / <alpha-value>)',
+                        dark: 'rgb(var(--color-info-dark) / <alpha-value>)'
                     },
                     success: {
                         DEFAULT: 'rgb(var(--color-success) / <alpha-value>)',
-                        focus: 'rgb(var(--color-success-focus) / <alpha-value>)',
-                        content:
-                            'rgb(var(--color-success-content) / <alpha-value>)'
+                        light: 'rgb(var(--color-success-light) / <alpha-value>)',
+                        dark: 'rgb(var(--color-success-dark) / <alpha-value>)'
                     },
                     warning: {
                         DEFAULT: 'rgb(var(--color-warning) / <alpha-value>)',
-                        focus: 'rgb(var(--color-warning-focus) / <alpha-value>)',
-                        content:
-                            'rgb(var(--color-warning-content) / <alpha-value>)'
+                        light: 'rgb(var(--color-warning-light) / <alpha-value>)',
+                        dark: 'rgb(var(--color-warning-dark) / <alpha-value>)'
                     },
                     error: {
                         DEFAULT: 'rgb(var(--color-error) / <alpha-value>)',
-                        focus: 'rgb(var(--color-error-focus) / <alpha-value>)',
-                        content:
-                            'rgb(var(--color-error-content) / <alpha-value>)'
+                        light: 'rgb(var(--color-error-light) / <alpha-value>)',
+                        dark: 'rgb(var(--color-error-dark) / <alpha-value>)'
                     }
                 }
             }
         }
     },
 
-    plugins: [require('@tailwindcss/forms')]
+    plugins: [
+        require('@tailwindcss/forms'),
+        // require('flowbite/plugin'),
+        function ({ addVariant }) {
+            addVariant('initial', 'html :where(&)')
+        }
+        // plugin(function ({ addComponents }) {
+        //     addComponents({
+        //         '.m-btn': {
+        //             paddingLeft: '1.25rem',
+        //             paddingRight: '1.25rem',
+        //             paddingTop: '.625rem',
+        //             paddingBottom: '.625rem'
+        //         }
+        //     })
+        // })
+    ],
+
+    safelist: ['tooltip-arrow']
 }

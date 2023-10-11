@@ -6,24 +6,12 @@ import { createInertiaApp } from '@inertiajs/vue3'
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m'
 
-const appName =
-    window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel'
-
-//ui
-import PrimeVue from 'primevue/config'
+const appName = import.meta.env.VITE_APP_NAME || 'Laravel'
 
 // global components
 import { Link } from '@inertiajs/vue3'
 import Layout from './Layouts/AuthenticatedLayout.vue'
 
-//these must be globally registered, not autoloaded...
-import ToastService from 'primevue/toastservice'
-import Toast from 'primevue/toast'
-import ConfirmationService from 'primevue/confirmationservice'
-import ConfirmDialog from 'primevue/confirmdialog'
-import Tooltip from 'primevue/tooltip'
-
-import AppBtnIcon from './Directives/AppBtnIcon'
 import Translations from '@/Plugins/Translations'
 
 createInertiaApp({
@@ -44,18 +32,11 @@ createInertiaApp({
         return createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(ZiggyVue, Ziggy)
-            .use(PrimeVue)
-            .use(ToastService)
-            .use(ConfirmationService)
             .use(Translations)
-            .component('Toast', Toast)
-            .component('ConfirmDialog', ConfirmDialog)
             .component('Link', Link)
-            .directive('btnIcon', AppBtnIcon)
-            .directive('tooltip', Tooltip)
             .mount(el)
     },
     progress: {
-        color: '#33b7f7'
+        color: '#3e63dd'
     }
 })

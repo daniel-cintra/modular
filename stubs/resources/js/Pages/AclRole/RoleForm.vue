@@ -2,26 +2,30 @@
     <AppSectionHeader :title="__('Roles')" :bread-crumb="breadCrumb">
     </AppSectionHeader>
 
-    <Card class="mx-8">
+    <AppCard class="w-full md:w-3/4 xl:w-1/2">
         <template #title> {{ title }} </template>
         <template #content>
             <AppFormErrors class="mb-4" />
-            <form class="p-fluid w-2/4" @submit.prevent="submitForm">
-                <div class="field">
-                    <label for="name">{{ __('Name') }}</label>
-                    <InputText
+            <form>
+                <div>
+                    <AppLabel for="name">{{ __('Name') }}</AppLabel>
+                    <AppInputText
                         id="name"
                         v-model="form.name"
                         type="text"
-                        :class="{ 'p-invalid': errorsFields.includes('name') }"
+                        :class="{
+                            'input-error': errorsFields.includes('name')
+                        }"
                     />
                 </div>
             </form>
         </template>
         <template #footer>
-            <Button label="Save" class="mt-1" @click="submitForm" />
+            <AppButton class="btn btn-primary" @click="submitForm">
+                {{ __('Save') }}
+            </AppButton>
         </template>
-    </Card>
+    </AppCard>
 </template>
 
 <script setup>

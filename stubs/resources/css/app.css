@@ -2,135 +2,122 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@import './components.css';
-
 @layer base {
     :root {
-        --color-primary: 91 197 127; /* #5bc57f */
-        --color-primary-focus: 61 171 98; /* #3DAB62 */
-        --color-primary-content: 255 255 255; /* #ffffff */
+        --color-primary-1: 253 253 254; /* #fdfdfe */
+        --color-primary-2: 248 250 255; /* #f8faff */
+        --color-primary-3: 240 244 255; /* #f0f4ff */
+        --color-primary-4: 230 237 254; /* #e6edfe */
+        --color-primary-5: 217 226 252; /* #d9e2fc */
+        --color-primary-6: 198 212 249; /* #c6d4f9 */
+        --color-primary-7: 174 192 245; /* #aec0f5 */
+        --color-primary-8: 141 164 239; /* #8da4ef */
+        --color-primary-9: 62 99 221; /* #3e63dd */
+        --color-primary-10: 58 92 204; /* #3a5ccc */
+        --color-primary-11: 52 81 178; /* #3451b2 */
+        --color-primary-12: 31 45 92; /* #1f2d5c */
 
-        --color-secondary: 48 113 250; /* #3071fa */
-        --color-secondary-focus: 6 80 236; /* #0650EC */
-        --color-secondary-content: 255 255 255; /* #ffffff */
+        /* 1 - App background, 2 - Subtle background */
+        --color-neutral-1: 252 252 253; /* #fcfcfd */
+        --color-neutral-2: 249 249 251; /* #f9f9fb */
 
-        --color-accent: 231 72 46; /* #e7482e */
-        --color-accent-focus: 198 47 23; /* #C62F17 */
-        --color-accent-content: 255 255 255; /* #ffffff */
+        /* 3 - UI element background, 4 - Hovered UI element background, 5 - Active / Selected UI element background */
+        --color-neutral-3: 242 242 245; /* #f2f2f5 */
+        --color-neutral-4: 235 235 239; /* #ebebef */
+        --color-neutral-5: 228 228 233; /* #e4e4e9 */
 
-        --color-neutral: 45 53 68; /* #2d3544 */
-        --color-neutral-focus: 23 27 34; /* #171B22 */
-        --color-neutral-content: 255 255 255; /* #ffffff */
+        /* 6 - Subtle borders and separators, 7 - UI element border and focus rings, 8 - Hovered UI element border */
+        --color-neutral-6: 221 221 227; /* #dddde3 */
+        --color-neutral-7: 211 212 219; /* #d3d4db */
+        --color-neutral-8: 185 187 198; /* #b9bbc6 */
 
-        --color-base: 255 255 255; /* #ffffff */
-        --color-base-100: 248 249 250; /* #FCFEFF */
-        --color-base-200: 226 226 226; /* #e2e2e2 */
-        --color-base-300: 200 200 200; /* #c8c8c8 */
+        /* 9 - Solid backgrounds, 10 - Hovered solid backgrounds */
+        --color-neutral-9: 139 141 152; /* #8b8d98 */
+        --color-neutral-10: 126 128 138; /* #7e808a */
 
-        --color-base-content: 45 53 68; /* #2d3544 */
+        /* 11 - Low-contrast text, 12 - High-contrast text */
+        --color-neutral-11: 96 100 108; /* #60646c */
+        --color-neutral-12: 28 32 36; /* #1c2024 */
 
-        --color-info: 51 183 247; /* #33b7f7 */
-        --color-info-focus: 9 160 233; /* #09A0E9 */
-        --color-info-content: 1 12 17; /* #010C11 */
+        /* Semantic Colors */
+        --color-info: 11 104 203; /* #0b68cb 11*/
+        --color-info-light: 237 246 255; /* #edf6ff 3*/
+        --color-info-dark: 17 50 100; /* #113264 12*/
 
-        --color-success: 47 205 142; /* #2fcd8e */
-        --color-success-focus: 37 159 110; /* #259F6E */
-        --color-success-content: 5 22 16; /* #051610 */
+        --color-success: 24 121 78; /* #18794e */
+        --color-success-light: 233 249 238; /* #e9f9ee */
+        --color-success-dark: 25 59 45; /* #193b2d */
 
-        --color-warning: 250 181 32; /* #fab520 */
-        --color-warning-focus: 221 153 5; /* #DD9905 */
-        --color-warning-content: 1 1 0; /* #010100 */
+        --color-warning: 119 95 40; /* #775f28 */
+        --color-warning-light: 255 248 198; /* #fff8c6 */
+        --color-warning-dark: 71 59 31; /* #473b1f */
 
-        --color-error: 247 103 103; /* #f76767 */
-        --color-error-focus: 244 50 50; /* #F43232 */
-        --color-error-content: 13 1 1; /* #0D0101 */
+        --color-error: 198 42 47; /* #c62a2f */
+        --color-error-light: 255 239 239; /* #ffefef */
+        --color-error-dark: 100 23 35; /* #641723 */
     }
 
     .dark-theme {
-        --color-primary: 177 157 247; /* #b19df7 */
-        --color-primary-focus: 162 138 245; /* #a28af5 */
-        --color-primary-content: 33 37 41; /* #212529 */
+        --color-primary-1: 253 253 254; /* #fdfdfe */
+        --color-primary-2: 248 250 255; /* #f8faff */
+        --color-primary-3: 240 244 255; /* #f0f4ff */
+        --color-primary-4: 230 237 254; /* #e6edfe */
+        --color-primary-5: 217 226 252; /* #d9e2fc */
+        --color-primary-6: 198 212 249; /* #c6d4f9 */
+        --color-primary-7: 174 192 245; /* #aec0f5 */
+        --color-primary-8: 141 164 239; /* #8da4ef */
+        --color-primary-9: 62 99 221; /* #3e63dd */
+        --color-primary-10: 58 92 204; /* #3a5ccc */
+        --color-primary-11: 52 81 178; /* #3451b2 */
+        --color-primary-12: 31 45 92; /* #1f2d5c */
 
-        --color-secondary: 134 224 231; /* #86e0e7 */
-        --color-secondary-focus: 104 216 225; /* #68d8e1 */
-        --color-secondary-content: 29 30 39; /* #1d1e27 */
+        /* 1 - App background, 2 - Subtle background */
+        --color-neutral-1: 17 17 19; /* #111113 */
+        --color-neutral-2: 24 25 27; /* #18191b */
 
-        --color-accent: 255 207 145; /* #ffcf91 */
-        --color-accent-focus: 255 190 105; /* #ffbe69 */
-        --color-accent-content: 29 30 39; /* #1d1e27 */
+        /* 3 - UI element background, 4 - Hovered UI element background, 5 - Active / Selected UI element background */
+        --color-neutral-3: 33 34 37; /* #212225 */
+        --color-neutral-4: 39 42 45; /* #272a2d */
+        --color-neutral-5: 46 49 53; /* #2e3135 */
 
-        --color-neutral: 219 210 252; /* #dbd2fc */
-        --color-neutral-focus: 196 181 250; /* #C4B5FA */
-        --color-neutral-content: 30 33 37; /* #1e2125 */
+        /* 6 - Subtle borders and separators, 7 - UI element border and focus rings, 8 - Hovered UI element border */
+        --color-neutral-6: 54 58 63; /* #363a3f */
+        --color-neutral-7: 67 72 78; /* #43484e */
+        --color-neutral-8: 90 97 105; /* #5a6169 */
 
-        --color-base: 27 28 35; /* #1b1c23 */
-        --color-base-100: 36 37 47; /* #24252f */
-        --color-base-200: 54 56 73; /* #363849 */
-        --color-base-300: 71 74 96; /* #474A60 */
+        /* 9 - Solid backgrounds, 10 - Hovered solid backgrounds */
+        --color-neutral-9: 105 110 119; /* #696e77 */
+        --color-neutral-10: 119 123 132; /* #777b84 */
 
-        --color-base-content: 230 230 230; /* #e6e6e6 */
+        /* 11 - Low-contrast text, 12 - High-contrast text */
+        --color-neutral-11: 176 180 186; /* #b0b4ba */
+        --color-neutral-12: 237 238 240; /* #edeef0 */
 
-        --color-info: 155 202 255; /* #9bcaff */
-        --color-info-focus: 124 186 255; /* #7CBAFF */
-        --color-info-content: 29 30 39; /* #1d1e27 */
+        /* Semantic Colors */
+        --color-info: 11 104 203; /* #0b68cb 11*/
+        --color-info-light: 237 246 255; /* #edf6ff 3*/
+        --color-info-dark: 17 50 100; /* #113264 12*/
 
-        --color-success: 147 222 172; /* #93deac */
-        --color-success-focus: 124 215 154; /* #7CD79A */
-        --color-success-content: 29 30 39; /* #1d1e27 */
+        --color-success: 24 121 78; /* #18794e */
+        --color-success-light: 233 249 238; /* #e9f9ee */
+        --color-success-dark: 25 59 45; /* #193b2d */
 
-        --color-warning: 255 207 145; /* #ffcf91 */
-        --color-warning-focus: 255 194 114; /* #FFC272 */
-        --color-warning-content: 29 30 39; /* #1d1e27 */
+        --color-warning: 119 95 40; /* #775f28 */
+        --color-warning-light: 255 248 198; /* #fff8c6 */
+        --color-warning-dark: 71 59 31; /* #473b1f */
 
-        --color-error: 235 154 156; /* #eb9a9c */
-        --color-error-focus: 230 128 131; /* #E68083 */
-        --color-error-content: 29 30 39; /* #1d1e27 */
+        --color-error: 198 42 47; /* #c62a2f */
+        --color-error-light: 255 239 239; /* #ffefef */
+        --color-error-dark: 100 23 35; /* #641723 */
     }
 
-    .cupcake-theme {
-        --color-primary: 90 187 193; /* #5abbc1 */
-        --color-primary-focus: 62 159 165; /* #3E9FA5 */
-        --color-primary-content: 255 255 255; /* #ffffff */
-
-        --color-secondary: 237 149 180; /* #ed95b4 */
-        --color-secondary-focus: 229 101 146; /* #E56592 */
-        --color-secondary-content: 255 255 255; /* #ffffff */
-
-        --color-accent: 235 166 51; /* #eba633 */
-        --color-accent-focus: 209 139 21; /* #D18B15 */
-        --color-accent-content: 255 255 255; /* #ffffff */
-
-        --color-neutral: 37 20 46; /* #25142e */
-        --color-neutral-focus: 6 3 7; /* #060307 */
-        --color-neutral-content: 255 255 255; /* #ffffff */
-
-        --color-base: 255 255 255; /* #ffffff */
-        --color-base-100: 245 241 239; /* #F5F1EF */
-        --color-base-200: 237 231 226; /* #ede7e2 */
-        --color-base-300: 227 222 218; /* #e3deda */
-
-        --color-base-content: 37 20 46; /* #25142e */
-
-        --color-info: 51 183 247; /* #33b7f7 */
-        --color-info-focus: 9 160 233; /* #09A0E9 */
-        --color-info-content: 1 12 17; /* #010C11 */
-
-        --color-success: 47 205 142; /* #2fcd8e */
-        --color-success-focus: 37 159 110; /* #259F6E */
-        --color-success-content: 5 22 16; /* #051610 */
-
-        --color-warning: 250 181 32; /* #fab520 */
-        --color-warning-focus: 221 153 5; /* #DD9905 */
-        --color-warning-content: 1 1 0; /* #010100 */
-
-        --color-error: 247 103 103; /* #f76767 */
-        --color-error-focus: 244 50 50; /* #F43232 */
-        --color-error-content: 13 1 1; /* #0D0101 */
+    html {
+        @apply bg-skin-neutral-1 text-skin-neutral-12;
     }
 }
 
-/* @layer components {
-    .p-button-icon-only {
-        @apply p-button p-component p-button-rounded;
+@layer components {
+    .input-error {
+        @apply !ring-skin-error;
     }
-} */
+}

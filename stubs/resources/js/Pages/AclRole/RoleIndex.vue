@@ -1,87 +1,95 @@
 <template>
     <AppSectionHeader :title="__('Roles')" :bread-crumb="breadCrumb">
         <template #right>
-            <Button
-                :label="__('Create Role')"
+            <AppButton
+                class="btn btn-primary"
                 @click="$inertia.visit(route('aclRole.create'))"
-            />
+            >
+                {{ __('Create Role') }}
+            </AppButton>
         </template>
     </AppSectionHeader>
 
-    <DataTable
-        ref="dataTable"
-        :value="roles.data"
-        :paginator="true"
-        :rows="roles.per_page"
-        :lazy="true"
-        :total-records="roles.total"
-        :first="roles.from"
-        striped-rows
-        class="mx-8 shadow"
-        :rows-per-page-options="[10, 25, 50]"
-        @page="pageChange($event)"
-    >
-        <template #header>
-            <div class="flex justify-end">
-                <Button
-                    v-if="searchTerm"
-                    :label="__('Clear Search')"
-                    class="p-button-link p-button-sm mr-2"
-                    @click="clearSearch"
-                />
-                <span class="p-input-icon-left">
-                    <i class="ri-search-2-line"></i>
-                    <InputText
-                        v-model="searchTerm"
-                        :placeholder="__('Search')"
-                        class="font-normal"
-                    />
-                </span>
-            </div>
+    <AppDataSearch
+        v-if="roles.data.length || route().params.searchTerm"
+        :url="route('aclRole.index')"
+        fields-to-search="name"
+    ></AppDataSearch>
+
+    <AppDataTable v-if="roles.data.length" :headers="headers">
+        <template #TableBody>
+            <tbody>
+                <AppDataTableRow v-for="item in roles.data" :key="item.id">
+                    <AppDataTableData>
+                        {{ item.id }}
+                    </AppDataTableData>
+
+                    <AppDataTableData>
+                        {{ item.name }}
+                    </AppDataTableData>
+
+                    <AppDataTableData>
+                        <!-- role permissions -->
+                        <AppTooltip :text="__('Role Permissions')" class="mr-3">
+                            <AppButton
+                                class="btn btn-icon btn-primary"
+                                @click="
+                                    $inertia.visit(
+                                        route('aclRolePermission.edit', item.id)
+                                    )
+                                "
+                            >
+                                <i class="ri-shield-keyhole-line"></i>
+                            </AppButton>
+                        </AppTooltip>
+
+                        <!-- edit role -->
+                        <AppTooltip :text="__('Edit Role')" class="mr-3">
+                            <AppButton
+                                class="btn btn-icon btn-primary"
+                                @click="
+                                    $inertia.visit(
+                                        route('aclRole.edit', item.id)
+                                    )
+                                "
+                            >
+                                <i class="ri-edit-line"></i>
+                            </AppButton>
+                        </AppTooltip>
+
+                        <!-- delete role -->
+                        <AppTooltip :text="__('Delete Role')">
+                            <AppButton
+                                class="btn btn-icon btn-destructive"
+                                @click="
+                                    confirmDelete(
+                                        route('aclRole.destroy', item.id)
+                                    )
+                                "
+                            >
+                                <i class="ri-delete-bin-line"></i>
+                            </AppButton>
+                        </AppTooltip>
+                    </AppDataTableData>
+                </AppDataTableRow>
+            </tbody>
         </template>
-        <template #empty> {{ __('No roles found') }} </template>
+    </AppDataTable>
 
-        <Column field="name" :header="__('Name')" />
+    <AppPaginator
+        :links="roles.links"
+        class="mt-4 justify-center"
+    ></AppPaginator>
 
-        <Column :exportable="false" style="min-width: 8rem">
-            <template #body="slotProps">
-                <Button
-                    v-tooltip.top="__('Role Permissions')"
-                    v-btn-icon
-                    class="mr-2"
-                    @click="
-                        $inertia.visit(
-                            route('aclRolePermission.edit', slotProps.data.id)
-                        )
-                    "
-                >
-                    <i class="ri-shield-keyhole-line text-xl"></i>
-                </Button>
-                <Button
-                    v-tooltip.top="__('Edit Role')"
-                    v-btn-icon
-                    class="mr-2"
-                    @click="
-                        $inertia.visit(route('aclRole.edit', slotProps.data.id))
-                    "
-                >
-                    <i class="ri-edit-line text-xl"></i>
-                </Button>
-                <Button
-                    v-tooltip.top="__('Delete Role')"
-                    v-btn-icon="'danger'"
-                    @click="confirmDelete('aclRole.destroy', slotProps.data)"
-                >
-                    <i class="ri-delete-bin-line text-xl"></i>
-                </Button>
-            </template>
-        </Column>
-    </DataTable>
+    <AppAlert v-if="!roles.data.length" class="mt-4">
+        {{ __('No roles found') }}
+    </AppAlert>
+
+    <AppConfirmDialog ref="confirmDialogRef"></AppConfirmDialog>
 </template>
 
 <script setup>
-import useDataSearch from '@/Composables/useDataSearch'
-import useConfirmDelete from '@/Composables/useConfirmDelete'
+import { ref } from 'vue'
 
 const props = defineProps({
     roles: {
@@ -95,15 +103,10 @@ const breadCrumb = [
     { label: 'Roles', last: true }
 ]
 
-const { searchTerm, fetchData, clearSearch } = useDataSearch(
-    route('aclRole.index'),
-    'name'
-)
+const headers = ['ID', 'Name', 'Actions']
 
-const pageChange = (event) => {
-    const params = { page: ++event.page, rowsPerPage: event.rows }
-    fetchData(params)
+const confirmDialogRef = ref(null)
+const confirmDelete = (deleteRoute) => {
+    confirmDialogRef.value.openModal(deleteRoute)
 }
-
-const { confirmDelete } = useConfirmDelete()
 </script>

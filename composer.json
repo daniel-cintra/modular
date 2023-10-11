@@ -61,12 +61,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Modular\\Modular\\ModularServiceProvider",
-                "Modular\\Modular\\SupportServiceProvider",
-                "Modular\\Modular\\AdminAuth\\AdminAuthServiceProvider",
-                "Modular\\Modular\\User\\UserServiceProvider",
-                "Modular\\Modular\\Dashboard\\DashboardServiceProvider",
-                "Modular\\Modular\\Acl\\AclServiceProvider"
+                "Modular\\Modular\\ModularServiceProvider"
             ],
             "aliases": {
                 "Modular": "Modular\\Modular\\Facades\\Modular"

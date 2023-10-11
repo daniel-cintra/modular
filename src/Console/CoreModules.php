@@ -23,7 +23,10 @@ trait CoreModules
 
         $this->copyResources();
 
-        $this->configureModulesDirectory();
+        $this->copyModules();
+        $this->configureModulesProviders();
+
+        $this->configureModulesAutoload();
 
         copy(__DIR__.'/../../stubs/routes/web.php', base_path('routes/web.php'));
 
@@ -32,7 +35,9 @@ trait CoreModules
         copy(__DIR__.'/../../stubs/public/favicon.svg', public_path('favicon.svg'));
 
         $this->setupDatabase();
+        $this->setupFactory();
         $this->seedDatabase();
+
         $this->runCommands(['npm run build']);
 
         $this->line('');
@@ -44,7 +49,7 @@ trait CoreModules
         $this->components->info('Configuring Middlewares...');
         copy(__DIR__.'/../../stubs/app/Http/Middleware/HandleInertiaRequests.php', app_path('Http/Middleware/HandleInertiaRequests.php'));
         $this->installMiddlewareAfter('SubstituteBindings::class', '\App\Http\Middleware\HandleInertiaRequests::class');
-        $this->installAliasMiddlewareAfter('EnsureEmailIsVerified::class', "'auth.user' => \Modular\Modular\AdminAuth\Http\Middleware\UserAuth::class");
+        $this->installAliasMiddlewareAfter('EnsureEmailIsVerified::class', "'auth.user' => \Modules\AdminAuth\Http\Middleware\UserAuth::class");
     }
 
     private function copyResources(): void
@@ -54,7 +59,7 @@ trait CoreModules
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/resources', base_path('resources'));
     }
 
-    private function configureModulesDirectory(): void
+    private function configureModulesAutoload(): void
     {
         $this->components->info('Configuring modules autoload...');
 
@@ -64,6 +69,13 @@ trait CoreModules
         $this->configureAutoload('"database/seeders/"', '"Modules\\\": "modules/"');
 
         $this->dumpAutoload();
+    }
+
+    private function copyModules(): void
+    {
+        $this->components->info('Copying modules directory...');
+        (new Filesystem)->ensureDirectoryExists(base_path('modules'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/modules', base_path('modules'));
     }
 
     /**
@@ -86,6 +98,11 @@ trait CoreModules
             });
     }
 
+    protected function setupFactory()
+    {
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/database/factories', base_path('database/factories'));
+    }
+
     /**
      * Run the php artisan db:seed command.
      *
@@ -98,6 +115,38 @@ trait CoreModules
             ->run(function ($type, $output) {
                 $this->output->write($output);
             });
+    }
+
+    /**
+     * Configure "modules" providers.
+     *
+     * @param  string  $after
+     * @param  string  $path
+     * @return void
+     */
+    protected function configureModulesProviders()
+    {
+        $configAppFile = base_path('config/app.php');
+
+        // Read the content of the file
+        $content = file_get_contents($configAppFile);
+
+        // Define the string to be added
+        $providersToAdd = PHP_EOL.PHP_EOL
+            ."        Modules\Support\SupportServiceProvider::class,".PHP_EOL
+            ."        Modules\AdminAuth\AdminAuthServiceProvider::class,".PHP_EOL
+            ."        Modules\User\UserServiceProvider::class,".PHP_EOL
+            ."        Modules\Dashboard\DashboardServiceProvider::class,".PHP_EOL
+            ."        Modules\Acl\AclServiceProvider::class,".PHP_EOL;
+
+        // Find the position after which you want to add the new service providers
+        $searchString = "App\Providers\RouteServiceProvider::class,";
+
+        // Use the Str helper to replace
+        $modifiedContent = Str::replaceFirst($searchString, $searchString.$providersToAdd, $content);
+
+        // Write the modified content back to the file
+        file_put_contents($configAppFile, $modifiedContent);
     }
 
     /**
