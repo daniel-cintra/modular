@@ -16,7 +16,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, HasRoles, Searchable, SoftDeletes;
+    use HasFactory, HasRoles, Notifiable, Searchable, SoftDeletes;
 
     protected static function newFactory()
     {
