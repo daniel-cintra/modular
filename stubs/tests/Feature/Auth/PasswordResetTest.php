@@ -1,8 +1,8 @@
 <?php
 
-use Modules\User\Models\User;
 use Illuminate\Support\Facades\Notification;
 use Modules\AdminAuth\Notifications\ResetPassword as AdminAuthResetPassword;
+use Modules\User\Models\User;
 
 test('reset password link screen can be rendered', function () {
     $response = $this->get('/admin-auth/forgot-password');
@@ -28,7 +28,7 @@ test('reset password screen can be rendered', function () {
     $this->post('/admin-auth/send-reset-link-email', ['email' => $user->email]);
 
     Notification::assertSentTo($user, AdminAuthResetPassword::class, function ($notification) {
-        $response = $this->get('/admin-auth/reset-password/' . $notification->token);
+        $response = $this->get('/admin-auth/reset-password/'.$notification->token);
 
         $response->assertStatus(200);
 

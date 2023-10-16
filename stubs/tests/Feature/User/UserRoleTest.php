@@ -15,7 +15,7 @@ beforeEach(function () {
 });
 
 test('user roles can be rendered', function () {
-    $response = $this->loggedRequest->get('/acl-user-role/' . $this->user->id . '/edit');
+    $response = $this->loggedRequest->get('/acl-user-role/'.$this->user->id.'/edit');
 
     $response->assertStatus(200);
 
@@ -43,7 +43,7 @@ test('user roles can be rendered', function () {
 });
 
 test('user roles can be updated', function () {
-    $response = $this->loggedRequest->put('/acl-user-role/' . $this->user->id, [
+    $response = $this->loggedRequest->put('/acl-user-role/'.$this->user->id, [
         'userRoles' => [$this->role2->id],
     ]);
 
