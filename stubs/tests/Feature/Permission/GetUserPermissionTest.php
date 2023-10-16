@@ -1,9 +1,9 @@
 <?php
 
-use Modules\User\Models\User;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 use Modules\Acl\Services\GetUserPermissions;
+use Modules\User\Models\User;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 beforeEach(function () {
     $this->user = User::factory()->create();
@@ -41,7 +41,6 @@ test('user permission service returns correct role permissions for the user', fu
     $this->assertCount(1, $userPermissions);
     $this->assertEquals($this->permission2->id, $userPermissions[0]['id']);
 });
-
 
 test('user permission service returns correct direct and role permissions for the user', function () {
     $this->user->syncPermissions([$this->permission->id]);
