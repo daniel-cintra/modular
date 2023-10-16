@@ -7,7 +7,7 @@ use Symfony\Component\Process\PhpExecutableFinder;
 
 class InstallCommand extends Command
 {
-    use BackendPackages, CoreModules, FrontendPackages;
+    use BackendPackages, CoreModules, FrontendPackages, PestTests;
 
     protected $signature = 'modular:install {--composer=global : Absolute path to the Composer binary which should be used to install packages}';
 
@@ -32,6 +32,8 @@ class InstallCommand extends Command
         $this->comment('Required stacks installed!');
 
         $this->configureCoreModules();
+
+        $this->setupPestTests();
 
         return self::SUCCESS;
     }

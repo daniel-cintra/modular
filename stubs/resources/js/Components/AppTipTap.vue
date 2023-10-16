@@ -1,7 +1,7 @@
 <template>
     <div>
         <div
-            class="border-skin-base-300 mx-0 mb-0 flex flex-none flex-wrap items-center break-words border-x border-t border-solid bg-no-repeat p-2 font-sans text-xl leading-5 tracking-normal"
+            class="border-skin-neutral-7 mx-0 mb-0 flex flex-none flex-wrap items-center break-words border-x border-t border-solid bg-no-repeat p-2 font-sans text-xl leading-5 tracking-normal"
             :class="editorClass"
         >
             <TipTapButton
@@ -293,13 +293,13 @@
         <editor-content
             v-show="!codeMode"
             :editor="editor"
-            class="border-skin-base-300 text-skin-base-content relative m-0 max-h-[240px] min-h-[120px] overflow-auto break-words border border-solid bg-no-repeat px-1 py-1 font-sans text-xs leading-5 tracking-normal"
+            class="border-skin-neutral-7 relative m-0 max-h-[240px] min-h-[120px] overflow-auto break-words border border-solid bg-no-repeat px-1 py-1 font-sans text-xs leading-5 tracking-normal"
         />
 
         <textarea
             v-show="codeMode"
             v-model="htmlContent"
-            class="border-skin-base-300 min-h-[240px] w-full"
+            class="border-skin-neutral-7 min-h-[240px] w-full"
             @input="syncEditor"
         >
         </textarea>
