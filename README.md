@@ -3,22 +3,17 @@
     <img src="art/modular-logo.svg" width="320" height="320"></a>
 </p>
 
-<p align="center">
-    <a href="https://laravel.com"><img alt="Laravel v10.x" src="https://img.shields.io/badge/Laravel-v10.x-FF2D20?style=for-the-badge&logo=laravel"></a>
+<center>
 
-    <a href="https://vuejs.org/"><img alt="Vue v3.x" src="https://img.shields.io/badge/Vue.js-v3.x-2f4053?style=for-the-badge&logo=vue.js&logoColor=39af78"></a>
+[![Laravel v10.x](https://img.shields.io/badge/Laravel-v10.x-FF2D20?style=for-the-badge&logo=laravel)](https://laravel.com)
+[![Vue v3.x](https://img.shields.io/badge/Vue.js-v3.x-2f4053?style=for-the-badge&logo=vue.js&logoColor=39af78)](https://vuejs.org/)
+[![Tailwind CSS v3.x](https://img.shields.io/badge/Tailwind%20CSS-v3.x-31b5f7?style=for-the-badge&logo=tailwind-css&logoColor=ffffff)](https://tailwindcss.com/)
+[![Inertia.js v1.x](https://img.shields.io/badge/Inertia.js-v1.x-6765ea?style=for-the-badge&logo=inertia&logoColor=ffffff)](https://inertiajs.com/)
+[![Vite v4.3](https://img.shields.io/badge/Vite-v4.3-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
+[![PHP v8.2](https://img.shields.io/badge/PHP-v8.2-777BB5?style=for-the-badge&logo=php)](https://php.net)
+[![Tests passing](https://img.shields.io/badge/Tests-passing-green?style=for-the-badge&logo=github)](https://github.com/daniel-cintra/modular/tree/main/stubs/tests)
 
-    <a href="https://tailwindcss.com/"><img alt="Tailwind CSS v3.x" src="https://img.shields.io/badge/Tailwind%20CSS-v3.x-31b5f7?style=for-the-badge&logo=tailwind-css&logoColor=ffffff"></a>
-
-    <a href="https://inertiajs.com/"><img alt="Inertia.js v1.x" src="https://img.shields.io/badge/Inertia.js-v1.x-6765ea?style=for-the-badge&logo=inertia&logoColor=ffffff"></a>
-
-    <a href="https://vitejs.dev/"><img alt="Vite" src="https://img.shields.io/badge/Vite-v4.3-646CFF?style=for-the-badge&logo=vite"></a>
-
-    <a href="https://php.net"><img alt="PHP v8.2" src="https://img.shields.io/badge/PHP-v8.2-777BB5?style=for-the-badge&logo=php"></a>
-
-    <a href="https://github.com/daniel-cintra/modular/tree/main/stubs/tests"><img alt="Tests passing" src="https://img.shields.io/badge/Tests-passing-green?style=for-the-badge&logo=github"></a>
-
-</p>
+</center>
 
 ## About Modular
 
