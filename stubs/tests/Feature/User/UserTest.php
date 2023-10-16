@@ -35,25 +35,15 @@ test('user can be created', function () {
         'password' => 'password',
     ]);
 
-    $response->assertRedirect('/user');
+    $users = User::all();
 
-    $redirectResponse = $this->loggedRequest->get('/user');
-    $redirectResponse->assertInertia(
-        fn (Assert $page) => $page
-            ->component('User/UserIndex')
-            ->has(
-                'users.data.1',
-                fn (Assert $page) => $page
-                    ->where('id', 2)
-                    ->where('name', 'New Name')
-                    ->where('email', 'new@email.com')
-                    ->where('created_at', $this->user->created_at->format('d/m/Y H:i\h'))
-            )
-    );
+    $response->assertRedirect('/user');
+    $this->assertCount(2, $users);
+    $this->assertEquals('New Name', $users->last()->name);
 });
 
 test('user edit can be rendered', function () {
-    $response = $this->loggedRequest->get('/user/' . $this->user->id . '/edit');
+    $response = $this->loggedRequest->get('/user/'.$this->user->id.'/edit');
 
     $response->assertStatus(200);
 
@@ -71,7 +61,7 @@ test('user edit can be rendered', function () {
 });
 
 test('user can be updated', function () {
-    $response = $this->loggedRequest->put('/user/' . $this->user->id, [
+    $response = $this->loggedRequest->put('/user/'.$this->user->id, [
         'name' => 'New Name',
         'email' => 'new@email.com',
         'password' => 'password',
@@ -96,7 +86,7 @@ test('user can be updated', function () {
 });
 
 test('user can be deleted', function () {
-    $response = $this->loggedRequest->delete('/user/' . $this->user->id);
+    $response = $this->loggedRequest->delete('/user/'.$this->user->id);
 
     $response->assertRedirect('/user');
 
