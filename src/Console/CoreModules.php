@@ -35,13 +35,12 @@ trait CoreModules
         copy(__DIR__.'/../../stubs/public/favicon.svg', public_path('favicon.svg'));
 
         $this->setupDatabase();
-        $this->setupFactory();
+        $this->seedDatabase();
 
         $this->runCommands(['npm run build']);
 
-        $this->seedDatabase();
-
         $this->line('');
+
         $this->components->info('Core Modules configured!');
     }
 
@@ -87,6 +86,7 @@ trait CoreModules
     protected function setupDatabase()
     {
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/database/seeders', base_path('database/seeders'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/database/factories', base_path('database/factories'));
 
         $this->call('vendor:publish', [
             '--tag' => 'modular-migrations',
@@ -97,11 +97,6 @@ trait CoreModules
             ->run(function ($type, $output) {
                 $this->output->write($output);
             });
-    }
-
-    protected function setupFactory()
-    {
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/database/factories', base_path('database/factories'));
     }
 
     /**
