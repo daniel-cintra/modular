@@ -36,9 +36,10 @@ trait CoreModules
 
         $this->setupDatabase();
         $this->setupFactory();
-        $this->seedDatabase();
 
         $this->runCommands(['npm run build']);
+
+        $this->seedDatabase();
 
         $this->line('');
         $this->components->info('Core Modules configured!');
