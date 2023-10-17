@@ -2,7 +2,7 @@
 
 namespace Modules\{{ ModuleName }}\Http\Requests;
 
-use Modular\Modular\Http\Requests\Request;
+use Modules\Support\Http\Requests\Request;
 
 class {{ ResourceName }}Validate extends Request
 {

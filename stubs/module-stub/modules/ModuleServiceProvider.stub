@@ -2,7 +2,7 @@
 
 namespace Modules\{{ moduleName }};
 
-use Modular\Modular\BaseServiceProvider;
+use Modules\Support\BaseServiceProvider;
 
 class {{ moduleName }}ServiceProvider extends BaseServiceProvider
 {

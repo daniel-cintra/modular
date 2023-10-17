@@ -3,9 +3,9 @@
 namespace Modules\{{ ModuleName }}\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Modular\Modular\Models\BaseModel;
-use Modular\Modular\Traits\Searchable;
-use Modular\Modular\Traits\ActivityLog;
+use Modules\Support\Models\BaseModel;
+use Modules\Support\Traits\Searchable;
+use Modules\Support\Traits\ActivityLog;
 
 class {{ ResourceName }} extends BaseModel
 {
