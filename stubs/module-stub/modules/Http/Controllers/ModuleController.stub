@@ -34,9 +34,9 @@ class {{ ResourceName }}Controller extends BackendController
 
     public function store({{ ResourceName }}Validate $request): RedirectResponse
     {
-        ${{ resourceName }} = {{ ResourceName }}::create($request->validated());
+        {{ ResourceName }}::create($request->validated());
 
-        return redirect()->back()
+        return redirect('{{ resourceName }}')
             ->with('success', '{{ ResourceName }} created.');
     }
 
@@ -55,7 +55,7 @@ class {{ ResourceName }}Controller extends BackendController
 
         ${{ resourceName }}->update($request->validated());
 
-        return redirect()->back()
+        return redirect('{{ resourceName }}')
             ->with('success', '{{ ResourceName }} updated.');
     }
 
@@ -63,7 +63,7 @@ class {{ ResourceName }}Controller extends BackendController
     {
         {{ ResourceName }}::findOrFail($id)->delete();
 
-        return redirect()->route('{{ resourceName }}.index')
+        return redirect('{{ resourceName }}')
             ->with('success', '{{ ResourceName }} deleted.');
     }
 }
