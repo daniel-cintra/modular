@@ -6,7 +6,7 @@
                 <span class="">{{ message }}</span>
             </div>
             <AppButton
-                class="text-skin-neutral-12 hover:text-skin-neutral-11"
+                class="text-skin-neutral-6 hover:text-skin-neutral-7"
                 @click="closeToast"
             >
                 <i class="ri-close-circle-line text-lg"></i>
