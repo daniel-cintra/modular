@@ -1,84 +1,90 @@
 <template>
     <AppSectionHeader title="{{ ResourceName }}s" :bread-crumb="breadCrumb">
         <template #right>
-            <Button
-                label="Create {{ ResourceName }}"
+            <AppButton
+                class="btn btn-primary"
                 @click="$inertia.visit(route('{{ resourceName }}.create'))"
-            />
+            >
+                Create {{ ResourceName }}
+            </AppButton>
         </template>
     </AppSectionHeader>
 
-    <DataTable
-        ref="dataTable"
-        :value="{{ resourceName }}s.data"
-        :paginator="true"
-        :rows="{{ resourceName }}s.per_page"
-        :lazy="true"
-        :total-records="{{ resourceName }}s.total"
-        :first="{{ resourceName }}s.from"
-        striped-rows
-        class="mx-8 shadow"
-        :rows-per-page-options="[10, 25, 50]"
-        @page="pageChange($event)"
-    >
-        <template #header>
-            <div class="flex justify-end">
-                <Button
-                    v-if="searchTerm"
-                    label="Clear Search"
-                    class="p-button-link p-button-sm mr-2"
-                    @click="clearSearch"
-                />
-                <span class="p-input-icon-left">
-                    <i class="pi pi-search" />
-                    <InputText
-                        v-model="searchTerm"
-                        placeholder="Search"
-                        class="font-normal"
-                    />
-                </span>
-            </div>
+    <AppDataSearch
+        v-if="{{ resourceName }}s.data.length || route().params.searchTerm"
+        :url="route('{{ resourceName }}.index')"
+        fields-to-search="id"
+    ></AppDataSearch>
+
+    <AppDataTable v-if="{{ resourceName }}s.data.length" :headers="headers">
+        <template #TableBody>
+            <tbody>
+                <AppDataTableRow
+                    v-for="item in {{ resourceName }}s.data"
+                    :key="item.id"
+                >
+                    <AppDataTableData>
+                        {{ item.id }}
+                    </AppDataTableData>
+
+                    <!-- <AppDataTableData>
+                        {{ item.name }}
+                    </AppDataTableData> -->
+
+                    <AppDataTableData>
+                        <!-- edit {{ resourceName }} -->
+                        <AppTooltip text="Edit {{ ResourceName }}" class="mr-3">
+                            <AppButton
+                                class="btn btn-icon btn-primary"
+                                @click="
+                                    $inertia.visit(
+                                        route(
+                                            '{{ resourceName }}.edit',
+                                            item.id
+                                        )
+                                    )
+                                "
+                            >
+                                <i class="ri-edit-line"></i>
+                            </AppButton>
+                        </AppTooltip>
+
+                        <!-- delete {{ resourceName }} -->
+                        <AppTooltip text="Delete {{ ResourceName }}">
+                            <AppButton
+                                class="btn btn-icon btn-destructive"
+                                @click="
+                                    confirmDelete(
+                                        route(
+                                            '{{ resourceName }}.destroy',
+                                            item.id
+                                        )
+                                    )
+                                "
+                            >
+                                <i class="ri-delete-bin-line"></i>
+                            </AppButton>
+                        </AppTooltip>
+                    </AppDataTableData>
+                </AppDataTableRow>
+            </tbody>
         </template>
-        <template #empty> No {{ resourceName }}s found. </template>
+    </AppDataTable>
 
-        <Column field="id" header="Id" />
-        <!-- <Column field="name" header="Name" /> -->
+    <AppPaginator
+        :links="{{ resourceName }}s.links"
+        class="mt-4 justify-center"
+    ></AppPaginator>
 
-        <Column :exportable="false" style="min-width: 8rem">
-            <template #body="slotProps">
-                <Button
-                    v-tooltip.top="'Edit {{ ResourceName }}'"
-                    v-btn-icon
-                    class="mr-2"
-                    @click="
-                        $inertia.visit(
-                            route('{{ resourceName }}.edit', slotProps.data.id)
-                        )
-                    "
-                >
-                    <i class="ri-edit-line text-xl"></i>
-                </Button>
+    <AppAlert v-if="!{{ resourceName }}s.data.length" class="mt-4">
+        No {{ resourceName }}s found.
+    </AppAlert>
 
-                <Button
-                    v-tooltip.top="'Delete {{ ResourceName }}'"
-                    v-btn-icon="'danger'"
-                    @click="
-                        confirmDelete(
-                            '{{ resourceName }}.destroy',
-                            slotProps.data
-                        )
-                    "
-                >
-                    <i class="ri-delete-bin-line text-xl"></i>
-                </Button>
-            </template>
-        </Column>
-    </DataTable>
+    <AppConfirmDialog ref="confirmDialogRef"></AppConfirmDialog>
 </template>
 
 <script setup>
-import useDataSearch from '@/Composables/useDataSearch'
-import useConfirmDelete from '@/Composables/useConfirmDelete'
+import { ref } from 'vue'
 
 const props = defineProps({
   {{ resourceName }}s: {
@@ -92,15 +98,10 @@ const breadCrumb = [
   { label: '{{ ResourceName }}s', last: true }
 ]
 
-const { searchTerm, fetchData, clearSearch } = useDataSearch(
-  route('{{ resourceName }}.index'),
-  'name'
-)
+const headers = ['ID', 'Actions']
 
-const pageChange = (event) => {
-  const params = { page: ++event.page, rowsPerPage: event.rows }
-  fetchData(params)
+const confirmDialogRef = ref(null)
+const confirmDelete = (deleteRoute) => {
+    confirmDialogRef.value.openModal(deleteRoute)
 }
-
-const { confirmDelete } = useConfirmDelete()
 </script>
