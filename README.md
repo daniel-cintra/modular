@@ -15,58 +15,65 @@
 
 ## Why Modular?
 
-When starting a new web application, you are likely to encounter common tasks such as:
+Starting a new web application usually means tackling a bunch of common yet crucial tasks, including:
 
--   Structuring and organizing your application for scalability
--   Implementing a granular ACL (Access Control List) system for managing users and roles
--   Customizing an Admin Panel for building your application
--   Adopting or developing a UI Toolkit to accelerate frontend development and ensure consistency across pages
--   Connecting your frontend and backend in a simple, maintainable, and intuitive manner
--   Keeping an Activity Log to audit operations performed by users
--   Managing the build steps of your frontend application with the right tooling and stack
--   Abstracting common functionality (and components) for reuse, like data search, pagination, flash messages, etc.
--   Adopting testing frameworks to ensure your application functions as expected
--   Maintaining a clean mental model of how all these elements work together
+-   **Scalable Architecture:** Structuring your application in a way that scales seamlessly with growth.
+-   **Robust Access Control:** Crafting a granular ACL (Access Control List) to manage users and roles proficiently.
+-   **Intuitive Admin Panel:** Either customizing a ready-made or developing a bespoke Admin Panel to streamline your application's construction.
+-   **Responsive Design:** Ensuring your Admin Panel is mobile-friendly and responsive across devices.
+-   **Unified UI Toolkit:** Adopting or developing a UI Toolkit to fast-track frontend development while maintaining a coherent design across pages.
+-   **Effortless Frontend-Backend Integration:** Bridging your frontend and backend intuitively, ensuring a maintainable and straightforward connection.
+-   **Optimized Build Management:** Harnessing the right toolset and stack to manage your frontend application's build steps efficiently.
+-   **Reusable Components:** Abstracting common functionalities and components for reuse (embrace DRY - Don't Repeat Yourself), such as data search, pagination, flash messages, and more.
+-   **Thorough Testing Frameworks:** Implementing testing frameworks to validate your application's functionality.
+-   **Comprehensive Activity Log:** Keeping a detailed log to audit user operations.
+-   **Clear Architectural Vision:** Maintaining a lucid mental model of the project's architectural decisions, promoting consistency and a solid understanding of how all elements interlink.
 
-Moreover, you might face more complex scenarios like having multiple dashboards according to the user type/profile, translations, etc.
+The intricacies of these tasks are far from trivial, often demanding a substantial amount of time and attention. As you delve deeper, you may encounter additional minor behaviors and tweaks that, while seemingly marginal, are crucial and time-consuming.
+
+Furthermore, more complex scenarios such as multi-faceted dashboards tailored to user profiles or intricate business rules may arise, adding layers of complexity to your project.
+
+Modular aims to alleviate these hurdles by providing a well-structured, comprehensive solution, allowing you to focus on what truly matters - bringing your unique application to life.
+
+## Why VILT Stack (Vue, Inertia, Laravel, Tailwind)?
+
+The VILT Stack is a powerful combination of frameworks and tools that provide a robust foundation for building web applications. These technologies **work very well together** to deliver a seamless developer experience, enabling you to concentrate on your application's core functionalities. Moreover, after developing projects of varying sizes and complexities with different stacks, I discovered that the VILT Stack is incredibly flexible. It accommodates simple CRUD applications just as well as it does more complex UIs, with enhanced interactivity and client-side heavy business logic (interactive calendars, dynamic form fields, complex graphics, etc.). Consequently, it scales adeptly in both scenarios, proving to be a reliable choice for both small, straightforward apps and large, complex ones.
 
 ## About Modular
 
-This project prioritizes developer experience and offers a straightforward way to integrate different parts of your applications.
+Modular stands on the shoulders of giants, integrating powerful frameworks and tools to offer a streamlined development experience. Here’s what lies under the hood:
 
-Modular is built atop the following frameworks and tools:
+-   [Laravel 10](https://laravel.com/) (Empowers the backend)
+-   [Vue 3](https://vuejs.org/) (Drives custom frontend components)
+-   [Vite](https://vitejs.dev/) (Accelerates frontend tooling)
+-   [Inertia.js](https://inertiajs.com/) (Bridges the gap between frontend and backend)
+-   [Tailwind CSS 3](https://tailwindcss.com/) (Styles with ease)
 
--   [Laravel 10](https://laravel.com/) (For the backend)
--   [Vue 3](https://vuejs.org/) (For custom frontend components)
--   [Vite](https://vitejs.dev/) (For frontend tooling)
--   [Inertia.js](https://inertiajs.com/) (For simplifying the connection between frontend and backend)
--   [Tailwind CSS 3](https://tailwindcss.com/) (For styling)
+When you bring Modular into your Laravel application, here’s a taste of what you'll unlock:
 
-Upon installing Modular in your Laravel Application, you will receive out of the box:
-
--   A **Themed Admin Panel** fully integrated with Tailwind CSS for building your application
--   A granular **ACL (Access Control List) System** for managing users and roles
--   Auto-loaded **Custom Vue 3 Components**, written in **JavaScript**, styled with Tailwind CSS
--   Vite for **lightning-fast frontend development**
--   Inertia.js for a seamless **frontend and backend connection**, with easier routing, flash messages (back to front), permissions, etc.
--   A **tailor-made CLI** for generating new modules
--   A complete **translation system** for your application (if needed)
--   **Build steps** for your frontend application, with the right tooling and stack, **ready, configured, and working from the first minute**
--   A **developer experience** that leaves you smiling at the end of the day ;)
+-   A **Themed Admin Panel** seamlessly integrated with Tailwind CSS, ready to assist you in crafting your application.
+-   A finely-tuned **ACL (Access Control List) System** to effortlessly manage users and roles.
+-   A suite of auto-loaded **Custom Vue 3 Components**, penned in **JavaScript**, and tailored with Tailwind CSS; ready for use.
+-   Vite for a **lightning-fast frontend development** journey.
+-   Inertia.js to ensure a smooth frontend and backend connection, **simplifying routing and component data hydration**, among other benefits.
+-   A **custom-built CLI** to swiftly generate new modules; propelling your **development speed**.
+-   A comprehensive **translation system** ready to help your application speak the world's languages (if needed).
+-   **Build steps** for your frontend application are set, pre-configured, and ready to roll from the get-go, with the right tooling and stack to keep the momentum high.
+-   A **developer experience** designed to leave a grin on your face at the end of each coding day ;)
 
 ## Custom Vue 3 Components
 
-In previous versions of Modular, I utilized robust UI Toolkits like Vuetify and Prime Vue. While they are excellent, I desired more control over the components, guided by these requirements:
+In previous iterations of Modular, I leveraged robust UI Toolkits like Vuetify and Prime Vue. While these are excellent options, a desire for more control over the components led to a change, guided by the following criteria:
 
--   Utilize Vue 3 as the main JavaScript framework.
--   Employ Tailwind CSS as the primary styling framework.
--   Easily integrate the Custom Vue 3 Components with the Tailwind Theme System.
--   Customize components by simply opening them (not in the node_modules, but at `./resources/js/Components`), modifying the Tailwind CSS classes, and saving. Done.
--   No Sass, Less, Stylus, etc. Just Tailwind CSS.
--   No TypeScript. Just JavaScript.
--   Light and very simple Common Components. If needed, you can extend them per project to add more functionality.
+-   Adoption of Vue 3 as the primary JavaScript framework.
+-   Employment of Tailwind CSS for styling purposes.
+-   Seamless integration of Custom Vue 3 Components with the Tailwind Theme System.
+-   Easy customization of components by merely editing them. To facilitate this, components reside not in node_modules, but in ./resources/js/Components. Need some tweaking? Open the component, modify the Tailwind CSS classes, and save it. Done.
+-   No use of Sass, Less, Stylus, etc. Tailwind CSS exclusively.
+-   No TypeScript. Pure JavaScript only.
+-   Light and exceedingly straightforward Common Components. If necessary, extend or create new components per project to imbue additional functionality.
 
-Currently, Modular provides the following Custom Vue 3 Components:
+At present, Modular furnishes the following Custom Vue 3 Components:
 
 ```bash
 ./resources/js/Components
@@ -106,7 +113,7 @@ Currently, Modular provides the following Custom Vue 3 Components:
     └── TipTapDivider.vue
 ```
 
-All these components are designed to integrate seamlessly with Modular, ensuring the easiest possible developer experience.
+Each of these components **is crafted to integrate seamlessly with Modular**, ensuring the most straightforward developer experience possible.
 
 ## Documentation
 
