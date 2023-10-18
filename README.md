@@ -68,7 +68,7 @@ In previous iterations of Modular, I leveraged robust UI Toolkits like Vuetify a
 -   Adoption of Vue 3 as the primary JavaScript framework.
 -   Employment of Tailwind CSS for styling purposes.
 -   Seamless integration of Custom Vue 3 Components with the Tailwind Theme System.
--   Easy customization of components by merely editing them. To facilitate this, components reside not in node_modules, but in ./resources/js/Components. Need some tweaking? Open the component, modify the Tailwind CSS classes, and save it. Done.
+-   Easy customization of components by merely editing them. To facilitate this, components reside not in node_modules, but in "./resources/js/Components". Need some tweaking? Open the component, modify the Tailwind CSS classes, and save it. Done.
 -   No use of Sass, Less, Stylus, etc. Tailwind CSS exclusively.
 -   No TypeScript. Pure JavaScript only.
 -   Light and exceedingly straightforward Common Components. If necessary, extend or create new components per project to imbue additional functionality.
