@@ -13,8 +13,12 @@ trait Searchable
     {
         $searchTerm = preg_replace('/[^A-Za-z0-9 ]/', '', $searchTerm);
 
-        $query->when($searchTerm, function ($query, $searchTerm) use ($searchColumn) {
-            $query->where($searchColumn, 'like', "%{$searchTerm}%");
+        $columns = array_map('trim', explode(',', $searchColumn));
+
+        $query->when($searchTerm, function ($query, $searchTerm) use ($columns) {
+            foreach ($columns as $column) {
+                $query->orWhere($column, 'like', "%{$searchTerm}%");
+            }
         });
     }
 }
