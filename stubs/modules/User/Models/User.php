@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Modules\AdminAuth\Notifications\ResetPassword;
-// use Modules\Traits\ActivityLog;
+// use Modules\Support\Traits\ActivityLog;
 use Modules\Support\Traits\Searchable;
 use Spatie\Permission\Traits\HasRoles;
 
