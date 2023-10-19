@@ -1,7 +1,6 @@
 <?php
 
 use Modules\Support\Traits\Searchable;
-use Illuminate\Database\Eloquent\Model;
 use Modules\User\Models\User;
 
 uses(Searchable::class);
@@ -12,10 +11,6 @@ beforeEach(function () {
         'email' => 'doe@gmail.com',
         'password' => 'secret',
     ]);
-});
-
-afterEach(function () {
-    $this->user->delete();
 });
 
 it('returns empty collection if no result is found', function () {
