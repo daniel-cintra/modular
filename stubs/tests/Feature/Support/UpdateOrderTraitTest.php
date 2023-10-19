@@ -1,9 +1,9 @@
 <?php
 
-use Modules\Support\Traits\UpdateOrder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+use Modules\Support\Traits\UpdateOrder;
 
 uses(UpdateOrder::class);
 
@@ -25,7 +25,9 @@ it('can update the order of the model items', function () {
     $model = new class extends Model
     {
         use UpdateOrder;
+
         protected $table = 'items';
+
         protected $guarded = [];
     };
 
@@ -34,7 +36,7 @@ it('can update the order of the model items', function () {
 
     $newOrder = [
         ['id' => $item2->id],
-        ['id' => $item1->id]
+        ['id' => $item1->id],
     ];
 
     $model->updateOrder($newOrder);

@@ -1,7 +1,6 @@
 <?php
 
 use Modules\Support\Traits\Searchable;
-use Illuminate\Database\Eloquent\Model;
 use Modules\User\Models\User;
 
 uses(Searchable::class);
