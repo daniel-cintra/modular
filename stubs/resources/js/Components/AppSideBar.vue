@@ -21,7 +21,8 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
+import useIsMobile from '@/Composables/useIsMobile'
 
 const props = defineProps({
     placement: {
@@ -50,15 +51,30 @@ const props = defineProps({
     }
 })
 
-defineEmits(['sidebar:toggle'])
+const emit = defineEmits(['sidebar:toggle'])
+
+const isVisible = ref(true)
 
 onMounted(() => {
+    document.addEventListener('inertia:start', hideMenuOnNavigation)
+
     if (!props.startsVisible) {
         isVisible.value = false
     }
 })
 
-const isVisible = ref(true)
+onUnmounted(() => {
+    document.removeEventListener('inertia:start', hideMenuOnNavigation)
+})
+
+const { isMobile } = useIsMobile()
+const hideMenuOnNavigation = () => {
+    if (isMobile.value && isVisible.value) {
+        window.setTimeout(() => {
+            emit('sidebar:toggle')
+        }, 200)
+    }
+}
 
 const baseClasses = computed(() => {
     const base = [

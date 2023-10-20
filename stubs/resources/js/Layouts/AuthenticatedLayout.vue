@@ -3,7 +3,7 @@
 
     <AppSideBar
         ref="sidebarRef"
-        :backdrop="showBackdrop"
+        :backdrop="isMobile"
         @sidebar:toggle="sidebarToggle"
     >
         <Link :href="route('dashboard.index')" class="mb-6 flex pl-2">
@@ -36,15 +36,16 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue'
 import { Head } from '@inertiajs/vue3'
+import useIsMobile from '@/Composables/useIsMobile'
 import menu from '@/Configs/menu'
 
 const isSideBarOpen = ref(true)
 const sidebarRef = ref()
 
-const width = window.innerWidth
+const { isMobile } = useIsMobile()
 
 onMounted(() => {
-    if (width <= 1024) {
+    if (isMobile.value) {
         sidebarToggle()
     }
 })
@@ -53,10 +54,6 @@ const sidebarToggle = () => {
     isSideBarOpen.value = !isSideBarOpen.value
     sidebarRef.value.toggle()
 }
-
-const showBackdrop = computed(() => {
-    return width <= 1024 ? true : false
-})
 
 const items = menu.items
 </script>
