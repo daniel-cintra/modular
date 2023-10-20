@@ -6,7 +6,7 @@
         <template #title> {{ title }} </template>
         <template #content>
             <AppFormErrors class="mb-4" />
-            <form>
+            <form @submit.prevent="submitForm">
                 <div>
                     <AppLabel for="name">{{ __('Name') }}</AppLabel>
                     <AppInputText
