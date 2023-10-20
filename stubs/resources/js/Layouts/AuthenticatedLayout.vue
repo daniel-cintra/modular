@@ -28,13 +28,17 @@
             @sidebar:toggle="sidebarToggle"
         />
         <div class="mx-8 2xl:mx-16">
-            <slot></slot>
+            <transition name="fade" mode="out-in">
+                <div :key="$page.url">
+                    <slot></slot>
+                </div>
+            </transition>
         </div>
     </main>
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted } from 'vue'
 import { Head } from '@inertiajs/vue3'
 import useIsMobile from '@/Composables/useIsMobile'
 import menu from '@/Configs/menu'
@@ -57,3 +61,14 @@ const sidebarToggle = () => {
 
 const items = menu.items
 </script>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+    @apply transition-opacity duration-300 ease-out;
+}
+.fade-enter-from,
+.fade-leave-to {
+    @apply opacity-0;
+}
+</style>
