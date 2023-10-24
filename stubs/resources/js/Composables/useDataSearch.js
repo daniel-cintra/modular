@@ -10,7 +10,6 @@ export default function useDataSearch(
     const searchTerm = ref('')
 
     const debouncedSearch = debounce((value) => {
-        console.log('debouncedSearch')
         const params = {
             page: 1,
             searchContext: columnsToSearch,

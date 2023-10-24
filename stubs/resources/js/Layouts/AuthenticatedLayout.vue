@@ -54,8 +54,6 @@ onMounted(() => {
     if (isMobile.value) {
         sidebarToggle()
     }
-
-    console.log(page.props.ziggy.location) // This will log the props passed from the controller. (See the next pa
 })
 
 const sidebarToggle = () => {

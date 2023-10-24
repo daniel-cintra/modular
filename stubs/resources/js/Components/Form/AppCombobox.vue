@@ -133,11 +133,6 @@ const filteredOptions = computed(() => {
 })
 
 const validateOptionHighlighted = () => {
-    console.log(
-        highlightedIndex.value,
-        filteredOptions.value[highlightedIndex.value]
-    )
-
     if (filteredOptions.value[highlightedIndex.value]) {
         updateModelValue(filteredOptions.value[highlightedIndex.value])
     }
@@ -146,7 +141,6 @@ const validateOptionHighlighted = () => {
 const highlightedIndex = ref(0)
 
 const handleArrowKeys = (event) => {
-    console.log(event.key)
     switch (event.key) {
         case 'ArrowUp':
             if (highlightedIndex.value > 0) {
