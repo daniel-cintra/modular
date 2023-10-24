@@ -29,7 +29,7 @@
         />
         <div class="mx-8 2xl:mx-16">
             <transition name="fade" mode="out-in">
-                <div :key="$page.url">
+                <div :key="page.props.ziggy.location">
                     <slot></slot>
                 </div>
             </transition>
@@ -39,9 +39,11 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { Head } from '@inertiajs/vue3'
+import { Head, usePage } from '@inertiajs/vue3'
 import useIsMobile from '@/Composables/useIsMobile'
 import menu from '@/Configs/menu'
+
+const page = usePage()
 
 const isSideBarOpen = ref(true)
 const sidebarRef = ref()
@@ -52,6 +54,8 @@ onMounted(() => {
     if (isMobile.value) {
         sidebarToggle()
     }
+
+    console.log(page.props.ziggy.location) // This will log the props passed from the controller. (See the next pa
 })
 
 const sidebarToggle = () => {

@@ -1,5 +1,4 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
-// const plugin = require('tailwindcss/plugin')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -8,8 +7,7 @@ module.exports = {
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
-        './resources/js/**/*.vue',
-        './node_modules/flowbite/**/*.js'
+        './resources/js/**/*.vue'
     ],
 
     theme: {
@@ -81,20 +79,10 @@ module.exports = {
 
     plugins: [
         require('@tailwindcss/forms'),
-        // require('flowbite/plugin'),
+
         function ({ addVariant }) {
             addVariant('initial', 'html :where(&)')
         }
-        // plugin(function ({ addComponents }) {
-        //     addComponents({
-        //         '.m-btn': {
-        //             paddingLeft: '1.25rem',
-        //             paddingRight: '1.25rem',
-        //             paddingTop: '.625rem',
-        //             paddingBottom: '.625rem'
-        //         }
-        //     })
-        // })
     ],
 
     safelist: ['tooltip-arrow']

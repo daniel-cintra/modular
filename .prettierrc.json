@@ -2,7 +2,5 @@
     "singleQuote": true,
     "semi": false,
     "trailingComma": "none",
-    "arrowParens": "always",
-
-    "plugins": ["prettier-plugin-tailwindcss"]
+    "arrowParens": "always"
 }

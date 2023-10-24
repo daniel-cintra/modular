@@ -52,7 +52,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useForm } from '@inertiajs/vue3'
-import chunk from 'lodash/chunk'
+import chunk from '@/Utils/chunk'
 
 const props = defineProps({
     user: {

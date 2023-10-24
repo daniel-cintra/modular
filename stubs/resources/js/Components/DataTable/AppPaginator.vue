@@ -1,3 +1,5 @@
+<!-- eslint-disable vue/no-v-html -->
+<!-- eslint-disable vue/no-v-text-v-html-on-component -->
 <template>
     <div v-if="links.length > 3">
         <div class="mx-auto flex flex-wrap" :class="$attrs.class">

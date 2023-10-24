@@ -2,15 +2,15 @@
     <div class="rounded-tl rounded-tr bg-skin-neutral-3 pb-3 pl-5 pt-5">
         <label for="search" class="sr-only">Search</label>
         <div class="flex items-center align-middle">
-            <div class="pointer-events-none">
-                <i class="ri-search-2-line ml-2 mt-1 inline-block"></i>
+            <div class="pointer-events-none absolute flex items-center pl-3">
+                <i class="ri-search-line"></i>
             </div>
             <AppInputText
                 id="search"
                 v-model="searchTerm"
                 :placeholder="__('Search')"
                 name="search"
-                class="!mt-0 -ml-6 !w-1/2 py-2 pl-8"
+                class="!w-1/2 py-2 pl-9"
             ></AppInputText>
 
             <AppButton

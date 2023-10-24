@@ -3,7 +3,7 @@
         <!-- Modal header -->
         <template #header>
             <div
-                class="flex items-start justify-between rounded-t border-b border-skin-neutral-6 p-5"
+                class="flex items-center justify-between rounded-t border-b border-skin-neutral-6 p-5"
             >
                 <h3 class="text-xl font-semibold lg:text-2xl">Confirmation</h3>
                 <AppButton class="btn btn-neutral btn-icon" @click="closeModal">
@@ -14,7 +14,7 @@
 
         <!-- Modal body -->
         <template #body>
-            <div class="space-y-6 p-6">
+            <div class="space-y-6 p-5">
                 <p class="text-base leading-relaxed">
                     Are you sure you want to proceed?
                 </p>
@@ -24,7 +24,7 @@
         <!-- Modal footer -->
         <template #footer>
             <div
-                class="flex items-center justify-end space-x-2 rounded-b border-t border-skin-neutral-6 p-6"
+                class="flex items-center justify-end space-x-2 rounded-b border-t border-skin-neutral-6 p-5"
             >
                 <AppButton class="btn btn-neutral mr-3" @click="closeModal">
                     Cancel

@@ -1,4 +1,6 @@
 {
+    "css.customData": [".vscode/tailwind.json"],
+
     "[php]": {
         "editor.defaultFormatter": "open-southeners.laravel-pint",
         "editor.formatOnSave": true

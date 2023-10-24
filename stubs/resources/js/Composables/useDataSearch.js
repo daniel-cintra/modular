@@ -1,6 +1,6 @@
-import { ref, watch } from 'vue'
-import { useDebounceFn } from '@vueuse/core'
+import { ref, watch, onMounted } from 'vue'
 import { router } from '@inertiajs/vue3'
+import debounce from '@/Utils/debounce'
 
 export default function useDataSearch(
     routePath,
@@ -9,11 +9,8 @@ export default function useDataSearch(
 ) {
     const searchTerm = ref('')
 
-    watch(searchTerm, (value) => {
-        debouncedSearch(value)
-    })
-
-    const debouncedSearch = useDebounceFn((value) => {
+    const debouncedSearch = debounce((value) => {
+        console.log('debouncedSearch')
         const params = {
             page: 1,
             searchContext: columnsToSearch,
@@ -24,6 +21,15 @@ export default function useDataSearch(
 
         fetchData(params)
     }, 500)
+
+    watch(searchTerm, (value, oldValue) => {
+        //prevent new search request on paginated results and back button navigation combined
+        if (oldValue === '' && value.length > 1) {
+            return
+        }
+
+        debouncedSearch(value)
+    })
 
     const fetchData = (params) => {
         router.visit(routePath, {
@@ -40,6 +46,12 @@ export default function useDataSearch(
         Object.assign(params, aditionalParams)
         fetchData(params)
     }
+
+    // handle back button navigation
+    onMounted(() => {
+        const urlParams = new URLSearchParams(window.location.search)
+        searchTerm.value = urlParams.get('searchTerm') || ''
+    })
 
     return { searchTerm, clearSearch }
 }

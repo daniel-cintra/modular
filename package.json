@@ -1,0 +1,10 @@
+{
+    "private": true,
+    "type": "module",
+    "devDependencies": {
+        "eslint": "^v8.52.0",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-plugin-vue": "^v9.18.0",
+        "prettier": "^3.0.3"
+    }
+}

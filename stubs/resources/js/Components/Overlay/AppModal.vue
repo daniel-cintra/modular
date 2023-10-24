@@ -2,7 +2,7 @@
     <transition name="fade">
         <div v-show="isModalOpen" :class="backdropClasses" @click="hideModal">
             <div
-                class="mx-auto my-auto w-1/3 rounded-lg bg-skin-neutral-1 p-4"
+                class="mx-auto my-auto min-w-[360px] rounded-lg bg-skin-neutral-1 p-4 lg:w-1/3"
                 :class="[placementClass, 'absolute']"
                 @click.stop
             >
