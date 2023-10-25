@@ -98,6 +98,8 @@ At present, Modular furnishes the following Custom Vue 3 Components:
 │   ├── AppRadioButton.vue
 │   ├── AppTipTapEditor.vue
 │   └── TipTap
+│       ├── TipTapButton.vue
+│       └── TipTapDivider.vue
 ├── Menu
 │   ├── AppBreadCrumb.vue
 │   ├── AppBreadCrumbItem.vue
