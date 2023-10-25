@@ -75,42 +75,50 @@ In previous iterations of Modular, I leveraged robust UI Toolkits like Vuetify a
 
 At present, Modular furnishes the following Custom Vue 3 Components:
 
-```bash
+```
 ./resources/js/Components
-├── AppAlert.vue
-├── AppAuthLogo.vue
-├── AppAuthShell.vue
-├── AppBreadCrumb.vue
-├── AppBreadCrumbItem.vue
-├── AppButton.vue
-├── AppCard.vue
-├── AppCheckbox.vue
-├── AppConfirmDialog.vue
-├── AppDataSearch.vue
-├── AppDataTable.vue
-├── AppDataTableData.vue
-├── AppDataTableHead.vue
-├── AppDataTableRow.vue
-├── AppFlashMessage.vue
-├── AppFormErrors.vue
-├── AppInputPassword.vue
-├── AppInputText.vue
-├── AppLabel.vue
-├── AppLink.vue
-├── AppMenu.vue
-├── AppMenuItem.vue
-├── AppMenuSection.vue
-├── AppModal.vue
-├── AppPaginator.vue
-├── AppSectionHeader.vue
-├── AppSideBar.vue
-├── AppTipTap.vue
-├── AppToast.vue
-├── AppTooltip.vue
-├── AppTopBar.vue
-└── TipTap (Custom WYSIWYG Rich Text Editor)
-    ├── TipTapButton.vue
-    └── TipTapDivider.vue
+.
+├── Auth
+│   ├── AppAuthLogo.vue
+│   └── AppAuthShell.vue
+├── DataTable
+│   ├── AppDataSearch.vue
+│   ├── AppDataTable.vue
+│   ├── AppDataTableData.vue
+│   ├── AppDataTableHead.vue
+│   ├── AppDataTableRow.vue
+│   └── AppPaginator.vue
+├── Form
+│   ├── AppCheckbox.vue
+│   ├── AppCombobox.vue
+│   ├── AppFormErrors.vue
+│   ├── AppInputPassword.vue
+│   ├── AppInputText.vue
+│   ├── AppLabel.vue
+│   ├── AppRadioButton.vue
+│   ├── AppTipTapEditor.vue
+│   └── TipTap
+├── Menu
+│   ├── AppBreadCrumb.vue
+│   ├── AppBreadCrumbItem.vue
+│   ├── AppMenu.vue
+│   ├── AppMenuItem.vue
+│   └── AppMenuSection.vue
+├── Message
+│   ├── AppAlert.vue
+│   ├── AppFlashMessage.vue
+│   ├── AppToast.vue
+│   └── AppTooltip.vue
+├── Misc
+│   ├── AppButton.vue
+│   ├── AppCard.vue
+│   ├── AppLink.vue
+│   ├── AppSectionHeader.vue
+│   └── AppTopBar.vue
+└── Overlay
+    ├── AppConfirmDialog.vue
+    ├── AppModal.vue
+    └── AppSideBar.vue
 ```
 
 Each of these components **is crafted to integrate seamlessly with Modular**, ensuring the most straightforward developer experience possible.
