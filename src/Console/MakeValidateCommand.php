@@ -27,7 +27,7 @@ class MakeValidateCommand extends Command
             return self::FAILURE;
         }
 
-        $this->comment('Module '.$this->moduleName.' found, creating HTTP Request Validate file...');
+        $this->comment('Module '.$this->moduleName.' found, creating HTTP Request Validate...');
         $this->createValidateFile();
 
         return self::SUCCESS;

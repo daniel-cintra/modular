@@ -32,7 +32,7 @@ class MakeRouteCommand extends Command
             return self::FAILURE;
         }
 
-        $this->comment('Module '.$this->moduleName.' found, creating route...');
+        $this->comment('Module '.$this->moduleName.' found, creating Route...');
         $this->createModuleRoute();
 
         return self::SUCCESS;

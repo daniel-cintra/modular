@@ -33,7 +33,7 @@ class MakeComposableCommand extends Command
             return self::FAILURE;
         }
 
-        $this->comment('Module '.$this->moduleName.' found, creating composable...');
+        $this->comment('Module '.$this->moduleName.' found, creating Composable...');
         $this->createComposable();
 
         $this->generateComments();

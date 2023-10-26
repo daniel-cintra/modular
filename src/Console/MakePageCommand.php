@@ -33,7 +33,7 @@ class MakePageCommand extends Command
             return self::FAILURE;
         }
 
-        $this->comment('Module '.$this->moduleName.' found, creating pages...');
+        $this->comment('Module '.$this->moduleName.' found, creating Pages...');
         $this->createIndexPage();
         $this->createFormPage();
 

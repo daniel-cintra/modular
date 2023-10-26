@@ -32,7 +32,7 @@ class MakeModelCommand extends Command
             return self::FAILURE;
         }
 
-        $this->comment('Module '.$this->moduleName.' found, creating model...');
+        $this->comment('Module '.$this->moduleName.' found, creating Model...');
         $this->createModuleModel();
 
         return self::SUCCESS;

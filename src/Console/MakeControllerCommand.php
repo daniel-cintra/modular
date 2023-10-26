@@ -32,7 +32,7 @@ class MakeControllerCommand extends Command
             return self::FAILURE;
         }
 
-        $this->comment('Module '.$this->moduleName.' found, creating controller...');
+        $this->comment('Module '.$this->moduleName.' found, creating Controller...');
         $this->createModuleController();
 
         return self::SUCCESS;

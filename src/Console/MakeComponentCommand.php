@@ -33,7 +33,7 @@ class MakeComponentCommand extends Command
             return self::FAILURE;
         }
 
-        $this->comment('Module '.$this->moduleName.' found, creating component...');
+        $this->comment('Module '.$this->moduleName.' found, creating Component...');
         $this->createComponent();
 
         $this->generateComments();
