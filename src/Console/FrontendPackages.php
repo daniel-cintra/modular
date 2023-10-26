@@ -19,7 +19,7 @@ trait FrontendPackages
 
         static::updateNodePackages(fn ($packages) => [
 
-            '@inertiajs/vue3' => '^1.0.12',
+            '@inertiajs/vue3' => '^1.0.13',
 
             '@tailwindcss/forms' => '^0.5.6',
             '@vitejs/plugin-vue' => '^4.4.0',
@@ -35,22 +35,22 @@ trait FrontendPackages
             'prettier' => '^3.0.3',
             'prettier-plugin-tailwindcss' => '^v0.5.6',
 
-            '@tiptap/vue-3' => '^v2.2.0-rc.4',
-            '@tiptap/starter-kit' => '^v2.2.0-rc.4',
-            '@tiptap/extension-link' => '^v2.2.0-rc.4',
-            '@tiptap/extension-underline' => '^v2.2.0-rc.4',
-            '@tiptap/extension-image' => '^v2.2.0-rc.4',
-            '@tiptap/extension-youtube' => '^v2.2.0-rc.4',
-            '@tiptap/extension-table' => '^v2.2.0-rc.4',
-            '@tiptap/extension-table-header' => '^v2.2.0-rc.4',
-            '@tiptap/extension-table-row' => '^v2.2.0-rc.4',
-            '@tiptap/extension-table-cell' => '^v2.2.0-rc.4',
+            '@tiptap/vue-3' => '^2.1.12',
+            '@tiptap/starter-kit' => '^2.1.12',
+            '@tiptap/extension-link' => '^2.1.12',
+            '@tiptap/extension-underline' => '^2.1.12',
+            '@tiptap/extension-image' => '^2.1.12',
+            '@tiptap/extension-youtube' => '^2.1.12',
+            '@tiptap/extension-table' => '^2.1.12',
+            '@tiptap/extension-table-header' => '^2.1.12',
+            '@tiptap/extension-table-row' => '^2.1.12',
+            '@tiptap/extension-table-cell' => '^2.1.12',
 
             'remixicon' => '^3.5.0',
-            'tailwindcss' => '^3.3.4',
+            'tailwindcss' => '^3.3.5',
             'unplugin-vue-components' => '^0.25.2',
             'vite' => '^4.5.0',
-            'vue' => '^3.3.6',
+            'vue' => '^3.3.7',
 
         ] + $packages);
 
