@@ -1,7 +1,7 @@
 <template>
     <button
         :title="title"
-        class="m-0 h-6 w-6 cursor-pointer overflow-visible break-words border-none bg-transparent bg-no-repeat p-0 text-center font-sans text-sm normal-case leading-5 hover:rounded-sm hover:bg-skin-neutral-9 hover:text-skin-neutral-1"
+        class="m-0 h-6 w-6 cursor-pointer overflow-visible break-words border-none bg-transparent bg-no-repeat p-0 text-center font-sans text-sm normal-case leading-5 text-skin-neutral-11 hover:rounded-sm hover:bg-skin-neutral-3 hover:text-skin-neutral-12"
     >
         <i
             class="text-centertext-sm m-0 cursor-pointer break-words bg-no-repeat p-0 not-italic leading-5"

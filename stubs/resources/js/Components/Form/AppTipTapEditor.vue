@@ -5,25 +5,25 @@
             :class="editorClass"
         >
             <TipTapButton
-                title="Negrito"
+                :title="__('Bold')"
                 icon="ri-bold"
                 @click.prevent="editor.commands.toggleBold()"
             />
 
             <TipTapButton
-                title="Itálico"
+                :title="__('Italic')"
                 icon="ri-italic"
                 @click.prevent="editor.commands.toggleItalic()"
             />
 
             <TipTapButton
-                title="Sublinhado"
+                :title="__('Underline')"
                 icon="ri-underline"
                 @click.prevent="editor.commands.toggleUnderline()"
             />
 
             <TipTapButton
-                title="Strike"
+                :title="__('Strikethrough')"
                 icon="ri-strikethrough"
                 @click.prevent="editor.commands.toggleStrike()"
             />
@@ -31,55 +31,55 @@
             <TipTapDivider />
 
             <TipTapButton
-                title="H1"
+                :title="__('Heading 1')"
                 icon="ri-h-1"
                 @click.prevent="editor.commands.toggleHeading({ level: 1 })"
             />
 
             <TipTapButton
-                title="H2"
+                :title="__('Heading 2')"
                 icon="ri-h-2"
                 @click.prevent="editor.commands.toggleHeading({ level: 2 })"
             />
 
             <TipTapButton
-                title="H3"
+                :title="__('Heading 3')"
                 icon="ri-h-3"
                 @click.prevent="editor.commands.toggleHeading({ level: 3 })"
             />
 
             <TipTapButton
-                title="H4"
+                :title="__('Heading 4')"
                 icon="ri-h-4"
                 @click.prevent="editor.commands.toggleHeading({ level: 4 })"
             />
 
             <TipTapButton
-                title="Parágrafo"
+                :title="__('Paragraph')"
                 icon="ri-paragraph"
                 @click.prevent="editor.commands.setParagraph()"
             />
 
             <TipTapButton
-                title="Lista"
+                :title="__('List')"
                 icon="ri-list-unordered"
                 @click.prevent="editor.commands.toggleBulletList()"
             />
 
             <TipTapButton
-                title="Lista Ordenada"
+                :title="__('Ordered Link')"
                 icon="ri-list-ordered"
                 @click.prevent="editor.commands.toggleOrderedList()"
             />
 
             <TipTapButton
-                title="Adicionar Link"
+                :title="__('Add Link')"
                 icon="ri-link-m"
                 @click.prevent="setLink"
             />
 
             <TipTapButton
-                title="Remover Link"
+                :title="__('Remove Link')"
                 icon="ri-link-unlink-m"
                 @click.prevent="editor.commands.unsetLink()"
             />
@@ -87,19 +87,19 @@
             <TipTapDivider />
 
             <TipTapButton
-                title="Quebra de Linha"
+                :title="__('Line Break')"
                 icon="ri-text-wrap"
                 @click.prevent="editor.commands.setHardBreak()"
             />
 
             <TipTapButton
-                title="Linha Horizontal"
+                :title="__('Horizontal Rule')"
                 icon="ri-separator"
                 @click.prevent="editor.commands.setHorizontalRule()"
             />
 
             <TipTapButton
-                title="Limpa Formatação"
+                :title="__('Clear Format')"
                 icon="ri-format-clear"
                 @click.prevent="editor.commands.clearNodes()"
             />
@@ -107,26 +107,13 @@
             <TipTapDivider />
 
             <TipTapButton
-                title="Image"
+                :title="__('Add Image')"
                 icon="ri-image-add-line"
-                @click.prevent="addImage"
-            />
-
-            <FileUpload
-                :id="uploaderId"
-                mode="basic"
-                name="image"
-                :url="imageUploadPath"
-                :max-file-size="1000000"
-                :auto="true"
-                choose-label="Browse"
-                class="hidden"
-                @before-send="beforeUpload"
-                @upload="onUpload"
+                @click.prevent="uploadFile"
             />
 
             <TipTapButton
-                title="YouTube Vídeo"
+                :title="__('Add Video')"
                 icon="ri-youtube-line"
                 @click.prevent="addVideo"
             />
@@ -134,7 +121,7 @@
             <TipTapDivider />
 
             <TipTapButton
-                title="Tabela"
+                :title="__('Table')"
                 icon="ri-table-line"
                 @click.prevent="toggleTableToolbar"
             />
@@ -142,13 +129,13 @@
             <TipTapDivider />
 
             <TipTapButton
-                title="Desfazer"
+                :title="__('Undo')"
                 icon="ri-arrow-go-back-line"
                 @click.prevent="editor.commands.undo()"
             />
 
             <TipTapButton
-                title="Refazer"
+                :title="__('Redo')"
                 icon="ri-arrow-go-forward-line"
                 @click.prevent="editor.commands.redo()"
             />
@@ -156,7 +143,7 @@
             <TipTapDivider />
 
             <TipTapButton
-                title="Code"
+                :title="__('Code View')"
                 icon="ri-code-box-line"
                 @click.prevent="changeEditorMode"
             />
@@ -167,7 +154,7 @@
             class="mx-0 mb-0 flex flex-none flex-wrap items-center break-words border-x border-t border-solid border-skin-neutral-7 border-t-skin-neutral-7 bg-no-repeat p-2 font-sans text-xl leading-5 tracking-normal"
         >
             <TipTapButton
-                title="Inserir Tabela"
+                :title="__('Insert Table')"
                 icon="ri-table-2"
                 @click.prevent="
                     editor.commands.insertTable({
@@ -181,19 +168,19 @@
             <TipTapDivider />
 
             <TipTapButton
-                title="Adicionar coluna antes"
+                :title="__('Add Column Before')"
                 icon="ri-layout-3-line"
                 @click.prevent="editor.commands.addColumnBefore()"
             />
 
             <TipTapButton
-                title="Adicionar coluna depois"
+                :title="__('Add Column After')"
                 icon="ri-layout-6-line"
                 @click.prevent="editor.commands.addColumnAfter()"
             />
 
             <TipTapButton
-                title="Deletar coluna"
+                :title="__('Delete Column')"
                 icon="ri-delete-column"
                 @click.prevent="editor.commands.deleteColumn()"
             />
@@ -201,19 +188,19 @@
             <TipTapDivider />
 
             <TipTapButton
-                title="Adicionar linha antes"
+                :title="__('Add Row Before')"
                 icon="ri-insert-row-top"
                 @click.prevent="editor.commands.addRowBefore()"
             />
 
             <TipTapButton
-                title="Adicionar linha depois"
+                :title="__('Add Row After')"
                 icon="ri-insert-row-bottom"
                 @click.prevent="editor.commands.addRowAfter()"
             />
 
             <TipTapButton
-                title="Deletar linha"
+                :title="__('Delete Row')"
                 icon="ri-delete-row"
                 @click.prevent="editor.commands.deleteRow()"
             />
@@ -221,37 +208,37 @@
             <TipTapDivider />
 
             <TipTapButton
-                title="Mesclar Células"
+                :title="__('Merge Cells')"
                 icon="ri-merge-cells-horizontal"
                 @click.prevent="editor.commands.mergeCells()"
             />
 
             <TipTapButton
-                title="Dividir Células"
+                :title="__('Split Cell')"
                 icon="ri-split-cells-horizontal"
                 @click.prevent="editor.commands.splitCell()"
             />
 
             <TipTapButton
-                title="Alternar Coluna Cabeçalho"
+                :title="__('Alternate Column Header')"
                 icon="ri-archive-drawer-line"
                 @click.prevent="editor.commands.toggleHeaderColumn()"
             />
 
             <TipTapButton
-                title="Alternar Linha Cabeçalho"
+                :title="__('Alternate Row Header')"
                 icon="ri-archive-drawer-fill"
                 @click.prevent="editor.commands.toggleHeaderRow()"
             />
 
             <TipTapButton
-                title="Alternar Cabeçalho Célula"
+                :title="__('Alternate Cell Header')"
                 icon="ri-split-cells-vertical"
                 @click.prevent="editor.commands.toggleHeaderCell()"
             />
 
             <TipTapButton
-                title="Mesclar ou Dividir"
+                :title="__('Merge or Split')"
                 icon="ri-merge-cells-vertical"
                 @click.prevent="editor.commands.mergeOrSplit()"
             />
@@ -259,13 +246,13 @@
             <TipTapDivider />
 
             <TipTapButton
-                title="Ir Próxima Célula"
+                :title="__('Go to Next Cell')"
                 icon="ri-arrow-right-s-line"
                 @click.prevent="editor.chain().focus().goToNextCell().run()"
             />
 
             <TipTapButton
-                title="Ir Célula Anterior"
+                :title="__('Go to Previous Cell')"
                 icon="ri-arrow-left-s-line"
                 @click.prevent="editor.chain().focus().goToPreviousCell().run()"
             />
@@ -273,13 +260,13 @@
             <TipTapDivider />
 
             <TipTapButton
-                title="Consertar Tabelas"
+                :title="__('Fix Table')"
                 icon="ri-settings-line"
                 @click.prevent="editor.commands.fixTables()"
             />
 
             <TipTapButton
-                title="Deletar tabela"
+                :title="__('Delete Table')"
                 icon="ri-delete-bin-2-line"
                 @click.prevent="editor.commands.deleteTable()"
             />
@@ -315,6 +302,8 @@ import TableRow from '@tiptap/extension-table-row'
 import TipTapButton from './TipTap/TipTapButton.vue'
 import TipTapDivider from './TipTap/TipTapDivider.vue'
 
+import FileUpload from './TipTap/extension-file-upload.js'
+
 const props = defineProps({
     modelValue: {
         type: String,
@@ -324,9 +313,13 @@ const props = defineProps({
         type: String,
         default: ''
     },
-    imageUploadPath: {
+    fileUploadUrl: {
         type: String,
-        default: ''
+        required: true
+    },
+    allowedFileTypes: {
+        type: String,
+        default: 'image/*'
     }
 })
 
@@ -348,13 +341,38 @@ const changeEditorMode = () => {
     }
 }
 
-const uploaderId = ref('')
-uploaderId.value =
-    Date.now().toString(36) + Math.random().toString(36).substring(2, 5)
+const uploadFile = () => {
+    editor.value.chain().focus().uploadFile().run()
+}
 
 const emit = defineEmits(['update:modelValue'])
 
 const showTableToolbar = ref(false)
+
+const onBeforeUpload = (request) => {
+    request.formData.append(
+        '_token',
+        document
+            .querySelector("meta[name='csrf-token']")
+            .getAttribute('content')
+    )
+}
+
+const onUploadCompleted = (event, editor) => {
+    const data = JSON.parse(event.target.response)
+    editor
+        .chain()
+        .setImage({
+            src: data.fileUrl,
+            alt: data.readableName,
+            title: data.readableName
+        })
+        .run()
+}
+
+const onError = (errorMessage) => {
+    console.error(errorMessage)
+}
 
 const editor = useEditor({
     content: props.modelValue,
@@ -375,7 +393,15 @@ const editor = useEditor({
         }),
         TableRow,
         TableHeader,
-        TableCell
+        TableCell,
+        FileUpload.configure({
+            allowedFileTypes: props.allowedFileTypes,
+            maximumFileSize: 5,
+            onBeforeUpload: onBeforeUpload,
+            onUploadCompleted: onUploadCompleted,
+            onError: onError,
+            fileUploadUrl: props.fileUploadUrl
+        })
     ],
     onUpdate: ({ editor }) => {
         emit('update:modelValue', editor.getHTML())
@@ -391,7 +417,6 @@ const toggleTableToolbar = () => {
 }
 
 const setLink = () => {
-    // console.log(editor.value.getAttributes('link').href)
     const previousUrl = editor.value.getAttributes('link').href
     const url = window.prompt('URL', previousUrl)
     // cancelled
@@ -423,29 +448,6 @@ const addVideo = () => {
         src: url,
         width: 640,
         height: 480
-    })
-}
-
-const addImage = () => {
-    document.querySelector(`#${uploaderId.value} input[type="file"]`).click()
-}
-
-const beforeUpload = (request) => {
-    request.formData.append(
-        '_token',
-        document
-            .querySelector("meta[name='csrf-token']")
-            .getAttribute('content')
-    )
-}
-
-const onUpload = (event) => {
-    const data = JSON.parse(event.xhr.response)
-
-    editor.value.commands.setImage({
-        src: data.fileUrl,
-        alt: data.readableName,
-        title: data.readableName
     })
 }
 </script>

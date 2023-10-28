@@ -75,5 +75,58 @@
 
     "Role permissions updated": "Permissões do perfil atualizadas",
     "User roles updated": "Perfis do usuário atualizados",
-    "User permissions updated": "Permissões do usuário atualizadas"
+    "User permissions updated": "Permissões do usuário atualizadas",
+
+    "__resources/js/Components/Form/AppTipTapEditor__": "Tip Tap Editor",
+    "Bold": "Negrito",
+    "Italic": "Itálico",
+    "Underline": "Sublinhado",
+    "Strikethrough": "Tachado",
+
+    "Heading 1": "Heading 1",
+    "Heading 2": "Heading 2",
+    "Heading 3": "Heading 3",
+    "Heading 4": "Heading 4",
+
+    "Paragraph": "Parágrafo",
+    "List": "Lista",
+    "Ordered List": "Lista Ordenada",
+
+    "Add Link": "Adicionar Link",
+    "Remove Link": "Remover Link",
+
+    "Line Break": "Quebra de Linha",
+    "Horizontal Rule": "Linha Horizontal",
+    "Clear Format": "Limpar Formatação",
+
+    "Add Image": "Adicionar Imagem",
+    "Add Video": "Adicionar Vídeo",
+
+    "Table": "Tabela",
+    "Undo": "Desfazer",
+    "Redo": "Refazer",
+    "Code View": "Visualizar Código",
+
+    "Insert Table": "Inserir Tabela",
+
+    "Add Column Before": "Adicionar Coluna Antes",
+    "Add Column After": "Adicionar Coluna Depois",
+    "Delete Column": "Deletar Coluna",
+
+    "Add Row Before": "Adicionar Linha Antes",
+    "Add Row After": "Adicionar Linha Depois",
+    "Delete Row": "Deletar Linha",
+
+    "Merge Cells": "Mesclar Células",
+    "Split Cell": "Dividir Célula",
+
+    "Alternate Column Header": "Alternar Cabeçalho da Coluna",
+    "Alternate Row Header": "Alternar Cabeçalho da Linha",
+    "Alternate Cell Header": "Alternar Cabeçalho da Célula",
+
+    "Merge or Split": "Mesclar ou Dividir",
+    "Go to Next Cell": "Ir para Próxima Célula",
+    "Go to Previous Cell": "Ir para Célula Anterior",
+    "Fix Table": "Fixar Tabela",
+    "Delete Table": "Deletar Tabela"
 }

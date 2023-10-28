@@ -75,5 +75,58 @@
 
     "Role permissions updated": "Role permissions updated",
     "User roles updated": "User roles update",
-    "User permissions updated": "User permissions updated"
+    "User permissions updated": "User permissions updated",
+
+    "__resources/js/Components/Form/AppTipTapEditor__": "Tip Tap Editor",
+    "Bold": "Bold",
+    "Italic": "Italic",
+    "Underline": "Underline",
+    "Strikethrough": "Strikethrough",
+
+    "Heading 1": "Heading 1",
+    "Heading 2": "Heading 2",
+    "Heading 3": "Heading 3",
+    "Heading 4": "Heading 4",
+
+    "Paragraph": "Paragraph",
+    "List": "List",
+    "Ordered List": "Ordered List",
+
+    "Add Link": "Add Link",
+    "Remove Link": "Remove Link",
+
+    "Line Break": "Line Break",
+    "Horizontal Rule": "Horizontal Rule",
+    "Clear Format": "Clear Format",
+
+    "Add Image": "Add Image",
+    "Add Video": "Add Video",
+
+    "Table": "Table",
+    "Undo": "Undo",
+    "Redo": "Redo",
+    "Code View": "Code View",
+
+    "Insert Table": "Insert Table",
+
+    "Add Column Before": "Add Column Before",
+    "Add Column After": "Add Column After",
+    "Delete Column": "Delete Column",
+
+    "Add Row Before": "Add Row Before",
+    "Add Row After": "Add Row After",
+    "Delete Row": "Delete Row",
+
+    "Merge Cells": "Merge Cells",
+    "Split Cell": "Split Cell",
+
+    "Alternate Column Header": "Alternate Column Header",
+    "Alternate Row Header": "Alternate Row Header",
+    "Alternate Cell Header": "Alternate Cell Header",
+
+    "Merge or Split": "Merge or Split",
+    "Go to Next Cell": "Go to Next Cell",
+    "Go to Previous Cell": "Go to Previous Cell",
+    "Fix Table": "Fix Table",
+    "Delete Table": "Delete Table"
 }
