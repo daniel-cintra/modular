@@ -280,7 +280,7 @@
         <textarea
             v-show="codeMode"
             v-model="htmlContent"
-            class="min-h-[240px] w-full border-skin-neutral-7"
+            class="min-h-[240px] w-full border border-solid border-skin-neutral-7 bg-skin-neutral-1 font-sans text-xs leading-5 tracking-normal"
             @input="syncEditor"
         >
         </textarea>
@@ -454,13 +454,14 @@ const addVideo = () => {
 
 <style>
 .app-tip-tap-error {
-    border: 1px solid red;
+    border: 1px solid theme('colors.skin.error.DEFAULT');
     border-radius: 3px;
 }
 
 .ProseMirror {
     min-height: 120px;
     padding: 5px 10px;
+    background-color: theme('colors.skin.neutral.1');
 }
 
 .ProseMirror p {
@@ -469,7 +470,7 @@ const addVideo = () => {
 
 .ProseMirror a {
     text-decoration: underline;
-    color: blue;
+    color: theme('colors.skin.primary.11');
 }
 
 /* Heading Sizes, See: https://tailwindcss.com/docs/font-size */
@@ -521,7 +522,7 @@ const addVideo = () => {
 .ProseMirror table td,
 .ProseMirror table th {
     min-width: 1em;
-    border: 2px solid #ced4da;
+    border: 2px solid theme('colors.skin.neutral.6');
     padding: 3px 5px;
     vertical-align: top;
     box-sizing: border-box;
@@ -535,7 +536,7 @@ const addVideo = () => {
 .ProseMirror th {
     font-weight: bold;
     text-align: left;
-    background-color: #f1f3f5;
+    background-color: theme('colors.skin.neutral.2');
 }
 
 .ProseMirror .selectedCell:after {
@@ -556,7 +557,7 @@ const addVideo = () => {
     top: 0;
     bottom: -2px;
     width: 4px;
-    background-color: #adf;
+    background-color: theme('colors.skin.neutral.3');
     pointer-events: none;
 }
 

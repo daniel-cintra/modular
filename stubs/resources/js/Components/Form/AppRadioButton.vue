@@ -1,13 +1,16 @@
 <template>
     <div class="mb-4 flex items-center">
-        <input
-            v-bind="$attrs"
-            type="radio"
-            :checked="isChecked"
-            class="h-4 w-4 text-skin-primary-9 focus:ring-2 focus:ring-skin-primary-7"
-            @change="$emit('update:modelValue', value)"
-        />
-        <slot></slot>
+        <AppLabel class="hover:cursor-pointer" :for="$attrs.id">
+            <input
+                v-bind="$attrs"
+                type="radio"
+                :checked="isChecked"
+                class="h-4 w-4 text-skin-primary-9 hover:cursor-pointer focus:ring-2 focus:ring-skin-primary-7"
+                @change="$emit('update:modelValue', value)"
+            />
+
+            <slot></slot>
+        </AppLabel>
     </div>
 </template>
 

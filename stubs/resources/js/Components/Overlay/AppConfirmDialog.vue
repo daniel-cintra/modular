@@ -5,7 +5,9 @@
             <div
                 class="flex items-center justify-between rounded-t border-b border-skin-neutral-6 p-5"
             >
-                <h3 class="text-xl font-semibold lg:text-2xl">Confirmation</h3>
+                <h3 class="text-xl font-semibold lg:text-2xl">
+                    {{ __('Confirmation') }}
+                </h3>
                 <AppButton class="btn btn-neutral btn-icon" @click="closeModal">
                     <i class="ri-close-line h-5 w-5"></i>
                 </AppButton>
@@ -16,7 +18,7 @@
         <template #body>
             <div class="space-y-6 p-5">
                 <p class="text-base leading-relaxed">
-                    Are you sure you want to proceed?
+                    {{ __('Are you sure you want to proceed?') }}
                 </p>
             </div>
         </template>
@@ -27,11 +29,11 @@
                 class="flex items-center justify-end space-x-2 rounded-b border-t border-skin-neutral-6 p-5"
             >
                 <AppButton class="btn btn-neutral mr-3" @click="closeModal">
-                    Cancel
+                    {{ __('No') }}
                 </AppButton>
 
                 <AppButton class="btn btn-destructive" @click="deleteItem()">
-                    Yes, delete
+                    {{ __('Yes') }}
                 </AppButton>
             </div>
         </template>

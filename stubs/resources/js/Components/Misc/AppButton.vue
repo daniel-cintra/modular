@@ -30,11 +30,11 @@ const emit = defineEmits(['click'])
 }
 
 .btn-primary-outline {
-    @apply border border-skin-primary-7 text-skin-primary-11 hover:bg-skin-primary-3 hover:text-skin-primary-12 focus-visible:outline-skin-primary-11;
+    @apply border border-skin-primary-7 text-skin-primary-11 hover:bg-skin-primary-4 focus-visible:outline-skin-primary-11;
 }
 
 .btn-neutral-outline {
-    @apply border border-skin-neutral-7 text-skin-neutral-12 hover:bg-skin-neutral-3 focus-visible:outline-skin-neutral-12;
+    @apply border border-skin-neutral-7 text-skin-neutral-12 hover:bg-skin-neutral-4 focus-visible:outline-skin-neutral-11;
 }
 
 .btn-icon {

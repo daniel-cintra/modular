@@ -1,7 +1,7 @@
 <template>
     <div class="w-48">
         <AppButton
-            class="btn btn-primary mb-2 flex w-full align-middle"
+            class="btn btn-primary flex w-full align-middle"
             aria-haspopup="true"
             :aria-expanded="isOpen"
             @click="toggleState"
@@ -47,9 +47,8 @@
                         role="option"
                         :aria-selected="index === highlightedIndex"
                     >
-                        <a
-                            href="#"
-                            class="block px-4 py-2 text-sm hover:bg-skin-neutral-3 hover:text-skin-neutral-12"
+                        <span
+                            class="block px-4 py-2 text-sm hover:bg-skin-neutral-3 hover:text-skin-neutral-12 hover:cursor-pointer"
                             :class="{
                                 'bg-skin-neutral-3 text-skin-neutral-12':
                                     index === highlightedIndex
@@ -57,7 +56,7 @@
                             @click="updateModelValue(option)"
                         >
                             {{ option.label }}
-                        </a>
+                        </span>
                     </li>
                 </ul>
             </div>
