@@ -52,14 +52,14 @@ watch(flash, (newFlash) => {
     if (newFlash.success) {
         type.value = 'success'
         message.value = translate(newFlash.success)
-        iconClass.value = 'ri-alert-line'
+        iconClass.value = 'ri-check-line'
         toastRef.value.open()
     }
 
     if (newFlash.error) {
         type.value = 'error'
         message.value = translate(newFlash.error)
-        iconClass.value = 'ri-check-line'
+        iconClass.value = 'ri-alert-line'
         toastRef.value.open()
     }
 })

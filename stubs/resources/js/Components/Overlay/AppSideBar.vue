@@ -37,14 +37,6 @@ const props = defineProps({
         type: Boolean,
         default: false
     },
-    edge: {
-        type: Boolean,
-        default: false
-    },
-    edgeOffset: {
-        type: String,
-        default: 'bottom-[60px]'
-    },
     startsVisible: {
         type: Boolean,
         default: true

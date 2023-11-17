@@ -23,10 +23,6 @@ defineProps({
     headers: {
         type: Array,
         default: () => []
-    },
-    itens: {
-        type: Array,
-        default: () => []
     }
 })
 </script>
