@@ -3,6 +3,7 @@
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Http\UploadedFile;
 use Modules\Support\Traits\EditorImage;
+
 use function PHPUnit\Framework\assertFileExists;
 
 uses(EditorImage::class);
