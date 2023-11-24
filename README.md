@@ -75,7 +75,7 @@ In previous iterations of Modular, I leveraged robust UI Toolkits like Vuetify a
 
 At present, Modular furnishes the following Custom Vue 3 Components:
 
-```
+```bash
 ./resources/js/Components
 .
 ├── Auth
@@ -96,10 +96,12 @@ At present, Modular furnishes the following Custom Vue 3 Components:
 │   ├── AppInputText.vue
 │   ├── AppLabel.vue
 │   ├── AppRadioButton.vue
+│   ├── AppTextArea.vue
 │   ├── AppTipTapEditor.vue
 │   └── TipTap
 │       ├── TipTapButton.vue
-│       └── TipTapDivider.vue
+│       ├── TipTapDivider.vue
+│       └── extension-file-upload.js
 ├── Menu
 │   ├── AppBreadCrumb.vue
 │   ├── AppBreadCrumbItem.vue
