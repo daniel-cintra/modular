@@ -17,6 +17,7 @@ const componentGroups = {
         'AppInputText',
         'AppLabel',
         'AppRadioButton',
+        'AppTextArea',
         'AppTipTapEditor'
     ],
     Menu: [
