@@ -36,7 +36,7 @@ class {{ ResourceName }}Controller extends BackendController
     {
         {{ ResourceName }}::create($request->validated());
 
-        return redirect('{{ resourceName }}')
+        return redirect()->route('{{ resourceName }}.index')
             ->with('success', '{{ ResourceName }} created.');
     }
 
@@ -55,7 +55,7 @@ class {{ ResourceName }}Controller extends BackendController
 
         ${{ resourceName }}->update($request->validated());
 
-        return redirect('{{ resourceName }}')
+        return redirect()->route('{{ resourceName }}.index')
             ->with('success', '{{ ResourceName }} updated.');
     }
 
@@ -63,7 +63,7 @@ class {{ ResourceName }}Controller extends BackendController
     {
         {{ ResourceName }}::findOrFail($id)->delete();
 
-        return redirect('{{ resourceName }}')
+        return redirect()->route('{{ resourceName }}.index')
             ->with('success', '{{ ResourceName }} deleted.');
     }
 }
