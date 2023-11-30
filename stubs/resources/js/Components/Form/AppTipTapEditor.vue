@@ -1,7 +1,7 @@
 <template>
     <div>
         <div
-            class="mx-0 mb-0 flex flex-none flex-wrap items-center break-words border-x border-t border-solid border-skin-neutral-7 bg-no-repeat p-2 font-sans text-xl leading-5 tracking-normal"
+            class="mx-0 mb-0 flex flex-none flex-wrap items-center break-words rounded-t-md border-x border-t border-solid border-skin-neutral-7 bg-no-repeat p-2 font-sans text-xl leading-5 tracking-normal"
             :class="editorClass"
         >
             <TipTapButton
@@ -107,6 +107,7 @@
             <TipTapDivider />
 
             <TipTapButton
+                v-if="fileUploadUrl"
                 :title="__('Add Image')"
                 icon="ri-image-add-line"
                 @click.prevent="uploadFile"
@@ -274,13 +275,13 @@
         <editor-content
             v-show="!codeMode"
             :editor="editor"
-            class="relative m-0 max-h-[240px] min-h-[120px] overflow-auto break-words border border-solid border-skin-neutral-7 bg-no-repeat px-1 py-1 font-sans text-xs leading-5 tracking-normal"
+            class="relative m-0 max-h-[240px] min-h-[120px] overflow-auto break-words rounded-b-md border border-solid border-skin-neutral-7 bg-no-repeat px-1 py-1 font-sans text-xs leading-5 tracking-normal"
         />
 
         <textarea
             v-show="codeMode"
             v-model="htmlContent"
-            class="min-h-[240px] w-full border border-solid border-skin-neutral-7 bg-skin-neutral-1 font-sans text-xs leading-5 tracking-normal"
+            class="min-h-[240px] w-full rounded-b-md border border-solid border-skin-neutral-7 bg-skin-neutral-1 font-sans text-xs leading-5 tracking-normal"
             @input="syncEditor"
         >
         </textarea>
@@ -314,8 +315,8 @@ const props = defineProps({
         default: ''
     },
     fileUploadUrl: {
-        type: String,
-        required: true
+        type: [String, Boolean],
+        default: false
     },
     allowedFileTypes: {
         type: String,
