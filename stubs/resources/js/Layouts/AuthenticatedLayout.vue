@@ -4,6 +4,7 @@
     <AppSideBar
         ref="sidebarRef"
         :backdrop="isMobile"
+        :body-scrolling="!isMobile"
         @sidebar:toggle="sidebarToggle"
     >
         <Link :href="route('dashboard.index')" class="mb-6 flex pl-2">
