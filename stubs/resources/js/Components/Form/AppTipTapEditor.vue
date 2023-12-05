@@ -1,7 +1,7 @@
 <template>
     <div>
         <div
-            class="mx-0 mb-0 flex flex-none flex-wrap items-center break-words rounded-t-md border-x border-t border-solid border-skin-neutral-7 bg-no-repeat p-2 font-sans text-xl leading-5 tracking-normal"
+            class="mx-0 mb-0 mt-1 flex flex-none flex-wrap items-center break-words rounded-t-md border-x border-t border-solid border-skin-neutral-7 bg-no-repeat p-2 font-sans text-xl leading-5 tracking-normal"
             :class="editorClass"
         >
             <TipTapButton

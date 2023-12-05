@@ -40,36 +40,36 @@
         --color-neutral-12: 28 32 36; /* #1c2024 */
 
         /* Semantic Colors */
-        --color-info: 11 104 203; /* #0b68cb 11*/
-        --color-info-light: 237 246 255; /* #edf6ff 3*/
-        --color-info-dark: 17 50 100; /* #113264 12*/
+        --color-info: 0 144 255; /* #0090ff 9*/
+        --color-info-dark: 5 136 240; /* #0588f0 10*/
+        --color-info-light: 230 244 254; /* #e6f4fe 3*/
 
-        --color-success: 24 121 78; /* #18794e */
-        --color-success-light: 233 249 238; /* #e9f9ee */
-        --color-success-dark: 25 59 45; /* #193b2d */
+        --color-success: 48 164 108; /* #30a46c 9*/
+        --color-success-dark: 43 154 102; /* #2b9a66 10*/
+        --color-success-light: 230 246 235; /* #e6f6eb 3*/
 
-        --color-warning: 119 95 40; /* #775f28 */
-        --color-warning-light: 255 248 198; /* #fff8c6 */
-        --color-warning-dark: 71 59 31; /* #473b1f */
+        --color-warning: 158 108 0; /* #9e6c00 11*/
+        --color-warning-dark: 71 59 31; /* #473b1f 12*/
+        --color-warning-light: 255 250 184; /* #fffab8 3*/
 
-        --color-error: 198 42 47; /* #c62a2f */
-        --color-error-light: 255 239 239; /* #ffefef */
-        --color-error-dark: 100 23 35; /* #641723 */
+        --color-error: 229 72 77; /* #e5484d 9*/
+        --color-error-dark: 220 62 66; /* #dc3e42 10*/
+        --color-error-light: 254 235 236; /* #feebec 3*/
     }
 
     .dark-theme {
-        --color-primary-1: 253 253 254; /* #fdfdfe */
-        --color-primary-2: 248 250 255; /* #f8faff */
-        --color-primary-3: 240 244 255; /* #f0f4ff */
-        --color-primary-4: 230 237 254; /* #e6edfe */
-        --color-primary-5: 217 226 252; /* #d9e2fc */
-        --color-primary-6: 198 212 249; /* #c6d4f9 */
-        --color-primary-7: 174 192 245; /* #aec0f5 */
-        --color-primary-8: 141 164 239; /* #8da4ef */
-        --color-primary-9: 62 99 221; /* #3e63dd */
-        --color-primary-10: 58 92 204; /* #3a5ccc */
-        --color-primary-11: 52 81 178; /* #3451b2 */
-        --color-primary-12: 31 45 92; /* #1f2d5c */
+        --color-indigo-1: 17 19 31; /* #11131f */
+        --color-indigo-2: 20 23 38; /* #141726 */
+        --color-indigo-3: 24 36 73; /* #182449 */
+        --color-indigo-4: 29 46 98; /* #1d2e62 */
+        --color-indigo-5: 37 57 116; /* #253974 */
+        --color-indigo-6: 48 67 132; /* #304384 */
+        --color-indigo-7: 58 79 151; /* #3a4f97 */
+        --color-indigo-8: 67 93 177; /* #435db1 */
+        --color-indigo-9: 62 99 221; /* #3e63dd */
+        --color-indigo-10: 84 114 228; /* #5472e4 */
+        --color-indigo-11: 158 177 255; /* #9eb1ff */
+        --color-indigo-12: 214 225 255; /* #d6e1ff */
 
         /* 1 - App background, 2 - Subtle background */
         --color-neutral-1: 17 17 19; /* #111113 */
@@ -94,21 +94,21 @@
         --color-neutral-12: 237 238 240; /* #edeef0 */
 
         /* Semantic Colors */
-        --color-info: 11 104 203; /* #0b68cb 11*/
-        --color-info-light: 237 246 255; /* #edf6ff 3*/
-        --color-info-dark: 17 50 100; /* #113264 12*/
+        --color-info: 0 144 255; /* #0090ff 9*/
+        --color-info-dark: 59 158 255; /* #3b9eff 10*/
+        --color-info-light: 13 40 71; /* #0d2847 3*/
 
-        --color-success: 24 121 78; /* #18794e */
-        --color-success-light: 233 249 238; /* #e9f9ee */
-        --color-success-dark: 25 59 45; /* #193b2d */
+        --color-success: 48 164 108; /* #30a46c 9*/
+        --color-success-dark: 51 176 116; /* #33b074 10*/
+        --color-success-light: 19 45 33; /* #132d21 3*/
 
-        --color-warning: 119 95 40; /* #775f28 */
-        --color-warning-light: 255 248 198; /* #fff8c6 */
-        --color-warning-dark: 71 59 31; /* #473b1f */
+        --color-warning: 255 230 41; /* #ffe629 9*/
+        --color-warning-dark: 255 255 87; /* #ffff57 10*/
+        --color-warning-light: 45 35 5; /* #2d2305 3*/
 
-        --color-error: 198 42 47; /* #c62a2f */
-        --color-error-light: 255 239 239; /* #ffefef */
-        --color-error-dark: 100 23 35; /* #641723 */
+        --color-error: 229 72 77; /* #e5484d 9*/
+        --color-error-dark: 236 93 94; /* #ec5d5e 10*/
+        --color-error-light: 59 18 25; /* #3b1219 3*/
     }
 
     html {
@@ -120,4 +120,8 @@
     .input-error {
         @apply !ring-skin-error;
     }
+}
+
+#nprogress .bar {
+    height: 0.3125em !important;
 }

@@ -14,7 +14,7 @@ import { ref, onMounted } from 'vue'
 
 const props = defineProps({
     modelValue: {
-        type: String,
+        type: [String, null],
         required: true
     },
     autoResize: {

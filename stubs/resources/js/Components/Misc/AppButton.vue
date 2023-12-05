@@ -26,7 +26,7 @@ const emit = defineEmits(['click'])
 }
 
 .btn-destructive {
-    @apply bg-skin-error text-skin-neutral-1 hover:bg-skin-error-dark focus:ring-skin-error;
+    @apply bg-skin-error text-skin-error-light hover:bg-skin-error-dark focus:ring-skin-error;
 }
 
 .btn-primary-outline {
