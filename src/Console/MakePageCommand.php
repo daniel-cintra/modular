@@ -29,11 +29,7 @@ class MakePageCommand extends Command
         $this->moduleName = Str::studly($this->argument('moduleName'));
         $this->resourceName = Str::studly($this->argument('resourceName'));
 
-        if (! $this->moduleExists()) {
-            return self::FAILURE;
-        }
-
-        $this->comment('Module '.$this->moduleName.' found, creating Pages...');
+        $this->comment('Creating Pages...');
         $this->createIndexPage();
         $this->createFormPage();
 
