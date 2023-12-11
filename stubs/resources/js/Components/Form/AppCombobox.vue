@@ -1,13 +1,20 @@
 <template>
     <div class="w-48">
         <AppButton
-            class="btn btn-primary flex w-full align-middle"
+            class="btn btn-primary flex w-full justify-between align-middle"
             aria-haspopup="true"
             :aria-expanded="isOpen"
             @click="toggleState"
         >
             <span class="mr-2 inline-block"> {{ comboLabelText }} </span>
-            <i class="ri-arrow-down-line"></i>
+
+            <span>
+                <i
+                    class="ri-close-circle-line mr-2 inline-block hover:text-skin-primary-6"
+                    @click.prevent="clearSelection"
+                ></i>
+                <i class="ri-arrow-down-line hover:text-skin-primary-6"></i>
+            </span>
         </AppButton>
 
         <transition name="slide-fade">
@@ -48,7 +55,7 @@
                         :aria-selected="index === highlightedIndex"
                     >
                         <span
-                            class="block px-4 py-2 text-sm hover:bg-skin-neutral-3 hover:text-skin-neutral-12 hover:cursor-pointer"
+                            class="block px-4 py-2 text-sm hover:cursor-pointer hover:bg-skin-neutral-3 hover:text-skin-neutral-12"
                             :class="{
                                 'bg-skin-neutral-3 text-skin-neutral-12':
                                     index === highlightedIndex
@@ -69,7 +76,7 @@ import { ref, computed, onMounted } from 'vue'
 
 const props = defineProps({
     modelValue: {
-        type: [Object, null],
+        type: [Object, Number, null],
         required: true
     },
     comboLabel: {
@@ -154,6 +161,13 @@ const handleArrowKeys = (event) => {
         default:
             break
     }
+}
+
+const clearSelection = (e) => {
+    e.stopPropagation()
+    highlightedIndex.value = 0
+    emit('update:modelValue', null)
+    isOpen.value = false
 }
 
 const comboLabelText = computed(() => {
