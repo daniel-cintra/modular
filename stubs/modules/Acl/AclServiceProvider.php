@@ -2,6 +2,7 @@
 
 namespace Modules\Acl;
 
+use Illuminate\Support\Facades\Gate;
 use Modules\Support\BaseServiceProvider;
 
 class AclServiceProvider extends BaseServiceProvider
@@ -21,6 +22,11 @@ class AclServiceProvider extends BaseServiceProvider
     public function boot()
     {
         $this->mergeConfigFrom(__DIR__.'/config/config.php', 'acl');
+
+        Gate::before(function ($user, $ability) {
+            return $user->hasRole('root') ? true : null; // Must be null, not false. (From Spatie Permission Package documentation.)
+        });
+
         parent::boot();
     }
 }
