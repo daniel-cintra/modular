@@ -10,13 +10,13 @@ Route::get('{{ resource-name }}/create', [
     'uses' => '{{ ResourceName }}Controller@create',
 ])->name('{{ resourceName }}.create');
 
-Route::get('{{ resource-name }}/{id}/edit', [
-    'uses' => '{{ ResourceName }}Controller@edit',
-])->name('{{ resourceName }}.edit');
-
 Route::post('{{ resource-name }}', [
     'uses' => '{{ ResourceName }}Controller@store',
 ])->name('{{ resourceName }}.store');
+
+Route::get('{{ resource-name }}/{id}/edit', [
+    'uses' => '{{ ResourceName }}Controller@edit',
+])->name('{{ resourceName }}.edit');
 
 Route::put('{{ resource-name }}/{id}', [
     'uses' => '{{ ResourceName }}Controller@update',
