@@ -1,7 +1,7 @@
 <template>
     <div class="w-48">
         <AppButton
-            class="btn btn-primary flex w-full justify-between align-middle"
+            class="mt-1 flex w-full justify-between rounded-md border-0 bg-skin-neutral-1 px-3 py-2 align-middle text-skin-neutral-12 placeholder-skin-neutral-9 shadow-sm ring-1 ring-inset ring-skin-neutral-7 focus:ring-2 focus:ring-inset focus:ring-skin-neutral-7 sm:text-sm sm:leading-6"
             aria-haspopup="true"
             :aria-expanded="isOpen"
             @click="toggleState"
@@ -10,10 +10,10 @@
 
             <span>
                 <i
-                    class="ri-close-circle-line mr-2 inline-block hover:text-skin-primary-6"
+                    class="ri-close-circle-line mr-2 inline-block hover:text-skin-neutral-9"
                     @click.prevent="clearSelection"
                 ></i>
-                <i class="ri-arrow-down-line hover:text-skin-primary-6"></i>
+                <i class="ri-arrow-down-line hover:text-skin-neutral-9"></i>
             </span>
         </AppButton>
 
