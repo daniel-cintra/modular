@@ -28,7 +28,7 @@ trait FrontendPackages
             'eslint' => '^v8.56.0',
             'eslint-config-prettier' => '^9.1.0',
             'eslint-plugin-vue' => '^v9.19.2',
-            'laravel-vite-plugin' => '^v0.8.1',
+            'laravel-vite-plugin' => '^v1.0.0',
 
             'postcss' => '^8.4.32',
             'postcss-import' => '^15.1.0',
@@ -49,7 +49,7 @@ trait FrontendPackages
             'remixicon' => '^4.0.1',
             'tailwindcss' => '^3.3.7',
             'unplugin-vue-components' => '^0.26.0',
-            'vite' => '^4.5.1',
+            'vite' => '^5.0.10',
             'vue' => '^3.3.13',
 
         ] + $packages);
