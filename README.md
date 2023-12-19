@@ -131,6 +131,12 @@ Each of these components **is crafted to integrate seamlessly with Modular**, en
 
 You can find the Modular documentation at [https://docs.ismodular.com](https://docs.ismodular.com).
 
+## Demo App
+
+You can find the Modular Demo App at [https://demo.ismodular.com](https://demo.ismodular.com).
+
+And the repository for the demo app at [https://github.com/daniel-cintra/modular-demo](https://github.com/daniel-cintra/modular-demo).
+
 ## License
 
 The Modular Project is open-source software licensed under the [MIT license](LICENSE.md).
