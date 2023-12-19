@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    {{-- If developing using SSL/HTTPS (uncomment the line below): Enforces loading all resources over HTTPS, upgrading requests from HTTP to HTTPS for enhanced security --}}
+    {{-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> --}}
+
     <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
     {{-- used by Tiptap Editor --}}
