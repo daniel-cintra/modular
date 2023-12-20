@@ -92,6 +92,8 @@ At present, Modular furnishes the following Custom Vue 3 Components:
 │   ├── AppCheckbox.vue
 │   ├── AppCombobox.vue
 │   ├── AppFormErrors.vue
+│   ├── AppInputDate.vue
+│   ├── AppInputFile.vue
 │   ├── AppInputPassword.vue
 │   ├── AppInputText.vue
 │   ├── AppLabel.vue
@@ -116,6 +118,7 @@ At present, Modular furnishes the following Custom Vue 3 Components:
 ├── Misc
 │   ├── AppButton.vue
 │   ├── AppCard.vue
+│   ├── AppImageNotAvailable.vue
 │   ├── AppLink.vue
 │   ├── AppSectionHeader.vue
 │   └── AppTopBar.vue
