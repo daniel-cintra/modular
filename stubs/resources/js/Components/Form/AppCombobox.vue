@@ -21,9 +21,7 @@
             <div v-show="isOpen">
                 <div v-show="useSearch">
                     <!-- search input -->
-                    <label for="input-group-search" class="sr-only"
-                        >Search</label
-                    >
+                    <label :for="getElementId()" class="sr-only">Search</label>
                     <div class="relative">
                         <div
                             class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"
@@ -31,7 +29,7 @@
                             <i class="ri-search-line" aria-hidden="true"></i>
                         </div>
                         <AppInputText
-                            id="input-group-search"
+                            :id="getElementId()"
                             ref="searchInputRef"
                             v-model="searchOptionText"
                             role="searchbox"
@@ -73,6 +71,7 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
+import slug from '@resources/js/Utils/slug.js'
 
 const props = defineProps({
     modelValue: {
@@ -100,6 +99,10 @@ const props = defineProps({
 onMounted(() => {
     isOpen.value && (highlightedIndex.value = 0)
 })
+
+const getElementId = () => {
+    return slug(props.comboLabel)
+}
 
 const emit = defineEmits(['update:modelValue'])
 

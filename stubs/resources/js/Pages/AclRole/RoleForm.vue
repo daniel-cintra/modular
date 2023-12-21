@@ -16,6 +16,7 @@
                         :class="{
                             'input-error': errorsFields.includes('name')
                         }"
+                        autocomplete="off"
                     />
                 </div>
             </form>

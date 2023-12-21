@@ -280,6 +280,7 @@
 
         <textarea
             v-show="codeMode"
+            :id="editorId"
             v-model="htmlContent"
             class="min-h-[240px] w-full rounded-b-md border border-solid border-skin-neutral-7 bg-skin-neutral-1 font-sans text-xs leading-5 tracking-normal"
             @input="syncEditor"
@@ -307,6 +308,10 @@ import FileUpload from './TipTap/extension-file-upload.js'
 
 const props = defineProps({
     modelValue: {
+        type: String,
+        default: ''
+    },
+    editorId: {
         type: String,
         default: ''
     },

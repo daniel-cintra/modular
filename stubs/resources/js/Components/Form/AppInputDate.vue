@@ -4,6 +4,7 @@
     </label>
 
     <input
+        :id="name"
         type="date"
         :name="name"
         :value="modelValue"
