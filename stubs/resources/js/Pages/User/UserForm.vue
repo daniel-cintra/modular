@@ -41,6 +41,7 @@
                         :class="{
                             'input-error': errorsFields.includes('password')
                         }"
+                        autocomplete="off"
                     />
                 </div>
             </form>
