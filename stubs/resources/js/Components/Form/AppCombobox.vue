@@ -10,6 +10,7 @@
 
             <span>
                 <i
+                    v-show="modelValue"
                     class="ri-close-circle-line mr-2 inline-block hover:text-skin-neutral-9"
                     @click.prevent="clearSelection"
                 ></i>
