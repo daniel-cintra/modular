@@ -19,12 +19,7 @@ class MakeComponentCommand extends Command
 
     protected string $componentName;
 
-    /**
-     * Execute the console command.
-     *
-     * @return int|null
-     */
-    public function handle()
+    public function handle(): ?int
     {
         $this->moduleName = Str::studly($this->argument('moduleName'));
         $this->componentName = Str::studly($this->argument('componentName'));

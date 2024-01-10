@@ -18,7 +18,7 @@ class MakeValidateCommand extends Command
 
     protected string $resourceName;
 
-    public function handle()
+    public function handle(): ?int
     {
         $this->moduleName = Str::studly($this->argument('moduleName'));
         $this->resourceName = Str::studly($this->argument('resourceName'));

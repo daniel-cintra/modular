@@ -14,12 +14,7 @@ class MakeModuleCommand extends Command
 
     protected string $moduleName;
 
-    /**
-     * Execute the console command.
-     *
-     * @return int|null
-     */
-    public function handle()
+    public function handle(): ?int
     {
         $this->setModuleName();
 
@@ -45,7 +40,7 @@ class MakeModuleCommand extends Command
         return self::SUCCESS;
     }
 
-    private function setModulename()
+    private function setModulename(): void
     {
         $this->moduleName = Str::studly($this->argument('name'));
     }

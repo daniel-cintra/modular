@@ -18,12 +18,7 @@ class MakeRouteCommand extends Command
 
     protected string $resourceName;
 
-    /**
-     * Execute the console command.
-     *
-     * @return int|null
-     */
-    public function handle()
+    public function handle(): ?int
     {
         $this->moduleName = Str::studly($this->argument('moduleName'));
         $this->resourceName = Str::studly($this->argument('resourceName'));

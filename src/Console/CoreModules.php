@@ -8,12 +8,7 @@ use Symfony\Component\Process\Process;
 
 trait CoreModules
 {
-    /**
-     * Install the Composer dependencies.
-     *
-     * @return void
-     */
-    protected function configureCoreModules()
+    protected function configureCoreModules(): void
     {
         $this->configureMiddlewares();
 
@@ -78,12 +73,7 @@ trait CoreModules
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/modules', base_path('modules'));
     }
 
-    /**
-     * Run the php artisan migrate command.
-     *
-     * @return void
-     */
-    protected function setupDatabase()
+    protected function setupDatabase(): void
     {
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/database/seeders', base_path('database/seeders'));
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/database/factories', base_path('database/factories'));
@@ -99,12 +89,7 @@ trait CoreModules
             });
     }
 
-    /**
-     * Run the php artisan db:seed command.
-     *
-     * @return void
-     */
-    protected function seedDatabase()
+    protected function seedDatabase(): void
     {
         (new Process([$this->phpBinary(), 'artisan', 'db:seed'], base_path()))
             ->setTimeout(null)
@@ -113,14 +98,7 @@ trait CoreModules
             });
     }
 
-    /**
-     * Configure "modules" providers.
-     *
-     * @param  string  $after
-     * @param  string  $path
-     * @return void
-     */
-    protected function configureModulesProviders()
+    protected function configureModulesProviders(): void
     {
         $configAppFile = base_path('config/app.php');
 
@@ -145,14 +123,7 @@ trait CoreModules
         file_put_contents($configAppFile, $modifiedContent);
     }
 
-    /**
-     * Configure PSR-4 autoload for the "modules" path.
-     *
-     * @param  string  $after
-     * @param  string  $path
-     * @return void
-     */
-    protected function configureAutoload($after, $path)
+    protected function configureAutoload(string $after, string $path): void
     {
         $composerContent = file_get_contents(base_path('composer.json'));
 
@@ -173,12 +144,7 @@ trait CoreModules
         }
     }
 
-    /**
-     * Run composer dump-autoload command.
-     *
-     * @return void
-     */
-    protected function dumpAutoload()
+    protected function dumpAutoload(): void
     {
         $composer = $this->option('composer');
 
@@ -195,15 +161,7 @@ trait CoreModules
             });
     }
 
-    /**
-     * Install the middleware to a group in the application Http Kernel.
-     *
-     * @param  string  $after
-     * @param  string  $name
-     * @param  string  $group
-     * @return void
-     */
-    protected function installMiddlewareAfter($after, $name, $group = 'web')
+    protected function installMiddlewareAfter(string $after, string $name, string $group = 'web'): void
     {
         $httpKernel = file_get_contents(app_path('Http/Kernel.php'));
 
@@ -225,15 +183,7 @@ trait CoreModules
         }
     }
 
-    /**
-     * Install the middleware to a group in the application Http Kernel.
-     *
-     * @param  string  $after
-     * @param  string  $name
-     * @param  string  $group
-     * @return void
-     */
-    protected function installAliasMiddlewareAfter($after, $name)
+    protected function installAliasMiddlewareAfter(string $after, string $name): void
     {
         $httpKernel = file_get_contents(app_path('Http/Kernel.php'));
 

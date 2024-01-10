@@ -13,12 +13,7 @@ class InstallCommand extends Command
 
     protected $description = 'Install the Modular required resources';
 
-    /**
-     * Execute the console command.
-     *
-     * @return int|null
-     */
-    public function handle()
+    public function handle(): ?int
     {
         $this->comment('Migrating database...');
         $this->call('migrate');
@@ -38,12 +33,7 @@ class InstallCommand extends Command
         return self::SUCCESS;
     }
 
-    /**
-     * Get the path to the appropriate PHP binary.
-     *
-     * @return string
-     */
-    protected function phpBinary()
+    protected function phpBinary(): string
     {
         return (new PhpExecutableFinder())->find(false) ?: 'php';
     }

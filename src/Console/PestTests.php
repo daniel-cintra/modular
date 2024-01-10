@@ -7,18 +7,13 @@ use Symfony\Component\Process\Process;
 
 trait PestTests
 {
-    /**
-     * Install the Composer dependencies.
-     *
-     * @return void
-     */
-    protected function setupPestTests()
+    protected function setupPestTests(): void
     {
         $this->components->info('Configuring Pest tests...');
         $this->configureTests();
     }
 
-    protected function configureTests()
+    protected function configureTests(): void
     {
         (new Filesystem)->ensureDirectoryExists(base_path('tests/Feature'));
 
@@ -27,7 +22,7 @@ trait PestTests
         }
 
         if (! $this->requireComposerPackages(['pestphp/pest:^2.0', 'pestphp/pest-plugin-laravel:^2.0'], true)) {
-            return false;
+            return;
         }
 
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/tests/Feature', base_path('tests/Feature'));

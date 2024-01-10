@@ -13,12 +13,7 @@ class PublishLaravelTranslationsCommand extends Command
 
     protected string $lang;
 
-    /**
-     * Execute the console command.
-     *
-     * @return int|null
-     */
-    public function handle()
+    public function handle(): ?int
     {
         $lang = $this->option('lang');
 

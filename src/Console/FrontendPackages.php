@@ -10,10 +10,8 @@ trait FrontendPackages
 {
     /**
      * Install the Inertia Vue Breeze stack.
-     *
-     * @return void
      */
-    protected function installFrontendPackages()
+    protected function installFrontendPackages(): void
     {
         $this->components->info('Installing npm packages...');
 
@@ -70,13 +68,7 @@ trait FrontendPackages
         $this->components->info('npm packages installed successfully!');
     }
 
-    /**
-     * Update the "package.json" file.
-     *
-     * @param  bool  $dev
-     * @return void
-     */
-    protected static function updateNodePackages(callable $callback, $dev = true)
+    protected static function updateNodePackages(callable $callback, bool $dev = true): void
     {
         if (! file_exists(base_path('package.json'))) {
             return;
@@ -99,13 +91,7 @@ trait FrontendPackages
         );
     }
 
-    /**
-     * Run the given commands.
-     *
-     * @param  array  $commands
-     * @return void
-     */
-    protected function runCommands($commands)
+    protected function runCommands(array $commands): void
     {
         $process = Process::fromShellCommandline(implode(' && ', $commands), null, null, null, null);
 
