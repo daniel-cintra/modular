@@ -1,9 +1,9 @@
 import { usePage } from '@inertiajs/vue3'
 
 export default function useAuthCan() {
-    const can = (permission) => {
-        const auth = usePage().props.auth
+    const auth = usePage().props.auth
 
+    const can = (permission) => {
         if (auth && auth.isRootUser) {
             return true
         }
