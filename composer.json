@@ -62,10 +62,7 @@
         "laravel": {
             "providers": [
                 "Modular\\Modular\\ModularServiceProvider"
-            ],
-            "aliases": {
-                "Modular": "Modular\\Modular\\Facades\\Modular"
-            }
+            ]
         }
     },
     "minimum-stability": "dev",
