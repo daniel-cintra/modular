@@ -4,14 +4,14 @@ namespace Modules\User\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Modules\AdminAuth\Notifications\ResetPassword;
-// use Modules\Support\Traits\ActivityLog;
 use Modules\Support\Traits\Searchable;
+// use Modules\Support\Traits\ActivityLog;
+use Modules\User\Database\Factories\UserFactory;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable

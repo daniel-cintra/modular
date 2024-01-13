@@ -75,12 +75,12 @@ trait CoreModules
 
     protected function setupDatabase(): void
     {
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/database/seeders', base_path('database/seeders'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/database/factories', base_path('database/factories'));
+        // (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/database/seeders', base_path('database/seeders'));
+        // (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/database/factories', base_path('database/factories'));
 
-        $this->call('vendor:publish', [
-            '--tag' => 'modular-migrations',
-        ]);
+        // $this->call('vendor:publish', [
+        //     '--tag' => 'modular-migrations',
+        // ]);
 
         (new Process([$this->phpBinary(), 'artisan', 'migrate'], base_path()))
             ->setTimeout(null)
@@ -91,11 +91,11 @@ trait CoreModules
 
     protected function seedDatabase(): void
     {
-        (new Process([$this->phpBinary(), 'artisan', 'db:seed'], base_path()))
-            ->setTimeout(null)
-            ->run(function ($type, $output) {
-                $this->output->write($output);
-            });
+        (new Process([$this->phpBinary(), 'artisan', 'db:seed', '--class=Modules\User\Database\Seeders\UserSeeder'], base_path()))
+        ->setTimeout(null)
+        ->run(function ($type, $output) {
+            $this->output->write($output);
+        });
     }
 
     protected function configureModulesProviders(): void

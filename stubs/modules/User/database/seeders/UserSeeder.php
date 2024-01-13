@@ -1,13 +1,13 @@
 <?php
 
-namespace Database\Seeders;
+namespace Modules\User\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 use Modules\User\Models\User;
 use Spatie\Permission\Models\Role;
 
-class DatabaseSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Seed the application's database.

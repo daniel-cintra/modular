@@ -32,7 +32,7 @@ class ModularServiceProvider extends PackageServiceProvider
             ->hasTranslations()
             ->hasViews()
             ->hasViewComponents('modular', Translations::class)
-            ->hasMigration('add_custom_fields_to_users_table')
+            // ->hasMigration('add_custom_fields_to_users_table')
             ->hasCommand(InstallCommand::class)
             ->hasCommand(MakeModuleCommand::class)
             ->hasCommand(MakeControllerCommand::class)
