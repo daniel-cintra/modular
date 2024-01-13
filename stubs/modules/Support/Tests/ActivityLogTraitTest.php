@@ -2,10 +2,12 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Schema;
 use Modules\Support\Traits\ActivityLog;
+use Tests\TestCase;
 
-uses(ActivityLog::class);
+uses(TestCase::class, RefreshDatabase::class, ActivityLog::class);
 
 beforeEach(function () {
     Schema::create('items', function (Blueprint $table) {

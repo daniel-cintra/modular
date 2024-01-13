@@ -2,10 +2,12 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Schema;
 use Modules\Support\Traits\UpdateOrder;
+use Tests\TestCase;
 
-uses(UpdateOrder::class);
+uses(TestCase::class, RefreshDatabase::class, UpdateOrder::class);
 
 beforeEach(function () {
     Schema::create('items', function (Blueprint $table) {

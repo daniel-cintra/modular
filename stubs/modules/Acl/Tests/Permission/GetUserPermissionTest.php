@@ -1,9 +1,13 @@
 <?php
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Acl\Services\GetUserPermissions;
 use Modules\User\Models\User;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Tests\TestCase;
+
+uses(TestCase::class, RefreshDatabase::class);
 
 beforeEach(function () {
     $this->user = User::factory()->create();
@@ -16,7 +20,6 @@ beforeEach(function () {
 });
 
 test('user permission service returns correct direct permissions for the user', function () {
-
     $this->user->syncPermissions([$this->permission->id]);
 
     $userPermissions = (new GetUserPermissions)->run($this->user->id);

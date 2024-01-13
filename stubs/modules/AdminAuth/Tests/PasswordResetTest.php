@@ -1,8 +1,12 @@
 <?php
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Notification;
 use Modules\AdminAuth\Notifications\ResetPassword as AdminAuthResetPassword;
 use Modules\User\Models\User;
+use Tests\TestCase;
+
+uses(TestCase::class, RefreshDatabase::class);
 
 test('reset password link screen can be rendered', function () {
     $response = $this->get('/admin-auth/forgot-password');

@@ -1,9 +1,12 @@
 <?php
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\User\Models\User;
+use Tests\TestCase;
+
+uses(TestCase::class, RefreshDatabase::class);
 
 test('login screen can be rendered', function () {
-
     $loginRoute = config('modular.login-url');
 
     $response = $this->get($loginRoute);

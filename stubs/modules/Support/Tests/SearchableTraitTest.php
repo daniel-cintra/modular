@@ -1,9 +1,11 @@
 <?php
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Support\Traits\Searchable;
 use Modules\User\Models\User;
+use Tests\TestCase;
 
-uses(Searchable::class);
+uses(TestCase::class, RefreshDatabase::class, Searchable::class);
 
 beforeEach(function () {
     $this->user = User::factory()->create([

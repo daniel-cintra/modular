@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Support\Traits\UploadFile;
+use Tests\TestCase;
 
-uses(UploadFile::class);
+uses(TestCase::class, RefreshDatabase::class, UploadFile::class);
 
 beforeEach(function () {
     (new Filesystem)->deleteDirectory(storage_path('user-files'));

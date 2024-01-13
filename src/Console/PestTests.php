@@ -15,8 +15,6 @@ trait PestTests
 
     protected function configureTests(): void
     {
-        (new Filesystem)->ensureDirectoryExists(base_path('tests/Feature'));
-
         if ($this->hasComposerPackage('phpunit/phpunit')) {
             $this->removeComposerPackages(['phpunit/phpunit'], true);
         }
@@ -25,8 +23,6 @@ trait PestTests
             return;
         }
 
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/tests/Feature', base_path('tests/Feature'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/tests/Unit', base_path('tests/Unit'));
         (new Filesystem)->copy(__DIR__.'/../../stubs/tests/Pest.php', base_path('tests/Pest.php'));
     }
 

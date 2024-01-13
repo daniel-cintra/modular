@@ -1,9 +1,11 @@
 <?php
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Modules\Support\Traits\FileNameGenerator;
+use Tests\TestCase;
 
-uses(FileNameGenerator::class);
+uses(TestCase::class, RefreshDatabase::class, FileNameGenerator::class);
 
 it('can set the name of a uploaded file', function () {
     $file = UploadedFile::fake()->image('A nice file.jpg');

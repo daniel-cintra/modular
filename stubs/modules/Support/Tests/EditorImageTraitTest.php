@@ -1,12 +1,13 @@
 <?php
 
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Modules\Support\Traits\EditorImage;
-
 use function PHPUnit\Framework\assertFileExists;
+use Tests\TestCase;
 
-uses(EditorImage::class);
+uses(TestCase::class, RefreshDatabase::class, EditorImage::class);
 
 beforeEach(function () {
     $this->file = UploadedFile::fake()->image('A nice file.jpg');

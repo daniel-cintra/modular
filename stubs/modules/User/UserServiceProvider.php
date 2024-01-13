@@ -25,7 +25,7 @@ class UserServiceProvider extends BaseServiceProvider
     {
         parent::boot();
 
-        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/Database/Migrations');
 
         Relation::morphMap([
             'user' => User::class,
