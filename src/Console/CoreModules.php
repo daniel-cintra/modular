@@ -85,10 +85,10 @@ trait CoreModules
     protected function seedDatabase(): void
     {
         (new Process([$this->phpBinary(), 'artisan', 'db:seed', '--class=Modules\User\Database\Seeders\UserSeeder'], base_path()))
-        ->setTimeout(null)
-        ->run(function ($type, $output) {
-            $this->output->write($output);
-        });
+            ->setTimeout(null)
+            ->run(function ($type, $output) {
+                $this->output->write($output);
+            });
     }
 
     protected function configureModulesProviders(): void
