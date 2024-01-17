@@ -36,6 +36,7 @@ class MakeModuleCommand extends Command
         $this->call('make:migration', ['name' => "create{$this->moduleName}s_table"]);
 
         $this->call('modular:make-page', $params);
+        $this->call('modular:make-test', $params);
 
         return self::SUCCESS;
     }
@@ -63,5 +64,7 @@ class MakeModuleCommand extends Command
         (new Filesystem)->makeDirectory(base_path("modules/{$this->moduleName}/Http/Requests"));
         (new Filesystem)->makeDirectory(base_path("modules/{$this->moduleName}/Models"));
         (new Filesystem)->makeDirectory(base_path("modules/{$this->moduleName}/routes"));
+        (new Filesystem)->makeDirectory(base_path("modules/{$this->moduleName}/Tests"));
+        (new Filesystem)->makeDirectory(base_path("modules/{$this->moduleName}/Database/Migrations"), 0755, true);
     }
 }

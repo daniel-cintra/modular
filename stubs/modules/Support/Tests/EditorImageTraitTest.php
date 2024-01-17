@@ -4,9 +4,8 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Modules\Support\Traits\EditorImage;
-use Tests\TestCase;
-
 use function PHPUnit\Framework\assertFileExists;
+use Tests\TestCase;
 
 uses(TestCase::class, RefreshDatabase::class, EditorImage::class);
 
