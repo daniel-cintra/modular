@@ -22,7 +22,7 @@ class MakeTestCommand extends Command
     public function handle(): ?int
     {
         $this->moduleName = Str::studly($this->argument('moduleName'));
-        $this->testFileName = Str::studly($this->argument('resourceName'));
+        $this->testFileName = $this->argument('resourceName');
 
         if (! $this->moduleExists()) {
             return self::FAILURE;
