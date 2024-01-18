@@ -11,11 +11,11 @@ afterEach(function () {
 });
 
 it('can run modular:make-test command', function () {
-    $this->artisan('modular:make-test moduleName moduleName')->assertSuccessful();
+    $this->artisan('modular:make-test ModuleName testFileName')->assertSuccessful();
 });
 
 it('can generate a test', function () {
-    $this->artisan('modular:make-test moduleName testFileName');
+    $this->artisan('modular:make-test ModuleName testFileName');
 
     $test = base_path('modules/ModuleName/Tests/testFileNameTest.php');
     $this->assertTrue(file_exists($test));
