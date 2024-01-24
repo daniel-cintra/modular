@@ -1,6 +1,6 @@
 <?php
 
-namespace Modular\Modular\Console;
+namespace Modular\Modular\Console\InstallerTraits;
 
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Process\Process;

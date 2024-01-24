@@ -3,6 +3,10 @@
 namespace Modular\Modular\Console;
 
 use Illuminate\Console\Command;
+use Modular\Modular\Console\InstallerTraits\BackendPackages;
+use Modular\Modular\Console\InstallerTraits\CoreModules;
+use Modular\Modular\Console\InstallerTraits\FrontendPackages;
+use Modular\Modular\Console\InstallerTraits\PestTests;
 use Symfony\Component\Process\PhpExecutableFinder;
 
 class InstallCommand extends Command

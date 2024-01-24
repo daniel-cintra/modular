@@ -5,7 +5,7 @@ namespace Modular\Modular\Console;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
-use Modular\Modular\Traits\ModuleExists;
+use Modular\Modular\Console\InstallerTraits\ModuleExists;
 
 class MakePageCommand extends Command
 {

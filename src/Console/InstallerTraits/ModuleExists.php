@@ -1,6 +1,6 @@
 <?php
 
-namespace Modular\Modular\Traits;
+namespace Modular\Modular\Console\InstallerTraits;
 
 trait ModuleExists
 {

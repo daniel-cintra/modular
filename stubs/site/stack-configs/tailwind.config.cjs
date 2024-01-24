@@ -7,7 +7,10 @@ module.exports = {
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
-        './resources/js/**/*.vue'
+        './resources/js/**/*.vue',
+        './resources-site/views/**/*.blade.php',
+        './resources-site/js/**/*.vue',
+        './modules/**/views/**/*.blade.php'
     ],
 
     theme: {
@@ -77,9 +80,7 @@ module.exports = {
         }
     },
 
-    plugins: [
-        require('@tailwindcss/forms')
-    ],
+    plugins: [require('@tailwindcss/forms')],
 
     safelist: ['tooltip-arrow']
 }
