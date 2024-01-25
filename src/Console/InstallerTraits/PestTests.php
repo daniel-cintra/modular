@@ -23,7 +23,7 @@ trait PestTests
             return;
         }
 
-        (new Filesystem)->copy(__DIR__.'/../../stubs/tests/Pest.php', base_path('tests/Pest.php'));
+        (new Filesystem)->copy(__DIR__.'/../../../stubs/tests/Pest.php', base_path('tests/Pest.php'));
     }
 
     protected function hasComposerPackage(string $package): bool

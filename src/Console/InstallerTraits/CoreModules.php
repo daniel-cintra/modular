@@ -23,11 +23,11 @@ trait CoreModules
 
         $this->configureModulesAutoload();
 
-        copy(__DIR__.'/../../stubs/routes/web.php', base_path('routes/web.php'));
+        copy(__DIR__.'/../../../stubs/routes/web.php', base_path('routes/web.php'));
 
-        copy(__DIR__.'/../../stubs/config/auth.php', base_path('config/auth.php'));
+        copy(__DIR__.'/../../../stubs/config/auth.php', base_path('config/auth.php'));
 
-        copy(__DIR__.'/../../stubs/public/favicon.svg', public_path('favicon.svg'));
+        copy(__DIR__.'/../../../stubs/public/favicon.svg', public_path('favicon.svg'));
 
         $this->migrateDatabase();
         $this->seedDatabase();
@@ -42,7 +42,7 @@ trait CoreModules
     private function configureMiddlewares(): void
     {
         $this->components->info('Configuring Middlewares...');
-        copy(__DIR__.'/../../stubs/app/Http/Middleware/HandleInertiaRequests.php', app_path('Http/Middleware/HandleInertiaRequests.php'));
+        copy(__DIR__.'/../../../stubs/app/Http/Middleware/HandleInertiaRequests.php', app_path('Http/Middleware/HandleInertiaRequests.php'));
         $this->installMiddlewareAfter('SubstituteBindings::class', '\App\Http\Middleware\HandleInertiaRequests::class');
         $this->installAliasMiddlewareAfter('EnsureEmailIsVerified::class', "'auth.user' => \Modules\AdminAuth\Http\Middleware\UserAuth::class");
     }
@@ -51,7 +51,7 @@ trait CoreModules
     {
         $this->components->info('Copying resources directory...');
         (new Filesystem)->ensureDirectoryExists(base_path('resources'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/resources', base_path('resources'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../../stubs/resources', base_path('resources'));
     }
 
     private function configureModulesAutoload(): void
@@ -70,7 +70,7 @@ trait CoreModules
     {
         $this->components->info('Copying modules directory...');
         (new Filesystem)->ensureDirectoryExists(base_path('modules'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/modules', base_path('modules'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../../stubs/modules', base_path('modules'));
     }
 
     protected function migrateDatabase(): void

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title inertia>{{ config('app.name', 'Modular') }}</title>
+    <title>{{ config('app.name', 'Modular') }}</title>
 
     <link rel="icon" href="/favicon.svg" />
 
@@ -13,7 +13,7 @@
     @yield('headEndScripts')
 </head>
 
-<body class="bg-gray-100">
+<body>
     <div id="app">
         @yield('content')
     </div>

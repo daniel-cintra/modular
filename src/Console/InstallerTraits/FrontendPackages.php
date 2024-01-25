@@ -53,14 +53,14 @@ trait FrontendPackages
         ] + $packages);
 
         // Config files...
-        copy(__DIR__.'/../../stubs/stack-configs/postcss.config.cjs', base_path('postcss.config.cjs'));
-        copy(__DIR__.'/../../stubs/stack-configs/tailwind.config.cjs', base_path('tailwind.config.cjs'));
-        copy(__DIR__.'/../../stubs/stack-configs/jsconfig.json', base_path('jsconfig.json'));
-        copy(__DIR__.'/../../stubs/stack-configs/vite.config.js', base_path('vite.config.js'));
-        copy(__DIR__.'/../../stubs/stack-configs/.eslintrc.cjs', base_path('.eslintrc.cjs'));
-        copy(__DIR__.'/../../stubs/stack-configs/.prettierrc.json', base_path('.prettierrc.json'));
+        copy(__DIR__.'/../../../stubs/stack-configs/postcss.config.cjs', base_path('postcss.config.cjs'));
+        copy(__DIR__.'/../../../stubs/stack-configs/tailwind.config.cjs', base_path('tailwind.config.cjs'));
+        copy(__DIR__.'/../../../stubs/stack-configs/jsconfig.json', base_path('jsconfig.json'));
+        copy(__DIR__.'/../../../stubs/stack-configs/vite.config.js', base_path('vite.config.js'));
+        copy(__DIR__.'/../../../stubs/stack-configs/.eslintrc.cjs', base_path('.eslintrc.cjs'));
+        copy(__DIR__.'/../../../stubs/stack-configs/.prettierrc.json', base_path('.prettierrc.json'));
 
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/stack-configs/.vscode', base_path('.vscode'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../../stubs/stack-configs/.vscode', base_path('.vscode'));
 
         $this->runCommands(['npm install']);
 
