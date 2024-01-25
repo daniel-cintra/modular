@@ -12,6 +12,6 @@ class IndexServiceProvider extends BaseServiceProvider
     {
         parent::boot();
 
-        $this->loadViewsFrom(__DIR__ . '/views', 'index');
+        $this->loadViewsFrom(__DIR__.'/views', 'index');
     }
 }

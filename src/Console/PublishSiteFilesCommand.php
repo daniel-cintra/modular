@@ -9,7 +9,7 @@ use Modular\Modular\Console\SiteTraits\PublishConfigFile;
 
 class PublishSiteFilesCommand extends Command
 {
-    use PublishConfigFile, CopySiteFiles, ConfigureViews;
+    use ConfigureViews, CopySiteFiles, PublishConfigFile;
 
     protected $signature = 'modular:publish-site-files';
 
