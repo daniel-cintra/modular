@@ -1,5 +1,5 @@
 import { createApp } from 'vue/dist/vue.esm-bundler.js'
-import IndexExampleComponent from './components/IndexExampleComponent.vue'
+import IndexExampleComponent from './Components/IndexExampleComponent.vue'
 
 //for static images
 import.meta.glob(['../images/**'])
