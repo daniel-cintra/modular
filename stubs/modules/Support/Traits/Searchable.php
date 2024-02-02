@@ -15,10 +15,17 @@ trait Searchable
 
         $columns = array_map('trim', explode(',', $searchColumn));
 
-        $query->when($searchTerm, function ($query, $searchTerm) use ($columns) {
-            foreach ($columns as $column) {
-                $query->orWhere($column, 'like', "%{$searchTerm}%");
-            }
+        $query->when($searchTerm, function ($query) use ($columns, $searchTerm) {
+            $query->where(function ($query) use ($columns, $searchTerm) {
+                foreach ($columns as $index => $column) {
+                    // Use where for the first column to start the group, then orWhere for subsequent columns
+                    if ($index === 0) {
+                        $query->where($column, 'like', "%{$searchTerm}%");
+                    } else {
+                        $query->orWhere($column, 'like', "%{$searchTerm}%");
+                    }
+                }
+            });
         });
     }
 }
