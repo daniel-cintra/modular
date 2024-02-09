@@ -1,5 +1,5 @@
 <template>
-    <div class="w-48">
+    <div ref="wrapperRef" class="relative w-48">
         <AppButton
             class="mt-1 flex w-full justify-between rounded-md border-0 bg-skin-neutral-1 px-3 py-2 align-middle text-skin-neutral-12 placeholder-skin-neutral-9 shadow-sm ring-1 ring-inset ring-skin-neutral-7 focus:ring-2 focus:ring-inset focus:ring-skin-neutral-7 sm:text-sm sm:leading-6"
             aria-haspopup="true"
@@ -7,7 +7,6 @@
             @click="toggleState"
         >
             <span class="mr-2 inline-block"> {{ comboLabelText }} </span>
-
             <span>
                 <i
                     v-show="modelValue"
@@ -19,8 +18,8 @@
         </AppButton>
 
         <transition name="slide-fade">
-            <div v-show="isOpen">
-                <div v-show="useSearch">
+            <div v-show="isOpen" class="absolute z-50 mt-1 w-full">
+                <div v-show="useSearch" class="bg-white p-1 shadow">
                     <!-- search input -->
                     <label :for="getElementId()" class="sr-only">Search</label>
                     <div class="relative">
@@ -46,23 +45,20 @@
                 </div>
 
                 <!-- combo options -->
-                <ul class="mt-2 p-1 shadow" role="listbox">
+                <ul class="bg-white p-1 shadow" role="listbox">
                     <li
                         v-for="(option, index) in filteredOptions"
                         :key="option.value"
                         role="option"
                         :aria-selected="index === highlightedIndex"
+                        class="block px-4 py-2 text-sm hover:cursor-pointer hover:bg-skin-neutral-3 hover:text-skin-neutral-12"
+                        :class="{
+                            'bg-skin-neutral-3 text-skin-neutral-12':
+                                index === highlightedIndex
+                        }"
+                        @click="updateModelValue(option)"
                     >
-                        <span
-                            class="block px-4 py-2 text-sm hover:cursor-pointer hover:bg-skin-neutral-3 hover:text-skin-neutral-12"
-                            :class="{
-                                'bg-skin-neutral-3 text-skin-neutral-12':
-                                    index === highlightedIndex
-                            }"
-                            @click="updateModelValue(option)"
-                        >
-                            {{ option.label }}
-                        </span>
+                        {{ option.label }}
                     </li>
                 </ul>
             </div>
@@ -71,8 +67,9 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import slug from '@resources/js/Utils/slug.js'
+import useClickOutside from '@resources/js/Composables/useClickOutside'
 
 const props = defineProps({
     modelValue: {
@@ -94,6 +91,16 @@ const props = defineProps({
     options: {
         type: Array,
         default: () => []
+    }
+})
+
+const wrapperRef = ref(null)
+
+const { isClickOutside } = useClickOutside(wrapperRef)
+
+watch(isClickOutside, (val) => {
+    if (val) {
+        isOpen.value = false
     }
 })
 

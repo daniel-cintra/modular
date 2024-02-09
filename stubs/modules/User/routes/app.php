@@ -1,27 +1,28 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Modules\User\Http\Controllers\UserController;
 
 Route::get('user', [
-    'uses' => 'UserController@index',
+    UserController::class, 'index',
 ])->name('user.index');
 
 Route::get('user/create', [
-    'uses' => 'UserController@create',
+    UserController::class, 'create',
 ])->name('user.create');
 
 Route::get('user/{id}/edit', [
-    'uses' => 'UserController@edit',
+    UserController::class, 'edit',
 ])->name('user.edit');
 
 Route::post('user', [
-    'uses' => 'UserController@store',
+    UserController::class, 'store',
 ])->name('user.store');
 
 Route::put('user/{id}', [
-    'uses' => 'UserController@update',
+    UserController::class, 'update',
 ])->name('user.update');
 
 Route::delete('user/{id}', [
-    'uses' => 'UserController@destroy',
+    UserController::class, 'destroy',
 ])->name('user.destroy');
