@@ -19,7 +19,7 @@
             </AppButton>
 
             <AppButton
-                v-if="file || imagePreview"
+                v-if="showRemoveFileButton && (file || imagePreview)"
                 class="btn btn-destructive"
                 @click="removeFile"
             >
@@ -54,6 +54,10 @@ const props = defineProps({
     imagePreviewUrl: {
         type: [String, null],
         default: null
+    },
+    showRemoveFileButton: {
+        type: Boolean,
+        default: true
     }
 })
 

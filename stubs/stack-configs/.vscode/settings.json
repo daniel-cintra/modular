@@ -1,4 +1,9 @@
 {
     "css.customData": [".vscode/tailwind.json"],
-    "tailwindCSS.files.exclude": ["**/node_modules/**", "**/vendor/**"]
+    "tailwindCSS.files.exclude": ["**/node_modules/**", "**/vendor/**"],
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
