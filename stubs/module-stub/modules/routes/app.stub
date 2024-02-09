@@ -1,27 +1,28 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Modules\{{ ResourceName }}\Http\Controllers\{{ ResourceName }}Controller;
 
 Route::get('{{ resource-name }}', [
-    'uses' => '{{ ResourceName }}Controller@index', 
+    {{ ResourceName }}Controller::class, 'index', 
 ])->name('{{ resourceName }}.index');
 
 Route::get('{{ resource-name }}/create', [
-    'uses' => '{{ ResourceName }}Controller@create',
+    {{ ResourceName }}Controller::class, 'create',
 ])->name('{{ resourceName }}.create');
 
 Route::post('{{ resource-name }}', [
-    'uses' => '{{ ResourceName }}Controller@store',
+    {{ ResourceName }}Controller::class, 'store',
 ])->name('{{ resourceName }}.store');
 
 Route::get('{{ resource-name }}/{id}/edit', [
-    'uses' => '{{ ResourceName }}Controller@edit',
+    {{ ResourceName }}Controller::class, 'edit',
 ])->name('{{ resourceName }}.edit');
 
 Route::put('{{ resource-name }}/{id}', [
-    'uses' => '{{ ResourceName }}Controller@update',
+    {{ ResourceName }}Controller::class, 'update',
 ])->name('{{ resourceName }}.update');
 
 Route::delete('{{ resource-name }}/{id}', [
-    'uses' => '{{ ResourceName }}Controller@destroy',
+    {{ ResourceName }}Controller::class, 'destroy',
 ])->name('{{ resourceName }}.destroy');
