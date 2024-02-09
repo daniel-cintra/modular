@@ -1,85 +1,91 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Modules\Acl\Http\Controllers\PermissionController;
+use Modules\Acl\Http\Controllers\RoleController;
+use Modules\Acl\Http\Controllers\RolePermissionController;
+use Modules\Acl\Http\Controllers\UserController;
+use Modules\Acl\Http\Controllers\UserPermissionController;
+use Modules\Acl\Http\Controllers\UserRoleController;
 
 //acl
 Route::get('acl/get-user-roles-and-permissions', [
-    'uses' => 'UserController@getUserRolesAndPermissions',
+    UserController::class, 'getUserRolesAndPermissions',
 ]);
 
 //acl - permission
 Route::get('acl-permission', [
-    'uses' => 'PermissionController@index',
+    PermissionController::class, 'index',
 ])->name('aclPermission.index');
 
 Route::get('acl-permission/create', [
-    'uses' => 'PermissionController@create',
+    PermissionController::class, 'create',
 ])->name('aclPermission.create');
 
 Route::post('acl-permission', [
-    'uses' => 'PermissionController@store',
+    PermissionController::class, 'store',
 ])->name('aclPermission.store');
 
 Route::get('acl-permission/{id}/edit', [
-    'uses' => 'PermissionController@edit',
+    PermissionController::class, 'edit',
 ])->name('aclPermission.edit');
 
 Route::put('acl-permission/{id}', [
-    'uses' => 'PermissionController@update',
+    PermissionController::class, 'update',
 ])->name('aclPermission.update');
 
 Route::delete('acl-permission/{id}', [
-    'uses' => 'PermissionController@destroy',
+    PermissionController::class, 'destroy',
 ])->name('aclPermission.destroy');
 
 //acl - role
 Route::get('acl-role', [
-    'uses' => 'RoleController@index',
+    RoleController::class, 'index',
 ])->name('aclRole.index');
 
 Route::get('acl-role/create', [
-    'uses' => 'RoleController@create',
+    RoleController::class, 'create',
 ])->name('aclRole.create');
 
 Route::post('acl-role', [
-    'uses' => 'RoleController@store',
+    RoleController::class, 'store',
 ])->name('aclRole.store');
 
 Route::get('acl-role/{id}/edit', [
-    'uses' => 'RoleController@edit',
+    RoleController::class, 'edit',
 ])->name('aclRole.edit');
 
 Route::put('acl-role/{id}', [
-    'uses' => 'RoleController@update',
+    RoleController::class, 'update',
 ])->name('aclRole.update');
 
 Route::delete('acl-role/{id}', [
-    'uses' => 'RoleController@destroy',
+    RoleController::class, 'destroy',
 ])->name('aclRole.destroy');
 
 //acl - role => permissions
 Route::get('acl-role-permission/{id}/edit', [
-    'uses' => 'RolePermissionController@edit',
+    RolePermissionController::class, 'edit',
 ])->name('aclRolePermission.edit');
 
 Route::put('acl-role-permission/{id}', [
-    'uses' => 'RolePermissionController@update',
+    RolePermissionController::class, 'update',
 ])->name('aclRolePermission.update');
 
 //acl - user role
 Route::get('acl-user-role/{id}/edit', [
-    'uses' => 'UserRoleController@edit',
+    UserRoleController::class, 'edit',
 ])->name('aclUserRole.edit');
 
 Route::put('acl-user-role/{id}', [
-    'uses' => 'UserRoleController@update',
+    UserRoleController::class, 'update',
 ])->name('aclUserRole.update');
 
 //acl - user => permissions
 Route::get('acl-user-permission/{id}/edit', [
-    'uses' => 'UserPermissionController@edit',
+    UserPermissionController::class, 'edit',
 ])->name('aclUserPermission.edit');
 
 Route::put('acl-user-permission/{id}', [
-    'uses' => 'UserPermissionController@update',
+    UserPermissionController::class, 'update',
 ])->name('aclUserPermission.update');
