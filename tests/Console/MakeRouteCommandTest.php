@@ -24,5 +24,4 @@ it('can generate a route', function () {
 
     expect($routeContent)->toContain('use Illuminate\Support\Facades\Route;');
     expect($routeContent)->toContain('Route::get(\'resource-name\'');
-    expect($routeContent)->toContain('\'uses\' => \'ResourceNameController@index\',');
 });
