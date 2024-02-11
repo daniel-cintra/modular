@@ -33,7 +33,7 @@ class MakeModuleCommand extends Command
         $this->call('modular:make-model', $params);
         $this->call('modular:make-route', $params);
 
-        $this->call('make:migration', ['name' => "create{$this->moduleName}s_table"]);
+        $this->call('modular:make-migration', ['moduleName' => $this->moduleName, 'migrationName' => "create{$this->moduleName}s_table"]);
 
         $this->call('modular:make-page', $params);
         $this->call('modular:make-test', $params);

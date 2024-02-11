@@ -24,12 +24,16 @@ it('can create the module directory structure', function () {
 
     expect(base_path('modules/ModuleName'))->toBeDirectory();
 
+    expect(base_path('modules/ModuleName/Database'))->toBeDirectory();
+    expect(base_path('modules/ModuleName/Database/Migrations'))->toBeDirectory();
+
     expect(base_path('modules/ModuleName/Http'))->toBeDirectory();
     expect(base_path('modules/ModuleName/Http/Controllers'))->toBeDirectory();
     expect(base_path('modules/ModuleName/Http/Requests'))->toBeDirectory();
 
     expect(base_path('modules/ModuleName/Models'))->toBeDirectory();
     expect(base_path('modules/ModuleName/routes'))->toBeDirectory();
+    expect(base_path('modules/ModuleName/Tests'))->toBeDirectory();
 });
 
 it('can create the module Controller', function () {
