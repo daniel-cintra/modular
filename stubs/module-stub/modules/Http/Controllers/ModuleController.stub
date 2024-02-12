@@ -49,7 +49,7 @@ class {{ ResourceName }}Controller extends BackendController
         ]);
     }
 
-    public function update({{ ResourceName }}Validate $request, int $id)
+    public function update({{ ResourceName }}Validate $request, int $id): RedirectResponse
     {
         ${{ resourceName }} = {{ ResourceName }}::findOrFail($id);
 
@@ -59,7 +59,7 @@ class {{ ResourceName }}Controller extends BackendController
             ->with('success', '{{ ResourceName }} updated.');
     }
 
-    public function destroy(int $id)
+    public function destroy(int $id): RedirectResponse
     {
         {{ ResourceName }}::findOrFail($id)->delete();
 
