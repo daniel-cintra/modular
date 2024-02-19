@@ -1,0 +1,58 @@
+<?php
+
+namespace Modules\Acl\Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Permission;
+
+class AclPermissionSeeder extends Seeder
+{
+    public function run(): void
+    {
+        Permission::truncate();
+
+        $permissions = $this->getPermissions();
+
+        foreach ($permissions as $permission) {
+            Permission::create([
+                'name' => $permission,
+                'guard_name' => 'user',
+            ]);
+        }
+    }
+
+    private function getPermissions(): array
+    {
+        return [
+            //Main Menu
+            'Dashboard',
+
+            //Acl: Access Control List
+            'Acl',
+            'Acl: User - List',
+            'Acl: Permission - List',
+            'Acl: Role - List',
+
+            //User/UserIndex.vue
+            'Acl: User - Manage Roles',
+            'Acl: User - Manage Permissions',
+            'Acl: User - Create',
+            'Acl: User - Edit',
+            'Acl: User - Delete',
+
+            //AclPermission/PermissionIndex.vue
+            'Acl: Permission - Create',
+            'Acl: Permission - Edit',
+            'Acl: Permission - Delete',
+
+            //AclRole/RoleIndex.vue
+            'Acl: Role - Create',
+            'Acl: Role - Edit',
+            'Acl: Role - Delete',
+
+            //AclRolePermission/RolePermissionForm.vue
+            'Acl: Role - Manage Permissions',
+        ];
+
+    }
+}

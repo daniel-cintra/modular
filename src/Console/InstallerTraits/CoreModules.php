@@ -84,7 +84,9 @@ trait CoreModules
 
     protected function seedDatabase(): void
     {
-        (new Process([$this->phpBinary(), 'artisan', 'db:seed', '--class=Modules\User\Database\Seeders\UserSeeder'], base_path()))
+        copy(__DIR__.'/../../../stubs/database/seeders/DatabaseSeeder.php', base_path('database/seeders/DatabaseSeeder.php'));
+
+        (new Process([$this->phpBinary(), 'artisan', 'db:seed'], base_path()))
             ->setTimeout(null)
             ->run(function ($type, $output) {
                 $this->output->write($output);
