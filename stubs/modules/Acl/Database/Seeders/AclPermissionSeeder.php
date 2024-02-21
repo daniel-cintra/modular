@@ -3,12 +3,15 @@
 namespace Modules\Acl\Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 use Spatie\Permission\Models\Permission;
 
 class AclPermissionSeeder extends Seeder
 {
     public function run(): void
     {
+        Schema::disableForeignKeyConstraints();
+
         Permission::truncate();
 
         $permissions = $this->getPermissions();
@@ -19,6 +22,8 @@ class AclPermissionSeeder extends Seeder
                 'guard_name' => 'user',
             ]);
         }
+
+        Schema::enableForeignKeyConstraints();
     }
 
     private function getPermissions(): array
