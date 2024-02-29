@@ -20,6 +20,7 @@ class SupportServiceProvider extends BaseServiceProvider
     {
         include __DIR__.'/helpers.php';
         include __DIR__.'/Validators/required_editor.php';
+        include __DIR__.'/Validators/recaptcha.php';
         parent::boot();
     }
 }

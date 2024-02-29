@@ -7,6 +7,8 @@
 
     <title>{{ config('app.name', 'Modular') }}</title>
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <link rel="icon" href="/favicon.svg" />
 
     @vite(['resources-site/css/site.css'])
