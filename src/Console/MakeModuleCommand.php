@@ -51,6 +51,7 @@ class MakeModuleCommand extends Command
         $stub = file_get_contents(__DIR__.'/../../stubs/module-stub/modules/ModuleServiceProvider.stub');
 
         $stub = str_replace('{{ moduleName }}', $this->moduleName, $stub);
+        $stub = str_replace('{{ resourceName }}', Str::camel($this->moduleName), $stub);
 
         $path = base_path("modules/{$this->moduleName}/{$this->moduleName}ServiceProvider.php");
 

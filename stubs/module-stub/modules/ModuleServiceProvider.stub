@@ -6,12 +6,11 @@ use Modules\Support\BaseServiceProvider;
 
 class {{ moduleName }}ServiceProvider extends BaseServiceProvider
 {
-    protected $namespace = 'Modules\{{ moduleName }}\Http\Controllers';
-
     public function boot()
     {
         parent::boot();
 
         $this->loadMigrationsFrom(__DIR__.'/Database/Migrations');
+        $this->loadViewsFrom(__DIR__.'/views', '{{ resourceName }}');
     }
 }
