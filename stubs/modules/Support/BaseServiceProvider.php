@@ -51,15 +51,14 @@ class BaseServiceProvider extends ServiceProvider
      */
     protected function mapSiteRoutes()
     {
-        Route::group([
-            'middleware' => 'web',
-        ], function ($router) {
-            $routesPath = $this->getCurrentDir().'/routes/site.php';
+        Route::middleware(['web'])
+            ->group(function ($router) {
+                $routesPath = $this->getCurrentDir().'/routes/site.php';
 
-            if (file_exists($routesPath)) {
-                require $routesPath;
-            }
-        });
+                if (file_exists($routesPath)) {
+                    require $routesPath;
+                }
+            });
     }
 
     /**
@@ -68,16 +67,15 @@ class BaseServiceProvider extends ServiceProvider
      */
     protected function mapApiRoutes()
     {
-        Route::group([
-            'middleware' => 'auth:sanctum',
-            'prefix' => 'api',
-        ], function ($router) {
-            $routesPath = $this->getCurrentDir().'/routes/api.php';
+        Route::prefix('api')
+            ->middleware(['auth:sanctum'])
+            ->group(function ($router) {
+                $routesPath = $this->getCurrentDir().'/routes/api.php';
 
-            if (file_exists($routesPath)) {
-                require $routesPath;
-            }
-        });
+                if (file_exists($routesPath)) {
+                    require $routesPath;
+                }
+            });
     }
 
     /**
