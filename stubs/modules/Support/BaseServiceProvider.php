@@ -9,15 +9,6 @@ use ReflectionClass;
 class BaseServiceProvider extends ServiceProvider
 {
     /**
-     * This namespace is applied to your controller routes.
-     *
-     * In addition, it is set as the URL generator's root namespace.
-     *
-     * @var string
-     */
-    protected $namespace;
-
-    /**
      * Bootstrap services.
      */
     public function boot()
@@ -43,16 +34,15 @@ class BaseServiceProvider extends ServiceProvider
      */
     protected function mapAppRoutes()
     {
-        Route::group([
-            'middleware' => ['web', 'auth.user'],
-            'namespace' => $this->namespace,
-        ], function ($router) {
-            $routesPath = $this->getCurrentDir().'/routes/app.php';
+        Route::prefix('admin')
+            ->middleware(['web', 'auth.user'])
+            ->group(function ($router) {
+                $routesPath = $this->getCurrentDir().'/routes/app.php';
 
-            if (file_exists($routesPath)) {
-                require $routesPath;
-            }
-        });
+                if (file_exists($routesPath)) {
+                    require $routesPath;
+                }
+            });
     }
 
     /**
@@ -63,7 +53,6 @@ class BaseServiceProvider extends ServiceProvider
     {
         Route::group([
             'middleware' => 'web',
-            'namespace' => $this->namespace,
         ], function ($router) {
             $routesPath = $this->getCurrentDir().'/routes/site.php';
 
@@ -81,7 +70,6 @@ class BaseServiceProvider extends ServiceProvider
     {
         Route::group([
             'middleware' => 'auth:sanctum',
-            'namespace' => $this->namespace,
             'prefix' => 'api',
         ], function ($router) {
             $routesPath = $this->getCurrentDir().'/routes/api.php';
