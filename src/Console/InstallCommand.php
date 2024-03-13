@@ -19,9 +19,6 @@ class InstallCommand extends Command
 
     public function handle(): ?int
     {
-        $this->comment('Migrating database...');
-        $this->call('migrate');
-
         $this->comment('Installing required stacks...');
 
         $this->setupBackendPackages();

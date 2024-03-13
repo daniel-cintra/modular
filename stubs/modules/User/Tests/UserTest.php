@@ -13,7 +13,7 @@ beforeEach(function () {
 });
 
 test('user list can be rendered', function () {
-    $response = $this->loggedRequest->get('/user');
+    $response = $this->loggedRequest->get('/admin/user');
 
     $response->assertStatus(200);
 
@@ -33,7 +33,7 @@ test('user list can be rendered', function () {
 });
 
 test('user can be created', function () {
-    $response = $this->loggedRequest->post('/user', [
+    $response = $this->loggedRequest->post('/admin/user', [
         'name' => 'New Name',
         'email' => 'new@email.com',
         'password' => 'password',
@@ -41,13 +41,13 @@ test('user can be created', function () {
 
     $users = User::all();
 
-    $response->assertRedirect('/user');
+    $response->assertRedirect('/admin/user');
     $this->assertCount(2, $users);
     $this->assertEquals('New Name', $users->last()->name);
 });
 
 test('user edit can be rendered', function () {
-    $response = $this->loggedRequest->get('/user/'.$this->user->id.'/edit');
+    $response = $this->loggedRequest->get('/admin/user/'.$this->user->id.'/edit');
 
     $response->assertStatus(200);
 
@@ -65,15 +65,15 @@ test('user edit can be rendered', function () {
 });
 
 test('user can be updated', function () {
-    $response = $this->loggedRequest->put('/user/'.$this->user->id, [
+    $response = $this->loggedRequest->put('/admin/user/'.$this->user->id, [
         'name' => 'New Name',
         'email' => 'new@email.com',
         'password' => 'password',
     ]);
 
-    $response->assertRedirect('/user');
+    $response->assertRedirect('/admin/user');
 
-    $redirectResponse = $this->loggedRequest->get('/user');
+    $redirectResponse = $this->loggedRequest->get('/admin/user');
     $redirectResponse->assertInertia(
         fn (Assert $page) => $page
             ->component('User/UserIndex')
@@ -90,9 +90,9 @@ test('user can be updated', function () {
 });
 
 test('user can be deleted', function () {
-    $response = $this->loggedRequest->delete('/user/'.$this->user->id);
+    $response = $this->loggedRequest->delete('/admin/user/'.$this->user->id);
 
-    $response->assertRedirect('/user');
+    $response->assertRedirect('/admin/user');
 
     $this->assertCount(0, User::all());
 });

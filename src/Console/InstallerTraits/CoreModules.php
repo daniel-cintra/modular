@@ -3,6 +3,7 @@
 namespace Modular\Modular\Console\InstallerTraits;
 
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Symfony\Component\Process\Process;
 
@@ -42,9 +43,16 @@ trait CoreModules
     private function configureMiddlewares(): void
     {
         $this->components->info('Configuring Middlewares...');
+        (new Filesystem)->ensureDirectoryExists(app_path('Http/Middleware'));
         copy(__DIR__.'/../../../stubs/app/Http/Middleware/HandleInertiaRequests.php', app_path('Http/Middleware/HandleInertiaRequests.php'));
-        $this->installMiddlewareAfter('SubstituteBindings::class', '\App\Http\Middleware\HandleInertiaRequests::class');
-        $this->installAliasMiddlewareAfter('EnsureEmailIsVerified::class', "'auth.user' => \Modules\AdminAuth\Http\Middleware\UserAuth::class");
+
+        $this->installMiddleware([
+            '\App\Http\Middleware\HandleInertiaRequests::class',
+        ]);
+
+        $this->installMiddlewareAliases([
+            'auth.user' => '\Modules\AdminAuth\Http\Middleware\UserAuth::class',
+        ]);
     }
 
     private function copyResources(): void
@@ -95,27 +103,27 @@ trait CoreModules
 
     protected function configureModulesProviders(): void
     {
-        $configAppFile = base_path('config/app.php');
+        $providersFile = base_path('bootstrap/providers.php');
 
         // Read the content of the file
-        $content = file_get_contents($configAppFile);
+        $content = file_get_contents($providersFile);
 
         // Define the string to be added
         $providersToAdd = PHP_EOL.PHP_EOL
-            ."        Modules\Support\SupportServiceProvider::class,".PHP_EOL
-            ."        Modules\AdminAuth\AdminAuthServiceProvider::class,".PHP_EOL
-            ."        Modules\User\UserServiceProvider::class,".PHP_EOL
-            ."        Modules\Dashboard\DashboardServiceProvider::class,".PHP_EOL
-            ."        Modules\Acl\AclServiceProvider::class,".PHP_EOL;
+            ."    Modules\Support\SupportServiceProvider::class,".PHP_EOL
+            ."    Modules\AdminAuth\AdminAuthServiceProvider::class,".PHP_EOL
+            ."    Modules\User\UserServiceProvider::class,".PHP_EOL
+            ."    Modules\Dashboard\DashboardServiceProvider::class,".PHP_EOL
+            ."    Modules\Acl\AclServiceProvider::class,";
 
         // Find the position after which you want to add the new service providers
-        $searchString = "App\Providers\RouteServiceProvider::class,";
+        $searchString = "App\Providers\AppServiceProvider::class,";
 
         // Use the Str helper to replace
         $modifiedContent = Str::replaceFirst($searchString, $searchString.$providersToAdd, $content);
 
         // Write the modified content back to the file
-        file_put_contents($configAppFile, $modifiedContent);
+        file_put_contents($providersFile, $modifiedContent);
     }
 
     protected function configureAutoload(string $after, string $path): void
@@ -156,46 +164,49 @@ trait CoreModules
             });
     }
 
-    protected function installMiddlewareAfter(string $after, string $name, string $group = 'web'): void
+    protected function installMiddleware($names, $group = 'web', $modifier = 'append')
     {
-        $httpKernel = file_get_contents(app_path('Http/Kernel.php'));
+        $bootstrapApp = file_get_contents(base_path('bootstrap/app.php'));
 
-        $middlewareGroups = Str::before(Str::after($httpKernel, '$middlewareGroups = ['), '];');
-        $middlewareGroup = Str::before(Str::after($middlewareGroups, "'$group' => ["), '],');
+        $names = collect(Arr::wrap($names))
+            ->filter(fn ($name) => ! Str::contains($bootstrapApp, $name))
+            ->whenNotEmpty(function ($names) use ($bootstrapApp, $group, $modifier) {
+                $names = $names->map(fn ($name) => "$name")->implode(','.PHP_EOL.'            ');
 
-        if (! Str::contains($middlewareGroup, $name)) {
-            $modifiedMiddlewareGroup = str_replace(
-                $after.',',
-                $after.','.PHP_EOL.'            '.$name.',',
-                $middlewareGroup,
-            );
+                $bootstrapApp = str_replace(
+                    '->withMiddleware(function (Middleware $middleware) {',
+                    '->withMiddleware(function (Middleware $middleware) {'
+                        .PHP_EOL."        \$middleware->$group($modifier: ["
+                        .PHP_EOL."            $names,"
+                        .PHP_EOL.'        ]);'
+                        .PHP_EOL,
+                    $bootstrapApp,
+                );
 
-            file_put_contents(app_path('Http/Kernel.php'), str_replace(
-                $middlewareGroups,
-                str_replace($middlewareGroup, $modifiedMiddlewareGroup, $middlewareGroups),
-                $httpKernel
-            ));
-        }
+                file_put_contents(base_path('bootstrap/app.php'), $bootstrapApp);
+            });
     }
 
-    protected function installAliasMiddlewareAfter(string $after, string $name): void
+    protected function installMiddlewareAliases($aliases)
     {
-        $httpKernel = file_get_contents(app_path('Http/Kernel.php'));
+        $bootstrapApp = file_get_contents(base_path('bootstrap/app.php'));
 
-        $middlewareAliases = Str::before(Str::after($httpKernel, '$middlewareAliases = ['), '];');
+        $aliases = collect($aliases)
+            ->filter(fn ($alias) => ! Str::contains($bootstrapApp, $alias))
+            ->whenNotEmpty(function ($aliases) use ($bootstrapApp) {
+                $aliases = $aliases->map(fn ($name, $alias) => "'$alias' => $name")->implode(','.PHP_EOL.'            ');
 
-        if (! Str::contains($middlewareAliases, $name)) {
-            $modifiedAliasedMiddlewares = str_replace(
-                $after.',',
-                $after.','.PHP_EOL.PHP_EOL.'        '.$name.',',
-                $middlewareAliases,
-            );
+                $bootstrapApp = str_replace(
+                    '->withMiddleware(function (Middleware $middleware) {',
+                    '->withMiddleware(function (Middleware $middleware) {'
+                        .PHP_EOL.'        $middleware->alias(['
+                        .PHP_EOL."            $aliases,"
+                        .PHP_EOL.'        ]);'
+                        .PHP_EOL,
+                    $bootstrapApp,
+                );
 
-            file_put_contents(app_path('Http/Kernel.php'), str_replace(
-                $middlewareAliases,
-                $modifiedAliasedMiddlewares,
-                $httpKernel
-            ));
-        }
+                file_put_contents(base_path('bootstrap/app.php'), $bootstrapApp);
+            });
     }
 }

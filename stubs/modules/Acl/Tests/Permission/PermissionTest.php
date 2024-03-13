@@ -16,7 +16,7 @@ beforeEach(function () {
 });
 
 test('permission list can be rendered', function () {
-    $response = $this->loggedRequest->get('/acl-permission');
+    $response = $this->loggedRequest->get('/admin/acl-permission');
 
     $response->assertStatus(200);
 
@@ -35,7 +35,7 @@ test('permission list can be rendered', function () {
 });
 
 test('permission can be created', function () {
-    $response = $this->loggedRequest->post('/acl-permission', [
+    $response = $this->loggedRequest->post('/admin/acl-permission', [
         'name' => 'Permission Name',
     ]);
 
@@ -43,11 +43,11 @@ test('permission can be created', function () {
 
     $this->assertCount(2, $permissions);
     $this->assertEquals('Permission Name', $permissions->last()->name);
-    $response->assertRedirect('/acl-permission');
+    $response->assertRedirect('/admin/acl-permission');
 });
 
 test('permission edit can be rendered', function () {
-    $response = $this->loggedRequest->get('/acl-permission/'.$this->permission->id.'/edit');
+    $response = $this->loggedRequest->get('/admin/acl-permission/'.$this->permission->id.'/edit');
 
     $response->assertStatus(200);
 
@@ -67,13 +67,13 @@ test('permission edit can be rendered', function () {
 });
 
 test('permission can be updated', function () {
-    $response = $this->loggedRequest->put('/acl-permission/'.$this->permission->id, [
+    $response = $this->loggedRequest->put('/admin/acl-permission/'.$this->permission->id, [
         'name' => 'z Permission Name',
     ]);
 
-    $response->assertRedirect('/acl-permission');
+    $response->assertRedirect('/admin/acl-permission');
 
-    $redirectResponse = $this->loggedRequest->get('/acl-permission');
+    $redirectResponse = $this->loggedRequest->get('/admin/acl-permission');
     $redirectResponse->assertInertia(
         fn (Assert $page) => $page
             ->component('AclPermission/PermissionIndex')
@@ -89,9 +89,9 @@ test('permission can be updated', function () {
 });
 
 test('permission can be deleted', function () {
-    $response = $this->loggedRequest->delete('/acl-permission/'.$this->permission->id);
+    $response = $this->loggedRequest->delete('/admin/acl-permission/'.$this->permission->id);
 
-    $response->assertRedirect('/acl-permission');
+    $response->assertRedirect('/admin/acl-permission');
 
     $this->assertCount(0, Permission::all());
 });

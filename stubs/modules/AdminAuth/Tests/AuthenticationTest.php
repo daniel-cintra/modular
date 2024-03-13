@@ -23,7 +23,7 @@ test('users can authenticate using the login screen', function () {
     ]);
 
     $this->assertAuthenticated();
-    $response->assertRedirect('/dashboard');
+    $response->assertRedirect('/admin/dashboard');
 });
 
 test('users can not authenticate with invalid password', function () {

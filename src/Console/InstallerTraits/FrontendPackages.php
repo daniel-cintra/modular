@@ -17,38 +17,36 @@ trait FrontendPackages
 
         static::updateNodePackages(fn ($packages) => [
 
-            '@inertiajs/vue3' => '^1.0.13',
+            '@inertiajs/vue3' => '^1.0.15',
 
             '@tailwindcss/forms' => '^0.5.6',
-            '@vitejs/plugin-vue' => '^4.5.2',
+            '@vitejs/plugin-vue' => '^5.0.4',
 
-            'autoprefixer' => '^10.4.16',
-            'eslint' => '^v8.56.0',
+            'autoprefixer' => '^10.4.18',
+            'eslint' => '^v8.57.0',
             'eslint-config-prettier' => '^9.1.0',
-            'eslint-plugin-vue' => '^v9.19.2',
-            'laravel-vite-plugin' => '^v1.0.0',
+            'eslint-plugin-vue' => '^v9.23.0',
 
-            'postcss' => '^8.4.32',
-            'postcss-import' => '^15.1.0',
-            'prettier' => '^3.1.1',
-            'prettier-plugin-tailwindcss' => '^v0.5.9',
+            'postcss' => '^8.4.35',
+            'postcss-import' => '^16.0.1',
+            'prettier' => '^3.2.5',
+            'prettier-plugin-tailwindcss' => '^v0.5.12',
 
-            '@tiptap/vue-3' => '^2.1.13',
-            '@tiptap/starter-kit' => '^2.1.13',
-            '@tiptap/extension-link' => '^2.1.13',
-            '@tiptap/extension-underline' => '^2.1.13',
-            '@tiptap/extension-image' => '^2.1.13',
-            '@tiptap/extension-youtube' => '^2.1.13',
-            '@tiptap/extension-table' => '^2.1.13',
-            '@tiptap/extension-table-header' => '^2.1.13',
-            '@tiptap/extension-table-row' => '^2.1.13',
-            '@tiptap/extension-table-cell' => '^2.1.13',
+            '@tiptap/vue-3' => '^2.2.4',
+            '@tiptap/starter-kit' => '^2.2.4',
+            '@tiptap/extension-link' => '^2.2.4',
+            '@tiptap/extension-underline' => '^2.2.4',
+            '@tiptap/extension-image' => '^2.2.4',
+            '@tiptap/extension-youtube' => '^2.2.4',
+            '@tiptap/extension-table' => '^2.2.4',
+            '@tiptap/extension-table-header' => '^2.2.4',
+            '@tiptap/extension-table-row' => '^2.2.4',
+            '@tiptap/extension-table-cell' => '^2.2.4',
 
-            'remixicon' => '^4.0.1',
+            'remixicon' => '^4.2.0',
             'tailwindcss' => '^3.3.7',
             'unplugin-vue-components' => '^0.26.0',
-            'vite' => '^5.0.10',
-            'vue' => '^3.3.13',
+            'vue' => '^3.4.21',
 
         ] + $packages);
 

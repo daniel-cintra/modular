@@ -17,22 +17,19 @@
     ],
     "require": {
         "php": "^8.2",
-        "illuminate/contracts": "^10.0",
-        "inertiajs/inertia-laravel": "^0.6.9",
-        "laravel/sanctum": "^3.2",
-        "spatie/laravel-activitylog": "^4.7.3",
-        "spatie/laravel-package-tools": "^1.14.0",
-        "spatie/laravel-permission": "^5.9.1",
-        "tightenco/ziggy": "^1.5"
+        "illuminate/contracts": "^11.0",
+        "inertiajs/inertia-laravel": "^1.0",
+        "spatie/laravel-activitylog": "^4.8",
+        "spatie/laravel-package-tools": "^1.16.3",
+        "spatie/laravel-permission": "^6.4",
+        "tightenco/ziggy": "^2.0"
     },
     "require-dev": {
-        "laravel/pint": "^1.5",
-        "nunomaduro/collision": "^6.0",
-        "orchestra/testbench": "^8.0",
-        "pestphp/pest": "^1.21",
-        "pestphp/pest-plugin-laravel": "^1.1",
-        "phpunit/phpunit": "^9.5",
-        "rector/rector": "^0.15.16"
+        "laravel/pint": "^1.13",
+        "nunomaduro/collision": "^8.0",
+        "orchestra/testbench": "9.x-dev",
+        "pestphp/pest": "^2.34",
+        "pestphp/pest-plugin-laravel": "^2.3"
     },
     "autoload": {
         "psr-4": {

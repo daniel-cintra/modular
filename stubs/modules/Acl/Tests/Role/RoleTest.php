@@ -16,7 +16,7 @@ beforeEach(function () {
 });
 
 test('role list can be rendered', function () {
-    $response = $this->loggedRequest->get('/acl-role');
+    $response = $this->loggedRequest->get('/admin/acl-role');
 
     $response->assertStatus(200);
 
@@ -35,7 +35,7 @@ test('role list can be rendered', function () {
 });
 
 test('role can be created', function () {
-    $response = $this->loggedRequest->post('/acl-role', [
+    $response = $this->loggedRequest->post('/admin/acl-role', [
         'name' => 'Role Name',
     ]);
 
@@ -44,11 +44,11 @@ test('role can be created', function () {
     $this->assertCount(2, $roles);
     $this->assertEquals('Role Name', $roles->last()->name);
 
-    $response->assertRedirect('/acl-role');
+    $response->assertRedirect('/admin/acl-role');
 });
 
 test('role edit can be rendered', function () {
-    $response = $this->loggedRequest->get('/acl-role/'.$this->role->id.'/edit');
+    $response = $this->loggedRequest->get('/admin/acl-role/'.$this->role->id.'/edit');
 
     $response->assertStatus(200);
 
@@ -67,13 +67,13 @@ test('role edit can be rendered', function () {
 });
 
 test('role can be updated', function () {
-    $response = $this->loggedRequest->put('/acl-role/'.$this->role->id, [
+    $response = $this->loggedRequest->put('/admin/acl-role/'.$this->role->id, [
         'name' => 'z Role Name',
     ]);
 
-    $response->assertRedirect('/acl-role');
+    $response->assertRedirect('/admin/acl-role');
 
-    $redirectResponse = $this->loggedRequest->get('/acl-role');
+    $redirectResponse = $this->loggedRequest->get('/admin/acl-role');
     $redirectResponse->assertInertia(
         fn (Assert $page) => $page
             ->component('AclRole/RoleIndex')
@@ -89,9 +89,9 @@ test('role can be updated', function () {
 });
 
 test('role can be deleted', function () {
-    $response = $this->loggedRequest->delete('/acl-role/'.$this->role->id);
+    $response = $this->loggedRequest->delete('/admin/acl-role/'.$this->role->id);
 
-    $response->assertRedirect('/acl-role');
+    $response->assertRedirect('/admin/acl-role');
 
     $this->assertCount(0, Role::all());
 });

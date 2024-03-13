@@ -22,7 +22,7 @@ beforeEach(function () {
 });
 
 test('role permissions can be rendered', function () {
-    $response = $this->loggedRequest->get('/acl-role-permission/'.$this->role->id.'/edit');
+    $response = $this->loggedRequest->get('/admin/acl-role-permission/'.$this->role->id.'/edit');
 
     $response->assertStatus(200);
 
@@ -50,11 +50,11 @@ test('role permissions can be rendered', function () {
 });
 
 test('role permissions can be updated', function () {
-    $response = $this->loggedRequest->put('/acl-role-permission/'.$this->role->id, [
+    $response = $this->loggedRequest->put('/admin/acl-role-permission/'.$this->role->id, [
         'rolePermissions' => [$this->permission2->id],
     ]);
 
-    $response->assertRedirect('/acl-role');
+    $response->assertRedirect('/admin/acl-role');
 
     $role = Role::with(['permissions' => function ($q) {
         $q->get(['id', 'name']);
