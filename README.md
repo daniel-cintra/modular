@@ -7,7 +7,7 @@
 
 [![Vue v3.x](https://img.shields.io/badge/Vue.js-v3.x-2f4053?style=for-the-badge&logo=vue.js&logoColor=39af78)](https://vuejs.org/)
 [![Inertia.js v1.x](https://img.shields.io/badge/Inertia.js-v1.x-6765ea?style=for-the-badge&logo=inertia&logoColor=ffffff)](https://inertiajs.com/)
-[![Laravel v10.x](https://img.shields.io/badge/Laravel-v10.x-FF2D20?style=for-the-badge&logo=laravel)](https://laravel.com)
+[![Laravel v11.x](https://img.shields.io/badge/Laravel-v10.x-FF2D20?style=for-the-badge&logo=laravel)](https://laravel.com)
 [![Tailwind CSS v3.x](https://img.shields.io/badge/Tailwind%20CSS-v3.x-31b5f7?style=for-the-badge&logo=tailwind-css&logoColor=ffffff)](https://tailwindcss.com/)
 [![Tests passing](https://img.shields.io/badge/Tests-passing-green?style=for-the-badge&logo=github)](https://github.com/daniel-cintra/modular/actions)
 
@@ -45,7 +45,7 @@ Modular stands on the shoulders of giants, integrating powerful frameworks and t
 
 -   [Vue 3](https://vuejs.org/) (Drives custom frontend components)
 -   [Inertia.js](https://inertiajs.com/) (Bridges the gap between frontend and backend)
--   [Laravel 10](https://laravel.com/) (Empowers the backend)
+-   [Laravel 11](https://laravel.com/) (Empowers the backend)
 -   [Tailwind CSS 3](https://tailwindcss.com/) (Styles with ease)
 -   [Vite](https://vitejs.dev/) (Accelerates frontend tooling)
 
