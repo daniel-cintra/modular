@@ -73,7 +73,7 @@ import useClickOutside from '@resources/js/Composables/useClickOutside'
 
 const props = defineProps({
     modelValue: {
-        type: [Object, Number, null],
+        type: [Object, Number, String, null],
         required: true
     },
     comboLabel: {
