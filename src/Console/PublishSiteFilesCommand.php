@@ -17,12 +17,12 @@ class PublishSiteFilesCommand extends Command
 
     public function handle(): ?int
     {
-        // $this->publishModularConfigFile();
+        $this->publishModularConfigFile();
 
-        // $this->copySupportModuleFiles();
-        // $this->copyIndexModuleDir();
+        $this->copySupportModuleFiles();
+        $this->copyIndexModuleDir();
 
-        // $this->copyResourcesSiteDir();
+        $this->copyResourcesSiteDir();
 
         $this->configureViews();
 
