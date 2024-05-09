@@ -30,6 +30,7 @@
         />
         <div class="mx-8 2xl:mx-16">
             <transition name="fade" mode="out-in">
+                <!-- eslint-disable-next-line vue/require-toggle-inside-transition -->
                 <div :key="page.props.ziggy.location">
                     <slot></slot>
                 </div>

@@ -1,6 +1,10 @@
 {
     "private": true,
     "type": "module",
+    "scripts": {
+        "lint": "eslint . --ext .js,.vue",
+        "format": "prettier --write ."
+    },
     "devDependencies": {
         "eslint": "^v8.52.0",
         "eslint-config-prettier": "^9.0.0",
