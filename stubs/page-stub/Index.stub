@@ -33,7 +33,7 @@
 
                     <AppDataTableData>
                         <!-- edit {{ resourceName }} -->
-                        <AppTooltip text="Edit {{ ResourceName }}" class="mr-3">
+                        <AppTooltip text="Edit {{ ResourceName }}" class="mr-2">
                             <AppButton
                                 class="btn btn-icon btn-primary"
                                 @click="

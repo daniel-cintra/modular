@@ -28,7 +28,7 @@
                                 name="permission"
                                 :value="permission"
                             />
-                            <AppLabel :for="permission.name" class="ml-3">
+                            <AppLabel :for="permission.name" class="ml-2">
                                 {{ permission.name }}
                             </AppLabel>
                         </div>
