@@ -1,5 +1,5 @@
 <template>
-    <div class="rounded-tl rounded-tr bg-skin-neutral-3 pb-3 pl-5 pt-5">
+    <div class="rounded-tl rounded-tr bg-skin-neutral-3 pb-4 pl-3 pt-3">
         <label for="search" class="sr-only">Search</label>
         <div class="flex items-center align-middle">
             <div class="pointer-events-none absolute flex items-center pl-3">
