@@ -1,5 +1,5 @@
 import { createApp } from 'vue/dist/vue.esm-bundler.js'
-//import commonComponent from './Components/common-component.js'
+//import commonComponent from './Components/common-component.vue'
 
 export const createVueApp = (additionalComponents = {}) => {
     const app = createApp({

@@ -94,9 +94,3 @@ const submitForm = () => {
 
 const { errorsFields } = useFormErrors()
 </script>
-
-<!-- <style scoped>
-.p-card::v-deep(.p-card-footer) {
-  padding-top: 0;
-}
-</style> -->
