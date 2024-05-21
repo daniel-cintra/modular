@@ -2,11 +2,10 @@
 
 namespace Modular\Modular\Console;
 
-use Illuminate\Support\Str;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class MakeModuleCommand extends Command
 {
@@ -20,7 +19,7 @@ class MakeModuleCommand extends Command
     {
         $this->setModuleName();
 
-        $this->comment('Creating Module ' . $this->moduleName);
+        $this->comment('Creating Module '.$this->moduleName);
 
         if ($this->createModuleDirectoryStructure()) {
             $this->createServiceProvider();
@@ -53,7 +52,7 @@ class MakeModuleCommand extends Command
 
     private function createServiceProvider(): void
     {
-        $stub = file_get_contents(__DIR__ . '/../../stubs/module-stub/modules/ModuleServiceProvider.stub');
+        $stub = file_get_contents(__DIR__.'/../../stubs/module-stub/modules/ModuleServiceProvider.stub');
 
         $stub = str_replace('{{ moduleName }}', $this->moduleName, $stub);
         $stub = str_replace('{{ resourceName }}', Str::camel($this->moduleName), $stub);
@@ -71,6 +70,7 @@ class MakeModuleCommand extends Command
         if (File::exists($modulePath)) {
             // Output an error message to the console
             $this->info("Module {$this->moduleName} already exists. SKIPPING");
+
             return false;
         }
 
