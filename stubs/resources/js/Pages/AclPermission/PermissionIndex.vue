@@ -33,7 +33,7 @@
 
                     <AppDataTableData>
                         <!-- edit permission -->
-                        <AppTooltip :text="__('Edit Permission')" class="mr-3">
+                        <AppTooltip :text="__('Edit Permission')" class="mr-2">
                             <AppButton
                                 class="btn btn-icon btn-primary"
                                 @click="
