@@ -34,7 +34,7 @@
 
                     <AppDataTableData>
                         <!-- edit user roles -->
-                        <AppTooltip :text="__('User Roles')" class="mr-3">
+                        <AppTooltip :text="__('User Roles')" class="mr-2">
                             <AppButton
                                 class="btn btn-icon btn-primary"
                                 @click="
@@ -48,7 +48,7 @@
                         </AppTooltip>
 
                         <!-- edit user permissions -->
-                        <AppTooltip :text="__('User Permissions')" class="mr-3">
+                        <AppTooltip :text="__('User Permissions')" class="mr-2">
                             <AppButton
                                 class="btn btn-icon btn-primary"
                                 @click="
@@ -62,7 +62,7 @@
                         </AppTooltip>
 
                         <!-- edit user -->
-                        <AppTooltip :text="__('Edit User')" class="mr-3">
+                        <AppTooltip :text="__('Edit User')" class="mr-2">
                             <AppButton
                                 class="btn btn-icon btn-primary"
                                 @click="

@@ -1,5 +1,5 @@
 <template>
-    <td class="whitespace-nowrap px-6 py-4 font-medium">
+    <td class="whitespace-nowrap px-4 py-2 font-medium">
         <slot></slot>
     </td>
 </template>

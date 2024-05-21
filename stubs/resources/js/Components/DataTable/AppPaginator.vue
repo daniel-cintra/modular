@@ -6,12 +6,12 @@
             <template v-for="(link, index) in links" :key="index">
                 <div
                     v-if="link.url === null"
-                    class="mb-1 mr-1 rounded border px-4 py-3 text-sm leading-4 opacity-30"
+                    class="mb-1 mr-1 rounded border px-3 py-2 text-sm leading-4 opacity-30"
                     v-html="link.label"
                 />
                 <Link
                     v-else
-                    class="mb-1 mr-1 rounded border px-4 py-3 text-sm leading-4 hover:bg-skin-primary-10 hover:text-skin-primary-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                    class="mb-1 mr-1 rounded border px-3 py-2 text-sm leading-4 hover:bg-skin-primary-10 hover:text-skin-primary-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                     :class="{
                         'bg-skin-primary-9 text-skin-primary-2': link.active
                     }"
