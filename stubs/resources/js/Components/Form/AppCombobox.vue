@@ -19,7 +19,7 @@
 
         <transition name="slide-fade">
             <div v-show="isOpen" class="absolute z-50 mt-1 w-full">
-                <div v-show="useSearch" class="bg-white p-1 shadow">
+                <div v-show="useSearch" class="bg-skin-neutral-1 p-1 shadow">
                     <!-- search input -->
                     <label :for="getElementId()" class="sr-only">Search</label>
                     <div class="relative">
@@ -45,7 +45,7 @@
                 </div>
 
                 <!-- combo options -->
-                <ul class="bg-white p-1 shadow" role="listbox">
+                <ul class="bg-skin-neutral-1 p-1 shadow" role="listbox">
                     <li
                         v-for="(option, index) in filteredOptions"
                         :key="option.value"
