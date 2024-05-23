@@ -6,10 +6,21 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Support\Models\BaseModel;
 use Modules\Support\Traits\Searchable;
 use Modules\Support\Traits\ActivityLog;
+use Carbon\Carbon;
 
 class {{ ResourceName }} extends BaseModel
 {
     use ActivityLog, Searchable, SoftDeletes;
-    
+
     protected $table = '{{ resourceName }}s';
+
+    public function getCreatedAtAttribute()
+    {
+        return Carbon::parse($this->attributes['created_at'])->isoFormat('D MMMM Y HH:mm');
+    }
+
+    public function getUpdatedAtAttribute()
+    {
+        return Carbon::parse($this->attributes['updated_at'])->isoFormat('D MMMM Y HH:mm');
+    }
 }

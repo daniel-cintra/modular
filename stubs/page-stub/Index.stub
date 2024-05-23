@@ -27,9 +27,13 @@
                         {{ item.id }}
                     </AppDataTableData>
 
-                    <!-- <AppDataTableData>
+                    <AppDataTableData>
                         {{ item.name }}
-                    </AppDataTableData> -->
+                    </AppDataTableData>
+
+                    <AppDataTableData>
+                        {{ item.created_at }}
+                    </AppDataTableData>
 
                     <AppDataTableData>
                         <!-- edit {{ resourceName }} -->
@@ -98,7 +102,7 @@ const breadCrumb = [
   { label: '{{ ResourceName }}s', last: true }
 ]
 
-const headers = ['ID', 'Actions']
+const headers = ['ID', 'Name', 'Created at', 'Actions']
 
 const confirmDialogRef = ref(null)
 const confirmDelete = (deleteRoute) => {
