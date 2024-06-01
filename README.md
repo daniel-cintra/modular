@@ -142,7 +142,7 @@ And the repository for the demo app at [https://github.com/daniel-cintra/modular
 
 ## Roadmap
 
-You can find the Modular Roadmap at [https://docs.ismodular.com/roadmap](https://docs.ismodular.com/roadmap).
+You can find the Modular Roadmap at [https://docs.ismodular.com/roadmap.html](https://docs.ismodular.com/roadmap.html).
 
 ## Contributing
 
