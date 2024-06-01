@@ -140,6 +140,10 @@ You can find the Modular Demo App at [https://demo.ismodular.com](https://demo.i
 
 And the repository for the demo app at [https://github.com/daniel-cintra/modular-demo](https://github.com/daniel-cintra/modular-demo).
 
+## Roadmap
+
+You can find the Modular Roadmap at [https://docs.ismodular.com/roadmap](https://docs.ismodular.com/roadmap).
+
 ## Contributing
 
 Please read and understand the [Contribution Guide](/CONTRIBUTING.md) before creating an issue or pull request.
