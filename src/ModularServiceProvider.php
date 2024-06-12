@@ -2,24 +2,24 @@
 
 namespace Modular\Modular;
 
-use Spatie\LaravelPackageTools\Package;
-use Modular\Modular\Console\InstallCommand;
 use Modular\Modular\Components\Translations;
-use Modular\Modular\Console\MakePageCommand;
-use Modular\Modular\Console\MakeTestCommand;
-use Modular\Modular\Console\MakeModelCommand;
-use Modular\Modular\Console\MakeRouteCommand;
-use Modular\Modular\Console\MakeModuleCommand;
-use Modular\Modular\Console\MakeFactoryCommand;
-use Modular\Modular\Console\MakeServiceCommand;
-use Modular\Modular\Console\MakeValidateCommand;
+use Modular\Modular\Console\InstallCommand;
 use Modular\Modular\Console\MakeComponentCommand;
-use Modular\Modular\Console\MakeMigrationCommand;
 use Modular\Modular\Console\MakeComposableCommand;
 use Modular\Modular\Console\MakeControllerCommand;
-use Modular\Modular\Console\PublishSiteFilesCommand;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Modular\Modular\Console\MakeFactoryCommand;
+use Modular\Modular\Console\MakeMigrationCommand;
+use Modular\Modular\Console\MakeModelCommand;
+use Modular\Modular\Console\MakeModuleCommand;
+use Modular\Modular\Console\MakePageCommand;
+use Modular\Modular\Console\MakeRouteCommand;
+use Modular\Modular\Console\MakeServiceCommand;
+use Modular\Modular\Console\MakeTestCommand;
+use Modular\Modular\Console\MakeValidateCommand;
 use Modular\Modular\Console\PublishLaravelTranslationsCommand;
+use Modular\Modular\Console\PublishSiteFilesCommand;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class ModularServiceProvider extends PackageServiceProvider
 {

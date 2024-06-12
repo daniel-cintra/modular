@@ -2,9 +2,9 @@
 
 namespace Modular\Modular\Console;
 
-use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Str;
 use Modular\Modular\Console\InstallerTraits\ModuleExists;
 
 class MakeFactoryCommand extends Command
@@ -24,11 +24,11 @@ class MakeFactoryCommand extends Command
         $this->moduleName = Str::studly($this->argument('moduleName'));
         $this->resourceName = Str::studly($this->argument('resourceName'));
 
-        if (!$this->moduleExists()) {
+        if (! $this->moduleExists()) {
             return self::FAILURE;
         }
 
-        $this->comment('Module ' . $this->moduleName . ' found, creating Factory...');
+        $this->comment('Module '.$this->moduleName.' found, creating Factory...');
         $this->createModuleFactory();
 
         return self::SUCCESS;
@@ -38,7 +38,7 @@ class MakeFactoryCommand extends Command
     {
         (new Filesystem)->ensureDirectoryExists(base_path("modules/{$this->moduleName}/Database/Factories"));
 
-        $stub = file_get_contents(__DIR__ . '/../../stubs/module-stub/modules/Database/Factories/ModelFactory.stub');
+        $stub = file_get_contents(__DIR__.'/../../stubs/module-stub/modules/Database/Factories/ModelFactory.stub');
 
         $stub = str_replace('{{ ModuleName }}', $this->moduleName, $stub);
         $stub = str_replace('{{ ResourceName }}', $this->resourceName, $stub);
