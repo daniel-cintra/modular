@@ -11,11 +11,11 @@ afterEach(function () {
 });
 
 it('can run modular:make-factory command', function () {
-    $this->artisan('modular:make-factory moduleName factoryName')->assertSuccessful();
+    $this->artisan('modular:make-factory ModuleName FactoryName')->assertSuccessful();
 });
 
 it('can generate a factory', function () {
-    $this->artisan('modular:make-factory moduleName factoryName');
+    $this->artisan('modular:make-factory ModuleName FactoryName');
 
     $factory = base_path('modules/ModuleName/Database/factories/FactoryName.php');
     $this->assertTrue(file_exists($factory));
