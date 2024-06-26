@@ -23,14 +23,14 @@ trait FrontendPackages
             '@vitejs/plugin-vue' => '^5.0.4',
 
             'autoprefixer' => '^10.4.18',
-            'eslint' => '^v8.57.0',
+            'eslint' => '^v9.5.0',
             'eslint-config-prettier' => '^9.1.0',
             'eslint-plugin-vue' => '^v9.23.0',
 
             'postcss' => '^8.4.35',
             'postcss-import' => '^16.0.1',
             'prettier' => '^3.2.5',
-            'prettier-plugin-tailwindcss' => '^v0.5.12',
+            'prettier-plugin-tailwindcss' => '^v0.6.5',
 
             '@tiptap/vue-3' => '^2.2.4',
             '@tiptap/starter-kit' => '^2.2.4',
@@ -45,7 +45,7 @@ trait FrontendPackages
 
             'remixicon' => '^4.2.0',
             'tailwindcss' => '^3.3.7',
-            'unplugin-vue-components' => '^0.26.0',
+            'unplugin-vue-components' => '^0.27.1',
             'vue' => '^3.4.21',
 
         ] + $packages);

@@ -6,9 +6,9 @@
         "format": "prettier --write ."
     },
     "devDependencies": {
-        "eslint": "^v8.52.0",
-        "eslint-config-prettier": "^9.0.0",
-        "eslint-plugin-vue": "^v9.18.0",
-        "prettier": "^3.0.3"
+        "eslint": "^9.5.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-vue": "^9.26.0",
+        "prettier": "^3.3.2"
     }
 }
