@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use Modules\Acl\Database\Seeders\AclModelHasRolesSeeder;
 use Modules\Acl\Database\Seeders\AclPermissionSeeder;
