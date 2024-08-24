@@ -7,6 +7,7 @@ use Modular\Modular\Console\InstallCommand;
 use Modular\Modular\Console\MakeComponentCommand;
 use Modular\Modular\Console\MakeComposableCommand;
 use Modular\Modular\Console\MakeControllerCommand;
+use Modular\Modular\Console\MakeFactoryCommand;
 use Modular\Modular\Console\MakeMigrationCommand;
 use Modular\Modular\Console\MakeModelCommand;
 use Modular\Modular\Console\MakeModuleCommand;
@@ -47,6 +48,7 @@ class ModularServiceProvider extends PackageServiceProvider
             ->hasCommand(MakeTestCommand::class)
             ->hasCommand(MakeMigrationCommand::class)
             ->hasCommand(PublishLaravelTranslationsCommand::class)
-            ->hasCommand(PublishSiteFilesCommand::class);
+            ->hasCommand(PublishSiteFilesCommand::class)
+            ->hasCommand(MakeFactoryCommand::class);
     }
 }

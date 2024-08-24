@@ -35,6 +35,7 @@ class MakeModuleCommand extends Command
             $this->call('modular:make-route', $params);
 
             $this->call('modular:make-migration', ['moduleName' => $this->moduleName, 'migrationName' => "create{$this->moduleName}s_table"]);
+            $this->call('modular:make-factory', $params);
 
             $this->call('modular:make-page', $params);
             $this->call('modular:make-test', $params);
@@ -82,6 +83,8 @@ class MakeModuleCommand extends Command
         (new Filesystem)->makeDirectory("{$modulePath}/routes");
         (new Filesystem)->makeDirectory("{$modulePath}/Tests");
         (new Filesystem)->makeDirectory("{$modulePath}/Database/Migrations", 0755, true);
+        (new Filesystem)->makeDirectory("{$modulePath}/Database/Factories", 0755, true);
+        (new Filesystem)->makeDirectory("{$modulePath}/Database/Seeders", 0755, true);
 
         return true;
     }
