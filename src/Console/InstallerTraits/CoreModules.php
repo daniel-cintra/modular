@@ -164,7 +164,7 @@ trait CoreModules
             });
     }
 
-    protected function installMiddleware($names, $group = 'web', $modifier = 'append')
+    protected function installMiddleware($names, $group = 'web', $modifier = 'append'): void
     {
         $bootstrapApp = file_get_contents(base_path('bootstrap/app.php'));
 
@@ -187,7 +187,7 @@ trait CoreModules
             });
     }
 
-    protected function installMiddlewareAliases($aliases)
+    protected function installMiddlewareAliases($aliases): void
     {
         $bootstrapApp = file_get_contents(base_path('bootstrap/app.php'));
 
