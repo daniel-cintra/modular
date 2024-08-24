@@ -4,5 +4,15 @@
     "trailingComma": "none",
     "arrowParens": "always",
 
-    "plugins": ["prettier-plugin-tailwindcss"]
+    "tailwindConfig": "tailwind.config.cjs",
+    "plugins": ["prettier-plugin-blade", "prettier-plugin-tailwindcss"],
+
+    "overrides": [
+        {
+            "files": ["*.blade.php"],
+            "options": {
+                "parser": "blade"
+            }
+        }
+    ]
 }

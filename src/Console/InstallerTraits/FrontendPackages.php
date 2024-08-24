@@ -30,6 +30,7 @@ trait FrontendPackages
             'postcss' => '^8.4.35',
             'postcss-import' => '^16.0.1',
             'prettier' => '^3.2.5',
+            'prettier-plugin-blade' => '^2.1.18',
             'prettier-plugin-tailwindcss' => '^v0.6.5',
 
             '@tiptap/vue-3' => '^2.2.4',

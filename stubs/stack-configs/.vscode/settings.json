@@ -5,5 +5,10 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "[vue]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    },
+
+    "[blade]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "prettier.documentSelectors": ["**/*.blade.php"]
 }
