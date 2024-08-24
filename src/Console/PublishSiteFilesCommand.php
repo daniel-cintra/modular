@@ -15,7 +15,7 @@ class PublishSiteFilesCommand extends Command
 
     protected $description = 'Publishes the site files to use Modular as a base for a public site';
 
-    public function handle(): ?int
+    public function handle(): int
     {
         $this->publishModularConfigFile();
 

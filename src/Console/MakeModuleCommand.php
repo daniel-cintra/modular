@@ -15,7 +15,7 @@ class MakeModuleCommand extends Command
 
     protected string $moduleName;
 
-    public function handle(): ?int
+    public function handle(): int
     {
         $this->setModuleName();
 
@@ -42,7 +42,7 @@ class MakeModuleCommand extends Command
             return self::SUCCESS;
         }
 
-        return false;
+        return self::FAILURE;
     }
 
     private function setModulename(): void

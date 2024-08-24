@@ -19,7 +19,7 @@ class MakeComposableCommand extends Command
 
     protected string $composableName;
 
-    public function handle(): ?int
+    public function handle(): int
     {
         $this->moduleName = Str::studly($this->argument('moduleName'));
         $this->composableName = Str::studly($this->argument('composableName'));

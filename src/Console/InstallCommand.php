@@ -17,7 +17,7 @@ class InstallCommand extends Command
 
     protected $description = 'Install the Modular required resources';
 
-    public function handle(): ?int
+    public function handle(): int
     {
         $this->comment('Installing required stacks...');
 

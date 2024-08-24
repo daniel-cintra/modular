@@ -19,7 +19,7 @@ class MakeServiceCommand extends Command
 
     protected string $serviceName;
 
-    public function handle(): ?int
+    public function handle(): int
     {
         $this->moduleName = Str::studly($this->argument('moduleName'));
         $this->serviceName = Str::studly($this->argument('serviceName'));

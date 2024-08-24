@@ -19,7 +19,7 @@ class MakeMigrationCommand extends Command
 
     protected string $migrationName;
 
-    public function handle(): ?int
+    public function handle(): int
     {
         $this->moduleName = Str::studly($this->argument('moduleName'));
         $this->migrationName = $this->argument('migrationName');

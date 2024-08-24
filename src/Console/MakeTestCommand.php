@@ -19,7 +19,7 @@ class MakeTestCommand extends Command
 
     protected string $testFileName;
 
-    public function handle(): ?int
+    public function handle(): int
     {
         $this->moduleName = Str::studly($this->argument('moduleName'));
         $this->testFileName = $this->argument('resourceName');
