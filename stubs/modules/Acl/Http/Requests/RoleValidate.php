@@ -2,7 +2,9 @@
 
 namespace Modules\Acl\Http\Requests;
 
+use Illuminate\Validation\Rule;
 use Modules\Support\Http\Requests\Request;
+use Spatie\Permission\Models\Role;
 
 class RoleValidate extends Request
 {
@@ -15,7 +17,13 @@ class RoleValidate extends Request
     {
         return [
 
-            'name' => 'required',
+            'name' => [
+                'required',
+                'string',
+                'min:2',
+                'max:255',
+                Rule::unique(Role::class)->ignore($this->id),
+            ],
 
         ];
     }
