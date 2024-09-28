@@ -1,19 +1,20 @@
 <template>
+    <Head title="Forgot Password"></Head>
     <AppAuthShell>
         <AppAuthLogo />
 
-        <AppCard class="space-y-6 px-16">
+        <AppCard class="w-80 space-y-6 bg-gray-200">
             <template #title>
-                <h3 class="text-2xl font-semibold tracking-tight">
+                <h3 class="text-lg font-semibold tracking-tight">
                     {{ __('Forgot your password?') }}
                 </h3>
             </template>
 
-            <template #description>
+            <!-- <template #description>
                 <h2 class="mt-2">
                     {{ __('Enter your email to reset your password.') }}
                 </h2>
-            </template>
+            </template> -->
 
             <template #content>
                 <AppFormErrors class="mb-4" />
@@ -35,9 +36,18 @@
             </template>
 
             <template #footer>
-                <AppButton class="btn btn-primary" @click="submitForm">
-                    {{ __('Send') }}
+                <AppButton
+                    class="btn btn-primary flex w-full justify-center"
+                    @click="submitForm"
+                >
+                    {{ __('Send Password Reset Link') }}
                 </AppButton>
+
+                <p class="mt-3">
+                    <AppLink :href="route('adminAuth.loginForm')">
+                        {{ __('Back to Login') }}
+                    </AppLink>
+                </p>
             </template>
         </AppCard>
     </AppAuthShell>
@@ -52,6 +62,7 @@ export default {
 </script>
 
 <script setup>
+import { Head } from '@inertiajs/vue3'
 import { useForm } from '@inertiajs/vue3'
 import useFormErrors from '@/Composables/useFormErrors'
 

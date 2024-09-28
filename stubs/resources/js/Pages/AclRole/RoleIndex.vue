@@ -1,10 +1,12 @@
 <template>
-    <AppSectionHeader :title="__('Roles')" :bread-crumb="breadCrumb">
+    <Head :title="title"></Head>
+    <AppSectionHeader :title="title" :bread-crumb="breadCrumb">
         <template #right>
             <AppButton
                 class="btn btn-primary"
                 @click="$inertia.visit(route('aclRole.create'))"
             >
+                <i class="ri-add-fill mr-1"></i>
                 {{ __('Create Role') }}
             </AppButton>
         </template>
@@ -19,9 +21,15 @@
     <AppDataTable v-if="roles.data.length" :headers="headers">
         <template #TableBody>
             <tbody>
-                <AppDataTableRow v-for="item in roles.data" :key="item.id">
+                <AppDataTableRow
+                    v-for="(item, index) in roles.data"
+                    :key="item.id"
+                >
                     <AppDataTableData>
-                        {{ item.id }}
+                        {{
+                            (roles.current_page - 1) * roles.per_page +
+                            (index + 1)
+                        }}
                     </AppDataTableData>
 
                     <AppDataTableData>
@@ -78,6 +86,9 @@
 
     <AppPaginator
         :links="roles.links"
+        :from="roles.from"
+        :to="roles.to"
+        :total="roles.total"
         class="mt-4 justify-center"
     ></AppPaginator>
 
@@ -90,6 +101,12 @@
 
 <script setup>
 import { ref } from 'vue'
+import { Head } from '@inertiajs/vue3'
+import useTitle from '@/Composables/useTitle'
+import useAuthCan from '@/Composables/useAuthCan'
+
+const { title } = useTitle('Users')
+const { can } = useAuthCan()
 
 const props = defineProps({
     roles: {
@@ -103,7 +120,7 @@ const breadCrumb = [
     { label: 'Roles', last: true }
 ]
 
-const headers = ['ID', 'Name', 'Actions']
+const headers = ['SL', 'Name', 'Actions']
 
 const confirmDialogRef = ref(null)
 const confirmDelete = (deleteRoute) => {
