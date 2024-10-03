@@ -39,8 +39,8 @@ class AclPermissionSeeder extends Seeder
             'Acl: Role - List',
 
             //User/UserIndex.vue
-            'Acl: User - Manage Roles',
-            'Acl: User - Manage Permissions',
+            'Acl: User: Role - Edit',
+            'Acl: User: Permission - Edit',
             'Acl: User - Create',
             'Acl: User - Edit',
             'Acl: User - Delete',
@@ -56,7 +56,7 @@ class AclPermissionSeeder extends Seeder
             'Acl: Role - Delete',
 
             //AclRolePermission/RolePermissionForm.vue
-            'Acl: Role - Manage Permissions',
+            'Acl: Role: Permission - Edit',
         ];
 
     }

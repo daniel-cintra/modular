@@ -2,6 +2,7 @@
     <AppSectionHeader :title="__('Roles')" :bread-crumb="breadCrumb">
         <template #right>
             <AppButton
+                v-if="can('Acl: Role - Create')"
                 class="btn btn-primary"
                 @click="$inertia.visit(route('aclRole.create'))"
             >
@@ -30,7 +31,11 @@
 
                     <AppDataTableData>
                         <!-- role permissions -->
-                        <AppTooltip :text="__('Role Permissions')" class="mr-2">
+                        <AppTooltip
+                            v-if="can('Acl: Role: Permission - Edit')"
+                            :text="__('Role Permissions')"
+                            class="mr-2"
+                        >
                             <AppButton
                                 class="btn btn-icon btn-primary"
                                 @click="
@@ -44,7 +49,11 @@
                         </AppTooltip>
 
                         <!-- edit role -->
-                        <AppTooltip :text="__('Edit Role')" class="mr-2">
+                        <AppTooltip
+                            v-if="can('Acl: Role - Edit')"
+                            :text="__('Edit Role')"
+                            class="mr-2"
+                        >
                             <AppButton
                                 class="btn btn-icon btn-primary"
                                 @click="
@@ -58,7 +67,10 @@
                         </AppTooltip>
 
                         <!-- delete role -->
-                        <AppTooltip :text="__('Delete Role')">
+                        <AppTooltip
+                            v-if="can('Acl: Role - Delete')"
+                            :text="__('Delete Role')"
+                        >
                             <AppButton
                                 class="btn btn-icon btn-destructive"
                                 @click="
@@ -90,6 +102,9 @@
 
 <script setup>
 import { ref } from 'vue'
+import useAuthCan from '@/Composables/useAuthCan'
+
+const { can } = useAuthCan()
 
 const props = defineProps({
     roles: {

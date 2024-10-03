@@ -36,6 +36,6 @@ class InstallCommand extends Command
 
     protected function phpBinary(): string
     {
-        return (new PhpExecutableFinder())->find(false) ?: 'php';
+        return (new PhpExecutableFinder)->find(false) ?: 'php';
     }
 }

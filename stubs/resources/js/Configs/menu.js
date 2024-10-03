@@ -5,7 +5,7 @@ export default {
     items: [
         {
             label: 'Dashboard',
-            permission: 'Main Menu: Dashboard',
+            permission: 'Dashboard',
             icon: 'ri-dashboard-line',
             link: route('dashboard.index')
         },
@@ -22,8 +22,7 @@ export default {
                 },
                 {
                     label: 'Permissions',
-                    permission:
-                        'Acl: Permission - List',
+                    permission: 'Acl: Permission - List',
                     icon: 'ri-shield-keyhole-line',
                     link: route('aclPermission.index')
                 },
