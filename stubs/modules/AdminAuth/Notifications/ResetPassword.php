@@ -12,9 +12,7 @@ class ResetPassword extends Notification
      *
      * @param  string  $token
      */
-    public function __construct(public $token)
-    {
-    }
+    public function __construct(public $token) {}
 
     /**
      * Get the notification's delivery channels.
