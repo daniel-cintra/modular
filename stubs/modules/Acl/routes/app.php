@@ -22,7 +22,7 @@ Route::get('acl-permission', [
 Route::get('acl-permission/create', [
     PermissionController::class, 'create',
 ])->name('aclPermission.create')
-    ->can('Acl: permission - Create');
+    ->can('Acl: Permission - Create');
 
 Route::post('acl-permission', [
     PermissionController::class, 'store',
