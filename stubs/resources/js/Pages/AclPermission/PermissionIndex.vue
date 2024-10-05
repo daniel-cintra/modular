@@ -2,6 +2,7 @@
     <AppSectionHeader :title="__('Permissions')" :bread-crumb="breadCrumb">
         <template #right>
             <AppButton
+                v-if="can('Acl: Permission - Create')"
                 class="btn btn-primary"
                 @click="$inertia.visit(route('aclPermission.create'))"
             >
@@ -33,7 +34,11 @@
 
                     <AppDataTableData>
                         <!-- edit permission -->
-                        <AppTooltip :text="__('Edit Permission')" class="mr-2">
+                        <AppTooltip
+                            v-if="can('Acl: Permission - Edit')"
+                            :text="__('Edit Permission')"
+                            class="mr-2"
+                        >
                             <AppButton
                                 class="btn btn-icon btn-primary"
                                 @click="
@@ -47,7 +52,10 @@
                         </AppTooltip>
 
                         <!-- delete permission -->
-                        <AppTooltip :text="__('Delete Permission')">
+                        <AppTooltip
+                            v-if="can('Acl: Permission - Delete')"
+                            :text="__('Delete Permission')"
+                        >
                             <AppButton
                                 class="btn btn-icon btn-destructive"
                                 @click="
@@ -79,6 +87,9 @@
 
 <script setup>
 import { ref } from 'vue'
+import useAuthCan from '@/Composables/useAuthCan'
+
+const { can } = useAuthCan()
 
 const props = defineProps({
     permissions: {

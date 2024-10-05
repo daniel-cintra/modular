@@ -32,7 +32,7 @@ class PublishLaravelTranslationsCommand extends Command
 
     private function publishLang(string $lang): void
     {
-        $filesystem = new Filesystem();
+        $filesystem = new Filesystem;
 
         $filesystem->copyDirectory(
             __DIR__."/../../stubs/lang/{$lang}",
