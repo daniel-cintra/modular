@@ -1,20 +1,23 @@
 <template>
+    <Head title="Login"></Head>
     <AppAuthShell>
         <AppAuthLogo />
 
-        <AppCard class="space-y-6 px-16">
-            <template #title>
-                <h3 class="text-2xl font-semibold tracking-tight">
-                    {{ __('Sign in to your account') }}
-                </h3>
-            </template>
+        <form @submit.prevent="submitForm">
+            <AppCard class="w-80 space-y-2 bg-skin-neutral-2">
+                <template #title>
+                    <h3
+                        class="text-center text-lg font-semibold tracking-tight"
+                    >
+                        {{ __('Sign in to your account') }}
+                    </h3>
+                </template>
 
-            <template #content>
-                <AppFormErrors class="mb-4" />
+                <template #content>
+                    <AppFormErrors class="mb-4" />
 
-                <form>
                     <div>
-                        <AppLabel for="email">{{ __('Your Email') }}</AppLabel>
+                        <AppLabel for="email">{{ __('Email') }}</AppLabel>
                         <AppInputText
                             id="email"
                             v-model="form.email"
@@ -53,24 +56,25 @@
                             __('Remember me')
                         }}</AppLabel>
                     </div>
-                </form>
-            </template>
+                </template>
 
-            <template #footer>
-                <AppButton
-                    class="btn btn-primary"
-                    aria-label="botao submit"
-                    @click="submitForm"
-                    >{{ __('Sign in') }}</AppButton
-                >
+                <template #footer>
+                    <AppButton
+                        class="btn btn-primary flex w-full justify-center"
+                        aria-label="botao submit"
+                        @click="submitForm"
+                        type="submit"
+                        >{{ __('Sign in') }}</AppButton
+                    >
 
-                <p class="mt-3">
-                    <AppLink :href="route('adminAuth.forgotPassword')">
-                        {{ __('Forgot your password?') }}
-                    </AppLink>
-                </p>
-            </template>
-        </AppCard>
+                    <p class="mt-3">
+                        <AppLink :href="route('adminAuth.forgotPassword')">
+                            {{ __('Forgot your password?') }}
+                        </AppLink>
+                    </p>
+                </template>
+            </AppCard>
+        </form>
     </AppAuthShell>
 </template>
 
@@ -82,6 +86,7 @@ export default {
 </script>
 
 <script setup>
+import { Head } from '@inertiajs/vue3'
 import { useForm } from '@inertiajs/vue3'
 import useFormErrors from '@/Composables/useFormErrors'
 

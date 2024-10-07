@@ -1,5 +1,6 @@
 <template>
-    <AppSectionHeader :title="__('Users')" :bread-crumb="breadCrumb">
+    <Head :title="title"></Head>
+    <AppSectionHeader :title="title" :bread-crumb="breadCrumb">
     </AppSectionHeader>
 
     <AppCard class="w-full md:w-3/4 xl:w-1/2">
@@ -56,10 +57,12 @@
 
 <script setup>
 import { useForm } from '@inertiajs/vue3'
-
+import { Head } from '@inertiajs/vue3'
 import useTitle from '@/Composables/useTitle'
 import useFormContext from '@/Composables/useFormContext'
 import useFormErrors from '@/Composables/useFormErrors'
+
+const { title } = useTitle('User')
 
 const props = defineProps({
     user: {
@@ -73,8 +76,6 @@ const breadCrumb = [
     { label: 'Users', href: route('user.index') },
     { label: 'User', last: true }
 ]
-
-const { title } = useTitle('User')
 
 const form = useForm({
     name: props.user ? props.user.name : '',

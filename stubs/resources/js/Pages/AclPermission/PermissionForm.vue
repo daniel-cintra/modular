@@ -1,5 +1,6 @@
 <template>
-    <AppSectionHeader :title="__('Permissions')" :bread-crumb="breadCrumb">
+    <Head :title="title"></Head>
+    <AppSectionHeader :title="title" :bread-crumb="breadCrumb">
     </AppSectionHeader>
 
     <AppCard class="w-full md:w-3/4 xl:w-1/2">
@@ -31,10 +32,12 @@
 
 <script setup>
 import { useForm } from '@inertiajs/vue3'
-
+import { Head } from '@inertiajs/vue3'
 import useTitle from '@/Composables/useTitle'
 import useFormContext from '@/Composables/useFormContext'
 import useFormErrors from '@/Composables/useFormErrors'
+
+const { title } = useTitle('Permission')
 
 const props = defineProps({
     permission: {
@@ -48,8 +51,6 @@ const breadCrumb = [
     { label: 'Permissions', href: route('aclPermission.index') },
     { label: 'Permission', last: true }
 ]
-
-const { title } = useTitle('Permission')
 
 const form = useForm({
     name: props.permission ? props.permission.name : ''

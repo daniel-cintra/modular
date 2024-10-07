@@ -1,5 +1,6 @@
 <template>
-    <AppSectionHeader :title="__('Roles')" :bread-crumb="breadCrumb">
+    <Head :title="title"></Head>
+    <AppSectionHeader :title="title" :bread-crumb="breadCrumb">
     </AppSectionHeader>
 
     <AppCard class="w-full md:w-3/4 xl:w-1/2">
@@ -31,10 +32,12 @@
 
 <script setup>
 import { useForm } from '@inertiajs/vue3'
-
+import { Head } from '@inertiajs/vue3'
 import useTitle from '@/Composables/useTitle'
 import useFormContext from '@/Composables/useFormContext'
 import useFormErrors from '@/Composables/useFormErrors'
+
+const { title } = useTitle('Role')
 
 const props = defineProps({
     role: {
@@ -48,8 +51,6 @@ const breadCrumb = [
     { label: 'Roles', href: route('aclRole.index') },
     { label: 'Role', last: true }
 ]
-
-const { title } = useTitle('Role')
 
 const form = useForm({
     name: props.role ? props.role.name : ''
