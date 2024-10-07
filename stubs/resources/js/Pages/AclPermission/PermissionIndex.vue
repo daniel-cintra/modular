@@ -1,12 +1,11 @@
 <template>
-    <Head :title="title"></Head>
-    <AppSectionHeader :title="title" :bread-crumb="breadCrumb">
+    <AppSectionHeader :title="__('Permissions')" :bread-crumb="breadCrumb">
         <template #right>
             <AppButton
+                v-if="can('Acl: Permission - Create')"
                 class="btn btn-primary"
                 @click="$inertia.visit(route('aclPermission.create'))"
             >
-                <i class="ri-add-fill mr-1"></i>
                 {{ __('Create Permission') }}
             </AppButton>
         </template>
@@ -22,15 +21,11 @@
         <template #TableBody>
             <tbody>
                 <AppDataTableRow
-                    v-for="(item, index) in permissions.data"
+                    v-for="item in permissions.data"
                     :key="item.id"
                 >
                     <AppDataTableData>
-                        {{
-                            (permissions.current_page - 1) *
-                                permissions.per_page +
-                            (index + 1)
-                        }}
+                        {{ item.id }}
                     </AppDataTableData>
 
                     <AppDataTableData>
@@ -39,7 +34,11 @@
 
                     <AppDataTableData>
                         <!-- edit permission -->
-                        <AppTooltip :text="__('Edit Permission')" class="mr-2">
+                        <AppTooltip
+                            v-if="can('Acl: Permission - Edit')"
+                            :text="__('Edit Permission')"
+                            class="mr-2"
+                        >
                             <AppButton
                                 class="btn btn-icon btn-primary"
                                 @click="
@@ -53,7 +52,10 @@
                         </AppTooltip>
 
                         <!-- delete permission -->
-                        <AppTooltip :text="__('Delete Permission')">
+                        <AppTooltip
+                            v-if="can('Acl: Permission - Delete')"
+                            :text="__('Delete Permission')"
+                        >
                             <AppButton
                                 class="btn btn-icon btn-destructive"
                                 @click="
@@ -73,9 +75,6 @@
 
     <AppPaginator
         :links="permissions.links"
-        :from="permissions.from"
-        :to="permissions.to"
-        :total="permissions.total"
         class="mt-4 justify-center"
     ></AppPaginator>
 
@@ -88,11 +87,8 @@
 
 <script setup>
 import { ref } from 'vue'
-import { Head } from '@inertiajs/vue3'
-import useTitle from '@/Composables/useTitle'
 import useAuthCan from '@/Composables/useAuthCan'
 
-const { title } = useTitle('Users')
 const { can } = useAuthCan()
 
 const props = defineProps({
@@ -107,7 +103,7 @@ const breadCrumb = [
     { label: 'Permissions', last: true }
 ]
 
-const headers = ['SL', 'Name', 'Actions']
+const headers = ['ID', 'Name', 'Actions']
 
 const confirmDialogRef = ref(null)
 const confirmDelete = (deleteRoute) => {

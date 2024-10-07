@@ -1,12 +1,11 @@
 <template>
-    <Head :title="title"></Head>
-    <AppSectionHeader :title="title" :bread-crumb="breadCrumb">
+    <AppSectionHeader :title="__('Users')" :bread-crumb="breadCrumb">
         <template #right>
             <AppButton
+                v-if="can('Acl: User - Create')"
                 class="btn btn-primary"
                 @click="$inertia.visit(route('user.create'))"
             >
-                <i class="ri-add-fill mr-1"></i>
                 {{ __('Create User') }}
             </AppButton>
         </template>
@@ -21,15 +20,9 @@
     <AppDataTable v-if="users.data.length" :headers="headers">
         <template #TableBody>
             <tbody>
-                <AppDataTableRow
-                    v-for="(item, index) in users.data"
-                    :key="item.id"
-                >
+                <AppDataTableRow v-for="item in users.data" :key="item.id">
                     <AppDataTableData>
-                        {{
-                            (users.current_page - 1) * users.per_page +
-                            (index + 1)
-                        }}
+                        {{ item.id }}
                     </AppDataTableData>
 
                     <AppDataTableData>
@@ -42,7 +35,11 @@
 
                     <AppDataTableData>
                         <!-- edit user roles -->
-                        <AppTooltip :text="__('User Roles')" class="mr-2">
+                        <AppTooltip
+                            v-if="can('Acl: User: Role - Edit')"
+                            :text="__('User Roles')"
+                            class="mr-2"
+                        >
                             <AppButton
                                 class="btn btn-icon btn-primary"
                                 @click="
@@ -56,7 +53,11 @@
                         </AppTooltip>
 
                         <!-- edit user permissions -->
-                        <AppTooltip :text="__('User Permissions')" class="mr-2">
+                        <AppTooltip
+                            v-if="can('Acl: User: Permission - Edit')"
+                            :text="__('User Permissions')"
+                            class="mr-2"
+                        >
                             <AppButton
                                 class="btn btn-icon btn-primary"
                                 @click="
@@ -70,7 +71,11 @@
                         </AppTooltip>
 
                         <!-- edit user -->
-                        <AppTooltip :text="__('Edit User')" class="mr-2">
+                        <AppTooltip
+                            v-if="can('Acl: User - Edit')"
+                            :text="__('Edit User')"
+                            class="mr-2"
+                        >
                             <AppButton
                                 class="btn btn-icon btn-primary"
                                 @click="
@@ -82,7 +87,10 @@
                         </AppTooltip>
 
                         <!-- delete user -->
-                        <AppTooltip :text="__('Delete User')">
+                        <AppTooltip
+                            v-if="can('Acl: User - Delete')"
+                            :text="__('Delete User')"
+                        >
                             <AppButton
                                 class="btn btn-icon btn-destructive"
                                 @click="
@@ -102,9 +110,6 @@
 
     <AppPaginator
         :links="users.links"
-        :from="users.from"
-        :to="users.to"
-        :total="users.total"
         class="mt-4 justify-center"
     ></AppPaginator>
 
@@ -117,11 +122,8 @@
 
 <script setup>
 import { ref } from 'vue'
-import { Head } from '@inertiajs/vue3'
-import useTitle from '@/Composables/useTitle'
 import useAuthCan from '@/Composables/useAuthCan'
 
-const { title } = useTitle('Users')
 const { can } = useAuthCan()
 
 const props = defineProps({
@@ -136,7 +138,7 @@ const breadCrumb = [
     { label: 'Users', last: true }
 ]
 
-const headers = ['SL', 'Name', 'Email', 'Actions']
+const headers = ['ID', 'Name', 'Email', 'Actions']
 
 const confirmDialogRef = ref(null)
 const confirmDelete = (deleteRoute) => {

@@ -26,11 +26,7 @@
                     :key="item.id"
                 >
                     <AppDataTableData>
-                        {{
-                            ({{ resourceName }}s.current_page - 1) *
-                                {{ resourceName }}s.per_page +
-                            (index + 1)
-                        }}
+                        {{ item.id }}
                     </AppDataTableData>
 
                     <!-- <AppDataTableData>
@@ -113,7 +109,7 @@ const breadCrumb = [
   { label: '{{ ResourceName }}s', last: true }
 ]
 
-const headers = ['SL', 'Actions']
+const headers = ['ID', 'Actions']
 
 const confirmDialogRef = ref(null)
 const confirmDelete = (deleteRoute) => {

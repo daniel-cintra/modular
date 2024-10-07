@@ -1,12 +1,11 @@
 <template>
-    <Head :title="title"></Head>
-    <AppSectionHeader :title="title" :bread-crumb="breadCrumb">
+    <AppSectionHeader :title="__('Roles')" :bread-crumb="breadCrumb">
         <template #right>
             <AppButton
+                v-if="can('Acl: Role - Create')"
                 class="btn btn-primary"
                 @click="$inertia.visit(route('aclRole.create'))"
             >
-                <i class="ri-add-fill mr-1"></i>
                 {{ __('Create Role') }}
             </AppButton>
         </template>
@@ -21,15 +20,9 @@
     <AppDataTable v-if="roles.data.length" :headers="headers">
         <template #TableBody>
             <tbody>
-                <AppDataTableRow
-                    v-for="(item, index) in roles.data"
-                    :key="item.id"
-                >
+                <AppDataTableRow v-for="item in roles.data" :key="item.id">
                     <AppDataTableData>
-                        {{
-                            (roles.current_page - 1) * roles.per_page +
-                            (index + 1)
-                        }}
+                        {{ item.id }}
                     </AppDataTableData>
 
                     <AppDataTableData>
@@ -38,7 +31,11 @@
 
                     <AppDataTableData>
                         <!-- role permissions -->
-                        <AppTooltip :text="__('Role Permissions')" class="mr-2">
+                        <AppTooltip
+                            v-if="can('Acl: Role: Permission - Edit')"
+                            :text="__('Role Permissions')"
+                            class="mr-2"
+                        >
                             <AppButton
                                 class="btn btn-icon btn-primary"
                                 @click="
@@ -52,7 +49,11 @@
                         </AppTooltip>
 
                         <!-- edit role -->
-                        <AppTooltip :text="__('Edit Role')" class="mr-2">
+                        <AppTooltip
+                            v-if="can('Acl: Role - Edit')"
+                            :text="__('Edit Role')"
+                            class="mr-2"
+                        >
                             <AppButton
                                 class="btn btn-icon btn-primary"
                                 @click="
@@ -66,7 +67,10 @@
                         </AppTooltip>
 
                         <!-- delete role -->
-                        <AppTooltip :text="__('Delete Role')">
+                        <AppTooltip
+                            v-if="can('Acl: Role - Delete')"
+                            :text="__('Delete Role')"
+                        >
                             <AppButton
                                 class="btn btn-icon btn-destructive"
                                 @click="
@@ -86,9 +90,6 @@
 
     <AppPaginator
         :links="roles.links"
-        :from="roles.from"
-        :to="roles.to"
-        :total="roles.total"
         class="mt-4 justify-center"
     ></AppPaginator>
 
@@ -101,11 +102,8 @@
 
 <script setup>
 import { ref } from 'vue'
-import { Head } from '@inertiajs/vue3'
-import useTitle from '@/Composables/useTitle'
 import useAuthCan from '@/Composables/useAuthCan'
 
-const { title } = useTitle('Users')
 const { can } = useAuthCan()
 
 const props = defineProps({
@@ -120,7 +118,7 @@ const breadCrumb = [
     { label: 'Roles', last: true }
 ]
 
-const headers = ['SL', 'Name', 'Actions']
+const headers = ['ID', 'Name', 'Actions']
 
 const confirmDialogRef = ref(null)
 const confirmDelete = (deleteRoute) => {
