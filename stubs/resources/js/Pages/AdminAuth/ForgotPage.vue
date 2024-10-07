@@ -10,11 +10,11 @@
                 </h3>
             </template>
 
-            <!-- <template #description>
+            <template #description>
                 <h2 class="mt-2">
                     {{ __('Enter your email to reset your password.') }}
                 </h2>
-            </template> -->
+            </template>
 
             <template #content>
                 <AppFormErrors class="mb-4" />
