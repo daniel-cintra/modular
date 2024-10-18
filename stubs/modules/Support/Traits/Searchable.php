@@ -9,8 +9,13 @@ trait Searchable
     /**
      * Add search functionality for the Model.
      */
-    public function scopeSearch(Builder $query, ?string $searchColumn, ?string $searchTerm)
+    public function scopeSearch(Builder $query, ?string $searchColumn, ?string $searchTerm): void
     {
+        $searchTerm = trim($searchTerm ?? '');
+        if (empty($searchColumn) || empty($searchTerm)) {
+            return;
+        }
+        
         $searchTerm = preg_replace('/[^A-Za-z0-9 ]/', '', $searchTerm);
 
         $columns = array_map('trim', explode(',', $searchColumn));
