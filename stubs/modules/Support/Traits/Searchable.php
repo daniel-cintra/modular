@@ -15,7 +15,7 @@ trait Searchable
         if (empty($searchColumn) || empty($searchTerm)) {
             return;
         }
-        
+
         $searchTerm = preg_replace('/[^A-Za-z0-9 ]/', '', $searchTerm);
 
         $columns = array_map('trim', explode(',', $searchColumn));
