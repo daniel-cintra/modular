@@ -5,10 +5,20 @@ import { inject } from 'vue'
 export default function useTitle(sectionName) {
     const translate = inject('translate')
 
-    const { isCreate } = useFormContext()
+    const { isCreate, isEdit } = useFormContext()
 
     const title = computed(() => {
-        let prefix = isCreate.value ? 'Create' : 'Edit'
+        let prefix = ''
+
+        if (isCreate.value) {
+            prefix = 'Create'
+        }
+
+        if (isEdit.value) {
+            prefix = 'Edit'
+        }
+
+        // let prefix = isCreate.value ? 'Create' : 'Edit'
         prefix = translate(prefix)
         return prefix + ' ' + translate(sectionName)
     })

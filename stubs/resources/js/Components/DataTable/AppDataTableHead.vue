@@ -4,7 +4,7 @@
             <th
                 v-for="header in headers"
                 :key="header"
-                class="border-b border-skin-neutral-5 bg-skin-neutral-5 px-4 py-2"
+                class="border border-skin-neutral-6 bg-skin-neutral-5 px-2 py-2"
             >
                 {{ header }}
             </th>
