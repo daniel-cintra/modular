@@ -1,5 +1,6 @@
 <template>
-    <AppSectionHeader title="{{ ResourceName }}s" :bread-crumb="breadCrumb">
+    <Head :title="title"></Head>
+    <AppSectionHeader :title="title" :bread-crumb="breadCrumb">
     </AppSectionHeader>
 
     <AppCard class="w-full md:w-3/4 xl:w-1/2">
@@ -30,10 +31,12 @@
 
 <script setup>
 import { useForm } from '@inertiajs/vue3'
-
+import { Head } from '@inertiajs/vue3'
 import useTitle from '@/Composables/useTitle'
 import useFormContext from '@/Composables/useFormContext'
 import useFormErrors from '@/Composables/useFormErrors'
+
+const { title } = useTitle('{{ ResourceName }}')
 
 const props = defineProps({
   {{ resourceName }}: {
@@ -48,18 +51,20 @@ const breadCrumb = [
   { label: '{{ ResourceName }}', last: true }
 ]
 
-const { title } = useTitle('{{ ResourceName }}')
+
 
 const form = useForm({
   name: props.{{ resourceName }} ? props.{{ resourceName }}.name : '',
 })
 
-const { isCreate } = useFormContext()
+const { isCreate, isEdit } = useFormContext()
 
 const submitForm = () => {
   if (isCreate.value) {
     form.post(route('{{ resourceName }}.store'))
-  } else {
+  } 
+
+  if(isEdit.value) {
     form.put(route('{{ resourceName }}.update', props.{{ resourceName }}.id))
   }
 }

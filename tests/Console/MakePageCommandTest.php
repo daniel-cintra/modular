@@ -23,7 +23,7 @@ it('can generate an index page', function () {
 
     $pageContent = file_get_contents($page);
 
-    expect($pageContent)->toContain('<AppSectionHeader title="ResourceNames" :bread-crumb="breadCrumb">');
+    expect($pageContent)->toContain('<AppSectionHeader :title="title" :bread-crumb="breadCrumb">');
 });
 
 it('can generate a form page', function () {
@@ -34,5 +34,5 @@ it('can generate a form page', function () {
 
     $pageContent = file_get_contents($page);
 
-    expect($pageContent)->toContain('<AppSectionHeader title="ResourceNames" :bread-crumb="breadCrumb">');
+    expect($pageContent)->toContain('<AppSectionHeader :title="title" :bread-crumb="breadCrumb">');
 });
