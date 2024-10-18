@@ -110,6 +110,9 @@
 
     <AppPaginator
         :links="users.links"
+        :from="users.from || 0"
+        :to="users.to || 0"
+        :total="users.total || 0"
         class="mt-4 justify-center"
     ></AppPaginator>
 

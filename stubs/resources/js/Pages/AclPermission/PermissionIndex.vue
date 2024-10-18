@@ -75,6 +75,9 @@
 
     <AppPaginator
         :links="permissions.links"
+        :from="permissions.from || 0"
+        :to="permissions.to || 0"
+        :total="permissions.total || 0"
         class="mt-4 justify-center"
     ></AppPaginator>
 

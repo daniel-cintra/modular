@@ -90,6 +90,9 @@
 
     <AppPaginator
         :links="roles.links"
+        :from="roles.from || 0"
+        :to="roles.to || 0"
+        :total="roles.total || 0"
         class="mt-4 justify-center"
     ></AppPaginator>
 
