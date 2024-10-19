@@ -62,8 +62,8 @@
                     <AppButton
                         class="btn btn-primary flex w-full justify-center"
                         aria-label="botao submit"
-                        @click="submitForm"
                         type="submit"
+                        @click="submitForm"
                         >{{ __('Sign in') }}</AppButton
                     >
 

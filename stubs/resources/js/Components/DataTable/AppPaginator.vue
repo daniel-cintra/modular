@@ -1,7 +1,5 @@
-<!-- eslint-disable vue/no-v-html -->
-<!-- eslint-disable vue/no-v-text-v-html-on-component -->
 <template>
-    <template class="flex justify-between">
+    <div class="flex justify-between">
         <div class="pt-5">
             Showing {{ from }} to {{ to }} of
             <span class="font-bold">{{ total }}</span> results
@@ -26,7 +24,7 @@
                 </template>
             </div>
         </div>
-    </template>
+    </div>
 </template>
 
 <script setup>

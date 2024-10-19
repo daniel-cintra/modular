@@ -2,13 +2,14 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "lint": "eslint . --ext .js,.vue",
+        "lint": "eslint \"**/*.{js,vue}\"",
         "format": "prettier --write ."
     },
     "devDependencies": {
         "eslint": "^9.5.0",
         "eslint-config-prettier": "^9.1.0",
         "eslint-plugin-vue": "^9.26.0",
-        "prettier": "^3.3.2"
+        "prettier": "^3.3.2",
+        "vue-eslint-parser": "^9.4.3"
     }
 }
