@@ -51,6 +51,8 @@ trait FrontendPackages
 
         ] + $packages);
 
+        $this->removeDefaultTailwindConfig();
+
         // Config files...
         copy(__DIR__.'/../../../stubs/stack-configs/postcss.config.cjs', base_path('postcss.config.cjs'));
         copy(__DIR__.'/../../../stubs/stack-configs/tailwind.config.cjs', base_path('tailwind.config.cjs'));
@@ -105,5 +107,21 @@ trait FrontendPackages
         $process->run(function ($type, $line) {
             $this->output->write('    '.$line);
         });
+    }
+
+    protected function removeDefaultTailwindConfig(): void
+    {
+        $tailwindConfigPath = base_path('tailwind.config.js');
+
+        if (! file_exists($tailwindConfigPath)) {
+            return;
+        }
+
+        try {
+            unlink($tailwindConfigPath);
+            $this->info('Default tailwind.config.js removed.');
+        } catch (\Exception $e) {
+            $this->error('Unable to remove default tailwind.config.js. Please check file permissions.');
+        }
     }
 }
