@@ -62,7 +62,7 @@ export default [
                 fetch: 'readonly',
                 alert: 'readonly',
                 console: 'readonly',
-                route: 'readonly',
+                route: 'readonly'
             }
         },
         rules: {
@@ -73,5 +73,5 @@ export default [
     // Ignore patterns
     {
         ignores: ['node_modules/*', 'vendor/*']
-    },
+    }
 ]
