@@ -12,7 +12,7 @@
             <slot name="content"></slot>
         </div>
 
-        <div v-if="$slots.footer" class="mt-4 p-4">
+        <div v-if="$slots.footer" class="px-4 py-2 pb-4">
             <slot name="footer"></slot>
         </div>
     </div>
