@@ -23,7 +23,7 @@
 <script setup>
 import { ref } from 'vue'
 
-const props = defineProps({
+defineProps({
     modelValue: {
         type: String,
         required: true
@@ -43,5 +43,5 @@ const toggleInput = () => {
         eyeIcon.value === 'ri-eye-line' ? 'ri-eye-off-line' : 'ri-eye-line'
 }
 
-const emit = defineEmits(['update:modelValue'])
+defineEmits(['update:modelValue'])
 </script>

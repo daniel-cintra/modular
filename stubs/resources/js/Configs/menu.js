@@ -1,5 +1,3 @@
-import { ZiggyVue } from '/vendor/tightenco/ziggy/dist/index.esm.js'
-
 export default {
     // main navigation - side menu
     items: [

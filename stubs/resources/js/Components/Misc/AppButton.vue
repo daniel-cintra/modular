@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-const emit = defineEmits(['click'])
+defineEmits(['click'])
 </script>
 
 <style scoped>

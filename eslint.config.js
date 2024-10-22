@@ -38,8 +38,7 @@ export default [
         files: ['**/*.{js,vue}'],
         rules: {
             // Disable general ESLint rules
-            'no-unused-vars': 'off',
-            'no-undef': 'off'
+            // 'no-undef': 'off'
         }
     },
 
@@ -52,6 +51,20 @@ export default [
 
     // Custom rules (if any)
     {
+        languageOptions: {
+            globals: {
+                document: 'readonly',
+                window: 'readonly',
+                FileReader: 'readonly',
+                FormData: 'readonly',
+                URLSearchParams: 'readonly',
+                localStorage: 'readonly',
+                fetch: 'readonly',
+                alert: 'readonly',
+                console: 'readonly',
+                route: 'readonly',
+            }
+        },
         rules: {
             // Add your custom rules here
         }
@@ -60,5 +73,5 @@ export default [
     // Ignore patterns
     {
         ignores: ['node_modules/*', 'vendor/*']
-    }
+    },
 ]

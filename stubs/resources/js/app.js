@@ -4,7 +4,7 @@ import 'remixicon/fonts/remixicon.css'
 import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
-import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/index.esm.js'
+import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/index.js'
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel'
 
@@ -31,7 +31,7 @@ createInertiaApp({
     setup({ el, App, props, plugin }) {
         return createApp({ render: () => h(App, props) })
             .use(plugin)
-            .use(ZiggyVue, Ziggy)
+            .use(ZiggyVue, Ziggy) // eslint-disable-line no-undef
             .use(Translations)
             .component('Link', Link)
             .mount(el)

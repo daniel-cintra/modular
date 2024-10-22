@@ -1,5 +1,5 @@
 export default {
-    install: (app, options) => {
+    install: (app) => {
         const __ = (key, replacements = {}) => {
             let translation = window._translations[key] || key
 

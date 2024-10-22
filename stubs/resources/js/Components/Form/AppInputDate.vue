@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-const props = defineProps({
+defineProps({
     modelValue: {
         type: String,
         default: ''
@@ -34,7 +34,7 @@ defineOptions({
     inheritAttrs: false
 })
 
-const emit = defineEmits(['update:modelValue'])
+defineEmits(['update:modelValue'])
 </script>
 
 <style scoped>

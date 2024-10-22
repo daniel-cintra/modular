@@ -94,7 +94,7 @@ import useAuthCan from '@/Composables/useAuthCan'
 
 const { can } = useAuthCan()
 
-const props = defineProps({
+defineProps({
     permissions: {
         type: Object,
         default: () => {}

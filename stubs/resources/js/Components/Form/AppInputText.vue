@@ -10,14 +10,14 @@
 <script setup>
 import { ref } from 'vue'
 
-const props = defineProps({
+defineProps({
     modelValue: {
         type: [String, Number],
         default: ''
     }
 })
 
-const emit = defineEmits(['update:modelValue'])
+defineEmits(['update:modelValue'])
 
 const inputRef = ref(null)
 

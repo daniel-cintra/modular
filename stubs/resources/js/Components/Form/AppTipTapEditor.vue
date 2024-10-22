@@ -444,7 +444,7 @@ const setLink = () => {
 }
 
 const addVideo = () => {
-    const url = prompt('Enter YouTube URL')
+    const url = window.prompt('Enter YouTube URL')
 
     if (!url) {
         return

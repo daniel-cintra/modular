@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import { ref, computed, watch, inject } from 'vue'
+import { ref, computed } from 'vue'
 
 const props = defineProps({
     placement: {
@@ -65,7 +65,7 @@ const toastClass = computed(() => {
 
 const open = () => {
     isVisible.value = true
-    setTimeout(() => {
+    window.setTimeout(() => {
         close()
     }, props.duration)
 }

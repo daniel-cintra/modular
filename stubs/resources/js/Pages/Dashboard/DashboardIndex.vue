@@ -10,10 +10,7 @@
         </div>
     </div>
 </template>
-<script setup>
-import { ref } from 'vue'
-import { Head } from '@inertiajs/vue3'
-import useAuthCan from '@/Composables/useAuthCan'
 
-const { can } = useAuthCan()
+<script setup>
+import { Head } from '@inertiajs/vue3'
 </script>

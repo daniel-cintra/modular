@@ -23,7 +23,7 @@
 <script setup>
 import useAuthCan from '@/Composables/useAuthCan'
 
-const props = defineProps({
+defineProps({
     menuItem: {
         type: Object,
         default: () => {}

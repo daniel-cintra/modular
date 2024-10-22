@@ -23,7 +23,7 @@ const FileUpload = Extension.create({
         return {
             uploadFile:
                 () =>
-                ({ editor, transaction }) => {
+                ({ editor }) => {
                     const input = document.createElement('input')
                     input.type = 'file'
                     input.accept = this.options.allowedFileTypes

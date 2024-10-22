@@ -113,9 +113,8 @@ const handleFileChange = (event) => {
 
     file.value = uploadedFile
 
-    console.log(file.value)
+    // console.log(file.value)
     if (file.value) {
-        console.log('has value')
         const reader = new FileReader()
         reader.onload = (e) => {
             imagePreview.value = e.target.result

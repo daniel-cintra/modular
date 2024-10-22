@@ -40,5 +40,5 @@ onMounted(() => {
     }
 })
 
-const emit = defineEmits(['update:modelValue'])
+defineEmits(['update:modelValue'])
 </script>
