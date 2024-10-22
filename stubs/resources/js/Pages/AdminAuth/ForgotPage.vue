@@ -17,7 +17,7 @@
             </template>
 
             <template #content>
-                <AppFormErrors class="mb-4" />
+                <AppFormErrors class="mb-4 px-2" />
 
                 <form>
                     <div class="px-2">
