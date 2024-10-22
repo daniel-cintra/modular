@@ -3,15 +3,15 @@
     <AppAuthShell>
         <AppAuthLogo />
 
-        <AppCard class="w-80 space-y-6 bg-gray-200">
+        <AppCard class="w-80 space-y-2 bg-skin-neutral-2">
             <template #title>
-                <h3 class="text-lg font-semibold tracking-tight">
+                <h3 class="px-2 py-3 text-lg font-semibold tracking-tight">
                     {{ __('Forgot your password?') }}
                 </h3>
             </template>
 
             <template #description>
-                <h2 class="mt-2">
+                <h2 class="px-2 text-sm leading-relaxed">
                     {{ __('Enter your email to reset your password.') }}
                 </h2>
             </template>
@@ -20,7 +20,7 @@
                 <AppFormErrors class="mb-4" />
 
                 <form>
-                    <div>
+                    <div class="px-2">
                         <AppLabel for="email">{{ __('Your Email') }}</AppLabel>
                         <AppInputText
                             id="email"
@@ -36,18 +36,20 @@
             </template>
 
             <template #footer>
-                <AppButton
-                    class="btn btn-primary flex w-full justify-center"
-                    @click="submitForm"
-                >
-                    {{ __('Send Password Reset Link') }}
-                </AppButton>
+                <div class="px-2">
+                    <AppButton
+                        class="btn btn-primary flex w-full justify-center"
+                        @click="submitForm"
+                    >
+                        {{ __('Send Password Reset Link') }}
+                    </AppButton>
 
-                <p class="mt-3">
-                    <AppLink :href="route('adminAuth.loginForm')">
-                        {{ __('Back to Login') }}
-                    </AppLink>
-                </p>
+                    <p class="mt-3">
+                        <AppLink :href="route('adminAuth.loginForm')">
+                            {{ __('Back to Login') }}
+                        </AppLink>
+                    </p>
+                </div>
             </template>
         </AppCard>
     </AppAuthShell>
