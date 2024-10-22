@@ -13,14 +13,14 @@ trait EditorImage
     public function uploadEditorImage(): JsonResponse
     {
         $validator = Validator::make(request()->all(), [
-            'image' => $this->getUploadImageValidationRules(),
+            'file' => $this->getUploadImageValidationRules(),
         ]);
 
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()->all()], 422);
         }
 
-        $fileAttributes = $this->uploadImage(request()->file('image'));
+        $fileAttributes = $this->uploadImage(request()->file('file'));
 
         return response()->json($fileAttributes);
     }
