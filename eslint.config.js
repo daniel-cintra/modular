@@ -27,7 +27,7 @@ export default [
 
             // Disable specific Vue rules
             'vue/no-v-html': 'off',
-            'vue/comment-directive': 'off' // Previously disabled
+            'vue/comment-directive': 'off' 
 
             // You can add other Vue-specific rules here
         }
@@ -72,6 +72,6 @@ export default [
 
     // Ignore patterns
     {
-        ignores: ['node_modules/*', 'vendor/*']
+        ignores: ['node_modules/*', 'vendor/*', 'public/*']
     }
 ]

@@ -1,8 +1,14 @@
 {
     "css.customData": [".vscode/tailwind.json"],
+    "tailwindCSS.files.exclude": ["**/node_modules/**", "**/vendor/**"],
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
 
-    "[php]": {
-        "editor.defaultFormatter": "open-southeners.laravel-pint",
-        "editor.formatOnSave": true
-    }
+    "[blade]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "prettier.documentSelectors": ["**/*.blade.php"]
 }

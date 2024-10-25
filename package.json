@@ -2,14 +2,39 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "lint": "eslint \"**/*.{js,vue}\"",
-        "format": "prettier --write ."
+        "build": "vite build",
+        "dev": "vite"
     },
     "devDependencies": {
-        "eslint": "^9.5.0",
+        "@inertiajs/vue3": "^1.0.15",
+        "@tailwindcss/forms": "^0.5.6",
+        "@tiptap/extension-image": "^2.2.4",
+        "@tiptap/extension-link": "^2.2.4",
+        "@tiptap/extension-table": "^2.2.4",
+        "@tiptap/extension-table-cell": "^2.2.4",
+        "@tiptap/extension-table-header": "^2.2.4",
+        "@tiptap/extension-table-row": "^2.2.4",
+        "@tiptap/extension-underline": "^2.2.4",
+        "@tiptap/extension-youtube": "^2.2.4",
+        "@tiptap/starter-kit": "^2.2.4",
+        "@tiptap/vue-3": "^2.2.4",
+        "@vitejs/plugin-vue": "^5.0.4",
+        "autoprefixer": "^10.4.18",
+        "axios": "^1.7.4",
+        "concurrently": "^9.0.1",
+        "eslint": "^v9.5.0",
         "eslint-config-prettier": "^9.1.0",
-        "eslint-plugin-vue": "^9.26.0",
-        "prettier": "^3.3.2",
-        "vue-eslint-parser": "^9.4.3"
+        "eslint-plugin-vue": "^v9.23.0",
+        "laravel-vite-plugin": "^1.0",
+        "postcss": "^8.4.35",
+        "postcss-import": "^16.0.1",
+        "prettier": "^3.2.5",
+        "prettier-plugin-blade": "^2.1.18",
+        "prettier-plugin-tailwindcss": "^v0.6.5",
+        "remixicon": "^4.2.0",
+        "tailwindcss": "^3.3.7",
+        "unplugin-vue-components": "^0.27.1",
+        "vite": "^5.0",
+        "vue": "^3.4.21"
     }
 }

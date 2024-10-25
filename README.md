@@ -1,153 +1,66 @@
-<p align="center" style="margin: 24px;">
-    <a href="https://docs.ismodular.com" target="_blank">
-    <img src="art/modular-github.png" alt="Modular Logo" style="width: 100%; max-width: 800px;"></a>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+
+<p align="center">
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-<center>
+## About Laravel
 
-[![Vue v3.x](https://img.shields.io/badge/Vue.js-v3.x-2f4053?style=for-the-badge&logo=vue.js&logoColor=39af78)](https://vuejs.org/)
-[![Inertia.js v1.x](https://img.shields.io/badge/Inertia.js-v1.x-6765ea?style=for-the-badge&logo=inertia&logoColor=ffffff)](https://inertiajs.com/)
-[![Laravel v11.x](https://img.shields.io/badge/Laravel-v11.x-FF2D20?style=for-the-badge&logo=laravel)](https://laravel.com)
-[![Tailwind CSS v3.x](https://img.shields.io/badge/Tailwind%20CSS-v3.x-31b5f7?style=for-the-badge&logo=tailwind-css&logoColor=ffffff)](https://tailwindcss.com/)
-[![Tests passing](https://img.shields.io/badge/Tests-passing-green?style=for-the-badge&logo=github)](https://github.com/daniel-cintra/modular/actions)
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-</center>
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-## Why Modular?
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-Starting a new web application usually means tackling a bunch of common yet crucial tasks, including:
+## Learning Laravel
 
--   **Scalable Architecture:** Structuring your application in a way that scales seamlessly with growth.
--   **Robust Access Control:** Crafting a granular ACL (Access Control List) to manage users and roles proficiently.
--   **Intuitive Admin Panel:** Either customizing a ready-made or developing a bespoke Admin Panel to streamline your application's construction.
--   **Responsive Design:** Ensuring your Admin Panel is mobile-friendly and responsive across devices.
--   **Unified UI Toolkit:** Adopting or developing a UI Toolkit to fast-track frontend development while maintaining a coherent design across pages.
--   **Effortless Frontend-Backend Integration:** Bridging your frontend and backend intuitively, ensuring a maintainable and straightforward connection.
--   **Optimized Build Management:** Harnessing the right toolset and stack to manage your frontend application's build steps efficiently.
--   **Reusable Components:** Abstracting common functionalities and components for reuse (embrace DRY - Don't Repeat Yourself), such as data search, pagination, flash messages, and more.
--   **Thorough Testing Frameworks:** Implementing testing frameworks to validate your application's functionality.
--   **Comprehensive Activity Log:** Keeping a detailed log to audit user operations.
--   **Clear Architectural Vision:** Maintaining a lucid mental model of the project's architectural decisions, promoting consistency and a solid understanding of how all elements interlink.
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-The intricacies of these tasks are far from trivial, often demanding a substantial amount of time and attention. As you delve deeper, you may encounter additional minor behaviors and tweaks that, while seemingly marginal, are crucial and time-consuming.
+You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-Furthermore, more complex scenarios such as multi-faceted dashboards tailored to user profiles or intricate business rules may arise, adding layers of complexity to your project.
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-Modular aims to alleviate these hurdles by providing a well-structured, comprehensive solution, allowing you to focus on what truly matters - bringing your unique application to life.
+## Laravel Sponsors
 
-## Why VILT Stack (Vue, Inertia, Laravel, Tailwind)?
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-The VILT Stack is a powerful combination of frameworks and tools that provide a robust foundation for building web applications. These technologies **work very well together** to deliver a seamless developer experience, enabling you to concentrate on your application's core functionalities. Moreover, after developing projects of varying sizes and complexities with different stacks, I discovered that the VILT Stack is incredibly flexible. It accommodates simple CRUD applications just as well as it does more complex UIs, with enhanced interactivity and client-side heavy business logic (interactive calendars, dynamic form fields, complex graphics, etc.). Consequently, it scales adeptly in both scenarios, proving to be a reliable choice for both small, straightforward apps and large, complex ones.
+### Premium Partners
 
-## About Modular
-
-Modular stands on the shoulders of giants, integrating powerful frameworks and tools to offer a streamlined development experience. Here’s what lies under the hood:
-
--   [Vue 3](https://vuejs.org/) (Drives custom frontend components)
--   [Inertia.js](https://inertiajs.com/) (Bridges the gap between frontend and backend)
--   [Laravel 11](https://laravel.com/) (Empowers the backend)
--   [Tailwind CSS 3](https://tailwindcss.com/) (Styles with ease)
--   [Vite](https://vitejs.dev/) (Accelerates frontend tooling)
-
-When you bring Modular into your Laravel application, here’s a taste of what you'll unlock:
-
--   A **Themed Admin Panel** seamlessly integrated with Tailwind CSS, ready to assist you in crafting your application.
--   A finely-tuned **ACL (Access Control List) System** to effortlessly manage users and roles.
--   A suite of auto-loaded **Custom Vue 3 Components**, penned in **JavaScript**, and tailored with Tailwind CSS; ready for use.
--   Vite for a **lightning-fast frontend development** journey.
--   Inertia.js to ensure a smooth frontend and backend connection, **simplifying routing and component data hydration**, among other benefits.
--   A **custom-built CLI** to swiftly generate new modules; propelling your **development speed**.
--   A comprehensive **translation system** ready to help your application speak the world's languages (if needed).
--   **Build steps** for your frontend application are set, pre-configured, and ready to roll from the get-go, with the right tooling and stack to keep the momentum high.
--   A **developer experience** designed to leave a grin on your face at the end of each coding day ;)
-
-## Custom Vue 3 Components
-
-In previous iterations of Modular, I leveraged robust UI Toolkits like Vuetify and Prime Vue. While these are excellent options, a desire for more control over the components led to a change, guided by the following criteria:
-
--   Adoption of Vue 3 as the primary JavaScript framework.
--   Employment of Tailwind CSS for styling purposes.
--   Seamless integration of Custom Vue 3 Components with the Tailwind Theme System.
--   Easy customization of components by merely editing them. To facilitate this, components reside not in node_modules, but in "./resources/js/Components". Need some tweaking? Open the component, modify the Tailwind CSS classes, and save it. Done.
--   No use of Sass, Less, Stylus, etc. Tailwind CSS exclusively.
--   No TypeScript. Pure JavaScript only.
--   Light and exceedingly straightforward Common Components. If necessary, extend or create new components per project to imbue additional functionality.
-
-At present, Modular furnishes the following Custom Vue 3 Components:
-
-```bash
-./resources/js/Components
-.
-├── Auth
-│   ├── AppAuthLogo.vue
-│   └── AppAuthShell.vue
-├── DataTable
-│   ├── AppDataSearch.vue
-│   ├── AppDataTable.vue
-│   ├── AppDataTableData.vue
-│   ├── AppDataTableHead.vue
-│   ├── AppDataTableRow.vue
-│   └── AppPaginator.vue
-├── Form
-│   ├── AppCheckbox.vue
-│   ├── AppCombobox.vue
-│   ├── AppFormErrors.vue
-│   ├── AppInputDate.vue
-│   ├── AppInputFile.vue
-│   ├── AppInputPassword.vue
-│   ├── AppInputText.vue
-│   ├── AppLabel.vue
-│   ├── AppRadioButton.vue
-│   ├── AppTextArea.vue
-│   ├── AppTipTapEditor.vue
-│   └── TipTap
-│       ├── TipTapButton.vue
-│       ├── TipTapDivider.vue
-│       └── extension-file-upload.js
-├── Menu
-│   ├── AppBreadCrumb.vue
-│   ├── AppBreadCrumbItem.vue
-│   ├── AppMenu.vue
-│   ├── AppMenuItem.vue
-│   └── AppMenuSection.vue
-├── Message
-│   ├── AppAlert.vue
-│   ├── AppFlashMessage.vue
-│   ├── AppToast.vue
-│   └── AppTooltip.vue
-├── Misc
-│   ├── AppButton.vue
-│   ├── AppCard.vue
-│   ├── AppImageNotAvailable.vue
-│   ├── AppLink.vue
-│   ├── AppSectionHeader.vue
-│   └── AppTopBar.vue
-└── Overlay
-    ├── AppConfirmDialog.vue
-    ├── AppModal.vue
-    └── AppSideBar.vue
-```
-
-Each of these components **is crafted to integrate seamlessly with Modular**, ensuring the most straightforward developer experience possible.
-
-## Documentation
-
-You can find the Modular documentation at [https://docs.ismodular.com](https://docs.ismodular.com).
-
-## Demo App
-
-You can find the Modular Demo App at [https://demo.ismodular.com](https://demo.ismodular.com).
-
-And the repository for the demo app at [https://github.com/daniel-cintra/modular-demo](https://github.com/daniel-cintra/modular-demo).
-
-## Roadmap
-
-You can find the Modular Roadmap at [https://docs.ismodular.com/roadmap.html](https://docs.ismodular.com/roadmap.html).
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[WebReinvent](https://webreinvent.com/)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
+- **[Jump24](https://jump24.co.uk)**
+- **[Redberry](https://redberry.international/laravel/)**
+- **[Active Logic](https://activelogic.com)**
+- **[byte5](https://byte5.de)**
+- **[OP.GG](https://op.gg)**
 
 ## Contributing
 
-Please read and understand the [Contribution Guide](/CONTRIBUTING.md) before creating an issue or pull request.
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+
+## Code of Conduct
+
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+
+## Security Vulnerabilities
+
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
 ## License
 
-The Modular Project is open-source software licensed under the [MIT license](LICENSE.md).
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

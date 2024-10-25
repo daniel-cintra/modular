@@ -1,25 +1,10 @@
 <?php
 
-namespace Modular\Modular\Tests;
+namespace Tests;
 
-use Illuminate\Filesystem\Filesystem;
-use Modular\Modular\ModularServiceProvider;
-use Orchestra\Testbench\TestCase as Orchestra;
+use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
-class TestCase extends Orchestra
+abstract class TestCase extends BaseTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        (new Filesystem)->ensureDirectoryExists(base_path('modules'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../stubs/resources', base_path('resources'));
-    }
-
-    protected function getPackageProviders($app)
-    {
-        return [
-            ModularServiceProvider::class,
-        ];
-    }
+    //
 }
