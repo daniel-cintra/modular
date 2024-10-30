@@ -1,5 +1,5 @@
 <p align="center" style="margin: 24px;">
-    <a href="https://docs.ismodular.com" target="_blank">
+    <a href="https://ismodular.com" target="_blank">
     <img src="art/modular-github.png" alt="Modular Logo" style="width: 100%; max-width: 800px;"></a>
 </p>
 
@@ -139,6 +139,10 @@ You can find the Modular documentation at [https://docs.ismodular.com](https://d
 You can find the Modular Demo App at [https://demo.ismodular.com](https://demo.ismodular.com).
 
 And the repository for the demo app at [https://github.com/daniel-cintra/modular-demo](https://github.com/daniel-cintra/modular-demo).
+
+## Site
+
+You can find the Modular Site at [https://ismodular.com](https://ismodular.com).
 
 ## Roadmap
 
