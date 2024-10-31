@@ -5,7 +5,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ config('app.name', 'Modular') }}</title>
+    <title>@yield('meta-title', config('app.name', 'Modular'))</title>
+
+    <meta
+        name="description"
+        content="@yield('meta-description', 'Laravel and Vue Development With Joy')"
+    />
+
+    <!-- Improves Lighthouse score (related to Best Practices)-->
+    @if (app()->environment('production'))
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="upgrade-insecure-requests"
+        />
+    @endif
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
