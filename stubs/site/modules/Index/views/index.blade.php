@@ -1,5 +1,9 @@
 @extends('site-layout')
 
+@section('meta-title', 'Modular: Ready to build')
+
+@section('meta-description', 'Your amazing site')
+
 @section('bodyEndScripts')
     @vite('resources-site/js/index-app.js')
 @endsection
