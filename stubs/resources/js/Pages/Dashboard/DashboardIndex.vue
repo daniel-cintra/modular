@@ -12,67 +12,38 @@
 
     <div class="my-6 grid grid-cols-1 gap-6 md:grid-cols-3">
         <!-- User Count Card -->
-        <div
-            class="shadow-xs flex items-center rounded-lg border border-skin-neutral-4 bg-skin-neutral-2 p-4 hover:cursor-pointer hover:bg-skin-neutral-1"
-            @click="$inertia.visit(route('user.index'))"
+        <DashboardCard
             v-if="can('Acl')"
-        >
-            <div
-                class="mr-4 rounded-full bg-green-100 px-3 py-2 text-green-500 dark:bg-green-500 dark:text-green-100"
-            >
-                <i class="ri-user-fill text-2xl"></i>
-            </div>
-            <div>
-                <p class="mb-2 text-sm font-medium">Users</p>
-                <p class="text-lg font-semibold">
-                    {{ props.count['users'] }}
-                </p>
-            </div>
-        </div>
+            link="user.index"
+            label="Users"
+            :count="props.count['users']"
+            icon="ri-user-fill"
+        ></DashboardCard>
 
         <!-- Role Count Card -->
-        <div
-            class="shadow-xs flex items-center rounded-lg border border-skin-neutral-4 bg-skin-neutral-2 p-4 hover:cursor-pointer hover:bg-skin-neutral-1"
-            @click="$inertia.visit(route('aclRole.index'))"
+        <DashboardCard
             v-if="can('Acl')"
-        >
-            <div
-                class="mr-4 rounded-full bg-blue-100 px-3 py-2 text-blue-500 dark:bg-blue-500 dark:text-blue-100"
-            >
-                <i class="ri-user-settings-line text-2xl"></i>
-            </div>
-            <div>
-                <p class="mb-2 text-sm font-medium">Roles</p>
-                <p class="text-lg font-semibold">
-                    {{ props.count['roles'] }}
-                </p>
-            </div>
-        </div>
+            link="aclRole.index"
+            label="Roles"
+            :count="props.count['roles']"
+            icon="ri-user-settings-line"
+        ></DashboardCard>
 
         <!-- Permission Count Card -->
-        <div
-            class="shadow-xs flex items-center rounded-lg border border-skin-neutral-4 bg-skin-neutral-2 p-4 hover:cursor-pointer hover:bg-skin-neutral-1"
-            @click="$inertia.visit(route('aclPermission.index'))"
+        <DashboardCard
             v-if="can('Acl')"
-        >
-            <div
-                class="mr-4 rounded-full bg-orange-100 px-3 py-2 text-orange-500 dark:bg-orange-500 dark:text-orange-100"
-            >
-                <i class="ri-key-fill text-2xl"></i>
-            </div>
-            <div>
-                <p class="mb-2 text-sm font-medium">Permissions</p>
-                <p class="text-lg font-semibold">
-                    {{ props.count['permissions'] }}
-                </p>
-            </div>
-        </div>
+            link="aclPermission.index"
+            label="Permissions"
+            :count="props.count['permissions']"
+            icon="ri-key-fill"
+        ></DashboardCard>
     </div>
 </template>
 <script setup>
 import { ref } from 'vue'
 import { Head } from '@inertiajs/vue3'
 import useAuthCan from '@/Composables/useAuthCan'
+import DashboardCard from '@/Pages/Dashboard/Components/DashboardCard.vue'
 
 const { can } = useAuthCan()
 

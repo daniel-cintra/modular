@@ -34,8 +34,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 
 const props = defineProps({
     items: {
@@ -49,19 +48,40 @@ const searchTerm = ref('')
 // Computed property to filter items based on search term
 const filteredItems = computed(() => {
     if (!searchTerm.value) return props.items
-    const searchFilter = (item) => {
-        // Convert search term to lowercase for case-insensitive matching
-        const term = searchTerm.value.toLowerCase()
+    const term = searchTerm.value.toLowerCase()
 
-        // Check if the label or any child item contains the search term
-        const matches = (i) =>
-            i.label?.toLowerCase().includes(term) ||
-            (i.children && i.children.some(matches)) // Recursively check children
+    // Recursive function to filter items and their children
+    const filterItems = (items) => {
+        return items.reduce((acc, item) => {
+            const isParentMatch = item.label.toLowerCase().includes(term)
+            let filteredChildren = []
 
-        return matches(item)
+            if (item.children) {
+                if (isParentMatch) {
+                    // If parent matches, include all children
+                    filteredChildren = item.children
+                } else {
+                    // Else, filter children based on search term
+                    filteredChildren = filterItems(item.children)
+                }
+            }
+
+            // Include the item if the parent matches or any of its children match
+            if (
+                isParentMatch ||
+                (filteredChildren && filteredChildren.length)
+            ) {
+                acc.push({
+                    ...item,
+                    // If parent matches, include all children; else, include filtered children
+                    children: isParentMatch ? item.children : filteredChildren
+                })
+            }
+
+            return acc
+        }, [])
     }
 
-    // Filter items recursively
-    return props.items.filter(searchFilter)
+    return filterItems(props.items)
 })
 </script>
