@@ -9,8 +9,47 @@
             <span class="font-bold">{{ $page.props.auth.user.name }}</span> !
         </div>
     </div>
-</template>
 
+    <div class="my-6 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <!-- User Count Card -->
+        <DashboardCard
+            v-if="can('Acl')"
+            link="user.index"
+            label="Users"
+            :count="props.count['users']"
+            icon="ri-user-fill"
+        ></DashboardCard>
+
+        <!-- Role Count Card -->
+        <DashboardCard
+            v-if="can('Acl')"
+            link="aclRole.index"
+            label="Roles"
+            :count="props.count['roles']"
+            icon="ri-user-settings-line"
+        ></DashboardCard>
+
+        <!-- Permission Count Card -->
+        <DashboardCard
+            v-if="can('Acl')"
+            link="aclPermission.index"
+            label="Permissions"
+            :count="props.count['permissions']"
+            icon="ri-key-fill"
+        ></DashboardCard>
+    </div>
+</template>
 <script setup>
+import { ref } from 'vue'
 import { Head } from '@inertiajs/vue3'
+import useAuthCan from '@/Composables/useAuthCan'
+import DashboardCard from '@/Pages/Dashboard/Components/DashboardCard.vue'
+
+const { can } = useAuthCan()
+
+const props = defineProps({
+    count: {
+        type: Object
+    }
+})
 </script>
