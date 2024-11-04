@@ -4,9 +4,9 @@ namespace Modules\Dashboard\Http\Controllers;
 
 use App\Models\User;
 use Inertia\Inertia;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 use Modules\Support\Http\Controllers\BackendController;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class DashboardController extends BackendController
 {
@@ -24,7 +24,7 @@ class DashboardController extends BackendController
         ];
 
         return Inertia::render('Dashboard/DashboardIndex', [
-            'count' => $count
+            'count' => $count,
         ]);
     }
 }
