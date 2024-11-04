@@ -16,8 +16,9 @@
             v-if="can('Acl')"
             link="user.index"
             label="Users"
-            :count="props.count['users']"
-            icon="ri-user-fill"
+            :count="props.count.users"
+            icon="ri-user-line"
+            color="info"
         ></DashboardCard>
 
         <!-- Role Count Card -->
@@ -25,8 +26,9 @@
             v-if="can('Acl')"
             link="aclRole.index"
             label="Roles"
-            :count="props.count['roles']"
-            icon="ri-user-settings-line"
+            :count="props.count.roles"
+            icon="ri-account-box-line"
+            color="warning"
         ></DashboardCard>
 
         <!-- Permission Count Card -->
@@ -34,13 +36,13 @@
             v-if="can('Acl')"
             link="aclPermission.index"
             label="Permissions"
-            :count="props.count['permissions']"
-            icon="ri-key-fill"
+            :count="props.count.permissions"
+            icon="ri-shield-keyhole-line"
+            color="success"
         ></DashboardCard>
     </div>
 </template>
 <script setup>
-import { ref } from 'vue'
 import { Head } from '@inertiajs/vue3'
 import useAuthCan from '@/Composables/useAuthCan'
 import DashboardCard from '@/Pages/Dashboard/Components/DashboardCard.vue'
