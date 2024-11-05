@@ -120,9 +120,9 @@ trait FrontendPackages
 
         try {
             unlink($bootstrapFilePath);
-            $this->components->info('Preparing frontend: Default resources/js/bootstrap.js file removed.');
+            $this->components->info('Preparing frontend: default resources/js/bootstrap.js file removed.');
         } catch (\Exception $e) {
-            $this->components->error('Preparing frontend: Unable to remove default resources/js/bootstrap.js. Please check file permissions.');
+            $this->components->error('Preparing frontend: unable to remove default resources/js/bootstrap.js. Please check file permissions.');
         }
     }
 
@@ -136,9 +136,9 @@ trait FrontendPackages
 
         try {
             unlink($tailwindConfigPath);
-            $this->components->info('Preparing frontend: Default tailwind.config.js file removed.');
+            $this->components->info('Preparing frontend: default tailwind.config.js file removed.');
         } catch (\Exception $e) {
-            $this->components->error('Preparing frontend: Unable to remove default tailwind.config.js. Please check file permissions.');
+            $this->components->error('Preparing frontend: unable to remove default tailwind.config.js. Please check file permissions.');
         }
     }
 }
