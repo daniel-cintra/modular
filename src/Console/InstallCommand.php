@@ -31,6 +31,8 @@ class InstallCommand extends Command
 
         $this->setupPestTests();
 
+        $this->call('modular:create-user');
+
         return self::SUCCESS;
     }
 

@@ -4,6 +4,7 @@ namespace Modules\User;
 
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Modules\Support\BaseServiceProvider;
+use Modules\User\Console\Commands\CreateUserCommand;
 use Modules\User\Models\User;
 use Modules\User\Observers\UserObserver;
 
@@ -32,5 +33,9 @@ class UserServiceProvider extends BaseServiceProvider
         ]);
 
         User::observe(UserObserver::class);
+
+        $this->commands([
+            CreateUserCommand::class,
+        ]);
     }
 }
