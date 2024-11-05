@@ -19,13 +19,13 @@ class InstallCommand extends Command
 
     public function handle(): int
     {
-        $this->comment('Installing required stacks...');
+        $this->components->info('Installing required stacks...');
 
         $this->setupBackendPackages();
 
         $this->installFrontendPackages();
 
-        $this->comment('Required stacks installed!');
+        $this->components->info('Required stacks installed!');
 
         $this->configureCoreModules();
 

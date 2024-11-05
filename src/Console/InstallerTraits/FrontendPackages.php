@@ -63,6 +63,7 @@ trait FrontendPackages
 
         (new Filesystem)->copyDirectory(__DIR__.'/../../../stubs/stack-configs/.vscode', base_path('.vscode'));
 
+        $this->components->info('Installing npm packages...');
         $this->runCommands(['npm install']);
 
         $this->line('');
@@ -119,9 +120,9 @@ trait FrontendPackages
 
         try {
             unlink($tailwindConfigPath);
-            $this->info('Default tailwind.config.js removed.');
+            $this->components->info('Default tailwind.config.js removed.');
         } catch (\Exception $e) {
-            $this->error('Unable to remove default tailwind.config.js. Please check file permissions.');
+            $this->components->error('Unable to remove default tailwind.config.js. Please check file permissions.');
         }
     }
 }
