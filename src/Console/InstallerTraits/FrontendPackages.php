@@ -13,7 +13,6 @@ trait FrontendPackages
      */
     protected function installFrontendPackages(): void
     {
-        $this->components->info('Installing npm packages...');
 
         static::updateNodePackages(fn ($packages) => [
 
@@ -51,6 +50,7 @@ trait FrontendPackages
 
         ] + $packages);
 
+        $this->removesDefaultBootstrapFile();
         $this->removeDefaultTailwindConfig();
 
         // Config files...
@@ -110,6 +110,22 @@ trait FrontendPackages
         });
     }
 
+    protected function removesDefaultBootstrapFile(): void
+    {
+        $bootstrapFilePath = resource_path('js/bootstrap.js');
+
+        if (! file_exists($bootstrapFilePath)) {
+            return;
+        }
+
+        try {
+            unlink($bootstrapFilePath);
+            $this->components->info('Preparing frontend: Default resources/js/bootstrap.js file removed.');
+        } catch (\Exception $e) {
+            $this->components->error('Preparing frontend: Unable to remove default resources/js/bootstrap.js. Please check file permissions.');
+        }
+    }
+
     protected function removeDefaultTailwindConfig(): void
     {
         $tailwindConfigPath = base_path('tailwind.config.js');
@@ -120,9 +136,9 @@ trait FrontendPackages
 
         try {
             unlink($tailwindConfigPath);
-            $this->components->info('Default tailwind.config.js removed.');
+            $this->components->info('Preparing frontend: Default tailwind.config.js file removed.');
         } catch (\Exception $e) {
-            $this->components->error('Unable to remove default tailwind.config.js. Please check file permissions.');
+            $this->components->error('Preparing frontend: Unable to remove default tailwind.config.js. Please check file permissions.');
         }
     }
 }
