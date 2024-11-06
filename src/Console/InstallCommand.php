@@ -31,9 +31,9 @@ class InstallCommand extends Command
 
         $this->setupPestTests();
 
-        $this->components->info('Modular successfully installed!');
+        $this->info('🎉 Modular successfully installed!');
 
-        $this->components->info('To create your first user, please run: php artisan modular:create-user');
+        $this->info('🚀 To create your first user, please run: php artisan modular:create-user');
 
         return self::SUCCESS;
     }
