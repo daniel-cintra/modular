@@ -30,6 +30,8 @@ trait CoreModules
 
         copy(__DIR__.'/../../../stubs/public/favicon.svg', public_path('favicon.svg'));
 
+        copy(__DIR__.'/../../../config/modular.php', config_path('modular.php'));
+
         $this->migrateDatabase();
         $this->seedDatabase();
 
