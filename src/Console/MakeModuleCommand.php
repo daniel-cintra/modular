@@ -39,7 +39,15 @@ class MakeModuleCommand extends Command
 
             $this->call('modular:make-page', $params);
             $this->call('modular:make-test', $params);
-
+            // Add the {namme} Service Provider to the providers array in the bootstrap/providers.php file, appen to last line
+            $provider = "Modules\\{$this->moduleName}\\{$this->moduleName}ServiceProvider::class,";
+            $path = base_path('bootstrap/providers.php');
+            $content = file_get_contents($path);
+            // add the provider to the inside of the array return []
+            $content = str_replace('];', $provider.PHP_EOL.'    ];', $content);
+            file_put_contents($path, $content);
+            $this->info('Module created successfully.');
+            
             return self::SUCCESS;
         }
 
