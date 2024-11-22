@@ -18,6 +18,7 @@ use Modular\Modular\Console\MakeTestCommand;
 use Modular\Modular\Console\MakeValidateCommand;
 use Modular\Modular\Console\PublishLaravelTranslationsCommand;
 use Modular\Modular\Console\PublishSiteFilesCommand;
+use Modular\Modular\Console\RegisterServiceProviderCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -49,6 +50,8 @@ class ModularServiceProvider extends PackageServiceProvider
             ->hasCommand(MakeMigrationCommand::class)
             ->hasCommand(PublishLaravelTranslationsCommand::class)
             ->hasCommand(PublishSiteFilesCommand::class)
-            ->hasCommand(MakeFactoryCommand::class);
+            ->hasCommand(MakeFactoryCommand::class)
+            ->hasCommand(RegisterServiceProviderCommand::class);
+
     }
 }
