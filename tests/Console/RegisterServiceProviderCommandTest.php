@@ -17,21 +17,21 @@ beforeEach(function () use ($initialProvidersContent) {
     // Create a temporary providers.php file for testing
     $filesystem = new Filesystem;
     $bootstrapPath = $this->app->bootstrapPath();
-    
+
     // Ensure bootstrap directory exists
-    if (!$filesystem->exists($bootstrapPath)) {
+    if (! $filesystem->exists($bootstrapPath)) {
         $filesystem->makeDirectory($bootstrapPath, 0755, true);
     }
 
     // Create providers.php with initial content
-    $filesystem->put($bootstrapPath . '/providers.php', $initialProvidersContent);
+    $filesystem->put($bootstrapPath.'/providers.php', $initialProvidersContent);
 });
 
 afterEach(function () use ($initialProvidersContent) {
     // Restore the providers.php file to its initial state
     $filesystem = new Filesystem;
     $bootstrapPath = $this->app->bootstrapPath();
-    $filesystem->put($bootstrapPath . '/providers.php', $initialProvidersContent);
+    $filesystem->put($bootstrapPath.'/providers.php', $initialProvidersContent);
 });
 
 /**
@@ -50,8 +50,8 @@ test('it runs provider registration', function () {
         ->assertSuccessful()
         ->expectsOutput('Service provider for module Blog registered successfully.');
 
-    $content = file_get_contents($this->app->bootstrapPath() . '/providers.php');
-    
+    $content = file_get_contents($this->app->bootstrapPath().'/providers.php');
+
     // Check that the new provider was added
     expect($content)
         ->toContain('Modules\Blog\BlogServiceProvider::class');
@@ -68,7 +68,7 @@ test('it prevents duplicate service provider registration', function () {
         ->expectsOutput('Service provider for module Blog is already registered.');
 
     // Verify the provider appears only once
-    $content = file_get_contents($this->app->bootstrapPath() . '/providers.php');
+    $content = file_get_contents($this->app->bootstrapPath().'/providers.php');
     expect(substr_count($content, 'Modules\Blog\BlogServiceProvider::class'))->toBe(1);
 });
 
@@ -76,8 +76,8 @@ test('it maintains existing providers and formatting when adding new provider', 
     $this->artisan('modular:register-provider', ['name' => 'Blog'])
         ->assertSuccessful();
 
-    $content = file_get_contents($this->app->bootstrapPath() . '/providers.php');
-    
+    $content = file_get_contents($this->app->bootstrapPath().'/providers.php');
+
     // Verify the structure is maintained
     expect($content)
         ->toContain('<?php')
@@ -95,9 +95,9 @@ test('it properly adds multiple new providers', function () {
         ->assertSuccessful();
     $this->artisan('modular:register-provider', ['name' => 'Shop'])
         ->assertSuccessful();
-    
-    $content = file_get_contents($this->app->bootstrapPath() . '/providers.php');
-    
+
+    $content = file_get_contents($this->app->bootstrapPath().'/providers.php');
+
     // Verify both new providers were added while maintaining existing ones
     expect($content)
         ->toContain('Modules\Blog\BlogServiceProvider::class')
@@ -112,7 +112,7 @@ test('it properly adds multiple new providers', function () {
 
 test('registerServiceProvider method returns correct boolean', function () {
     $command = $this->app->make(RegisterServiceProviderCommand::class);
-    
+
     expect($command->registerServiceProvider('NewModule'))->toBeTrue()
         ->and($command->registerServiceProvider('NewModule'))->toBeFalse();
 });

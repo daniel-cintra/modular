@@ -61,7 +61,7 @@ class MakeModuleCommand extends Command
         $path = base_path("modules/{$this->moduleName}/{$this->moduleName}ServiceProvider.php");
 
         file_put_contents($path, $stub);
-        
+
         $this->call('modular:register-provider', ['name' => $this->moduleName]);
     }
 
@@ -90,6 +90,4 @@ class MakeModuleCommand extends Command
 
         return true;
     }
-
-
 }
