@@ -11,5 +11,5 @@ class {{ ResourceName }} extends BaseModel
 {
     use ActivityLog, Searchable, SoftDeletes;
     
-    protected $table = '{{ resourceName }}s';
+    protected $table = '{{ resourceName }}';
 }
