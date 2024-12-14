@@ -3,6 +3,7 @@
 namespace Modular\Modular\Console;
 
 use Illuminate\Console\Command;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
 use Modular\Modular\Console\InstallerTraits\ModuleExists;
 
@@ -18,10 +19,17 @@ class MakeControllerCommand extends Command
 
     protected string $resourceName;
 
+    protected Filesystem $filesystem;
+
+    public function __construct(Filesystem $filesystem)
+    {
+        parent::__construct();
+        $this->filesystem = $filesystem;
+    }
+
     public function handle(): int
     {
-        $this->moduleName = Str::studly($this->argument('moduleName'));
-        $this->resourceName = Str::studly($this->argument('resourceName'));
+        $this->initializeNames();
 
         if (! $this->moduleExists()) {
             return self::FAILURE;
@@ -33,19 +41,53 @@ class MakeControllerCommand extends Command
         return self::SUCCESS;
     }
 
+    private function initializeNames(): void
+    {
+        $this->moduleName = Str::studly($this->argument('moduleName'));
+        $this->resourceName = Str::studly($this->argument('resourceName'));
+    }
+
     private function createModuleController(): void
     {
-        $stub = file_get_contents(__DIR__.'/../../stubs/module-stub/modules/Http/Controllers/ModuleController.stub');
+        $stub = $this->getStubContent();
+        $replacements = $this->getReplacements();
 
+        $processedStub = $this->processStub($stub, $replacements);
+        $this->saveStub($processedStub);
+    }
+
+    private function getStubContent(): string
+    {
+        return file_get_contents(__DIR__.'/../../stubs/module-stub/modules/Http/Controllers/ModuleController.stub');
+    }
+
+    private function getReplacements(): array
+    {
         $resourceNameCamelCase = Str::camel($this->resourceName);
 
-        $stub = str_replace('{{ ModuleName }}', $this->moduleName, $stub);
-        $stub = str_replace('{{ ResourceName }}', $this->resourceName, $stub);
-        $stub = str_replace('{{ resourceName }}', $resourceNameCamelCase, $stub);
-        $stub = str_replace('{{ resourceNameCamelPlural }}', Str::plural($resourceNameCamelCase), $stub);
+        return [
+            '{{ ModuleName }}' => $this->moduleName,
+            '{{ ResourceName }}' => $this->resourceName,
+            '{{ resourceName }}' => $resourceNameCamelCase,
+            '{{ resourceNameCamelPlural }}' => Str::plural($resourceNameCamelCase),
+        ];
+    }
 
-        $path = base_path("modules/{$this->moduleName}/Http/Controllers/{$this->resourceName}Controller.php");
+    private function processStub(string $stub, array $replacements): string
+    {
+        return str_replace(
+            array_keys($replacements),
+            array_values($replacements),
+            $stub
+        );
+    }
 
-        file_put_contents($path, $stub);
+    private function saveStub(string $processedStub): void
+    {
+        $directory = base_path("modules/{$this->moduleName}/Http/Controllers/");
+        $this->filesystem->ensureDirectoryExists($directory);
+
+        $path = $directory."{$this->resourceName}Controller.php";
+        file_put_contents($path, $processedStub);
     }
 }
