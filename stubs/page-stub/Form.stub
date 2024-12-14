@@ -47,7 +47,7 @@ const props = defineProps({
 
 const breadCrumb = [
   { label: 'Home', href: route('dashboard.index') },
-  { label: '{{ ResourceName }}s', href: route('{{ resourceName }}.index') },
+  { label: '{{ ResourceNamePascalPlural }}', href: route('{{ resourceName }}.index') },
   { label: '{{ ResourceName }}', last: true }
 ]
 
