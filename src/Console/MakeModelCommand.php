@@ -39,7 +39,7 @@ class MakeModelCommand extends Command
 
         $stub = str_replace('{{ ModuleName }}', $this->moduleName, $stub);
         $stub = str_replace('{{ ResourceName }}', $this->resourceName, $stub);
-        $stub = str_replace('{{ resourceName }}', Str::camel($this->resourceName), $stub);
+        $stub = str_replace('{{ resourceName }}', Str::camel(Str::plural($this->resourceName)), $stub);
 
         $path = base_path("modules/{$this->moduleName}/Models/{$this->resourceName}.php");
 
