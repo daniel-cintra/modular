@@ -19,51 +19,78 @@ class MakePageCommand extends Command
 
     protected string $resourceName;
 
+    protected Filesystem $filesystem;
+
+    public function __construct(Filesystem $filesystem)
+    {
+        parent::__construct();
+        $this->filesystem = $filesystem;
+    }
+
     public function handle(): int
     {
-        $this->moduleName = Str::studly($this->argument('moduleName'));
-        $this->resourceName = Str::studly($this->argument('resourceName'));
-
+        $this->initializeNames();
         $this->comment('Creating Pages...');
-        $this->createIndexPage();
-        $this->createFormPage();
+
+        $this->createPage('Index');
+        $this->createPage('Form');
 
         return self::SUCCESS;
     }
 
-    private function createIndexPage(): void
+    private function initializeNames(): void
     {
-        $stub = file_get_contents(__DIR__.'/../../stubs/page-stub/Index.stub');
+        $this->moduleName = Str::studly($this->argument('moduleName'));
+        $this->resourceName = Str::studly($this->argument('resourceName'));
+    }
 
+    private function createPage(string $type): void
+    {
+        $stub = $this->getStubContent($type);
+        $replacements = $this->getReplacements($type);
+
+        $processedStub = $this->processStub($stub, $replacements);
+        $this->saveStub($processedStub, $type);
+    }
+
+    private function getStubContent(string $type): string
+    {
+        return file_get_contents(__DIR__."/../../stubs/page-stub/{$type}.stub");
+    }
+
+    private function getReplacements(string $type): array
+    {
         $resourceNamePascalCase = $this->resourceName;
         $resourceNameCamelCase = Str::camel($this->resourceName);
 
-        $stub = str_replace('{{ ResourceName }}', $resourceNamePascalCase, $stub);
-        $stub = str_replace('{{ ResourceNamePascalPlural }}', Str::plural($resourceNamePascalCase), $stub);
-        $stub = str_replace('{{ resourceName }}', $resourceNameCamelCase, $stub);
-        $stub = str_replace('{{ resourceNameCamelPlural }}', Str::plural($resourceNameCamelCase), $stub);
+        $replacements = [
+            '{{ ResourceName }}' => $resourceNamePascalCase,
+            '{{ ResourceNamePascalPlural }}' => Str::plural($resourceNamePascalCase),
+            '{{ resourceName }}' => $resourceNameCamelCase,
+        ];
 
-        (new Filesystem)->ensureDirectoryExists(resource_path("js/Pages/{$this->moduleName}/"));
+        if ($type === 'Index') {
+            $replacements['{{ resourceNameCamelPlural }}'] = Str::plural($resourceNameCamelCase);
+        }
 
-        $path = resource_path("js/Pages/{$this->moduleName}/{$this->resourceName}Index.vue");
-
-        file_put_contents($path, $stub);
+        return $replacements;
     }
 
-    private function createFormPage(): void
+    private function processStub(string $stub, array $replacements): string
     {
-        $stub = file_get_contents(__DIR__.'/../../stubs/page-stub/Form.stub');
+        return str_replace(
+            array_keys($replacements),
+            array_values($replacements),
+            $stub
+        );
+    }
 
-        $resourceNamePascalCase = $this->resourceName;
+    private function saveStub(string $processedStub, string $type): void
+    {
+        $directory = resource_path("js/Pages/{$this->moduleName}/");
+        $this->filesystem->ensureDirectoryExists($directory);
 
-        $stub = str_replace('{{ ResourceName }}', $resourceNamePascalCase, $stub);
-        $stub = str_replace('{{ ResourceNamePascalPlural }}', Str::plural($resourceNamePascalCase), $stub);
-        $stub = str_replace('{{ resourceName }}', Str::camel($this->resourceName), $stub);
-
-        (new Filesystem)->ensureDirectoryExists(resource_path("js/Pages/{$this->moduleName}/"));
-
-        $path = resource_path("js/Pages/{$this->moduleName}/{$this->resourceName}Form.vue");
-
-        file_put_contents($path, $stub);
+        $path = $directory."{$this->resourceName}{$type}.vue";
+        file_put_contents($path, $processedStub);
     }
 }
