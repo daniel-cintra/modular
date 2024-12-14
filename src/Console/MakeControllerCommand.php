@@ -37,9 +37,12 @@ class MakeControllerCommand extends Command
     {
         $stub = file_get_contents(__DIR__.'/../../stubs/module-stub/modules/Http/Controllers/ModuleController.stub');
 
+        $resourceNameCamelCase = Str::camel($this->resourceName);
+
         $stub = str_replace('{{ ModuleName }}', $this->moduleName, $stub);
         $stub = str_replace('{{ ResourceName }}', $this->resourceName, $stub);
-        $stub = str_replace('{{ resourceName }}', Str::camel($this->resourceName), $stub);
+        $stub = str_replace('{{ resourceName }}', $resourceNameCamelCase, $stub);
+        $stub = str_replace('{{ resourceNameCamelPlural }}', Str::plural($resourceNameCamelCase), $stub);
 
         $path = base_path("modules/{$this->moduleName}/Http/Controllers/{$this->resourceName}Controller.php");
 

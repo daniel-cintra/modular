@@ -12,7 +12,7 @@ class {{ ResourceName }}Controller extends BackendController
 {
     public function index(): Response
     {
-        ${{ resourceName }}s = {{ ResourceName }}::orderBy('name')
+        ${{ resourceNameCamelPlural }} = {{ ResourceName }}::orderBy('name')
             ->search(request('searchContext'), request('searchTerm'))
             ->paginate(request('rowsPerPage', 10))
             ->withQueryString()
@@ -23,7 +23,7 @@ class {{ ResourceName }}Controller extends BackendController
             ]);
 
         return inertia('{{ ModuleName }}/{{ ResourceName }}Index', [
-            '{{ resourceName }}s' => ${{ resourceName }}s
+            '{{ resourceNameCamelPlural }}' => ${{ resourceNameCamelPlural }}
         ]);
     }
 

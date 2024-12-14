@@ -35,8 +35,13 @@ class MakePageCommand extends Command
     {
         $stub = file_get_contents(__DIR__.'/../../stubs/page-stub/Index.stub');
 
-        $stub = str_replace('{{ ResourceName }}', $this->resourceName, $stub);
-        $stub = str_replace('{{ resourceName }}', Str::camel($this->resourceName), $stub);
+        $resourceNamePascalCase = $this->resourceName;
+        $resourceNameCamelCase = Str::camel($this->resourceName);
+
+        $stub = str_replace('{{ ResourceName }}', $resourceNamePascalCase, $stub);
+        $stub = str_replace('{{ ResourceNamePascalPlural }}', Str::plural($resourceNamePascalCase), $stub);
+        $stub = str_replace('{{ resourceName }}', $resourceNameCamelCase, $stub);
+        $stub = str_replace('{{ resourceNameCamelPlural }}', Str::plural($resourceNameCamelCase), $stub);
 
         (new Filesystem)->ensureDirectoryExists(resource_path("js/Pages/{$this->moduleName}/"));
 

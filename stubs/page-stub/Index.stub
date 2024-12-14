@@ -13,16 +13,16 @@
     </AppSectionHeader>
 
     <AppDataSearch
-        v-if="{{ resourceName }}s.data.length || route().params.searchTerm"
+        v-if="{{ resourceNameCamelPlural }}.data.length || route().params.searchTerm"
         :url="route('{{ resourceName }}.index')"
         fields-to-search="id"
     ></AppDataSearch>
 
-    <AppDataTable v-if="{{ resourceName }}s.data.length" :headers="headers">
+    <AppDataTable v-if="{{ resourceNameCamelPlural }}.data.length" :headers="headers">
         <template #TableBody>
             <tbody>
                 <AppDataTableRow
-                    v-for="(item, index) in {{ resourceName }}s.data"
+                    v-for="(item, index) in {{ resourceNameCamelPlural }}.data"
                     :key="item.id"
                 >
                     <AppDataTableData>
@@ -74,15 +74,15 @@
     </AppDataTable>
 
     <AppPaginator
-        :links="{{ resourceName }}s.links"
-        :from="{{ resourceName }}s.from"
-        :to="{{ resourceName }}s.to"
-        :total="{{ resourceName }}s.total"
+        :links="{{ resourceNameCamelPlural }}.links"
+        :from="{{ resourceNameCamelPlural }}.from"
+        :to="{{ resourceNameCamelPlural }}.to"
+        :total="{{ resourceNameCamelPlural }}.total"
         class="mt-4 justify-center"
     ></AppPaginator>
 
-    <AppAlert v-if="!{{ resourceName }}s.data.length" class="mt-4">
-        No {{ resourceName }}s found.
+    <AppAlert v-if="!{{ resourceNameCamelPlural }}.data.length" class="mt-4">
+        No {{ resourceNameCamelPlural }} found.
     </AppAlert>
 
     <AppConfirmDialog ref="confirmDialogRef"></AppConfirmDialog>
@@ -98,7 +98,7 @@ const { title } = useTitle('{{ ResourceName }}')
 const { can } = useAuthCan()
 
 const props = defineProps({
-  {{ resourceName }}s: {
+  {{ resourceNameCamelPlural }}: {
     type: Object,
     default: () => {}
   }
@@ -106,7 +106,7 @@ const props = defineProps({
 
 const breadCrumb = [
   { label: 'Home', href: route('dashboard.index') },
-  { label: '{{ ResourceName }}s', last: true }
+  { label: '{{ ResourceNamePascalPlural }}', last: true }
 ]
 
 const headers = ['ID', 'Actions']
