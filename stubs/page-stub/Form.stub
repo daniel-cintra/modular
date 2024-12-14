@@ -51,8 +51,6 @@ const breadCrumb = [
   { label: '{{ ResourceName }}', last: true }
 ]
 
-
-
 const form = useForm({
   name: props.{{ resourceName }} ? props.{{ resourceName }}.name : '',
 })
